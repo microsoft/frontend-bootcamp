@@ -2,8 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entries = {
-  step01: './step01/index.js',
-  step02: './step02/src/index.ts'
+  step01: './step01/index',
+  step02: './step02/src/index',
+  playground: './playground/src/index'
 };
 
 module.exports = Object.keys(entries).map(entryPoint => {
@@ -21,7 +22,7 @@ module.exports = Object.keys(entries).map(entryPoint => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.join(__dirname, 'public/index.html'),
+        template: path.join(__dirname, `${entryPoint}/index.html`),
         filename: '../index.html'
       })
     ],
