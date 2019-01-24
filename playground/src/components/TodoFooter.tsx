@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, Stack } from '@uifabric/experiments';
-import { Checkbox, Button, Pivot, PivotItem } from 'office-ui-fabric-react';
 
 export interface TodoFooterProps {}
 

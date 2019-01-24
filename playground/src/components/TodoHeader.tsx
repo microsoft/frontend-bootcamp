@@ -8,7 +8,7 @@ export const TodoHeader = (props: TodoFooterProps) => {
   return (
     <Stack>
       <Stack horizontal horizontalAlign="center">
-        <Text variant="large">Yet Another To Do Example Application</Text>
+        <Text variant="xxLarge">todos</Text>
       </Stack>
 
       <TextField placeholder="What needs to be done?" />

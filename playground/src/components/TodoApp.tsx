@@ -1,17 +1,24 @@
 import React from 'react';
-import { Stack, Text } from '@uifabric/experiments';
-import { TodoList } from './TodoList';
+import { Stack } from '@uifabric/experiments';
 import { TodoFooter } from './TodoFooter';
-import { Pivot, PivotItem } from 'office-ui-fabric-react';
 import { TodoHeader } from './TodoHeader';
+import { TodoList } from './TodoList';
+import { TodoItem, FilterTypes } from '../store';
 
-export class TodoApp extends React.Component {
+export interface TodoAppProps {
+  todos: { [id: string]: TodoItem };
+  filter: FilterTypes;
+}
+
+export class TodoApp extends React.Component<TodoAppProps> {
   render() {
+    const { todos, filter } = this.props;
+
     return (
       <Stack horizontalAlign="center">
         <Stack style={{ width: 650 }} verticalGap={25}>
           <TodoHeader />
-          <TodoList />
+          <TodoList {...{ todos, filter }} />
           <TodoFooter />
         </Stack>
       </Stack>

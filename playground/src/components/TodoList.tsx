@@ -1,16 +1,22 @@
 import React from 'react';
 import { Stack } from '@uifabric/experiments';
 import { TodoListItem } from './TodoListItem';
-import { Pivot, PivotItem } from 'office-ui-fabric-react';
+import { TodoItem, FilterTypes } from '../store';
 
-export class TodoList extends React.Component {
+export interface TodoListProps {
+  todos: { [id: string]: TodoItem };
+  filter: FilterTypes;
+}
+
+export class TodoList extends React.Component<TodoListProps> {
   render() {
+    const { filter, todos } = this.props;
     return (
       <Stack verticalGap={10}>
-        <TodoListItem checked={false} label="nothing" />
-        <TodoListItem checked={false} label="nothing" />
-        <TodoListItem checked={false} label="nothing" />
-        <TodoListItem checked={false} label="nothing" />
+        {Object.keys(todos).map(id => {
+          const todo = todos[id];
+          return <TodoListItem key={id} checked={todo.completed} label={todo.label} />;
+        })}
       </Stack>
     );
   }
