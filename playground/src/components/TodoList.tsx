@@ -6,6 +6,7 @@ import { TodoItem, FilterTypes } from '../store';
 export interface TodoListProps {
   todos: { [id: string]: TodoItem };
   filter: FilterTypes;
+  complete: (id: string) => void;
 }
 
 export class TodoList extends React.Component<TodoListProps> {
@@ -15,7 +16,7 @@ export class TodoList extends React.Component<TodoListProps> {
       <Stack verticalGap={10}>
         {Object.keys(todos).map(id => {
           const todo = todos[id];
-          return <TodoListItem key={id} checked={todo.completed} label={todo.label} />;
+          return <TodoListItem key={id} checked={todo.completed} label={todo.label} complete={this.props.complete} id={id} />;
         })}
       </Stack>
     );

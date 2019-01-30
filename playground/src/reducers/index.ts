@@ -17,6 +17,11 @@ export const reducer = combineReducers<Store>({
       remove(draft, action) {
         delete draft[action.id];
         return draft;
+      },
+
+      complete(draft, action) {
+        draft[action.id].completed = !draft[action.id].completed;
+        return draft;
       }
     }
   ),
