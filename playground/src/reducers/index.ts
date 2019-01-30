@@ -5,17 +5,23 @@ import { combineReducers } from 'redux';
 let counter = 0;
 
 export const reducer = combineReducers<Store>({
-  todos: createReducer(
+  todos: createReducer<Store['todos']>(
     {},
     {
-      add(state, action) {
+      add(draft, action) {
         const id = String(counter++);
-        return { ...state, [id]: { label: action.label, completed: false } };
+        draft[id] = { label: action.label, completed: false };
+        return draft;
+      },
+
+      remove(draft, action) {
+        delete draft[action.id];
+        return draft;
       }
     }
   ),
   filter: createReducer<FilterTypes>('all', {
-    filter(state, action) {
+    filter(draft, action) {
       return action.filter;
     }
   })

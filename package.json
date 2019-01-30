@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode development --progress",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -28,6 +28,7 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "redux": "^4.0.1",
-    "react-redux": "^6.0.0"
+    "react-redux": "^6.0.0",
+    "immer": "^1.12.1"
   }
 }
