@@ -16,7 +16,6 @@ export function mapDispatchToProps(dispatch: Dispatch<TodoAction>) {
     add: (label: string) => dispatch(actions.add(label)),
     remove: (id: string) => dispatch(actions.remove(id)),
     complete: (id: string) => dispatch(actions.complete(id)),
-    completeAll: () => dispatch(actions.completeAll()),
     edit: (id: string, label: string) => dispatch(actions.edit(id, label)),
     clear: () => dispatch(actions.clear()),
     setFilter: (filter: FilterTypes) => dispatch(actions.filter(filter))

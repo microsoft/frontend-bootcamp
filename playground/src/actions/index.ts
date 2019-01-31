@@ -13,7 +13,6 @@ export const actions = {
   remove: (id: string) => action('remove', { id }),
   edit: (id: string, label: string) => action('edit', { id, label }),
   complete: (id: string) => action('complete', { id }),
-  completeAll: () => action('completeAll'),
   clear: () => action('clear'),
   filter: (filterTypes: string) => action('filter', { filter: filterTypes })
 };

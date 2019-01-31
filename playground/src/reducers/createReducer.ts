@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 import { ActionTypes, TodoAction, TodoActionLookup } from '../actions';
 import { Draft, produce } from 'immer';
 
-export type ImmerReducer<T, A = any> = (state: Draft<T>, action: A) => T;
+export type ImmerReducer<T, A = any> = (state: Draft<T>, action?: A) => T;
 export type HandlerMap<T> = { [actionType in ActionTypes]?: ImmerReducer<T, TodoActionLookup[actionType]> };
 
 function isHandlerFunction<T>(handlerOrMap: HandlerMap<T> | ImmerReducer<T>): handlerOrMap is ImmerReducer<T> {

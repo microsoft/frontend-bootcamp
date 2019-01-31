@@ -24,7 +24,7 @@ export const reducer = combineReducers<Store>({
         return draft;
       },
 
-      clear(draft, action) {
+      clear(draft) {
         Object.keys(draft).forEach(id => {
           if (draft[id].completed) {
             delete draft[id];
