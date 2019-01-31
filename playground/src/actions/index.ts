@@ -1,4 +1,4 @@
-import { action, GenericActionTypes, GenericAction, GenericActionLookup, GenericActionMapping } from '../redux-utils/action';
+import { action, GenericActionTypes, GenericAction, GenericActionLookup } from '../redux-utils/action';
 
 export const actions = {
   add: (label: string) => action('add', { label }),
@@ -9,7 +9,6 @@ export const actions = {
   filter: (filterTypes: string) => action('filter', { filter: filterTypes })
 };
 
-export type ActionMap = GenericActionMapping<typeof actions>;
-export type ActionTypes = GenericActionTypes<ActionMap>;
-export type TodoAction = GenericAction<ActionMap>;
-export type TodoActionLookup = GenericActionLookup<ActionMap>;
+export type ActionTypes = GenericActionTypes<typeof actions>;
+export type TodoAction = GenericAction<typeof actions>;
+export type TodoActionLookup = GenericActionLookup<typeof actions>;

@@ -22,7 +22,7 @@ export function mapDispatchToProps(dispatch: Dispatch<TodoAction>) {
   };
 }
 
-export default connect(
+export const TodoAppContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(TodoApp);

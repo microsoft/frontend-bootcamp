@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer } from './reducers';
-import TodoAppContainer from './components/TodoAppContainer';
+import { TodoAppContainer } from './components/TodoAppContainer';
 import { initializeIcons } from '@uifabric/icons';
 
 declare var window: any;
