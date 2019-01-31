@@ -2,10 +2,12 @@ import React from 'react';
 import { Text, Stack } from '@uifabric/experiments';
 import { Pivot, PivotItem, TextField } from 'office-ui-fabric-react';
 import { add } from '../actions';
+import { FilterTypes } from '../store';
 
 export interface TodoHeaderProps {
   add: (label: string) => void;
   remove: (id: string) => void;
+  filter: (filter: FilterTypes) => void;
 }
 
 export interface TodoHeaderState {
@@ -29,6 +31,10 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
     this.setState({ labelInput: newValue });
   };
 
+  onFilter = (item: PivotItem) => {
+    this.props.filter(item.props.headerText as FilterTypes);
+  };
+
   render() {
     return (
       <Stack>
@@ -43,7 +49,7 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
           onKeyPress={this.onKeyPress}
         />
 
-        <Pivot>
+        <Pivot onLinkClick={this.onFilter}>
           <PivotItem headerText="all" />
           <PivotItem headerText="active" />
           <PivotItem headerText="completed" />

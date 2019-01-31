@@ -1,6 +1,7 @@
 import { createReducer } from './createReducer';
 import { Store, FilterTypes } from '../store';
 import { combineReducers } from 'redux';
+import produce from 'immer';
 
 let counter = 0;
 
@@ -22,12 +23,19 @@ export const reducer = combineReducers<Store>({
       complete(draft, action) {
         draft[action.id].completed = !draft[action.id].completed;
         return draft;
+      },
+
+      clear(draft, action) {
+        Object.keys(draft).forEach(id => {
+          if (draft[id].completed) {
+            delete draft[id];
+          }
+        });
+        return draft;
       }
     }
   ),
-  filter: createReducer<FilterTypes>('all', {
-    filter(draft, action) {
-      return action.filter;
-    }
+  filter: createReducer<Store['filter']>('all', (draft, action) => {
+    return action.filter;
   })
 });

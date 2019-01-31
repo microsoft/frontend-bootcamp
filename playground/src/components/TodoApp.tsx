@@ -10,20 +10,22 @@ export interface TodoAppProps {
   filter: FilterTypes;
   add: (label: string) => void;
   remove: (id: string) => void;
+  edit: (id: string, label: string) => void;
   complete: (id: string) => void;
+  clear: () => void;
   setFilter: (filter: FilterTypes) => void;
 }
 
 export class TodoApp extends React.Component<TodoAppProps> {
   render() {
-    const { todos, filter, add, remove, setFilter, complete } = this.props;
+    const { todos, filter, add, remove, setFilter, complete, clear, edit } = this.props;
 
     return (
       <Stack horizontalAlign="center">
-        <Stack style={{ width: 650 }} verticalGap={25}>
-          <TodoHeader {...{ add, remove, filter }} />
-          <TodoList {...{ todos, filter, complete }} />
-          <TodoFooter {...{ todos, setFilter }} />
+        <Stack style={{ width: 400 }} verticalGap={25}>
+          <TodoHeader {...{ add, remove, filter: setFilter }} />
+          <TodoList {...{ todos, filter, complete, remove, edit }} />
+          <TodoFooter {...{ todos, setFilter, clear }} />
         </Stack>
       </Stack>
     );
