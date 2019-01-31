@@ -14,21 +14,27 @@ export interface TodoListProps {
 export class TodoList extends React.Component<TodoListProps> {
   render() {
     const { filter, todos } = this.props;
-    let filteredTodos = todos;
+    let filteredTodos: typeof todos = {};
 
     switch (filter) {
       case 'completed':
-        filteredTodos = Object.keys(todos).reduce(
-          (collection, id) => (todos[id].completed ? { ...collection, id: todos[id] } : collection),
-          {}
-        );
+        Object.keys(todos).forEach(id => {
+          if (todos[id].completed) {
+            filteredTodos[id] = todos[id];
+          }
+        });
         break;
 
       case 'active':
-        filteredTodos = Object.keys(todos).reduce(
-          (collection, id) => (!todos[id].completed ? { ...collection, id: todos[id] } : collection),
-          {}
-        );
+        Object.keys(todos).forEach(id => {
+          if (!todos[id].completed) {
+            filteredTodos[id] = todos[id];
+          }
+        });
+        break;
+
+      default:
+        filteredTodos = todos;
         break;
     }
 

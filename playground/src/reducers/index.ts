@@ -2,6 +2,7 @@ import { createReducer } from './createReducer';
 import { Store, FilterTypes } from '../store';
 import { combineReducers } from 'redux';
 import produce from 'immer';
+import { edit } from '../actions';
 
 let counter = 0;
 
@@ -32,10 +33,15 @@ export const reducer = combineReducers<Store>({
           }
         });
         return draft;
+      },
+
+      edit(draft, action) {
+        draft[action.id].label = action.label;
+        return draft;
       }
     }
   ),
-  filter: createReducer<Store['filter']>('all', (draft, action) => {
-    return action.filter;
+  filter: createReducer<Store['filter'], 'filter'>('all', (draft, action) => {
+    return action.filter as FilterTypes;
   })
 });

@@ -1,4 +1,4 @@
-import * as actions from '../actions';
+import { actions, TodoAction } from '../actions';
 import { Store, FilterTypes } from '../store';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -11,7 +11,7 @@ export function mapStateToProps({ todos, filter }: Store) {
   };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.TodoAction>) {
+export function mapDispatchToProps(dispatch: Dispatch<TodoAction>) {
   return {
     add: (label: string) => dispatch(actions.add(label)),
     remove: (id: string) => dispatch(actions.remove(id)),
