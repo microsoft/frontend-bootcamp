@@ -1,12 +1,4 @@
-import { Action } from 'redux';
-
-type ActionWithPayload<T, P> = Action<T> & P;
-
-function action<T extends string>(type: T): Action<T>;
-function action<T extends string, P>(type: T, payload: P): ActionWithPayload<T, P>;
-function action<T extends string, P>(type: T, payload?: P) {
-  return { type, ...payload };
-}
+import { action } from '../redux-utils/action';
 
 export const actions = {
   add: (label: string) => action('add', { label }),
