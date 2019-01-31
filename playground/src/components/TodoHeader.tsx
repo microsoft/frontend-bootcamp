@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, Stack } from '@uifabric/experiments';
 import { Pivot, PivotItem, TextField } from 'office-ui-fabric-react';
-import { add } from '../actions';
 import { FilterTypes } from '../store';
 
 export interface TodoHeaderProps {

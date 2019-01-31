@@ -8,15 +8,15 @@ function action<T extends string, P>(type: T, payload?: P) {
   return { type, ...payload };
 }
 
-export const add = (label: string) => action('add', { label });
-export const remove = (id: string) => ({ type: 'remove' as 'remove', id });
-export const edit = (id: string, label: string) => ({ type: 'edit' as 'edit', id, label });
-export const complete = (id: string) => ({ type: 'complete' as 'complete', id });
-export const completeAll = () => ({ type: 'completeAll' as 'completeAll' });
-export const clear = () => ({ type: 'clear' as 'clear' });
-export const filter = (filterTypes: string) => ({ type: 'filter' as 'filter', filter: filterTypes });
-
-export const actions = { add, remove, edit, complete, completeAll, clear, filter };
+export const actions = {
+  add: (label: string) => action('add', { label }),
+  remove: (id: string) => action('remove', { id }),
+  edit: (id: string, label: string) => action('edit', { id, label }),
+  complete: (id: string) => action('complete', { id }),
+  completeAll: () => action('completeAll'),
+  clear: () => action('clear'),
+  filter: (filterTypes: string) => action('filter', { filter: filterTypes })
+};
 
 export type ActionTypes = ReturnType<typeof actions[keyof typeof actions]>['type'];
 export type TodoAction = ReturnType<typeof actions[ActionTypes]>;

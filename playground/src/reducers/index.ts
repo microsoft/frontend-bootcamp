@@ -1,8 +1,6 @@
 import { createReducer } from './createReducer';
 import { Store, FilterTypes } from '../store';
 import { combineReducers } from 'redux';
-import produce from 'immer';
-import { edit } from '../actions';
 
 let counter = 0;
 
