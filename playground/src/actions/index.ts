@@ -1,12 +1,11 @@
 import { action, GenericActionTypes, GenericAction, GenericActionLookup } from '../redux-utils/action';
 import { Dispatch } from 'redux';
 import { Store } from '../store';
+import uuid from 'uuid/v4';
 import * as todosService from '../service/todosService';
 
-let counter = 0;
-
 export const actions = {
-  add: (label: string) => action('add', { id: String(counter++), label }),
+  add: (label: string) => action('add', { id: uuid(), label }),
   remove: (id: string) => action('remove', { id }),
   edit: (id: string, label: string) => action('edit', { id, label }),
   complete: (id: string) => action('complete', { id }),

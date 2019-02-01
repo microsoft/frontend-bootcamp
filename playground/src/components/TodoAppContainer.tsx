@@ -17,7 +17,7 @@ export function mapDispatchToProps(dispatch: any) {
     remove: (id: string) => dispatch(actionsWithService.remove(id)),
     complete: (id: string) => dispatch(actionsWithService.complete(id)),
     edit: (id: string, label: string) => dispatch(actionsWithService.edit(id, label)),
-    clear: () => dispatch(actions.clear()),
+    clear: () => dispatch(actionsWithService.clear()),
     setFilter: (filter: FilterTypes) => dispatch(actions.filter(filter))
   };
 }

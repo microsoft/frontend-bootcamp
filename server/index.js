@@ -29,7 +29,7 @@ app.delete('/todos/:id', (req, res) => {
   delete store.todos[req.body.id];
 });
 
-app.post('/todos', (req, res) => {
+app.post('/todos', req => {
   store.todos = req.body;
 });
 
