@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "todo-server",
+  "builds": [{ "src": "*.js", "use": "@now/node-server" }],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
