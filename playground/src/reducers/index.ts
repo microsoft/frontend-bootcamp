@@ -2,15 +2,12 @@ import { createReducer } from './createReducer';
 import { Store, FilterTypes } from '../store';
 import { combineReducers } from 'redux';
 
-let counter = 0;
-
 export const reducer = combineReducers<Store>({
   todos: createReducer<Store['todos']>(
     {},
     {
       add(draft, action) {
-        const id = String(counter++);
-        draft[id] = { label: action.label, completed: false };
+        draft[action.id] = { label: action.label, completed: false };
         return draft;
       },
 

@@ -1,4 +1,4 @@
-import { actions, TodoAction } from '../actions';
+import { actions, actionsWithService } from '../actions';
 import { Store, FilterTypes } from '../store';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -11,12 +11,12 @@ export function mapStateToProps({ todos, filter }: Store) {
   };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<TodoAction>) {
+export function mapDispatchToProps(dispatch: any) {
   return {
-    add: (label: string) => dispatch(actions.add(label)),
-    remove: (id: string) => dispatch(actions.remove(id)),
-    complete: (id: string) => dispatch(actions.complete(id)),
-    edit: (id: string, label: string) => dispatch(actions.edit(id, label)),
+    add: (label: string) => dispatch(actionsWithService.add(label)),
+    remove: (id: string) => dispatch(actionsWithService.remove(id)),
+    complete: (id: string) => dispatch(actionsWithService.complete(id)),
+    edit: (id: string, label: string) => dispatch(actionsWithService.edit(id, label)),
     clear: () => dispatch(actions.clear()),
     setFilter: (filter: FilterTypes) => dispatch(actions.filter(filter))
   };
