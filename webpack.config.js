@@ -2,8 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entries = {
-  step01: './step01/index',
-  step02: './step02/index',
+  step04: './step04/src/index',
+  step05: './step05/src/index',
+  step06: './step06/src/index',
   playground: './playground/src/index'
 };
 
