@@ -2,8 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entries = {
-  step01: './step01/index',
-  step02: './step02/src/index',
+  step04: './step04/src/index',
+  step05: './step05/src/index',
+  step06: './step06/src/index',
   playground: './playground/src/index'
 };
 
@@ -32,6 +33,10 @@ module.exports = Object.keys(entries).map(entryPoint => {
     output: {
       filename: '[name].js',
       path: path.resolve(__dirname, entryPoint, 'dist')
+    },
+    devServer: {
+      contentBase: path.resolve(__dirname),
+      watchContentBase: true
     }
   };
 });
