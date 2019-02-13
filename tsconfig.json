@@ -8,6 +8,7 @@
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
-    "lib": ["es2015", "dom"]
+    "lib": ["es2015", "dom"],
+    "skipLibCheck": true
   }
 }
