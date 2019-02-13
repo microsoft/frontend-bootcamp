@@ -1,17 +1,21 @@
 import React from 'react';
 import { Stack } from '@uifabric/experiments';
 import { TodoListItem } from './TodoListItem';
-import { TodoItem, FilterTypes } from '../store';
+import { Store } from '../store';
+import { connect } from 'react-redux';
 
-export interface TodoListProps {
-  todos: { [id: string]: TodoItem };
-  filter: FilterTypes;
-  edit: (id: string, label: string) => void;
-  complete: (id: string) => void;
-  remove: (id: string) => void;
+function mapStateToProps({ todos, filter }: Store) {
+  return {
+    todos,
+    filter
+  };
 }
 
-export class TodoList extends React.Component<TodoListProps> {
+function mapDispatchToProps(dispatch: any) {}
+
+type TodoListProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+class TodoList extends React.Component<TodoListProps> {
   render() {
     const { filter, todos } = this.props;
     let filteredTodos: typeof todos = {};
@@ -42,19 +46,16 @@ export class TodoList extends React.Component<TodoListProps> {
       <Stack verticalGap={10}>
         {Object.keys(filteredTodos).map(id => {
           const todo = filteredTodos[id];
-          return (
-            <TodoListItem
-              key={id}
-              checked={todo.completed}
-              label={todo.label}
-              complete={this.props.complete}
-              id={id}
-              edit={this.props.edit}
-              remove={this.props.remove}
-            />
-          );
+          return <TodoListItem key={id} id={id} />;
         })}
       </Stack>
     );
   }
 }
+
+const component = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);
+
+export { component as TodoList };

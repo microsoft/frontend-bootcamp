@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer } from './reducers';
-import { TodoAppContainer } from './components/TodoAppContainer';
+import { TodoApp } from './components/TodoApp';
 import { initializeIcons } from '@uifabric/icons';
 import thunk from 'redux-thunk';
 import * as todosService from './service/todosService';
@@ -26,7 +26,7 @@ initializeIcons();
 
   ReactDOM.render(
     <Provider store={store}>
-      <TodoAppContainer />
+      <TodoApp />
     </Provider>,
     document.getElementById('app')
   );

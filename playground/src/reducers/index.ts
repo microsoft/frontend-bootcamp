@@ -36,7 +36,7 @@ export const reducer = combineReducers<Store>({
       }
     }
   ),
-  filter: createReducer<Store['filter'], 'filter'>('all', (draft, action) => {
+  filter: createReducer<Store['filter'], 'setFilter'>('all', (draft, action) => {
     return action.filter as FilterTypes;
   })
 });

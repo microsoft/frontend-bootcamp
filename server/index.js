@@ -26,7 +26,7 @@ app.post('/todos/:id', (req, res) => {
 });
 
 app.delete('/todos/:id', (req, res) => {
-  delete store.todos[req.body.id];
+  delete store.todos[req.params.id];
 });
 
 app.post('/todos', req => {

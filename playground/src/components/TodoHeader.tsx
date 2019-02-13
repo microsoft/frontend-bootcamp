@@ -1,19 +1,32 @@
 import React from 'react';
 import { Text, Stack } from '@uifabric/experiments';
 import { Pivot, PivotItem, TextField } from 'office-ui-fabric-react';
-import { FilterTypes } from '../store';
+import { FilterTypes, Store } from '../store';
+import { actionsWithService, actions } from '../actions';
+import { connect } from 'react-redux';
 
-export interface TodoHeaderProps {
-  add: (label: string) => void;
-  remove: (id: string) => void;
-  filter: (filter: FilterTypes) => void;
+function mapStateToProps({ todos, filter }: Store) {
+  return {
+    todos,
+    filter
+  };
 }
 
-export interface TodoHeaderState {
+function mapDispatchToProps(dispatch: any) {
+  return {
+    add: (label: string) => dispatch(actionsWithService.add(label)),
+    remove: (id: string) => dispatch(actionsWithService.remove(id)),
+    setFilter: (filter: FilterTypes) => dispatch(actions.setFilter(filter))
+  };
+}
+
+type TodoHeaderProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+interface TodoHeaderState {
   labelInput: string;
 }
 
-export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
+class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
   constructor(props: TodoHeaderProps) {
     super(props);
     this.state = { labelInput: undefined };
@@ -31,7 +44,7 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
   };
 
   onFilter = (item: PivotItem) => {
-    this.props.filter(item.props.headerText as FilterTypes);
+    this.props.setFilter(item.props.headerText as FilterTypes);
   };
 
   render() {
@@ -57,3 +70,11 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
     );
   }
 }
+
+// Hook up the Redux state and dispatches
+const component = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoHeader);
+
+export { component as TodoHeader };

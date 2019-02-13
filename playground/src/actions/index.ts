@@ -10,7 +10,7 @@ export const actions = {
   edit: (id: string, label: string) => action('edit', { id, label }),
   complete: (id: string) => action('complete', { id }),
   clear: () => action('clear'),
-  filter: (filterTypes: string) => action('filter', { filter: filterTypes })
+  setFilter: (filter: string) => action('setFilter', { filter })
 };
 
 export const actionsWithService = {

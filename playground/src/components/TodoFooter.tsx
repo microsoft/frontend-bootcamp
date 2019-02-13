@@ -1,14 +1,30 @@
 import React from 'react';
 import { Text, Stack } from '@uifabric/experiments';
-import { TodoItem } from '../store';
+import { TodoItem, Store } from '../store';
 import { DefaultButton } from 'office-ui-fabric-react';
+import { actionsWithService } from '../actions';
+import { connect } from 'react-redux';
 
-export interface TodoFooterProps {
-  todos: { [id: string]: TodoItem };
-  clear: () => void;
+// Redux Container
+export function mapStateToProps({ todos, filter }: Store) {
+  return {
+    todos,
+    filter
+  };
 }
 
-export const TodoFooter = (props: TodoFooterProps) => {
+export function mapDispatchToProps(dispatch: any) {
+  return {
+    clear: () => dispatch(actionsWithService.clear())
+  };
+}
+
+type TodoFooterProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+export const TodoFooter = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)((props: TodoFooterProps) => {
   const itemCount = Object.keys(props.todos).filter(id => !props.todos[id].completed).length;
 
   return (
@@ -19,4 +35,4 @@ export const TodoFooter = (props: TodoFooterProps) => {
       <DefaultButton onClick={() => props.clear()}>Clear Completed</DefaultButton>
     </Stack>
   );
-};
+});

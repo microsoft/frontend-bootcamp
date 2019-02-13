@@ -55,6 +55,6 @@ module.exports = Object.keys(entries).map(entryPoint => {
     },
     stats: 'minimal',
     mode: 'development',
-    devtool: 'cheap-module-source-map'
+    devtool: 'eval'
   };
 });

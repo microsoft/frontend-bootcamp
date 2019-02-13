@@ -2,17 +2,27 @@ import React from 'react';
 import { Stack, Text } from '@uifabric/experiments';
 import { Checkbox, IconButton, TextField } from 'office-ui-fabric-react';
 import { mergeStyles } from '@uifabric/styling';
+import { Store, FilterTypes } from '../store';
+import { actionsWithService, actions } from '../actions';
+import { connect } from 'react-redux';
 
-export interface TodoListItemProps {
-  id: string;
-  checked: boolean;
-  label: string;
-  edit: (id: string, label: string) => void;
-  complete: (id: string) => void;
-  remove: (id: string) => void;
+function mapStateToProps({ todos }: Store) {
+  return {
+    todos
+  };
 }
 
-export interface TodoListItemState {
+function mapDispatchToProps(dispatch: any) {
+  return {
+    remove: (id: string) => dispatch(actionsWithService.remove(id)),
+    complete: (id: string) => dispatch(actionsWithService.complete(id)),
+    edit: (id: string, label: string) => dispatch(actionsWithService.edit(id, label))
+  };
+}
+
+type TodoListItemProps = { id: string } & ReturnType<typeof mapDispatchToProps> & ReturnType<typeof mapStateToProps>;
+
+interface TodoListItemState {
   editing: boolean;
   editLabel: string;
 }
@@ -28,7 +38,7 @@ const className = mergeStyles({
   }
 });
 
-export class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
+class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
   /**
    *
    */
@@ -38,9 +48,12 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
   }
 
   onEdit = () => {
+    const { todos, id } = this.props;
+    const { label } = todos[id];
+
     this.setState(prevState => ({
       editing: true,
-      editLabel: prevState.editLabel || this.props.label
+      editLabel: prevState.editLabel || label
     }));
   };
 
@@ -63,13 +76,14 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
   };
 
   render() {
-    const { label, checked, complete, remove, id } = this.props;
+    const { todos, id, complete, remove } = this.props;
+    const item = todos[id];
 
     return (
       <Stack horizontal className={className} verticalAlign="center" horizontalAlign="space-between">
         {!this.state.editing && (
           <>
-            <Checkbox label={label} checked={checked} onChange={() => complete(id)} />
+            <Checkbox label={item.label} checked={item.completed} onChange={() => complete(id)} />
             <div>
               <IconButton iconProps={{ iconName: 'Edit' }} className="clearButton" onClick={this.onEdit} />
               <IconButton iconProps={{ iconName: 'Cancel' }} className="clearButton" onClick={() => remove(id)} />
@@ -82,3 +96,10 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
     );
   }
 }
+
+const component = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoListItem);
+
+export { component as TodoListItem };
