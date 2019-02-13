@@ -31,11 +31,9 @@ export class TodoApp extends React.Component<any, any> {
 
   _addTodo = () => {
     const { todos, inputValue } = this.state;
-    const id = todos[0] ? todos[0].id + 1 : 0;
     const newTodos = [
       {
-        id: id,
-        key: id,
+        id: todos[0] ? todos[0].id + 1 : 0,
         text: inputValue
       },
       ...todos

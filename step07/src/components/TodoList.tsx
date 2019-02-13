@@ -13,9 +13,9 @@ export class TodoList extends React.Component<any, any> {
       return filter == 'all' || matchesActive || matchesCompleted; 
     })
 
-    const TodoListItems = filteredTodos.map((todo, i) => {
+    const TodoListItems = filteredTodos.map((todo) => {
       return (
-        <TodoListItem onTodoToggle={onTodoToggle} {...todo} />
+        <TodoListItem key={todo.id} onTodoToggle={onTodoToggle} {...todo} />
       );
     })
 
