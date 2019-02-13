@@ -6,6 +6,7 @@ const entries = {
   step04: './step04/src/index',
   step05: './step05/src/index',
   step06: './step06/src/index',
+  step07: './step07/src/index',
   'step2-01': './step2-01/src/index',
   playground: './playground/src/index'
 };
