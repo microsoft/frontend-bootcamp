@@ -18,36 +18,15 @@ type TodoListProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapD
 class TodoList extends React.Component<TodoListProps> {
   render() {
     const { filter, todos } = this.props;
-    let filteredTodos: typeof todos = {};
-
-    switch (filter) {
-      case 'completed':
-        Object.keys(todos).forEach(id => {
-          if (todos[id].completed) {
-            filteredTodos[id] = todos[id];
-          }
-        });
-        break;
-
-      case 'active':
-        Object.keys(todos).forEach(id => {
-          if (!todos[id].completed) {
-            filteredTodos[id] = todos[id];
-          }
-        });
-        break;
-
-      default:
-        filteredTodos = todos;
-        break;
-    }
+    const filteredTodos = Object.keys(todos).filter(id => {
+      return filter === 'all' || (filter === 'completed' && todos[id].completed) || (filter === 'active' && !todos[id].completed);
+    });
 
     return (
       <Stack verticalGap={10}>
-        {Object.keys(filteredTodos).map(id => {
-          const todo = filteredTodos[id];
-          return <TodoListItem key={id} id={id} />;
-        })}
+        {filteredTodos.map(id => (
+          <TodoListItem key={id} id={id} />
+        ))}
       </Stack>
     );
   }
