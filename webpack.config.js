@@ -8,6 +8,7 @@ const entries = {
   'step1-06': './step1-06/src/index',
   'step1-07': './step1-07/src/index',
   'step2-01': './step2-01/src/index',
+  'step2-02': './step2-02/src/index',
   playground: './playground/src/index'
 };
 

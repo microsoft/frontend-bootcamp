@@ -2,7 +2,7 @@
 
 Typescript
 
-- modules
+- ES6 modules review
 - a look at types
 - defining interfaces
 -
