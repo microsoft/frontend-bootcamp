@@ -3,24 +3,14 @@ import { Stack } from '@uifabric/experiments';
 import { Checkbox, IconButton, TextField } from 'office-ui-fabric-react';
 import { mergeStyles } from '@uifabric/styling';
 import { Store } from '../store';
-import { actionsWithService } from '../actions';
-import { connect } from 'react-redux';
 
-function mapStateToProps({ todos }: Store) {
-  return {
-    todos
-  };
+interface TodoListItemProps {
+  id: string;
+  todos: Store['todos'];
+  remove: (id: string) => void;
+  complete: (id: string) => void;
+  edit: (id: string, label: string) => void;
 }
-
-function mapDispatchToProps(dispatch: any) {
-  return {
-    remove: (id: string) => dispatch(actionsWithService.remove(id)),
-    complete: (id: string) => dispatch(actionsWithService.complete(id)),
-    edit: (id: string, label: string) => dispatch(actionsWithService.edit(id, label))
-  };
-}
-
-type TodoListItemProps = { id: string } & ReturnType<typeof mapDispatchToProps> & ReturnType<typeof mapStateToProps>;
 
 interface TodoListItemState {
   editing: boolean;
@@ -38,7 +28,7 @@ const className = mergeStyles({
   }
 });
 
-class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
+export class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
   /**
    *
    */
@@ -96,10 +86,3 @@ class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState>
     );
   }
 }
-
-const component = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoListItem);
-
-export { component as TodoListItem };
