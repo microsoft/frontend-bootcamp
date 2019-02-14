@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const entries = {
-  step04: './step04/src/index',
-  step05: './step05/src/index',
-  step06: './step06/src/index',
-  step07: './step07/src/index',
+  'step1-04': './step1-04/src/index',
+  'step1-05': './step1-05/src/index',
+  'step1-06': './step1-06/src/index',
+  'step1-07': './step1-07/src/index',
   'step2-01': './step2-01/src/index',
   playground: './playground/src/index'
 };
