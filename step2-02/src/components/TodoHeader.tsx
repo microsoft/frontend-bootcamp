@@ -19,7 +19,30 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
     this.state = { labelInput: undefined };
   }
 
-  private onAdd = (evt: React.MouseEvent<any>) => {
+  render() {
+    return (
+      <Stack>
+        <Stack horizontal horizontalAlign="center">
+          <Text variant="xxLarge">todos</Text>
+        </Stack>
+
+        <Stack horizontal>
+          <Stack.Item grow>
+            <TextField placeholder="What needs to be done?" value={this.state.labelInput} onChange={this.onChange} />
+          </Stack.Item>
+          <DefaultButton onClick={this.onAdd}>Add</DefaultButton>
+        </Stack>
+
+        <Pivot onLinkClick={this.onFilter}>
+          <PivotItem headerText="all" />
+          <PivotItem headerText="active" />
+          <PivotItem headerText="completed" />
+        </Pivot>
+      </Stack>
+    );
+  }
+
+  private onAdd = () => {
     this.props.addTodo(this.state.labelInput);
     this.setState({ labelInput: undefined });
   };
@@ -31,27 +54,4 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
   private onFilter = (item: PivotItem) => {
     this.props.setFilter(item.props.headerText as FilterTypes);
   };
-
-  render() {
-    return (
-      <Stack>
-        <Stack horizontal horizontalAlign="center">
-          <Text variant="xxLarge">todos</Text>
-        </Stack>
-
-        <Stack as="form" horizontal>
-          <TextField placeholder="What needs to be done?" value={this.state.labelInput} onChange={this.onChange} />
-          <DefaultButton type="submit" onClick={this.onAdd}>
-            Add
-          </DefaultButton>
-        </Stack>
-
-        <Pivot onLinkClick={this.onFilter}>
-          <PivotItem headerText="all" />
-          <PivotItem headerText="active" />
-          <PivotItem headerText="completed" />
-        </Pivot>
-      </Stack>
-    );
-  }
 }

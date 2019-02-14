@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack } from '@uifabric/experiments';
-import { Checkbox, IconButton, TextField } from 'office-ui-fabric-react';
+import { Checkbox, IconButton, TextField, DefaultButton } from 'office-ui-fabric-react';
 import { mergeStyles } from '@uifabric/styling';
 import { Store } from '../store';
 
@@ -37,34 +37,6 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
     this.state = { editing: false, editLabel: undefined };
   }
 
-  onEdit = () => {
-    const { todos, id } = this.props;
-    const { label } = todos[id];
-
-    this.setState(prevState => ({
-      editing: true,
-      editLabel: prevState.editLabel || label
-    }));
-  };
-
-  onDoneEdit = () => {
-    this.props.edit(this.props.id, this.state.editLabel);
-    this.setState(prevState => ({
-      editing: false,
-      editLabel: undefined
-    }));
-  };
-
-  onKeyDown = (evt: React.KeyboardEvent) => {
-    if (evt.which === 13) {
-      this.onDoneEdit();
-    }
-  };
-
-  onChange = (evt: React.FormEvent<HTMLInputElement>, newValue: string) => {
-    this.setState({ editLabel: newValue });
-  };
-
   render() {
     const { todos, id, complete, remove } = this.props;
     const item = todos[id];
@@ -81,8 +53,39 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
           </>
         )}
 
-        {this.state.editing && <TextField value={this.state.editLabel} onChange={this.onChange} onKeyPress={this.onKeyDown} />}
+        {this.state.editing && (
+          <Stack.Item fillHorizontal>
+            <Stack horizontal>
+              <Stack.Item grow>
+                <TextField value={this.state.editLabel} onChange={this.onChange} />
+              </Stack.Item>
+              <DefaultButton onClick={this.onDoneEdit}>Save</DefaultButton>
+            </Stack>
+          </Stack.Item>
+        )}
       </Stack>
     );
   }
+
+  private onEdit = () => {
+    const { todos, id } = this.props;
+    const { label } = todos[id];
+
+    this.setState({
+      editing: true,
+      editLabel: this.state.editLabel || label
+    });
+  };
+
+  private onDoneEdit = () => {
+    this.props.edit(this.props.id, this.state.editLabel);
+    this.setState({
+      editing: false,
+      editLabel: undefined
+    });
+  };
+
+  private onChange = (evt: React.FormEvent<HTMLInputElement>, newValue: string) => {
+    this.setState({ editLabel: newValue });
+  };
 }

@@ -1,8 +1,9 @@
-# Step 2.1
+# Step 2.2
 
-Typescript
+Integrates Fabric
 
-- modules
-- a look at types
-- defining interfaces
--
+Learn about Basic Components
+
+- Stack
+- Text
+- Show case some components
