@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
 
 export const TodoFooter = (props: any) => {
-  const items = props.todos.filter(todo => !todo.completed)
+  const itemCount = Object.keys(props.todos).filter(id => !props.todos[id].completed).length;
   return (
     <footer>
-      <span> {items.length} items left </span>
+      <span>
+        {itemCount} item{itemCount > 1 ? 's' : ''} left
+      </span>
       <button className="button">Clear Completed</button>
     </footer>
   );
