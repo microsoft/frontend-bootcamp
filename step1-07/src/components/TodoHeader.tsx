@@ -1,13 +1,20 @@
 import React from 'react';
+import { FilterTypes } from '../TodoApp.types';
 
-export class TodoHeader extends React.Component<any, any> {
+interface TodoHeaderProps {
+  addTodo: (label: string) => void;
+  setFilter: (filter: FilterTypes) => void;
+  filter: FilterTypes;
+}
+
+export class TodoHeader extends React.Component<TodoHeaderProps, any> {
   constructor(props) {
     super(props);
     this.state = { labelInput: '' };
   }
 
   render() {
-    const { filter } = this.props;
+    const { filter, setFilter } = this.props;
     return (
       <div>
         <h1>todos</h1>
@@ -16,23 +23,19 @@ export class TodoHeader extends React.Component<any, any> {
           Add
         </button>
         <div className="filter">
-          <button onClick={() => this._onFilter('all')} className={filter == 'all' ? 'active' : ''}>
+          <button onClick={() => setFilter('all')} className={filter == 'all' ? 'active' : ''}>
             all
           </button>
-          <button onClick={() => this._onFilter('active')} className={filter == 'active' ? 'active' : ''}>
+          <button onClick={() => setFilter('active')} className={filter == 'active' ? 'active' : ''}>
             active
           </button>
-          <button onClick={() => this._onFilter('completed')} className={filter == 'completed' ? 'active' : ''}>
+          <button onClick={() => setFilter('completed')} className={filter == 'completed' ? 'active' : ''}>
             completed
           </button>
         </div>
       </div>
     );
   }
-
-  _onFilter = filter => {
-    this.props.setFilter(filter);
-  };
 
   _onChange = evt => {
     this.setState({ labelInput: evt.target.value });

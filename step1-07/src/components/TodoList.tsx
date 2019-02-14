@@ -1,7 +1,14 @@
 import React from 'react';
 import { TodoListItem } from './TodoListItem';
+import { FilterTypes, Todos } from '../TodoApp.types';
 
-export class TodoList extends React.Component<any, any> {
+interface TodoListProps {
+  complete: (id: string) => void;
+  todos: Todos;
+  filter: FilterTypes;
+}
+
+export class TodoList extends React.Component<TodoListProps, any> {
   render() {
     const { filter, todos, complete } = this.props;
 
@@ -12,7 +19,7 @@ export class TodoList extends React.Component<any, any> {
     return (
       <ul className="todos">
         {filteredTodos.map(id => (
-          <TodoListItem key={id} id={id} {...todos[id]} complete={complete} />
+          <TodoListItem key={id} id={id} complete={complete} {...todos[id]} />
         ))}
       </ul>
     );

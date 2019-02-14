@@ -6,7 +6,7 @@ import { FilterTypes } from '../store';
 interface TodoHeaderProps {
   addTodo: (label: string) => void;
   setFilter: (filter: FilterTypes) => void;
-  filter: string;
+  filter: FilterTypes;
 }
 
 interface TodoHeaderState {
