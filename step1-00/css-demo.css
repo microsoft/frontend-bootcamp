@@ -2,12 +2,21 @@
 
 /* Targeting an HTML tag */
 h1 {
+  /* Color name */
   color: black;
-  background: #ddd;
-  border: 1px solid #ababab;
+
+  /* 6 digit hex  */
+  background: #ababab;
+
+  /* Margin: property for each side */
   margin-bottom: 15px;
   margin-top: 15px;
+
+  /* Shorthand: Padding applies to all sides  */
   padding: 10px;
+
+  /* 3 digit hex and border shorthand */
+  border: 1px solid #ddd;
 }
 
 /* Overriding inherited styles */
@@ -27,11 +36,17 @@ span {
 
 /* Direct decendant selector */
 .tiles > div {
+  /* rgb colors */
   background: rgb(10, 10, 10);
   color: white;
   flex-basis: 100%;
+  /* Longhand goes clockwise from top
+  10px - all
+  10px 20px - top/bottom left/right
+  10px 20px 15px - top left/right bottom
+  */
   padding: 10px 20px 15px;
-  margin-right: 20px;
+  margin: 10px 20px 10px 0;
 }
 
 /* Qualified selector */
@@ -51,18 +66,20 @@ a:hover {
 
 /* Sibling selectors */
 a ~ a {
+  /* Changing elements from inline to block */
   display: block;
 }
 
 /* Positional Pseudo Selectors  */
 .tiles > div:last-child {
+  /* overrides margin-right but leaves other margins alone */
   margin-right: 0;
 }
 
-/* ID and selector lists */
-#contact-form label,
-#contact-form input {
-  display: block;
+/* ID selector */
+#contact-form {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Attribute selector */
