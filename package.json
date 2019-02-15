@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start:client": "webpack-dev-server --mode development --progress --open",
-    "build": "webpack --mode production",
     "test": "jest --watch",
     "start:server": "nodemon -w server server/index.js",
     "start": "run-p start:server start:client"
@@ -41,10 +40,10 @@
     "uuid": "^3.3.2"
   },
   "dependencies": {
-    "@uifabric/experiments": "^6.51.1",
+    "@uifabric/experiments": "^6.57.0",
     "express": "^4.16.4",
     "immer": "^1.12.1",
-    "office-ui-fabric-react": "^6.128.0",
+    "office-ui-fabric-react": "^6.140.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack } from '@uifabric/experiments';
+import { Stack } from 'office-ui-fabric-react';
 import { TodoListItem } from './TodoListItem';
 import { Store } from '../store';
 import { connect } from 'react-redux';

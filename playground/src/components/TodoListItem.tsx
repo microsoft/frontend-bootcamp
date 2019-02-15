@@ -1,6 +1,5 @@
 import React from 'react';
-import { Stack } from '@uifabric/experiments';
-import { Checkbox, IconButton, TextField } from 'office-ui-fabric-react';
+import { Stack, Checkbox, IconButton, TextField } from 'office-ui-fabric-react';
 import { mergeStyles } from '@uifabric/styling';
 import { Store } from '../store';
 import { actionsWithService } from '../actions';

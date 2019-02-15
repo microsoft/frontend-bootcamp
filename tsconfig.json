@@ -9,6 +9,8 @@
     "jsx": "react",
     "allowJs": true,
     "lib": ["es2015", "dom"],
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
+  },
+  "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack } from '@uifabric/experiments';
+import { Stack } from 'office-ui-fabric-react';
 import { TodoFooter } from './TodoFooter';
 import { TodoHeader } from './TodoHeader';
 import { TodoList } from './TodoList';

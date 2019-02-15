@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, Stack } from '@uifabric/experiments';
-import { Pivot, PivotItem, TextField } from 'office-ui-fabric-react';
+import { Text } from '@uifabric/experiments';
+import { Pivot, PivotItem, TextField, Stack } from 'office-ui-fabric-react';
 import { FilterTypes, Store } from '../store';
 import { actionsWithService, actions } from '../actions';
 import { connect } from 'react-redux';

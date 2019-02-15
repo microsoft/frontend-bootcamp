@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, Stack } from '@uifabric/experiments';
+import { Text } from '@uifabric/experiments';
+import { Stack } from 'office-ui-fabric-react';
 import { Pivot, PivotItem, TextField, DefaultButton } from 'office-ui-fabric-react';
 import { FilterTypes } from '../store';
 

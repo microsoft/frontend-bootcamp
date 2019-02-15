@@ -37,7 +37,7 @@ module.exports = Object.keys(entries).map(entryPoint => {
       }),
       new ForkTsCheckerWebpackPlugin({
         silent: true,
-        async: false
+        useTypescriptIncrementalApi: true
       })
     ],
     resolve: {
