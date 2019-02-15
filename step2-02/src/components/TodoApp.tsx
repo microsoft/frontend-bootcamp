@@ -19,7 +19,7 @@ export class TodoApp extends React.Component<any, Store> {
     const { filter, todos } = this.state;
     return (
       <Stack horizontalAlign="center">
-        <Stack style={{ width: 400 }} verticalGap={25}>
+        <Stack style={{ width: 400 }} gap={25}>
           <TodoHeader addTodo={this._addTodo} setFilter={this._setFilter} filter={filter} />
           <TodoList complete={this._complete} todos={todos} filter={filter} remove={this._remove} edit={this._edit} />
           <TodoFooter clear={this._clear} todos={todos} />

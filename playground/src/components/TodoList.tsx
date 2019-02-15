@@ -23,7 +23,7 @@ class TodoList extends React.Component<TodoListProps> {
     });
 
     return (
-      <Stack verticalGap={10}>
+      <Stack gap={10}>
         {filteredTodos.map(id => (
           <TodoListItem key={id} id={id} />
         ))}

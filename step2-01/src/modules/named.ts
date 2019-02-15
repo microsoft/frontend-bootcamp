@@ -7,3 +7,6 @@ export function namedFn() {
 export const namedObj = {
   hello: 'world'
 };
+
+const namedConstBracket = 10;
+export { namedConstBracket };

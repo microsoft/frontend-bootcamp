@@ -1,6 +1,5 @@
 import React from 'react';
 import { Stack, Checkbox, IconButton, TextField, DefaultButton } from 'office-ui-fabric-react';
-import { mergeStyles } from '@uifabric/styling';
 import { Store } from '../store';
 
 interface TodoListItemProps {
@@ -16,21 +15,7 @@ interface TodoListItemState {
   editLabel: string;
 }
 
-const className = mergeStyles({
-  selectors: {
-    '.clearButton': {
-      visibility: 'hidden'
-    },
-    '&:hover .clearButton': {
-      visibility: 'visible'
-    }
-  }
-});
-
 export class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
-  /**
-   *
-   */
   constructor(props: TodoListItemProps) {
     super(props);
     this.state = { editing: false, editLabel: undefined };
@@ -41,7 +26,7 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
     const item = todos[id];
 
     return (
-      <Stack horizontal className={className} verticalAlign="center" horizontalAlign="space-between">
+      <Stack horizontal verticalAlign="center" horizontalAlign="space-between">
         {!this.state.editing && (
           <>
             <Checkbox label={item.label} checked={item.completed} onChange={() => complete(id)} />
@@ -53,7 +38,7 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
         )}
 
         {this.state.editing && (
-          <Stack.Item fillHorizontal>
+          <Stack.Item grow>
             <Stack horizontal>
               <Stack.Item grow>
                 <TextField value={this.state.editLabel} onChange={this.onChange} />

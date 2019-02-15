@@ -6,7 +6,7 @@ import { TodoList } from './TodoList';
 
 export const TodoApp = (props: {}) => (
   <Stack horizontalAlign="center">
-    <Stack style={{ width: 400 }} verticalGap={25}>
+    <Stack style={{ width: 400 }} gap={25}>
       <TodoHeader />
       <TodoList />
       <TodoFooter />
