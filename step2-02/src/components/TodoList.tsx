@@ -12,7 +12,7 @@ interface TodoListProps {
 }
 
 export const TodoList = (props: TodoListProps) => {
-  const { filter, todos, complete, remove, edit } = this.props;
+  const { filter, todos, complete, remove, edit } = props;
   const filteredTodos = Object.keys(todos).filter(id => {
     return filter === 'all' || (filter === 'completed' && todos[id].completed) || (filter === 'active' && !todos[id].completed);
   });

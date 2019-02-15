@@ -1,3 +1,5 @@
+// @ts-check
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -12,10 +14,9 @@ const entries = {
   playground: './playground/src/index'
 };
 
-module.exports = Object.keys(entries).map(entryPoint => {
-  const entryRequest = entries[entryPoint];
+module.exports = function() {
   return {
-    entry: { [entryPoint]: entryRequest },
+    entry: entries,
     module: {
       rules: [
         {
@@ -31,22 +32,24 @@ module.exports = Object.keys(entries).map(entryPoint => {
       ]
     },
     plugins: [
-      new HtmlWebpackPlugin({
-        template: path.join(__dirname, `${entryPoint}/index.html`),
-        filename: '../index.html'
+      ...Object.keys(entries).map(entry => {
+        return new HtmlWebpackPlugin({
+          template: path.join(__dirname, entry, 'index.html'),
+          filename: `${entry}/index.html`,
+          chunks: [entry]
+        });
       }),
       new ForkTsCheckerWebpackPlugin({
         silent: true,
-        async: false,
-        useTypescriptIncrementalApi: true
+        async: false
       })
     ],
     resolve: {
       extensions: ['.tsx', '.ts', '.js']
     },
     output: {
-      filename: '[name].js',
-      path: path.resolve(__dirname, entryPoint, 'dist')
+      filename: '[name]/dist/[name].js',
+      path: path.resolve(__dirname)
     },
     devServer: {
       contentBase: path.resolve(__dirname),
@@ -60,4 +63,4 @@ module.exports = Object.keys(entries).map(entryPoint => {
     mode: 'development',
     devtool: 'eval'
   };
-});
+};
