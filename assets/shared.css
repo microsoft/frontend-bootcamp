@@ -20,17 +20,17 @@ body {
 }
 
 .Container {
-  display: flex;
   justify-content: center;
   padding: 20px;
 }
 
 .Tiles {
-  display: flex;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 20px;
+  max-width: 1000px;
+  display: grid;
   list-style-type: none;
   margin: 0;
-  width: 800px;
   padding: 0;
 }
 
@@ -38,7 +38,6 @@ body {
   background-color: white;
   border-radius: 2px;
   box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
-  margin: 0 12px 12px 0;
   opacity: 0.96;
   transition: all 0.15s linear;
 }
@@ -56,9 +55,7 @@ body {
   height: 148px;
   justify-content: center;
   text-align: center;
-  padding: 20px;
   text-decoration: none;
-  width: 148px;
 }
 
 .Tile-link i {
@@ -68,9 +65,8 @@ body {
 }
 
 .Tile--intro {
-  max-width: 468px;
+  grid-column: span 2;
   padding: 20px;
-  width: 100%;
 }
 
 .Tile--intro h1 {
