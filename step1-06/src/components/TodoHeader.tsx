@@ -6,7 +6,7 @@ export class TodoHeader extends React.Component<any, any> {
     return (
       <div>
         <h1>todos</h1>
-        <input className="textfield" />
+        <input className="textfield" placeholder="add todo" />
         <button className="button add">Add</button>
         <div className="filter">
           <button className={filter == 'all' ? 'active' : ''}>all</button>
