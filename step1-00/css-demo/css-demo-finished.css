@@ -1,5 +1,9 @@
 /* https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors */
 
+body {
+  font: 1.2em sans-serif;
+}
+
 /* Targeting an HTML tag */
 h1 {
   /* Color name */

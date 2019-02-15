@@ -55,6 +55,7 @@ body {
   flex-direction: column;
   height: 148px;
   justify-content: center;
+  text-align: center;
   padding: 20px;
   text-decoration: none;
   width: 148px;
