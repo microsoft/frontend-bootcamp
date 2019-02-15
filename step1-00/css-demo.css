@@ -1,0 +1,49 @@
+h1 {
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  color: black;
+  background: #ddd;
+  border: 1px solid #ababab;
+}
+
+a {
+  color: white;
+}
+a:hover {
+  color: #ccc;
+}
+
+.tiles {
+  display: flex;
+}
+
+.tiles img {
+  display: block;
+  margin: 0 auto;
+  max-width: 75%;
+}
+
+.tiles > div {
+  background: rgb(10, 10, 10);
+  color: white;
+  flex-basis: 100%;
+  padding: 10px 20px 15px;
+  margin-right: 20px;
+}
+
+.tiles > div:last-child {
+  margin-right: 0;
+}
+
+a + a {
+  display: block;
+}
+
+#contact-form > * {
+  display: block;
+}
+
+input[type='submit'] {
+  margin-top: 10px;
+}
