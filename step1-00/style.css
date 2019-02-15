@@ -4,3 +4,7 @@ aside {
   padding: 10px;
   background: #eee;
 }
+
+form > div {
+  margin-bottom: 20px;
+}
