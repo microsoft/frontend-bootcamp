@@ -3,6 +3,7 @@ async function fetchSomething() {
   return await response.text();
 }
 
+// Async functions always returns Promise
 fetchSomething().then(text => {
   console.log('hello ' + text);
 });
