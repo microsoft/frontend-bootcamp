@@ -1,11 +1,17 @@
 import React from 'react';
-import { Stack } from 'office-ui-fabric-react';
+import { Stack, Customizer, mergeStyles, getTheme } from 'office-ui-fabric-react';
 import { TodoFooter } from './TodoFooter';
 import { TodoHeader } from './TodoHeader';
 import { TodoList } from './TodoList';
 import { Store } from '../store';
+import { FluentCustomizations } from '@uifabric/fluent-theme';
 
 let index = 0;
+
+const className = mergeStyles({
+  padding: 25,
+  ...getTheme().effects.elevation4
+});
 
 export class TodoApp extends React.Component<any, Store> {
   constructor(props) {
@@ -18,13 +24,15 @@ export class TodoApp extends React.Component<any, Store> {
   render() {
     const { filter, todos } = this.state;
     return (
-      <Stack horizontalAlign="center">
-        <Stack style={{ width: 400 }} gap={25}>
-          <TodoHeader addTodo={this._addTodo} setFilter={this._setFilter} filter={filter} />
-          <TodoList complete={this._complete} todos={todos} filter={filter} remove={this._remove} edit={this._edit} />
-          <TodoFooter clear={this._clear} todos={todos} />
+      <Customizer {...FluentCustomizations}>
+        <Stack horizontalAlign="center">
+          <Stack style={{ width: 400 }} gap={25} className={className}>
+            <TodoHeader addTodo={this._addTodo} setFilter={this._setFilter} filter={filter} />
+            <TodoList complete={this._complete} todos={todos} filter={filter} remove={this._remove} edit={this._edit} />
+            <TodoFooter clear={this._clear} todos={todos} />
+          </Stack>
         </Stack>
-      </Stack>
+      </Customizer>
     );
   }
 

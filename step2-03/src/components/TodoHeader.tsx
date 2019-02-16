@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from '@uifabric/experiments';
 import { Stack } from 'office-ui-fabric-react';
-import { Pivot, PivotItem, TextField, DefaultButton } from 'office-ui-fabric-react';
+import { Pivot, PivotItem, TextField, PrimaryButton } from 'office-ui-fabric-react';
 import { FilterTypes } from '../store';
 
 interface TodoHeaderProps {
@@ -22,16 +22,16 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
 
   render() {
     return (
-      <Stack>
+      <Stack gap={10}>
         <Stack horizontal horizontalAlign="center">
           <Text variant="xxLarge">todos</Text>
         </Stack>
 
-        <Stack horizontal>
+        <Stack horizontal gap={10}>
           <Stack.Item grow>
             <TextField placeholder="What needs to be done?" value={this.state.labelInput} onChange={this.onChange} />
           </Stack.Item>
-          <DefaultButton onClick={this.onAdd}>Add</DefaultButton>
+          <PrimaryButton onClick={this.onAdd}>Add</PrimaryButton>
         </Stack>
 
         <Pivot onLinkClick={this.onFilter}>

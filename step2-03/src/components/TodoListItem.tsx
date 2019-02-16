@@ -31,15 +31,15 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
           <>
             <Checkbox label={item.label} checked={item.completed} onChange={() => complete(id)} />
             <div>
-              <IconButton iconProps={{ iconName: 'Edit' }} className="clearButton" onClick={this.onEdit} />
-              <IconButton iconProps={{ iconName: 'Cancel' }} className="clearButton" onClick={() => remove(id)} />
+              <IconButton iconProps={{ iconName: 'Edit' }} onClick={this.onEdit} />
+              <IconButton iconProps={{ iconName: 'Cancel' }} onClick={() => remove(id)} />
             </div>
           </>
         )}
 
         {this.state.editing && (
           <Stack.Item grow>
-            <Stack horizontal>
+            <Stack horizontal gap={10}>
               <Stack.Item grow>
                 <TextField value={this.state.editLabel} onChange={this.onChange} />
               </Stack.Item>
