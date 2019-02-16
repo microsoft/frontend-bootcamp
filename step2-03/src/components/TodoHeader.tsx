@@ -22,12 +22,12 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
 
   render() {
     return (
-      <Stack>
+      <Stack gap={10}>
         <Stack horizontal horizontalAlign="center">
           <Text variant="xxLarge">todos</Text>
         </Stack>
 
-        <Stack horizontal>
+        <Stack horizontal gap={10}>
           <Stack.Item grow>
             <TextField placeholder="What needs to be done?" value={this.state.labelInput} onChange={this.onChange} />
           </Stack.Item>
