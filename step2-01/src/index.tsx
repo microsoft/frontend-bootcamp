@@ -1,14 +1,19 @@
-// - modularity
-import './modules';
+// Interesting Typescript Topics
 
-// - interface
-import './interfaces';
-
-// - function typing
+// types
 import './types';
 
-// - generics
+// interface
+import './interfaces';
+
+// modularity
+import './modules';
+
+// generics
 import './generics';
 
-// - await / async
+// await / async
 import './async';
+
+// spread syntax
+import './spread';

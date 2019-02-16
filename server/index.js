@@ -33,6 +33,10 @@ app.post('/todos', req => {
   store.todos = req.body;
 });
 
+app.get('/hello', (req, res) => {
+  res.send('world');
+});
+
 app.listen(process.env.NODE_ENV === 'production' ? undefined : 3000, () => {
   console.log('Listening at http://localhost:3000');
 });
