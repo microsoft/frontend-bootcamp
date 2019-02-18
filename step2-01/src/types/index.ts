@@ -26,11 +26,15 @@ type Specific2 = {
 };
 
 // composition
-type typeofObj = {
+type TypeOfObj = {
   foo: string;
   bar: number;
-  obj: Specific1;
+  obj1: Specific1;
+  obj2: Specific2;
 };
+
+// Get types by property
+type Obj1Type = TypeOfObj['obj1'];
 
 // union, intersection
 type Union = Specific1 | Specific2;
