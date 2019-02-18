@@ -2,7 +2,9 @@ import React from 'react';
 import { Text } from '@uifabric/experiments';
 import { Stack } from 'office-ui-fabric-react';
 import { Pivot, PivotItem, TextField, PrimaryButton } from 'office-ui-fabric-react';
-import { FilterTypes } from '../store';
+import { FilterTypes, Store } from '../store';
+import * as actions from '../actions';
+import { connect } from 'react-redux';
 
 interface TodoHeaderProps {
   addTodo: (label: string) => void;
@@ -14,7 +16,7 @@ interface TodoHeaderState {
   labelInput: string;
 }
 
-export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
+class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
   constructor(props: TodoHeaderProps) {
     super(props);
     this.state = { labelInput: undefined };
@@ -56,3 +58,21 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
     this.props.setFilter(item.props.headerText as FilterTypes);
   };
 }
+
+function mapStateToProps(state: Store) {
+  return { ...state };
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return {
+    addTodo: (label: string) => dispatch(actions.addTodo(label)),
+    setFilter: (filter: FilterTypes) => dispatch(actions.setFilter(filter))
+  };
+}
+
+const component = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoHeader);
+
+export { component as TodoHeader };
