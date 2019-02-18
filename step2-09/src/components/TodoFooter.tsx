@@ -4,7 +4,7 @@ import { Stack } from 'office-ui-fabric-react';
 import { Store } from '../store';
 import { DefaultButton } from 'office-ui-fabric-react';
 import { connect } from 'react-redux';
-import { actions } from '../actions';
+import { actionsWithService } from '../actions';
 
 interface TodoFooterProps {
   clear: () => void;
@@ -30,7 +30,7 @@ function mapStateToProps(state: Store) {
 
 function mapDispatchToProps(dispatch: any) {
   return {
-    clear: () => dispatch(actions.clear())
+    clear: () => dispatch(actionsWithService.clear())
   };
 }
 

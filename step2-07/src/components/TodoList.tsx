@@ -1,9 +1,8 @@
 import React from 'react';
 import { Stack } from 'office-ui-fabric-react';
 import { TodoListItem } from './TodoListItem';
-import { Store, FilterTypes } from '../store';
+import { Store } from '../store';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
 
 interface TodoListProps {
   todos: Store['todos'];

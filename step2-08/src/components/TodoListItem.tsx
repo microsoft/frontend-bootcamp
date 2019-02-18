@@ -1,8 +1,8 @@
 import React from 'react';
-import { Stack, Checkbox, IconButton, TextField, DefaultButton } from 'office-ui-fabric-react';
+import { Stack, Checkbox, IconButton } from 'office-ui-fabric-react';
 import { Store } from '../store';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import { actions } from '../actions';
 
 interface TodoListItemProps {
   id: string;

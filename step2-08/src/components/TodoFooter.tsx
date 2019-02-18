@@ -4,7 +4,7 @@ import { Stack } from 'office-ui-fabric-react';
 import { Store } from '../store';
 import { DefaultButton } from 'office-ui-fabric-react';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import { actions } from '../actions';
 
 interface TodoFooterProps {
   clear: () => void;

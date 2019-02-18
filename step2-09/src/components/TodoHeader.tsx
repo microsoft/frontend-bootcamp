@@ -3,7 +3,7 @@ import { Text } from '@uifabric/experiments';
 import { Stack } from 'office-ui-fabric-react';
 import { Pivot, PivotItem, TextField, PrimaryButton } from 'office-ui-fabric-react';
 import { FilterTypes, Store } from '../store';
-import { actions } from '../actions';
+import { actionsWithService, actions } from '../actions';
 import { connect } from 'react-redux';
 
 interface TodoHeaderProps {
@@ -65,7 +65,7 @@ function mapStateToProps(state: Store) {
 
 function mapDispatchToProps(dispatch: any) {
   return {
-    addTodo: (label: string) => dispatch(actions.addTodo(label)),
+    addTodo: (label: string) => dispatch(actionsWithService.addTodo(label)),
     setFilter: (filter: FilterTypes) => dispatch(actions.setFilter(filter))
   };
 }

@@ -4,6 +4,10 @@ export function addTodo(state: Store['todos'], id: string, label: string): Store
   return { ...state, [id]: { label, completed: false } };
 }
 
+export function edit(state: Store['todos'], id: string, label: string): Store['todos'] {
+  return { ...state, [id]: { ...state[id], label } };
+}
+
 export function remove(state: Store['todos'], id: string) {
   const newTodos = { ...state };
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Stack, Checkbox, IconButton } from 'office-ui-fabric-react';
+import { Stack, Checkbox, IconButton, TextField, DefaultButton } from 'office-ui-fabric-react';
 import { Store } from '../store';
 import { connect } from 'react-redux';
-import { actions } from '../actions';
+import { actionsWithService } from '../actions';
 
 interface TodoListItemProps {
   id: string;
@@ -35,8 +35,8 @@ function mapStateToProps({ todos }: Store) {
 
 function mapDispatchToProps(dispatch: any) {
   return {
-    remove: (id: string) => dispatch(actions.remove(id)),
-    complete: (id: string) => dispatch(actions.complete(id))
+    remove: (id: string) => dispatch(actionsWithService.remove(id)),
+    complete: (id: string) => dispatch(actionsWithService.complete(id))
   };
 }
 

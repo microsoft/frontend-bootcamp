@@ -1,49 +1,36 @@
-import { Store } from '../store';
+import { Store, FilterTypes } from '../store';
 
-let index = 0;
-
-export function addTodo(state: Store, label: string): Store {
-  const { todos } = state;
-  const id = index++;
-
-  return {
-    ...state,
-    todos: { ...todos, [id]: { label, completed: false } }
-  };
+export function addTodo(state: Store['todos'], id: string, label: string): Store['todos'] {
+  return { ...state, [id]: { label, completed: false } };
 }
 
-export function remove(state: Store, id: string) {
-  const newTodos = { ...state.todos };
+export function remove(state: Store['todos'], id: string) {
+  const newTodos = { ...state };
 
   delete newTodos[id];
 
-  return {
-    ...state,
-    todos: newTodos
-  };
+  return newTodos;
 }
 
-export function complete(state: Store, id: string) {
-  const newTodos = { ...state.todos };
+export function complete(state: Store['todos'], id: string) {
+  const newTodos = { ...state };
   newTodos[id].completed = !newTodos[id].completed;
 
-  return {
-    ...state,
-    todos: newTodos
-  };
+  return newTodos;
 }
 
-export function clear(state: Store) {
-  const newTodos = {};
+export function clear(state: Store['todos']) {
+  const newTodos = { ...state };
 
   Object.keys(state.todos).forEach(key => {
-    if (!state.todos[key].completed) {
-      newTodos[key] = state.todos[key];
+    if (state.todos[key].completed) {
+      delete newTodos[key];
     }
   });
 
-  return {
-    ...state,
-    todos: newTodos
-  };
+  return newTodos;
+}
+
+export function setFilter(state: Store['filter'], filter: FilterTypes) {
+  return filter;
 }

@@ -1,9 +1,6 @@
 import { Store, FilterTypes } from '../store';
 
-let index = 0;
-
-export function addTodo(state: Store['todos'], label: string): Store['todos'] {
-  const id = index++;
+export function addTodo(state: Store['todos'], id: string, label: string): Store['todos'] {
   return { ...state, [id]: { label, completed: false } };
 }
 

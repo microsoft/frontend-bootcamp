@@ -4,7 +4,7 @@ import { reducer } from './reducers';
 import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { TodoApp } from './components/TodoApp';
-import { addTodo } from './actions';
+import { actions } from './actions';
 import { initializeIcons } from '@uifabric/icons';
 
 /* Goop for making the Redux dev tool to work */
@@ -16,8 +16,8 @@ function createStoreWithDevTool(reducer, initialStore) {
 
 const store = createStoreWithDevTool(reducer, {});
 
-store.dispatch(addTodo('hello'));
-store.dispatch(addTodo('world'));
+store.dispatch(actions.addTodo('hello'));
+store.dispatch(actions.addTodo('world'));
 
 initializeIcons();
 

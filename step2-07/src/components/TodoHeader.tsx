@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text } from '@uifabric/experiments';
 import { Stack } from 'office-ui-fabric-react';
-import { Pivot, PivotItem, TextField, PrimaryButton } from 'office-ui-fabric-react';
-import { FilterTypes, Store } from '../store';
-import * as actions from '../actions';
+import { TextField, PrimaryButton } from 'office-ui-fabric-react';
+import { Store } from '../store';
 import { connect } from 'react-redux';
+import { actions } from '../actions';
 
 interface TodoHeaderProps {
   addTodo: (label: string) => void;

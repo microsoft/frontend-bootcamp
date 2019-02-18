@@ -1,10 +1,10 @@
 import { Store } from '../store';
 import { addTodo, remove, complete, clear } from './pureFunctions';
 
-export function reducer(state: Store, action: any): Store {
+function todoReducer(state: Store['todos'] = {}, action: any): Store['todos'] {
   switch (action.type) {
     case 'addTodo':
-      return addTodo(state, action.label);
+      return addTodo(state, action.id, action.label);
 
     case 'remove':
       return remove(state, action.id);
@@ -17,4 +17,11 @@ export function reducer(state: Store, action: any): Store {
   }
 
   return state;
+}
+
+export function reducer(state: Store, action: any): Store {
+  return {
+    todos: todoReducer(state.todos, action),
+    filter: 'all'
+  };
 }
