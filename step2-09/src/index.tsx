@@ -1,30 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { reducer } from './reducers';
-import { createStore, compose } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { TodoApp } from './components/TodoApp';
-import { actions } from './actions';
 import { initializeIcons } from '@uifabric/icons';
-import { Store } from './store';
+import { Store, FilterTypes } from './store';
+import * as service from './service';
 
 /* Goop for making the Redux dev tool to work */
 declare var window: any;
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 function createStoreWithDevTool(reducer, initialStore?: Store) {
-  return createStore(reducer, initialStore, composeEnhancers());
+  return createStore(reducer, initialStore, composeEnhancers(applyMiddleware(thunk)));
 }
 
-const store = createStoreWithDevTool(reducer);
+(async () => {
+  const preloadStore = {
+    todos: await service.getAll(),
+    filter: 'all' as FilterTypes
+  };
 
-store.dispatch(actions.addTodo('hello'));
-store.dispatch(actions.addTodo('world'));
+  const store = createStoreWithDevTool(reducer, preloadStore);
 
-initializeIcons();
+  initializeIcons();
 
-ReactDOM.render(
-  <Provider store={store}>
-    <TodoApp />
-  </Provider>,
-  document.getElementById('app')
-);
+  ReactDOM.render(
+    <Provider store={store}>
+      <TodoApp />
+    </Provider>,
+    document.getElementById('app')
+  );
+})();

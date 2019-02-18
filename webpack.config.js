@@ -72,6 +72,9 @@ module.exports = function() {
     devServer: {
       contentBase: path.resolve(__dirname),
       watchContentBase: true,
+      watchOptions: {
+        ignored: /tmp.json/
+      },
       hot: false,
       stats: 'errors-only',
       overlay: true,
