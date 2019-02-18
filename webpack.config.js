@@ -1,5 +1,3 @@
-// @ts-check
-
 const path = require('path');
 const fs = require('fs');
 
@@ -8,22 +6,26 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const entries = {};
 
-function getEntryPoint(entry) {
-  if (entry.includes('step') || entry.includes('playground')) {
-    for (let suffix of ['.js', '.jsx', '.ts', '.tsx']) {
-      if (fs.existsSync(`./${entry}/src/index${suffix}`)) {
-        return `./${entry}/src/index${suffix}`;
+function* getEntryPoint(step) {
+  if (step.includes('step') || step.includes('playground')) {
+    for (let prefix of ['', 'demo/', 'exercise/']) {
+      for (let suffix of ['.js', '.jsx', '.ts', '.tsx']) {
+        const entryRequest = `./${step}/${prefix}src/index${suffix}`;
+        if (fs.existsSync(entryRequest)) {
+          yield entryRequest;
+        }
       }
     }
   }
+
   return false;
 }
 
-fs.readdirSync('./').filter(entry => {
-  const entryPoint = getEntryPoint(entry);
-
-  if (entryPoint) {
-    entries[entry] = entryPoint;
+fs.readdirSync('./').filter(step => {
+  for (let entryPoint of getEntryPoint(step)) {
+    if (entryPoint) {
+      entries[entryPoint.replace(/\/src\/index.*/, '').replace(/^\.\//, '')] = entryPoint;
+    }
   }
 });
 
