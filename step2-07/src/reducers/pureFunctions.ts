@@ -32,3 +32,18 @@ export function complete(state: Store, id: string) {
     todos: newTodos
   };
 }
+
+export function clear(state: Store) {
+  const newTodos = {};
+
+  Object.keys(state.todos).forEach(key => {
+    if (!state.todos[key].completed) {
+      newTodos[key] = state.todos[key];
+    }
+  });
+
+  return {
+    ...state,
+    todos: newTodos
+  };
+}
