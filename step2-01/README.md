@@ -25,6 +25,8 @@ Please complete all exercises inside the `exercise/src` folder unless otherwise 
 
 3. Inside the file from (step 2), write a function called `fib(n)` that takes in a number and returns a the n-th Fibonacci number - be sure the specify the type of n
 
+> HINT: fib(n) = fib(n - 1) + fib(n - 2); fib(n <= 1) = n;
+
 4. Export `fib(n)` as a **named export**
 
 5. Export another const variable as a **default export**
