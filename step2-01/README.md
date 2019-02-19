@@ -1,6 +1,4 @@
-# Step 2.1
-
-## Introduction to Typescript
+# Step 2.1: Introduction to Typescript
 
 In this exercise, we'll cover enough of the Typescript concepts to be productive with the React & Redux frameworks.
 
@@ -13,11 +11,11 @@ Topics in this Exercise will include:
 - Spread and Destructuring
 - Async / Await
 
-## Exercise
+# Exercise
 
 Please complete all exercises inside the `exercise/src` folder unless otherwise specified in the exercises below. First, open up [Step2-01 exercise page](http://localhost:8080/step2-01/exercise/) to see the results while you're implementing things.
 
-### Modules
+## Modules
 
 1. Open up file called `index.ts` in VS Code
 
@@ -33,7 +31,7 @@ Please complete all exercises inside the `exercise/src` folder unless otherwise 
 
 6. Import both the modules created in steps (4) and (5) and use the provided `log()` function to log it onto the page.
 
-### Types, Interfaces, and Classes
+## Types, Interfaces, and Classes
 
 Create inside `index.ts`:
 
@@ -43,7 +41,7 @@ Create inside `index.ts`:
 
 3. describe an object type with an interface
 
-### Generic
+## Generic
 
 Inside `index.ts`, create a generic class for a `Stack<T>` complete with a typed `pop()` and `push()` methods
 
@@ -51,7 +49,7 @@ Hint: the Javascript array already has `push()` and `pop()` implemented for you.
 
 Be sure to use the provided `log()` to show the functionality of `Stack<T>`
 
-### Spread and Destructure
+## Spread and Destructure
 
 1. Note the following code in index.ts:
 
@@ -74,7 +72,7 @@ const obj2 = {
 
 3. Using the destructuring syntax to retrieve the values for `{first, second, catcher}` from this new object created in step (2).
 
-### Async / Await
+## Async / Await
 
 1. Note the following code in index.ts:
 

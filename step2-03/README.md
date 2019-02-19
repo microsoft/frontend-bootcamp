@@ -1,4 +1,4 @@
-# Step 2.3
+# Step 2.3: Theming and Styling
 
 Theming and Styling with UI Fabric. In this section, we will illustrate how to utilize some of the built-in theming and styling features right inside UI Fabric component library. UI Fabric exposes its own css-in-js library called `mergeStyles` that is very performant compared with other similar libraries.
 
@@ -18,7 +18,7 @@ with:
 import { TeamsCustomizations } from '@uifabric/theme-samples';
 ```
 
-## Themes - Using Predefined Theme
+## Themes - Customized Theme
 
 Create your own theme and apply the color here: https://developer.microsoft.com/en-us/fabric#/styles/themegenerator
 

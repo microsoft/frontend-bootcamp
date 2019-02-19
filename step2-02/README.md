@@ -1,4 +1,4 @@
-# Step 2.2
+# Step 2.2: UI Fabric Component Library
 
 UI Fabric is a Component Library that is developed to reflect the latest Microsoft design language. It is used in many Microsoft web applications and is developed in the open:
 
