@@ -6,7 +6,7 @@ import { TodoList } from './TodoList';
 import { Store } from '../store';
 
 // TODO: Change me to another theme!
-import { AzureCustomizationsLight } from '@uifabric/azure-themes';
+import { TeamsCustomizations } from '@uifabric/theme-samples';
 
 let index = 0;
 
@@ -26,7 +26,7 @@ export class TodoApp extends React.Component<any, Store> {
   render() {
     const { filter, todos } = this.state;
     return (
-      <Customizer {...AzureCustomizationsLight}>
+      <Customizer {...TeamsCustomizations}>
         <Stack horizontalAlign="center">
           <Stack style={{ width: 400 }} gap={25} className={className}>
             <TodoHeader addTodo={this._addTodo} setFilter={this._setFilter} filter={filter} />
