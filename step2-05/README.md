@@ -16,6 +16,6 @@ From the official documentation site:
 
 2. Open `exercise/src/reducers/pureFunctions.ts` and fill in the missing body of the pure functions.
 
-3. Open `exercise/src/reducers/index.ts` and observe how those pureFunctions are called.
+3. Open `exercise/src/reducers/index.ts` and fill in the missing case statements for the switch of `action.type`.
 
 4. Open `exercise/src/reducers/pureFunctions.spec.ts` and implement tests for the functions you wrote for `remove`, `complete`, and `clear`.
