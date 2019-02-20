@@ -3,7 +3,6 @@ import { Stack, Customizer, mergeStyles, getTheme } from 'office-ui-fabric-react
 import { TodoFooter } from './TodoFooter';
 import { TodoHeader } from './TodoHeader';
 import { TodoList } from './TodoList';
-import { Store } from '../store';
 import { FluentCustomizations } from '@uifabric/fluent-theme';
 
 const className = mergeStyles({
