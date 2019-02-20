@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const entries = {};
 
@@ -59,6 +60,22 @@ module.exports = function() {
           chunks: [entry]
         });
       }),
+      new CopyWebpackPlugin([
+        ...Object.keys(entries).map(entry => {
+          return {
+            from: `${entry}/**/*`,
+            to: path.resolve(__dirname, 'build', entry)
+          };
+        }),
+        {
+          from: 'assets/**/*',
+          to: path.resolve(__dirname, 'build', 'assets')
+        },
+        {
+          from: 'index.html',
+          to: path.resolve(__dirname, 'build')
+        }
+      ]),
       new ForkTsCheckerWebpackPlugin({
         silent: true,
         async: false
@@ -68,8 +85,8 @@ module.exports = function() {
       extensions: ['.tsx', '.ts', '.js']
     },
     output: {
-      filename: '[name]/dist/[name].js',
-      path: path.resolve(__dirname)
+      filename: '[name]/[name].js',
+      path: path.resolve(__dirname, 'build')
     },
     devServer: {
       contentBase: path.resolve(__dirname),
