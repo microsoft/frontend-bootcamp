@@ -30,14 +30,14 @@ export const actionsWithService = {
   complete: (id: string) => {
     return async (dispatch: any, getState: () => Store) => {
       dispatch(actions.complete(id));
-      await service.edit(id, getState().todos[id]);
+      await service.update(id, getState().todos[id]);
     };
   },
 
   clear: () => {
     return async (dispatch: any, getState: () => Store) => {
       dispatch(actions.clear());
-      await service.editBulk(getState().todos);
+      await service.updateAll(getState().todos);
     };
   }
 };
