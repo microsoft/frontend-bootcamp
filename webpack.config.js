@@ -4,6 +4,7 @@ const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const outPath = path.resolve(__dirname, 'docs');
 
 const entries = {};
 
@@ -64,16 +65,16 @@ module.exports = function() {
         ...Object.keys(entries).map(entry => {
           return {
             from: `${entry}/src/**/*`,
-            to: path.resolve(__dirname, 'build')
+            to: outPath
           };
         }),
         {
           from: 'assets/**/*',
-          to: path.resolve(__dirname, 'build')
+          to: outPath
         },
         {
           from: 'index.html',
-          to: path.resolve(__dirname, 'build')
+          to: outPath
         }
       ]),
       new ForkTsCheckerWebpackPlugin({
@@ -86,7 +87,7 @@ module.exports = function() {
     },
     output: {
       filename: '[name]/[name].js',
-      path: path.resolve(__dirname, 'build')
+      path: outPath
     },
     devServer: {
       contentBase: path.resolve(__dirname),

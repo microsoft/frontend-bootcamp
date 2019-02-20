@@ -4,4 +4,3 @@ lib
 *.log
 .DS_Store
 tmp.json
-/build
