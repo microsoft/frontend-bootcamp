@@ -32,5 +32,3 @@ log('hello world');
   // Place your code for the async / await exercise here
   // ...
 })();
-
-export default {};
