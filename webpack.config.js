@@ -63,13 +63,13 @@ module.exports = function() {
       new CopyWebpackPlugin([
         ...Object.keys(entries).map(entry => {
           return {
-            from: `${entry}/**/*`,
-            to: path.resolve(__dirname, 'build', entry)
+            from: `${entry}/src/**/*`,
+            to: path.resolve(__dirname, 'build')
           };
         }),
         {
           from: 'assets/**/*',
-          to: path.resolve(__dirname, 'build', 'assets')
+          to: path.resolve(__dirname, 'build')
         },
         {
           from: 'index.html',
