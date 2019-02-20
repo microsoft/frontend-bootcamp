@@ -1,0 +1,23 @@
+aside {
+  float: right;
+  width: 33%;
+  padding: 10px;
+  background: #eee;
+}
+
+form > div {
+  margin-bottom: 20px;
+}
+
+h2 a {
+  color: #0078d4;
+  text-decoration: none;
+}
+
+h2 a:hover {
+  text-decoration: underline;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

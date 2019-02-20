@@ -9,11 +9,17 @@ describe('TodoApp reducers', () => {
 
     const keys = Object.keys(newState);
 
+    // make sure that adding an item would not result in the same instance of state
+    // TODO: uncomment the below to get started
+    /*
+    
     expect(newState).not.toBe(state);
+
     expect(keys.length).toBe(1);
     expect(newState[keys[0]].label).toBe('item1');
     expect(newState[keys[0]].completed).toBeFalsy();
+    */
   });
 
-  // test remove, complete and clear
+  // TODO: test remove, complete and clear
 });

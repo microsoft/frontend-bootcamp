@@ -1,0 +1,46 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 400px;
+  margin: 20px auto;
+}
+h1 {
+  text-align: center;
+}
+
+.textfield {
+  width: 80%;
+}
+
+.add {
+  margin-left: 5%;
+}
+
+.button {
+  border: none;
+  padding: 5px 10px;
+}
+
+.filter {
+  margin: 10px 0 0;
+}
+
+.filter button {
+  background: transparent;
+  border: none;
+}
+.filter .active {
+  border-bottom: 2px solid blue;
+}
+
+.todos {
+  list-style: none;
+  padding: 0;
+}
+
+footer {
+  display: flex;
+}
+
+footer span {
+  flex-grow: 1;
+}

@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const outPath = path.resolve(__dirname, 'docs');
 
 const entries = {};
+const nonWebpackedEntries = [];
 
 function* getEntryPoint(step) {
   if (step.includes('step') || step.includes('playground')) {
@@ -24,10 +25,17 @@ function* getEntryPoint(step) {
 }
 
 fs.readdirSync('./').filter(step => {
+  let isEntryPoint = false;
+
   for (let entryPoint of getEntryPoint(step)) {
     if (entryPoint) {
       entries[entryPoint.replace(/\/src\/index.*/, '').replace(/^\.\//, '')] = entryPoint;
+      isEntryPoint = true;
     }
+  }
+
+  if (!isEntryPoint && step.includes('step')) {
+    nonWebpackedEntries.push(step);
   }
 });
 
@@ -75,7 +83,8 @@ module.exports = function() {
         {
           from: 'index.html',
           to: outPath
-        }
+        },
+        ...nonWebpackedEntries.map(entry => ({ from: `${entry}/**/*`, to: outPath }))
       ]),
       new ForkTsCheckerWebpackPlugin({
         silent: true,
