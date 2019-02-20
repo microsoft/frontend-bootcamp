@@ -11,7 +11,7 @@ export async function add(id: string, todo: TodoItem) {
   return await response.json();
 }
 
-export async function edit(id: string, todo: TodoItem) {
+export async function update(id: string, todo: TodoItem) {
   const response = await fetch(`${HOST}/todos/${id}`, {
     method: 'put',
     headers: { 'content-type': 'application/json' },
@@ -37,7 +37,7 @@ export async function getAll() {
   return await response.json();
 }
 
-export async function editBulk(todos: Store['todos']) {
+export async function updateAll(todos: Store['todos']) {
   const response = await fetch(`${HOST}/todos`, {
     method: 'post',
     headers: { 'content-type': 'application/json' },
