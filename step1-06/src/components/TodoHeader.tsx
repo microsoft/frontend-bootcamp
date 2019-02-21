@@ -8,7 +8,7 @@ export class TodoHeader extends React.Component<any, any> {
       <header>
         <h1>todos</h1>
         <div className="addTodo">
-          <input className="textfield" placeholder="add todo" />
+          <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
           <button className="submit">Add</button>
         </div>
         <nav className="filter">
@@ -19,4 +19,12 @@ export class TodoHeader extends React.Component<any, any> {
       </header>
     );
   }
+  _onChange = evt => {
+    this.setState({ labelInput: evt.target.value });
+  };
+
+  _onAdd = () => {
+    console.log(this.state.labelInput);
+    this.setState({ labelInput: '' });
+  };
 }

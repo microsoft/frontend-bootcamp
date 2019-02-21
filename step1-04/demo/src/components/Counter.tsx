@@ -1,23 +1,25 @@
 import React from 'react';
 import { Button } from './Button';
 
-export class Counter extends React.Component<any, any> {
+export class Counter extends React.Component<{ text: string }, { counter: number }> {
   constructor(props) {
     super(props);
     this.state = {
-      counter: props.start
+      counter: 0
     };
   }
   render() {
+    const { counter } = this.state;
+    const { text } = this.props;
     return (
       <div>
-        <span> {this.state.counter} </span>
+        {text}: {counter}
         <Button
           onClick={() => {
-            this.setState({ counter: this.state.counter + 1 });
+            this.setState({ counter: counter + 1 });
           }}
         >
-          Click Me
+          Click
         </Button>
       </div>
     );
