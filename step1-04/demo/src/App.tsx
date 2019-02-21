@@ -6,7 +6,8 @@ export class App extends React.Component {
     return (
       <div>
         <h2>My App</h2>
-        <Counter start={2} />
+        <Counter text="Chickens" />
+        <Counter text="Ducks" />
       </div>
     );
   }

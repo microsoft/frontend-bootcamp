@@ -1,0 +1,15 @@
+.Button {
+  display: block;
+  background: #0078d4;
+  color: white;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+}
+.Button:hover {
+  background: #005a9e;
+}
+
+.Button:active {
+  background: #004578;
+}

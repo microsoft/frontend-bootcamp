@@ -9,10 +9,11 @@ already done
 
 Walk through 'addTodo'
 attach addTodo to button
-write clearInput/add to addTodo
+write clearInput
 write updateRemaining
 
 ## Exercise
 
+add filter to filter buttons
 write clearCompleted
 add to footer button

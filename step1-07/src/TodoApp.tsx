@@ -2,10 +2,11 @@ import React from 'react';
 import { TodoFooter } from './components/TodoFooter';
 import { TodoHeader } from './components/TodoHeader';
 import { TodoList } from './components/TodoList';
+import { Todos, FilterTypes } from './TodoApp.types';
 
 let index = 0;
 
-export class TodoApp extends React.Component<any, any> {
+export class TodoApp extends React.Component<any, { todos: Todos; filter: FilterTypes }> {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,6 +26,8 @@ export class TodoApp extends React.Component<any, any> {
     );
   }
 
+  // business logic
+
   private _addTodo = label => {
     const { todos } = this.state;
     const id = index++;
@@ -34,27 +37,9 @@ export class TodoApp extends React.Component<any, any> {
     });
   };
 
-  private _remove = id => {
-    const newTodos = { ...this.state.todos };
-    delete newTodos[id];
-
-    this.setState({
-      todos: newTodos
-    });
-  };
-
   private _complete = id => {
     const newTodos = { ...this.state.todos };
     newTodos[id].completed = !newTodos[id].completed;
-
-    this.setState({
-      todos: newTodos
-    });
-  };
-
-  private _edit = (id, label) => {
-    const newTodos = { ...this.state.todos };
-    newTodos[id] = { ...newTodos[id], label };
 
     this.setState({
       todos: newTodos

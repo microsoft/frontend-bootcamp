@@ -11,7 +11,7 @@ const nonWebpackedEntries = [];
 
 function* getEntryPoint(step) {
   if (step.includes('step') || step.includes('playground')) {
-    for (let prefix of ['', 'demo/', 'exercise/']) {
+    for (let prefix of ['', 'demo/', 'exercise/', 'final/']) {
       for (let suffix of ['.js', '.jsx', '.ts', '.tsx']) {
         const entryRequest = `./${step}/${prefix}src/index${suffix}`;
         if (fs.existsSync(entryRequest)) {

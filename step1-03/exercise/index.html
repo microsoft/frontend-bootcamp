@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>todos</h1>
+      <div class="addTodo">
+        <input class="textfield" placeholder="add todo" />
+        <button onclick="addTodo()" class="submit add">Add</button>
+      </div>
+      <nav class="filter">
+        <button class="active">all</button>
+        <button>active</button>
+        <button>completed</button>
+      </nav>
+    </header>
+
+    <ul class="todos">
+      <li class="todo">
+        <label><input type="checkbox" /> <span class="title"> Todo 1 </span></label>
+      </li>
+      <li class="todo">
+        <label><input type="checkbox" /> <span class="title"> Todo 2 </span></label>
+      </li>
+      <li class="todo">
+        <label><input type="checkbox" /> <span class="title"> Todo 3 </span></label>
+      </li>
+      <li class="todo">
+        <label><input type="checkbox" /> <span class="title"> Todo 4 </span></label>
+      </li>
+    </ul>
+    <footer>
+      <span><span class="remaining">4</span> items left</span>
+      <button class="submit">Clear Completed</button>
+    </footer>
+  </body>
+
+  <script type="text/javascript">
+    function getTodoText() {
+      return document.querySelector('.textfield').value;
+    }
+
+    function clearInput() {
+      document.querySelector('.textfield').value = '';
+    }
+
+    function updateRemaining() {
+      const remaining = document.querySelector('.remaining');
+      const todos = document.querySelectorAll('.todo').length;
+      remaining.innerText = todos;
+    }
+
+    function addTodo() {
+      const todo = document.querySelector('.todo');
+      const newTodo = todo.cloneNode(true);
+      newTodo.querySelector('.title').innerText = getTodoText();
+      todo.parentElement.insertBefore(newTodo, todo);
+
+      clearInput();
+      updateRemaining();
+    }
+
+    // clearCompleted
+
+    function filter(scope, button) {
+      document.querySelector('.active').classList.remove('active');
+      button.classList.add('active');
+      for (let todo of document.querySelectorAll('.todo')) {
+        const checked = todo.querySelector('input').checked == true;
+        if (scope == 'all') {
+          todo.hidden = false;
+        } else if (scope == 'active') {
+          todo.hidden = checked;
+        } else if (scope == 'completed') {
+          todo.hidden = !checked;
+        }
+      }
+    }
+  </script>
+</html>
