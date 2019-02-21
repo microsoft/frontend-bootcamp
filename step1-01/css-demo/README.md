@@ -1,11 +1,49 @@
-/* https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors */
+## CSS Demo
 
+### CSS Properties
+
+Now that we've gone over adding HTML tags to the page, lets cover adding styles to those tags. We can do quite a lot with styles! We can change:
+
+- Typography
+- Colors
+- Appearance (Corners, Borders, Decorations)
+- Layout
+- Position
+- Inline vs Block
+- Animations
+- and [many more](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+
+CSS is always applied in `property: value` pairs, like `background: blue;` and are terminated with a semi colon.
+
+### Applying CSS to an HTML file
+
+CSS can be applied to HTML tags in three different ways.
+
+1. Inline - Styles are applied directly to the HTML tag
+
+- `<div style="background: blue; color: white;">Hello </div>`
+
+2. Via a `<style>` tag in the HTML page
+3. Through an externally loaded CSS file
+
+- `<link rel="stylesheet" href="./css-demo-finished.css" />`
+
+### Targeting specific HTML tags
+
+Inline styles are always applied directly to the element you place them on, style tags and external CSS files need a method for matching HTML elements with their prospective style sets. We call these "selectors", and they are just as important to learn as the properties/values themselves. Below are a series of selectors and property/value combinations that we'll apply to our CSS Demo page
+
+```css
+/* Targeting the entire page */
 body {
   font: 1.2em sans-serif;
 }
 
+/* Targeting an HTML tag */
 h1 {
+  /* Color name */
   color: black;
+
+  /* 6 digit hex  */
   background: #ababab;
 
   /* Margin: property for each side */
@@ -86,3 +124,4 @@ a ~ a {
 input[type='submit'] {
   margin-top: 10px;
 }
+```

@@ -3,16 +3,18 @@ import React from 'react';
 export class TodoHeader extends React.Component {
   render() {
     return (
-      <div>
+      <header>
         <h1>todos</h1>
-        <input className="textfield" placeholder="add todo" />
-        <button className="button add">Add</button>
-        <div className="filter">
+        <div className="addTodo">
+          <input className="textfield" placeholder="add todo" />
+          <button className="submit">Add</button>
+        </div>
+        <nav className="filter">
           <button className="active">all</button>
           <button>active</button>
           <button>completed</button>
-        </div>
-      </div>
+        </nav>
+      </header>
     );
   }
 }
