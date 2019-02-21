@@ -1,8 +1,8 @@
 # Step 2.1: Introduction to Typescript
 
-In this exercise, we'll cover enough of the Typescript concepts to be productive with the React & Redux frameworks.
+In this step, we'll cover enough of the Typescript concepts to be productive with the React & Redux frameworks.
 
-Topics in this Exercise will include:
+Topics in this step will include:
 
 - ES modules
 - Basic Types
@@ -10,6 +10,8 @@ Topics in this Exercise will include:
 - Basic Generics
 - Spread and Destructuring
 - Async / Await
+
+Have a look at the `demo/src/` files to get a sense of what those are
 
 # Exercise
 
