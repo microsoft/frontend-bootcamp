@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="./style.css" />
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
   <body>
-    <h1>todos</h1>
-    <input class="textfield" placeholder="add todo" />
-    <button onclick="addTodo()" class="button add">
-      Add
-    </button>
-    <div class="filter">
-      <button onclick="filter('all', this)" class="active">all</button>
-      <button onclick="filter('active', this)">active</button>
-      <button onclick="filter('completed', this)">completed</button>
-    </div>
+    <header>
+      <h1>todos</h1>
+      <div class="addTodo">
+        <input class="textfield" placeholder="add todo" />
+        <button onclick="addTodo()" class="submit add">Add</button>
+      </div>
+      <nav class="filter">
+        <button onclick="filter('all', this)" class="active">all</button>
+        <button onclick="filter('active', this)">active</button>
+        <button onclick="filter('completed', this)">completed</button>
+      </nav>
+    </header>
+
     <ul class="todos">
       <li class="todo">
-        <label><input type="checkbox" /> Todo 1</label>
+        <label><input type="checkbox" /> <span class="title"> Todo 1 </span></label>
       </li>
       <li class="todo">
-        <label><input type="checkbox" /> Todo 2</label>
+        <label><input type="checkbox" /> <span class="title"> Todo 2 </span></label>
       </li>
       <li class="todo">
-        <label><input type="checkbox" /> Todo 3</label>
+        <label><input type="checkbox" /> <span class="title"> Todo 3 </span></label>
       </li>
       <li class="todo">
-        <label><input type="checkbox" /> Todo 4</label>
+        <label><input type="checkbox" /> <span class="title"> Todo 4 </span></label>
       </li>
     </ul>
     <footer>
@@ -33,13 +38,12 @@
   </body>
 
   <script type="text/javascript">
-    function getValue(selector) {
-      const inputValue = document.querySelector(selector).value;
-      return inputValue;
+    function getTodoText() {
+      return document.querySelector('.textfield').value;
     }
 
-    function clearInput(selector) {
-      document.querySelector(selector).value = '';
+    function clearInput() {
+      document.querySelector('.textfield').value = '';
     }
 
     function updateRemaining() {
@@ -50,11 +54,11 @@
 
     function addTodo() {
       const todo = document.querySelector('.todo');
-      const newTodo = todo.cloneNode();
-      newTodo.innerHTML = `<label><input type="checkbox" /> ${getValue('.textfield')}</label>`;
+      const newTodo = todo.cloneNode(true);
+      newTodo.querySelector('.title').innerText = getTodoText();
       todo.parentElement.insertBefore(newTodo, todo);
 
-      clearInput('.textfield');
+      clearInput();
       updateRemaining();
     }
 

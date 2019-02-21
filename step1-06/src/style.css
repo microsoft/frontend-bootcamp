@@ -1,21 +1,23 @@
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 400px;
   margin: 20px auto;
 }
+
 h1 {
   text-align: center;
 }
 
+.addTodo {
+  display: flex;
+}
+
 .textfield {
-  width: 80%;
+  flex-grow: 1;
+  margin-right: 10px;
 }
 
-.add {
-  margin-left: 5%;
-}
-
-.button {
+.submit {
   border: none;
   padding: 5px 10px;
 }
@@ -28,6 +30,7 @@ h1 {
   background: transparent;
   border: none;
 }
+
 .filter .active {
   border-bottom: 2px solid blue;
 }
@@ -43,8 +46,4 @@ footer {
 
 footer span {
   flex-grow: 1;
-}
-
-.hidden {
-  display: none;
 }

@@ -16,13 +16,15 @@ export class TodoHeader extends React.Component<TodoHeaderProps, any> {
   render() {
     const { filter, setFilter } = this.props;
     return (
-      <div>
+      <header>
         <h1>todos</h1>
-        <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
-        <button onClick={this._onAdd} className="button add">
-          Add
-        </button>
-        <div className="filter">
+        <div className="addTodo">
+          <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
+          <button onClick={this._onAdd} className="submit">
+            Add
+          </button>
+        </div>
+        <nav className="filter">
           <button onClick={() => setFilter('all')} className={filter == 'all' ? 'active' : ''}>
             all
           </button>
@@ -32,8 +34,8 @@ export class TodoHeader extends React.Component<TodoHeaderProps, any> {
           <button onClick={() => setFilter('completed')} className={filter == 'completed' ? 'active' : ''}>
             completed
           </button>
-        </div>
-      </div>
+        </nav>
+      </header>
     );
   }
 
