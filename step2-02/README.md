@@ -15,10 +15,16 @@ https://developer.microsoft.com/en-us/fabric/#/components
 
 # Exercise
 
-- Open up the TSX files inside `components/`
-- Replace the DOM tags with Fabric components in those TSX files with these components:
-  - Stack
-  - DefaultButton
-  - Checkbox
-  - TextField
-  - Pivot (for the filter)
+1. Open up the Documentation for DefaultButton here:
+2. Open up the TSX files inside `components/`
+3. Replace the DOM tags with Fabric components in those TSX files with these components:
+
+- Stack
+- DefaultButton
+- Checkbox
+- TextField
+- Pivot (for the filter)
+
+# Bonus Exercise
+
+GO WILD! There are so many components from the Fabric library! Try to put some components in the exercise component files.
