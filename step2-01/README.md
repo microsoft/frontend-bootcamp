@@ -1,8 +1,8 @@
 # Step 2.1: Introduction to Typescript
 
-In this exercise, we'll cover enough of the Typescript concepts to be productive with the React & Redux frameworks.
+In this step, we'll cover enough of the Typescript concepts to be productive with the React & Redux frameworks.
 
-Topics in this Exercise will include:
+Topics in this step will include:
 
 - ES modules
 - Basic Types
@@ -10,6 +10,123 @@ Topics in this Exercise will include:
 - Basic Generics
 - Spread and Destructuring
 - Async / Await
+
+## Modules
+
+Historically, JS is only executed in browser. The code all had to be loaded from `<script>` tags. Since the introduction of node.js, the JS community needed a way to scale beyond just single script files. Other language support the notion of modules. There are many JS modularity standards today.
+
+The most important ones to know about are:
+
+- commonjs - Node.js's standard to support modules
+  - synchronous
+  - require() function, can be dynamically called in the course of a program
+- ESM (Ecmascript module) - language level support
+  - statically analyzable and synchronous
+  - dynamic and asynchronous support via `import()` that returns a promise
+
+## Typescript Types
+
+Refer to the `demo/src` for some examples of some of the types avaible in TS that benefits a React developer.
+
+## Spread Syntax
+
+Spread syntax allows for quick way to clone and concatenate objects and arrays. This syntax is seen a lot inside React props and Redux reducers.
+
+To shallow copy something:
+
+```ts
+const cloned = { ...obj };
+```
+
+To shallow copy and add / overwrite a key:
+
+```ts
+const overridden = { ...obj, key: value };
+```
+
+You can have an expression to calculate this key if it is dynamic:
+
+```ts
+const overridden = { ...object, [key + '-suffix']: value };
+```
+
+## Destructuring
+
+Destructuring is a concise way to take properties out of an object or array:
+
+```ts
+const obj = { foo: 1, bar: 2 };
+const { foo, bar } = obj;
+// foo = 1, bar = 2
+```
+
+Same thing for array:
+
+```ts
+const arr = [1, 2];
+const [foo, bar] = arr;
+// foo = 1, bar = 2
+```
+
+You can separate an item and the rest of the object with destructuring:
+
+```ts
+const obj = { a: 1, b: 2, c: 3, d: 4 };
+const { a, ...rest } = obj;
+// a = 1, rest = {b: 2, c: 3, d: 4}
+```
+
+# Promise
+
+A promise is an object that represent work that will be completed later, asynchronously. It is a chainable so writing async code is maintainable. Typically legacy async code uses callback to let the caller have control over what to do after the task has been completed.
+
+```ts
+const aPromise = new Promise((resolve, reject) => {
+  // do something async and call resolve() to let promise know it is done
+
+  setTimeout(() => {
+    // setTimeout will call this method after 1s, simulating async operation like network calls
+    resolve();
+  }, 1000);
+});
+```
+
+The promise object exposes a `then()` function that is chainable. `catch()` is present that catches all exceptions or `reject()` calls:
+
+```ts
+const aPromise = Promise.resolve('hello world'); /* ... just an example promise */
+
+aPromise
+  .then(result => {
+    return makeAnotherPromise();
+  })
+  .then(result => {
+    return makeYetAnotherPromise();
+  })
+  .catch(err => {
+    console.error(err);
+  });
+```
+
+# Async / Await
+
+This syntax is inspired heavily by C#'s async / await syntax. To write an async function write it like this:
+
+```ts
+async function someFunctionAsync() {
+  // Inside here, we can await on other async functions
+  const result = await someOtherFunctionAsync();
+  return result + ' hello';
+}
+```
+
+All functions that are marked `async` return a `Promise` automatically. This previous example returned a `Promise<string>`, and can be used like this:
+
+```ts
+someFunctionAsync().then(result => {
+  console.log(result);
+});
+```
 
 # Exercise
 
