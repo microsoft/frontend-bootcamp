@@ -31,7 +31,7 @@ h1 {
   border: none;
 }
 
-.filter .active {
+.filter .selected {
   border-bottom: 2px solid blue;
 }
 

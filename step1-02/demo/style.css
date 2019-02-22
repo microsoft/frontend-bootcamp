@@ -31,6 +31,10 @@ h1 {
   border: none;
 }
 
+.selected {
+  border-bottom: 2px solid blue;
+}
+
 .todos {
   list-style: none;
   padding: 0;

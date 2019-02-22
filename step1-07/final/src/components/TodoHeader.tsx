@@ -25,13 +25,13 @@ export class TodoHeader extends React.Component<TodoHeaderProps, any> {
           </button>
         </div>
         <nav className="filter">
-          <button onClick={() => setFilter('all')} className={filter == 'all' ? 'active' : ''}>
+          <button onClick={() => setFilter('all')} className={filter == 'all' ? 'completed' : ''}>
             all
           </button>
-          <button onClick={() => setFilter('active')} className={filter == 'active' ? 'active' : ''}>
+          <button onClick={() => setFilter('active')} className={filter == 'active' ? 'completed' : ''}>
             active
           </button>
-          <button onClick={() => setFilter('completed')} className={filter == 'completed' ? 'active' : ''}>
+          <button onClick={() => setFilter('completed')} className={filter == 'completed' ? 'completed' : ''}>
             completed
           </button>
         </nav>

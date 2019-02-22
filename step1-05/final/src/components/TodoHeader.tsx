@@ -10,7 +10,7 @@ export class TodoHeader extends React.Component {
           <button className="submit">Add</button>
         </div>
         <nav className="filter">
-          <button className="active">all</button>
+          <button className="completed">all</button>
           <button>active</button>
           <button>completed</button>
         </nav>

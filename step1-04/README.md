@@ -9,4 +9,4 @@ write index.html
 demo 'hello world'
 
 Write Counter Component with button
-Demo Button, import into Component
+Demo Button, import into Counter
