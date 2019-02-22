@@ -8,10 +8,10 @@
       <h1>todos</h1>
       <div class="addTodo">
         <input class="textfield" placeholder="add todo" />
-        <button onclick="addTodo()" class="submit add">Add</button>
+        <button onclick="addTodo()" class="submit">Add</button>
       </div>
       <nav class="filter">
-        <button class="active">all</button>
+        <button class="selected">all</button>
         <button>active</button>
         <button>completed</button>
       </nav>
@@ -64,16 +64,16 @@
 
     // clearCompleted
 
-    function filter(scope, button) {
-      document.querySelector('.active').classList.remove('active');
-      button.classList.add('active');
+    function filter(filterName, button) {
+      document.querySelector('.selected').classList.remove('selected');
+      button.classList.add('selected');
       for (let todo of document.querySelectorAll('.todo')) {
         const checked = todo.querySelector('input').checked == true;
-        if (scope == 'all') {
+        if (filterName == 'all') {
           todo.hidden = false;
-        } else if (scope == 'active') {
+        } else if (filterName == 'active') {
           todo.hidden = checked;
-        } else if (scope == 'completed') {
+        } else if (filterName == 'completed') {
           todo.hidden = !checked;
         }
       }

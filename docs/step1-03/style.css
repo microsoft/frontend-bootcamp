@@ -1,5 +1,5 @@
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 400px;
   margin: 20px auto;
 }
@@ -28,7 +28,7 @@ h1 {
   background: transparent;
   border: none;
 }
-.filter .active {
+.filter .selected {
   border-bottom: 2px solid blue;
 }
 

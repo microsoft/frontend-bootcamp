@@ -1,9 +1,14 @@
 import React from 'react';
+import { FilterTypes } from '../TodoApp.types';
 
 export class TodoHeader extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = { labelInput: '' };
+  }
+
   render() {
     const { filter } = this.props;
-
     return (
       <header>
         <h1>todos</h1>
@@ -12,19 +17,15 @@ export class TodoHeader extends React.Component<any, any> {
           <button className="submit">Add</button>
         </div>
         <nav className="filter">
-          <button className={filter == 'all' ? 'active' : ''}>all</button>
-          <button className={filter == 'active' ? 'active' : ''}>active</button>
-          <button className={filter == 'completed' ? 'active' : ''}>completed</button>
+          <button className={filter == 'all' ? 'completed' : ''}>all</button>
+          <button className={filter == 'active' ? 'completed' : ''}>active</button>
+          <button className={filter == 'completed' ? 'completed' : ''}>completed</button>
         </nav>
       </header>
     );
   }
+
   _onChange = evt => {
     this.setState({ labelInput: evt.target.value });
-  };
-
-  _onAdd = () => {
-    console.log(this.state.labelInput);
-    this.setState({ labelInput: '' });
   };
 }

@@ -8,7 +8,7 @@ export class TodoHeader extends React.Component {
         <input className="textfield" placeholder="add todo" />
         <button className="button add">Add</button>
         <div className="filter">
-          <button className="active">all</button>
+          <button className="completed">all</button>
           <button>active</button>
           <button>completed</button>
         </div>
