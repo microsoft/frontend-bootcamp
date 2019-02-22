@@ -1,13 +1,20 @@
 import { square } from '.';
+import { multiply } from './multiply';
+
+// Mocked here by jest for the entire test module file
+jest.mock('./multiply');
 
 describe('jest example', () => {
   beforeEach(() => {
     jest.resetModules();
   });
 
-  it('should be able to give the square of two numbers', () => {
-    console.log('test');
-    expect(square(5)).toBe(25);
+  it('should be passing in the multiple two of the same number', () => {
+    square(5);
+
+    // .toBeCalledTimes() and .toBeCalledWith() only work on mocks - we mocked the multiply function from the
+    expect(multiply).toBeCalledTimes(1);
+    expect(multiply).toBeCalledWith(5, 5);
   });
 
   it('should increment counter', () => {
