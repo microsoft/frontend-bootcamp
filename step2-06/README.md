@@ -4,7 +4,10 @@ Redux: Dispatching Actions and Examining State.
 
 In this step, we learn about `dispatch` and `getState()`. Dispatching action messages to the store is the only means by which to inform the reducers to modify the shared state tree.
 
-We also saw how we may compose the reducers according to the shape
+We also see how we may compose the reducers according to the shape.
+
+If you want a really neat UI to show what the store looks when actions are dispatched to the store, use this Chrome extension:
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 
 # Exercise
 
