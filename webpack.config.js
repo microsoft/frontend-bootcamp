@@ -76,16 +76,18 @@ module.exports = function() {
             to: outPath
           };
         }),
+        ...Object.keys(entries).map(entry => {
+          return {
+            from: `${entry}/../**/*.md`,
+            to: outPath
+          };
+        }),
         {
           from: 'assets/**/*',
           to: outPath
         },
         {
           from: 'index.html',
-          to: outPath
-        },
-        {
-          from: '*.md',
           to: outPath
         },
         ...nonWebpackedEntries.map(entry => ({ from: `${entry}/**/*`, to: outPath }))

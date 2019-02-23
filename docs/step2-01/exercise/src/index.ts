@@ -1,11 +1,3 @@
-const app = document.getElementById('app');
-const textarea = document.createElement('textarea');
-textarea.setAttribute('readonly', 'true');
-app.appendChild(textarea);
-function log(results: string) {
-  textarea.innerText += results;
-}
-
 // Some setup code for exercises
 const obj1 = {
   first: 'who',
@@ -24,11 +16,13 @@ function makePromise() {
   return Promise.resolve(5);
 }
 
-// Do the exercises here, output your results with "log()" function
+// Do the exercises here, output your results with "console.log()" function
 // ...
-log('hello world');
+console.log('hello world');
 
-(async () => {
+async function run() {
   // Place your code for the async / await exercise here
   // ...
-})();
+}
+
+run();
