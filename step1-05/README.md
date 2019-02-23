@@ -1,4 +1,4 @@
-# Thinking In React: Hierarchy and Building a Static Version
+# Building a Static Page
 
 ## Demo
 

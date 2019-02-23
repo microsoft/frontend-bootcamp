@@ -7,6 +7,7 @@ export class TodoHeader extends React.Component<any, any> {
   }
 
   render() {
+    const { filter } = this.props;
     return (
       <header>
         <h1>todos</h1>
