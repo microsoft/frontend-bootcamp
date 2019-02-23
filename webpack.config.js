@@ -78,7 +78,7 @@ module.exports = function(env, argv) {
         }),
         ...Object.keys(entries).map(entry => {
           return {
-            from: `${entry}/../**/*.md`,
+            from: `${entry}/../*.+(md|html)`,
             to: outPath
           };
         }),
