@@ -1,5 +1,7 @@
 # Step 2.3: Theming and Styling
 
+[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+
 Theming and Styling with UI Fabric. In this section, we will illustrate how to utilize some of the built-in theming and styling features right inside UI Fabric component library. UI Fabric exposes its own css-in-js library called `mergeStyles` that is very performant compared with other similar libraries.
 
 A CodePen that illustrates what `mergeStyles` does: https://codepen.io/dzearing/pen/jGdgrE?editors=1011

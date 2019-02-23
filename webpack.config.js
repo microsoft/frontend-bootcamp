@@ -41,7 +41,7 @@ fs.readdirSync('./').filter(step => {
 
 module.exports = function() {
   return {
-    entry: entries,
+    entry: { ...entries, markdownReadme: './markdownReadme/src/index.ts' },
     module: {
       rules: [
         {
@@ -66,7 +66,7 @@ module.exports = function() {
         return new HtmlWebpackPlugin({
           template: path.join(__dirname, entry, 'index.html'),
           filename: `${entry}/index.html`,
-          chunks: [entry]
+          chunks: [entry, 'markdownReadme']
         });
       }),
       new CopyWebpackPlugin([
@@ -82,6 +82,10 @@ module.exports = function() {
         },
         {
           from: 'index.html',
+          to: outPath
+        },
+        {
+          from: '*.md',
           to: outPath
         },
         ...nonWebpackedEntries.map(entry => ({ from: `${entry}/**/*`, to: outPath }))

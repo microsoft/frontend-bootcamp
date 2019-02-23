@@ -1,5 +1,7 @@
 # Step 2.2: UI Fabric Component Library
 
+[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+
 UI Fabric is a Component Library that is developed to reflect the latest Microsoft design language. It is used in many Microsoft web applications and is developed in the open:
 
 https://github.com/officedev/office-ui-fabric-react
@@ -15,7 +17,7 @@ https://developer.microsoft.com/en-us/fabric/#/components
 
 # Exercise
 
-1. Open up the Documentation for DefaultButton here:
+1. Open up the [Documentation for DefaultButton](https://developer.microsoft.com/en-us/fabric/#/components/button)
 2. Open up the TSX files inside `components/`
 3. Replace the DOM tags with Fabric components in those TSX files with these components:
 

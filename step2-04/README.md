@@ -1,5 +1,7 @@
 # Step 2.4
 
+[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+
 Testing Typescript code with jest. jest is a test framework made by Facebook and is very popular in the React and the wider JS ecosystem. We will work on implementing simple unit tests here in this exercise.
 
 https://jestjs.io/

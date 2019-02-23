@@ -1,5 +1,7 @@
 # Step 2.1: Introduction to Typescript
 
+[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+
 In this step, we'll cover enough of the Typescript concepts to be productive with the React & Redux frameworks.
 
 Topics in this step will include:

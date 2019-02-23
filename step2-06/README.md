@@ -1,5 +1,7 @@
 # Step 2.6
 
+[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+
 Redux: Dispatching Actions and Examining State.
 
 In this step, we learn about `dispatch` and `getState()`. Dispatching action messages to the store is the only means by which to inform the reducers to modify the shared state tree.

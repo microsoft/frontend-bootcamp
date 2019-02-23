@@ -1,5 +1,7 @@
 # Step 2.5: Redux: Reducers
 
+[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+
 Redux is an implementation of the Flux architectural pattern:
 
 ![Flux Diagram](../assets/flux.png)

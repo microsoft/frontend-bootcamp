@@ -1,5 +1,7 @@
 # Step 2.9
 
+[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+
 Redux Thunk middleware for actions with service calls. The documentation is here:
 
 https://github.com/reduxjs/redux-thunk

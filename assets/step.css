@@ -1,0 +1,28 @@
+@import url(https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css);
+@import url(./github.css);
+
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  flex: 1;
+  padding: 50px;
+}
+
+#markdownReadme {
+  flex: 1;
+  background: #efefef;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+pre {
+  padding: 15px;
+  border: 1px #999 solid;
+  border-radius: 2px;
+  background-color: white;
+  margin: 15px 0;
+}

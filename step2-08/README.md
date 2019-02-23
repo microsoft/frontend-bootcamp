@@ -1,5 +1,7 @@
 # Step 2.8
 
+[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+
 Combine Reducers
 
 This lesson is just a helper to make the process of writing reducers use less boilerplate code. This step briefly introduces to a world of helpers in writing Redux code.
