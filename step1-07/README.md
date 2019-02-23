@@ -4,7 +4,7 @@ Now that we have a UI that is purely driven by the state of our app, we need to 
 
 > We'll be learning in part 2 of this workshop how we can expose these functions without explicitly passing them down via props
 
-This is our core 'business logic' and handles everything our basic 'CRUD' operations of "Create, Read, Update, Delete". We don't have time to walk through writing all of those functions, but you can see that they are already provided in the demo's `TodoApp.tsx`.
+This is our core 'business logic' and handles everything our basic 'CRUD' operations of "Create, Read, Update, Delete". We don't have time to walk through writing all of those functions, but you can see that they are already provided in the demo's `TodoApp` and passed into our components.
 
 ## Intro to Typescript
 
@@ -24,7 +24,9 @@ Let's dive into the demo and see how Typescript can help us better understand ou
 
 ## Demo
 
-Let's start off in the TodoList, as that has the most data flow, up and down.
+Let's start off in the TodoList, as that has the most data flow, up and down. There isn't any actionable UI in this component as we're simply passing `completed` down to each `TodoListItem`, but we can write a component interface to make sure that everything gets passed down properly.
+
+### Writing TodoListProps
 
 Looking at our `TodoApp` we know that `TodoList` has three props, `filter`, `todos`, and `filter`. We'll start by creating and interface that represents this component's props called `TodoListProps`.
 
@@ -137,20 +139,28 @@ export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterT
 
 > Note that the first value in `<>` always refers to props. Since `TodoApp` takes none, we'll set it to an empty object.
 
-## List (open list next to app)
+### Writing TodoListItemProps
 
-Demo TodoApp.types
-Add Types in List
+Jumping down to the TodoListItem, as we start to write the TodoListItemProps we realize that two of the props, `label` and `completed` have already been defined in the `TodoItem` interface in `TodoApp.types`. So in the same way we can reuse individual types (`FilterTypes`), we can reuse, and extend upon entire interfaces.
 
-## App
+```tsx
+interface TodoListItemProps extends TodoItem {
+  id: string;
+  complete: (id: string) => void;
+}
+```
 
-Back to App, add complete={this.\_complete} to Todolist - show types, change complete to 'false', filter
+The end result of this is an interface with all 4 properties, `id`, `complete`, `completed` and `label`.
 
-## List
+Next we can pull in the remaining props:
 
-add complete, pass to item (prop drilling)
+```jsx
+const { label, completed, complete, id } = this.props;
+```
 
-## List Item (move List Item into App window)
+And then use the input's `onChange` event to fire our `complete` callback. We can see in the signature that we expect and `id` of type string, so we'll pass our `id` prop in.
+
+> Note that the function param and prop name just happen to be the same. This isn't required.
 
 TodoListItemProps, extend, id, complete (possible abstraction)
 add props, add complete to List item
