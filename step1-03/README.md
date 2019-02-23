@@ -1,14 +1,15 @@
-## Javascript Demo
+# Javascript Demo
 
 Now that we a UI that looks like a todo app, we need to add functionality to make it **function** like a todo app. In this example we are going to use raw Javascript explicitly modify our application as we interact with it. This will be in stark contrast to the implicit approach we will take when we do this with React in the next exercise.
 
 > Keep an eye on how often user actions directly modify the HTML on the page. You'll see this number drop to zero when we start using React.
 
-### Demo
+## Demo
 
 This demo starts off with a few elements already in place. Let's walk through what's already here.
 
-- **getTodoText()** - This is a quick helper function that returns the value inside of our textfield. Notice how some functions return values and how you can set that return to a variable. Other functions return nothing, but rather have side effects.
+- **clearInput()** - This is a generic, reusable function that takes in a `selector` paramater, finds the first matching element, and sets the element's value to an empty string. This direct modification is called a side effect.
+- **getTodoText()** - This is a quick helper function that returns the value inside of our textfield. Notice how some functions return values and how you can set that return to a variable.
 - **addTodo()** - This is the primary logic of our todo app. Here's how the lines break down.
   1. `todo` is set to equal the first todo item
   2. `newTodo` is a clone of todo. Passing true means it is a deep clone, so we get the todo's children as well. Cloning does not duplicate the DOM node. We'll need to insert it in step 4
@@ -21,13 +22,40 @@ This demo starts off with a few elements already in place. Let's walk through wh
   3. Get all of the todos with [querySelectAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll), and then loop through them.
   4. Set the `hidden` property of each todo based on the filter/state combination
 
-Walk through 'addTodo'
-attach addTodo to button
-write clearInput
-write updateRemaining
+### Triggering functions from click events
+
+Now that we have a working `addTodo` function, we need a way to trigger it when the user is ready. This can be done in two ways.
+
+1. We can find the element with querySelector, then set its `onclick` to our function
+
+```js
+document.querySelector('.addTodo .submit').onclick = addTodo;
+```
+
+2. We can add the function directly to our button in our HTML
+
+```html
+<button onclick="addTodo()" class="submit">Add</button>
+```
+
+Today we'll use #2, as this is the way it will work in React as well.
 
 ## Exercise
 
-add filter to filter buttons
-write clearCompleted
-add to footer button
+### Write updateRemaining function
+
+1. Get a reference to the span with the `remaining` class, and store it in a variable
+2. Use [querySelectAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) to get all of the todos.
+3. Set the `innerText` of the remaining span to the length of those todos.
+4. Add updateRemaining() to addTodo
+
+### Write a clearCompleted function
+
+1. Get a reference to all of the todos with [querySelectAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+2. Use a `for (let todo of todos)` loop to iterate over each todo
+3. Inside the for loop write an `if` statement to test if the `input` inside of the todo has a checked value of true
+   > Hint: you can use querySelector on any HTML node to find child elements within
+4. Call `todo.remove()` for any todo whos input check is true
+5. After the loop is done, run `updateRemaining()`
+6. Attach this function to the footer button
+7. Test it out!

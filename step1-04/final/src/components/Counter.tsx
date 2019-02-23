@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './Button';
 
-export class Counter extends React.Component<{ text: string }, { counter: number }> {
+export class Counter extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
