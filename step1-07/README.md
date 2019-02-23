@@ -109,10 +109,33 @@ interface TodoListProps {
 
 > Note that the `[]` notation does not mean an array, it is a [computed property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) notation.
 
-## app
+Now that our interface is complete, try changing the word 'all' in `filter === all` and see that VS Code will tell you this condition will always be false. Imagine you had a typo in that line and you couldn't understand why your filter wasn't working.
 
-Add Types to TodoApp
-change 'filter' state value to demonstrate
+### Abstracting types
+
+Most of our components are going to need to add types for `todos` and `filter`, so it's a good thing that Typescript allows us to abstract those. I've already written up and exported those shared types in the file `TodoApp.types.ts`, so we just need to import them and pull them into our interface.
+
+```tsx
+import { FilterTypes, Todos } from '../TodoApp.types';
+
+interface TodoListProps {
+  complete: (id: string) => void;
+  todos: Todos;
+  filter: FilterTypes;
+}
+```
+
+### Updating TodoApp
+
+Our `TodoApp` doesn't take any props, but it does have state. We can use Typescript to define that as well.
+
+I've already imported `Todos`, and `FilterTypes` into the `TodoApp`, so we just need to add them to our class. We can even skip the 'interface', if we want to, and add them directly to the class.
+
+```tsx
+export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterTypes }>
+```
+
+> Note that the first value in `<>` always refers to props. Since `TodoApp` takes none, we'll set it to an empty object.
 
 ## List (open list next to app)
 

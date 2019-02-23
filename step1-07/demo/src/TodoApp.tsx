@@ -6,7 +6,7 @@ import { Todos, FilterTypes } from './TodoApp.types';
 
 let index = 0;
 
-export class TodoApp extends React.Component<any, any> {
+export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterTypes }> {
   constructor(props) {
     super(props);
     this.state = {
