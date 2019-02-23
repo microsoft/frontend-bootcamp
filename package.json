@@ -6,7 +6,7 @@
   "scripts": {
     "start:client": "webpack-dev-server --mode development --progress --open",
     "test": "jest --watch",
-    "build": "rimraf docs && webpack --progress",
+    "build": "rimraf docs && webpack --progress --mode production",
     "start:server": "nodemon -w server server/index.js",
     "start": "run-p start:server start:client"
   },

@@ -116,7 +116,6 @@ module.exports = function() {
       inline: true
     },
     stats: 'minimal',
-    mode: 'development',
-    devtool: 'eval'
+    devtool: process.env.NODE_ENV === 'development' ? 'eval' : 'source-map'
   };
 };
