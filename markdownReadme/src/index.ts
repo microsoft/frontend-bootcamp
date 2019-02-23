@@ -1,5 +1,10 @@
 import marked from 'marked';
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
+
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('typescript', typescript);
 
 async function run() {
   const div = document.getElementById('markdownReadme');
