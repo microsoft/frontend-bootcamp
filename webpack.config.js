@@ -39,7 +39,7 @@ fs.readdirSync('./').filter(step => {
   }
 });
 
-module.exports = function() {
+module.exports = function(env, argv) {
   return {
     entry: { ...entries, markdownReadme: './markdownReadme/src/index.ts' },
     module: {
@@ -116,6 +116,6 @@ module.exports = function() {
       inline: true
     },
     stats: 'minimal',
-    devtool: process.env.NODE_ENV === 'development' ? 'eval' : 'source-map'
+    devtool: argv.mode === 'development' ? 'eval' : 'source-map'
   };
 };
