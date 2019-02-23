@@ -12,6 +12,9 @@ interface TodoFooterProps {
 export const TodoFooter = (props: TodoFooterProps) => {
   const itemCount = Object.keys(props.todos).filter(id => !props.todos[id].completed).length;
 
+  // TODO: play around with the DefaultButton component below with a "styles" prop
+  // - try it with an object: styles={{ ... }}
+  // - try it with a function: styles={props => ({ ... })}
   return (
     <Stack horizontal horizontalAlign="space-between">
       <Text>

@@ -152,17 +152,15 @@ Please complete all exercises inside the `exercise/src` folder unless otherwise 
 
 Create inside `index.ts`:
 
-1. a type alias for string union type describing the states of Red-Green-Yellow traffic light
+1. a type alias for string union type describing the states of Red-Green-Yellow traffic light: `type TrafficLight = ???`
 
-2. a class hierarchy of your favorite metaphor (e.g. family, autombiles, animals)
-
-3. describe an object type with an interface
+2. describe a type of car with an interface: `interface Car { ... }`
 
 ## Generic
 
-Inside `index.ts`, create a generic class for a `Stack<T>` complete with a typed `pop()` and `push()` methods
+Inside `stack.ts`, create a generic class for a `Stack<T>` complete with a typed `pop()` and `push()` methods
 
-Hint: the Javascript array already has `push()` and `pop()` implemented for you. That can be your backing store.
+> Hint: the Javascript array already has `push()` and `pop()` implemented for you. That can be your backing store.
 
 Be sure to use the provided `log()` to show the functionality of `Stack<T>`
 

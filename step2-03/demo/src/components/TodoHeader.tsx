@@ -29,9 +29,22 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
 
         <Stack horizontal gap={10}>
           <Stack.Item grow>
-            <TextField placeholder="What needs to be done?" value={this.state.labelInput} onChange={this.onChange} />
+            <TextField
+              placeholder="What needs to be done?"
+              value={this.state.labelInput}
+              onChange={this.onChange}
+              styles={props => ({
+                ...(props.focused && {
+                  field: {
+                    backgroundColor: 'black'
+                  }
+                })
+              })}
+            />
           </Stack.Item>
-          <PrimaryButton onClick={this.onAdd}>Add</PrimaryButton>
+          <PrimaryButton onClick={this.onAdd} styles={{ root: { backgroundColor: 'maroon' }, rootHovered: { background: 'green' } }}>
+            Add
+          </PrimaryButton>
         </Stack>
 
         <Pivot onLinkClick={this.onFilter}>
