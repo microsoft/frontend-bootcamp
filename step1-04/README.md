@@ -29,6 +29,7 @@ export class App extends React.Component {
 - **import React from 'react';** - This is how we [import modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in Javascript. This line creates a variable in this file called `React` that is equal to the default `export` of the `react` npm module.
 - **export class App** - Just like react exports code, our App component is nothing more than an exported "App" class. This allows us to import the class into other files
 - **extends React.Component** - A JavaScript class is similar to other programming languages (it's a collection of methods and properties). Classes can also be extended, so when we create a React component class, we always extend the base React.Component class. Note that this `Component` class is coming from the `React` variable imported up top.
+  > Note that `<any, any>` is necessary for Typescript which we will touch on later
 - **render()** - One of the methods defined by React.Component is the `render()` method. This is a function that defines the HTML the component is going to render.
 - **return** - Remember that functions can return values in addition to side effects, and this component is no different.
 - **Inside of the return?** It's HTML! Actually, it's JSX, but with very few exceptions you can treat it like HTML. A few key differences:
@@ -110,16 +111,99 @@ const { text } = this.props;
 return (
   <div>
     {text}: {counter}
-    <Button
-      onClick={() => {
-        this.setState({ counter: counter + 1 });
-      }}
-    >
-      Click
-    </Button>
+    <button>Click</button>
   </div>
 );
 ```
 
-Write Counter Component with button
-Demo Button, import into Counter
+Each JSX return needs to be a single element, so start with a wrapping `<div>`. Inside of that we can add the `text` we get from `this.props`, then after a colon, the `counter` we pulled in from `this.state`. This will render as the string `My Text Prop: 0`. After that let's add a button we'll use later. For now, we're going to see how we can use this in our app.
+
+#### Updating the App to use Counters
+
+Before we can use our `Counter`, we need to import it into the App file
+
+```js
+import { Counter } from './components/Counter';
+```
+
+Now that we have access to `Counter`, we can add it to the App just as if it were an HTML element.
+
+```jsx
+return (
+  <div>
+    <h2>My App</h2>
+    <Counter text="Chickens" />
+    <Counter text="Ducks" />
+  </div>
+);
+```
+
+> Note the capitalization of Counter. HTML might not be case sensative, but JSX is! A common practice is to use the capitalized versions of HTML elements to name their JSX counterpart. Button, Select, Label, Form etc.
+
+### Exploring Component Props
+
+Now that we've got two Counters on our page, we can see that the string passed into the `text` attribute got passed into our Counter, and rendered on the page. Being able to pass values into controls make them more flexible and reusable. Props can be strings, numbers, booleans, and even arrays and objects.
+
+```jsx
+<MyComponent
+  open={false}
+  count={5}
+  text="Hi there"
+  items={['cat', 'dog', 'bird']}
+  config={{
+    start: 1,
+    end: 10,
+    autoStart: true
+  }}
+/>
+```
+
+> Note that all non string values are passed through as JavaScript by wrapping it in `{}`
+
+### Writing our Button Click
+
+Our next step is to wire up the button to increment the `counter` in our component state. This will very similar to what we did in step 3, but instead of placing the function in a script tag, we can create it as a class method, and keep it out of the global scope.
+
+> By convention we place methods below render, and private methods (those for internal use only) are prefixed with an underscore.
+
+```jsx
+_onButtonCLick = () => {
+  this.setState({ counter: this.state.counter + 1 });
+};
+```
+
+This function will update our component state, incrementing our counter value by 1. Note that setState only affects the values of keys we have listed.
+
+> Note that this isn't exactly a method, but a property that is equal to a [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). This works just as well as `onButtonClick() { }`, but doesn't require extra binding up in the constructor.
+
+Now that we have a function to increment out count, all that we have left is to connect it to our button.
+
+```jsx
+<button onClick={this._onButtonCLick}>Click</button>
+```
+
+> Note the syntax is a bit different than HTML. `onclick="funcName()"` vs `onClick={this.funcName}`
+
+## Bonus: Using a Button component
+
+Buttons are one of the most common components to write. They help abstract common styling, add icons or other decorations, and increase functionality (menu buttons etc). Using an existing Button component is as easy as importing it `import {Button} from './Button';` and replacing `<button></button>` with `<Button></Button>`. Lets take a quick look at button to see how it came together.
+
+```jsx
+import React from 'react';
+import './Button.css';
+
+export const Button = props => {
+  return (
+    <button className="Button" onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
+};
+```
+
+- All controls need to import React (don't worry, only 1 copy ever gets into your app)
+- Importing CSS files into the component means that the CSS is only loaded if the component is used
+- React components can be created as a class **or** as a function. In this function, props are passed in as a function parameter.
+  > Until recently, you could only access state in class based components. But with the advent of [hooks](https://reactjs.org/docs/hooks-intro.html) you can create stateful function components.
+- Since this is a function, we don't have any methods, including `render()`. Just return your JSX as you would in a class based component.
+- `props.children` is anything passed between the opening and closing tags `<Button>I'm children</Button>`
