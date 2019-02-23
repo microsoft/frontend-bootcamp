@@ -1,8 +1,20 @@
 import { Store, FilterTypes } from '../store';
 
+import produce from 'immer';
+
 export function addTodo(state: Store['todos'], id: string, label: string): Store['todos'] {
   return { ...state, [id]: { label, completed: false } };
 }
+
+/* For the bonus exercise
+
+export function addTodo(state: Store['todos'], id: string, label: string): Store['todos'] {
+  return produce(state, draft => {
+    // TODO: implement a simple obj key assignment here
+  });
+}
+
+*/
 
 export function remove(state: Store['todos'], id: string) {
   const newTodos = { ...state };

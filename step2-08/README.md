@@ -4,6 +4,43 @@ Combine Reducers
 
 This lesson is just a helper to make the process of writing reducers use less boilerplate code. This step briefly introduces to a world of helpers in writing Redux code.
 
+Our Redux store so far has this shape, roughly:
+
+```js
+const state = {
+  todos: {
+    id0: {
+      label: 'hello',
+      completed: false
+    },
+    id1: {
+      label: 'world',
+      completed: true
+    }
+  },
+
+  filter: 'all'
+};
+```
+
+As the application grows in complexity, so will the shape of the store. Currently, the store captures two separate but related ideas: the todo items and the selected filter. The reducers should follow the shape of the store. Think of reducers as part of the store itself and are responsible to update a single part of the store based on actions that they receive as a second argument. As complexity of state grows, we split these reducers:
+
+```ts
+function todoReducer(state: Store['todos'] = {}, action: any) {
+  // reduce on the todos part of the state tree
+}
+
+function filterReducer(state: Store['filter'] = 'all', action: any) {
+  // reduce on the filter flag
+}
+
+// Then use the redux-provided combineReducers() to combine them
+export const reducer = combineReducers({
+  todos: todoReducer,
+  filter: filterReducer
+});
+```
+
 # Take a peek at useful helpers and middleware created by community are:
 
 - immer: https://github.com/mweststrate/immer - improves ergonomics of working with immutables by introducing the concept of mutating a draft
