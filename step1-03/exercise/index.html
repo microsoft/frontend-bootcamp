@@ -38,12 +38,12 @@
   </body>
 
   <script type="text/javascript">
-    function getTodoText() {
-      return document.querySelector('.textfield').value;
+    function clearInput(selector) {
+      document.querySelector(selector).value = '';
     }
 
-    function clearInput() {
-      document.querySelector('.textfield').value = '';
+    function getTodoText() {
+      return document.querySelector('.textfield').value;
     }
 
     function updateRemaining() {
@@ -58,7 +58,7 @@
       newTodo.querySelector('.title').innerText = getTodoText();
       todo.parentElement.insertBefore(newTodo, todo);
 
-      clearInput();
+      clearInput('.textfield');
       updateRemaining();
     }
 
