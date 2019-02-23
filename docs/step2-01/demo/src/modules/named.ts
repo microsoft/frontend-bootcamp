@@ -9,4 +9,5 @@ export const namedObj = {
 };
 
 const namedConstBracket = 10;
+
 export { namedConstBracket };

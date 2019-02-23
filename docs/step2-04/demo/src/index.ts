@@ -1,3 +1,5 @@
+import { multiply } from './multiply';
+
 let counter = 0;
 
 export function getCount() {
@@ -13,5 +15,5 @@ export function decrement() {
 }
 
 export function square(x: number) {
-  return x * x;
+  return multiply(x, x);
 }

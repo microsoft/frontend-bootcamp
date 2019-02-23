@@ -94,7 +94,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getCount\", function() { return getCount; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"increment\", function() { return increment; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"decrement\", function() { return decrement; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"square\", function() { return square; });\nvar counter = 0;\nfunction getCount() {\n    return counter;\n}\nfunction increment() {\n    return ++counter;\n}\nfunction decrement() {\n    return --counter;\n}\nfunction square(x) {\n    return x * x;\n}\n\n\n//# sourceURL=webpack:///./step2-04/demo/src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getCount\", function() { return getCount; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"increment\", function() { return increment; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"decrement\", function() { return decrement; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"square\", function() { return square; });\n/* harmony import */ var _multiply__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./multiply */ \"./step2-04/demo/src/multiply.ts\");\n\nvar counter = 0;\nfunction getCount() {\n    return counter;\n}\nfunction increment() {\n    return ++counter;\n}\nfunction decrement() {\n    return --counter;\n}\nfunction square(x) {\n    return Object(_multiply__WEBPACK_IMPORTED_MODULE_0__[\"multiply\"])(x, x);\n}\n\n\n//# sourceURL=webpack:///./step2-04/demo/src/index.ts?");
+
+/***/ }),
+
+/***/ "./step2-04/demo/src/multiply.ts":
+/*!***************************************!*\
+  !*** ./step2-04/demo/src/multiply.ts ***!
+  \***************************************/
+/*! exports provided: multiply */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"multiply\", function() { return multiply; });\nfunction multiply(x, y) {\n    return x * y;\n}\n\n\n//# sourceURL=webpack:///./step2-04/demo/src/multiply.ts?");
 
 /***/ })
 
