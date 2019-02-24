@@ -184,6 +184,8 @@ Now that we have a function to increment out count, all that we have left is to 
 
 > Note the syntax is a bit different than HTML. `onclick="funcName()"` vs `onClick={this.funcName}`
 
+> Also note that each Counter maintains its own state! You can modify the state insde of one without affect the others.
+
 ## Bonus: Using a Button component
 
 Buttons are one of the most common components to write. They help abstract common styling, add icons or other decorations, and increase functionality (menu buttons etc). Using an existing Button component is as easy as importing it `import {Button} from './Button';` and replacing `<button></button>` with `<Button></Button>`. Lets take a quick look at button to see how it came together.

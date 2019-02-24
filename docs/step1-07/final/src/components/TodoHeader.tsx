@@ -7,7 +7,11 @@ interface TodoHeaderProps {
   filter: FilterTypes;
 }
 
-export class TodoHeader extends React.Component<TodoHeaderProps, any> {
+interface TodoHeaderState {
+  labelInput: string;
+}
+
+export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
   constructor(props) {
     super(props);
     this.state = { labelInput: '' };
@@ -25,19 +29,23 @@ export class TodoHeader extends React.Component<TodoHeaderProps, any> {
           </button>
         </div>
         <nav className="filter">
-          <button onClick={() => setFilter('all')} className={filter == 'all' ? 'completed' : ''}>
+          <button onClick={this._onFilter} className={filter == 'all' ? 'selected' : ''}>
             all
           </button>
-          <button onClick={() => setFilter('active')} className={filter == 'active' ? 'completed' : ''}>
+          <button onClick={this._onFilter} className={filter == 'active' ? 'selected' : ''}>
             active
           </button>
-          <button onClick={() => setFilter('completed')} className={filter == 'completed' ? 'completed' : ''}>
+          <button onClick={this._onFilter} className={filter == 'completed' ? 'selected' : ''}>
             completed
           </button>
         </nav>
       </header>
     );
   }
+
+  _onFilter = evt => {
+    this.props.setFilter(evt.target.textContet);
+  };
 
   _onChange = evt => {
     this.setState({ labelInput: evt.target.value });

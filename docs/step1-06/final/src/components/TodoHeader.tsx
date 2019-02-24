@@ -1,6 +1,11 @@
 import React from 'react';
 
 export class TodoHeader extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = { labelInput: '' };
+  }
+  
   render() {
     const { filter } = this.props;
 

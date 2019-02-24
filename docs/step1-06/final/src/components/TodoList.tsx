@@ -11,7 +11,7 @@ export class TodoList extends React.Component<any, any> {
     return (
       <ul className="todos">
         {filteredTodos.map(id => (
-          <TodoListItem key={id} {...todos[id]} />
+          <TodoListItem key={id} id={id} {...todos[id]} />
         ))}
       </ul>
     );

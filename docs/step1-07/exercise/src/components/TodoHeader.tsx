@@ -17,13 +17,17 @@ export class TodoHeader extends React.Component<any, any> {
           <button className="submit">Add</button>
         </div>
         <nav className="filter">
-          <button className={filter == 'all' ? 'completed' : ''}>all</button>
-          <button className={filter == 'active' ? 'completed' : ''}>active</button>
-          <button className={filter == 'completed' ? 'completed' : ''}>completed</button>
+          <button className={filter == 'all' ? 'selected' : ''}>all</button>
+          <button className={filter == 'active' ? 'selected' : ''}>active</button>
+          <button className={filter == 'completed' ? 'selected' : ''}>completed</button>
         </nav>
       </header>
     );
   }
+
+  _onFilter = evt => {
+    this.props.setFilter(evt.target.textContet);
+  };
 
   _onChange = evt => {
     this.setState({ labelInput: evt.target.value });

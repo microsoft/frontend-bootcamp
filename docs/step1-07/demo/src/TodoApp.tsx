@@ -26,8 +26,6 @@ export class TodoApp extends React.Component<any, any> {
     );
   }
 
-  // business logic
-
   private _addTodo = label => {
     const { todos } = this.state;
     const id = index++;
