@@ -2,17 +2,17 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-Redux is an implementation of the Flux architectural pattern:
-
-![Flux Diagram](../assets/flux.png)
-
 Ideally React gives us a mental model of:
 
 ```
 f(data) => view
 ```
 
-And it renders when data changes. However, in the real world, data is shaped like a tree and view is shaped like a tree. They don't always match. There are many approaches to Flux, but Redux promotes the data into a singleton state tree that listens for messages to manipulate the state as appropriate.
+This is fine if the data never changes. However, React exists to deal with data updates via props (immutable) and state (changes based on `setState()` API). In the real world, data is shaped like a tree and view is shaped like a tree. They don't always match.
+
+Facebook invented a the Flux pattern to solve this shared state issue. Redux is an implementation of the Flux architectural pattern. Redux expects the data to be a singleton state tree that listens for messages to manipulate the state as appropriate:
+
+![Flux Diagram](../assets/flux.png)
 
 ## View
 
@@ -43,6 +43,8 @@ A reducer is a **pure function** that receives some state and an action message 
 From the official documentation site:
 
 > Reducers are just pure functions that take the previous state and an action, and return the next state. Remember to return new state objects, instead of mutating the previous state.
+
+**Mental Model**: think of Reducer as part of the store and should have no side effects outside of defining how data can change from one state to next given action messages.
 
 # Exercise
 
