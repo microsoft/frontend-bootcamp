@@ -24,6 +24,7 @@
     "@types/react-redux": "^7.0.0",
     "@types/redux": "^3.6.0",
     "@types/uuid": "^3.4.4",
+    "@types/enzyme": "^3.9.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "css-loader": "^2.1.0",
@@ -47,6 +48,8 @@
   "dependencies": {
     "@uifabric/experiments": "^6.57.0",
     "@uifabric/fluent-theme": "^0.14.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1",
     "express": "^4.16.4",
     "immer": "^1.12.1",
     "office-ui-fabric-react": "^6.140.0",

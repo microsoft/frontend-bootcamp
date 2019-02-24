@@ -1,5 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  setupFiles: ['./jest.setup.js'],
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/docs/']
 };
