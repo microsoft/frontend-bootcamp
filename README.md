@@ -56,7 +56,19 @@ After the project loads in your browser, click on `Step 1 - HTML/CSS/JS`. Then g
    - [Demo](step1-07/demo)
    - [Exercise](step1-07/exercise)
 
-### Day 2
+### Day Two
+
+Demo and Exercises are combined
+
+1. [Introduction to Typescript](step2-01)
+2. [UI Fabric Component Library](step2-02)
+3. [Theming and Styling](step2-03)
+4. [Testing with Jest](step2-04)
+5. [Redux: Reducers](step2-05)
+6. [Redux: Dispatching Actions and Examining State](step2-06)
+7. [Redux: Stores and Dispatch](step2-07)
+8. [Redux: Combining Reducers](step2-08)
+9. [Redux: Thunk Middleware](step2-09)
 
 ### Additional Resources
 
