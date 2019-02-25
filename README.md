@@ -25,8 +25,11 @@ This workshop starts as a very high level introduction to the core principles of
   $ git clone tba
   $ cd bootcamp
   $ npm install
-  $ npm run static // For Day 1, Steps 1-3
-  $ npm start // For the rest of the steps
+  
+  // For Day 1, Steps 1-3
+  $ npm run static 
+  // For the rest of the steps
+  $ npm start 
 ```
 
 ## Table Of Contents
