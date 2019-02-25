@@ -140,3 +140,6 @@ input[type='submit'] {
   margin-top: 10px;
 }
 ```
+## Next Step
+
+[JavaScript Demo](../js-demo)
