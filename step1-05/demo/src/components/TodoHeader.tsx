@@ -2,6 +2,6 @@ import React from 'react';
 
 export class TodoHeader extends React.Component {
   render() {
-    return <div />;
+    return <div>Header</div>;
   }
 }

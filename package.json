@@ -8,7 +8,8 @@
     "test": "jest --watch",
     "build": "rimraf docs && webpack --progress --mode production",
     "start:server": "nodemon -w server server/index.js",
-    "start": "run-p start:server start:client"
+    "start": "run-p start:server start:client",
+    "static": "live-server --host=localhost"
   },
   "keywords": [],
   "author": "",
@@ -51,16 +52,17 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "express": "^4.16.4",
+    "highlight.js": "^9.14.2",
     "immer": "^1.12.1",
+    "live-server": "^1.2.1",
+    "marked": "^0.6.1",
     "office-ui-fabric-react": "^6.140.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
-    "redux-devtools-extension": "^2.13.8",
     "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
     "redux-starter-kit": "^0.4.3",
-    "redux-thunk": "^2.3.0",
-    "marked": "^0.6.1",
-    "highlight.js": "^9.14.2"
+    "redux-thunk": "^2.3.0"
   }
 }
