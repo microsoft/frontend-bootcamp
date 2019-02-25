@@ -18,13 +18,13 @@ Facebook invented a the Flux pattern to solve this shared state issue. Redux is 
 
 These are the React Components that consume the store as its data. There is a special way Redux will map its data from the state tree into the different React Components. The Components will know to re-render when these bits of state are changed.
 
+## Action
+
+Actions are messages that represent some event, such as a user's action or a network request. With the aid of _reducers_, they affect the overall state.
+
 ## Store
 
 This is a singleton state tree. The state tree is immutable and needs to be re-created at every action. This helps connected views to know when to update itself - just doing a simple reference comparison rather than a deep comparison.
-
-## Action
-
-Actions are messages to be dispatched to the store to let reducers to change (replace reference of) the state tree.
 
 ## Reducers
 
