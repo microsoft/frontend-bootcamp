@@ -25,10 +25,12 @@ This workshop starts as a very high level introduction to the core principles of
   $ git clone tba
   $ cd bootcamp
   $ npm install
-  $ npm start
+  
+  // For Day 1, Steps 1-3
+  $ npm run static 
+  // For the rest of the steps
+  $ npm start 
 ```
-
-After the project loads in your browser, click on `Step 1 - HTML/CSS/JS`. Then go to the `Day 1: Step 1` page for the lesson and exercise instructions.
 
 ## Table Of Contents
 
