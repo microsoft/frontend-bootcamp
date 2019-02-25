@@ -1,6 +1,6 @@
 # Frontend Bootcamp / Days in the Web
 
-> 🚨🚨 This project is still a WIP. Issues and PRs are welcome for typos, inaccuracies or areas where we should be adding clarity. 🚨🚨
+> 🚨🚨 This project is still a WIP. Issues and PRs are welcome for typos or inaccuracies. 🚨🚨
 
 ## Purpose of this workshop
 
