@@ -1,5 +1,7 @@
 # Frontend Bootcamp / Days in the Web
 
+> 🚨🚨 This project is still a WIP. Issues and PRs are welcome for typos, inaccuracies or areas where we should be adding clarity. 🚨🚨
+
 ## Purpose of this workshop
 
 This repo is the content for a two day workshop focused on introducing you to the fundamentals of web development. By the end of these two days you will have better understanding of how we write and deliver features on the web. You will also get some hands on experience using everything from HTML, CSS and JavaScript to React, Redux and UI Fabric as we build a working application together.
