@@ -82,6 +82,12 @@ module.exports = function(env, argv) {
             to: outPath
           };
         }),
+        ...Object.keys(entries).map(entry => {
+          return {
+            from: `${entry}/*.+(md|html)`,
+            to: outPath
+          };
+        }),
         {
           from: 'assets/**/*',
           to: outPath

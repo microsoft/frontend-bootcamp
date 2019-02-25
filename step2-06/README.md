@@ -13,6 +13,14 @@ https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfk
 
 # Exercise
 
+## Visualize the state changes with Chrome extension
+
+1. Install that Chrome extension
+
+2.
+
+## Playing with dispatching actions inside tests
+
 1. open the `exercise/src/reducers/reducer.spec.ts`
 
 2. Follow the instructions to fill out the reducer tests

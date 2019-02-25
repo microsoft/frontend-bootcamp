@@ -26,7 +26,7 @@ This workshop starts as a very high level introduction to the core principles of
   $ npm start
 ```
 
-After the project loads in your browser, click on `Step 0 - HTML/CSS/JS`. Then go to the `Day 1: Step 0` page for the lesson and exercise instructions.
+After the project loads in your browser, click on `Step 1 - HTML/CSS/JS`. Then go to the `Day 1: Step 1` page for the lesson and exercise instructions.
 
 ### Additional Resources
 
