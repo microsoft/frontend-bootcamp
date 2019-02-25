@@ -2,9 +2,16 @@
 
 It's entirely possible to create a website with nothing but HTML and CSS, but as soon as you want user interaction other than links and forms, you'll need to reach for JavaScript, the scripting language of the web. Fortunately, JavaScript has grown up quite a bit since it was introduced in the 90s, and now runs just about everything: web applications, mobile applications, native applications, servers, robots and rocket ships.
 
-In this demo we are going to cover a few of the core basics of the language that will help us when we start writing our TODO app. At the end of this demo we will be able to display the number of the letter 'a's in our email input.
+In this demo we are going to cover a few of the core basics of the language that will help us when we start writing our TODO app. At the end of this demo we will be able to display the number of the letter 'a's in our email input. Here's the markup we're working with:
 
-We'll be covering:
+```html
+<div id="contact-form">
+  <label>Email</label><input class="email" type="email" />
+  <input class="submit" value="Submit" type="submit" />
+</div>
+```
+
+By the end of the demo we'll have covered the following:
 
 - Variables
 - Functions
@@ -14,7 +21,7 @@ We'll be covering:
 
 ### Variables
 
-Javascript is a loosly typed language. We can create a new variable with the keywords `var, let, const` and use them within our application. These variables can contain one of the following types of values:
+We can create a new variable with the keywords `var, let, const` and use them within our application. These variables can contain one of the following types of values:
 
 1. boolean
 2. number
@@ -22,7 +29,7 @@ Javascript is a loosly typed language. We can create a new variable with the key
 4. array
 5. object
 
-Because they are not strongly typed, we can switch a varible from a number, to a string, to an array anytime we want to. In practice, this is a bit of an anti-pattern, as it makes debugging and refactoring extremely difficult. This is why we write just about every project in [Typescript](https://www.typescriptlang.org/).
+> Javascript is a loosly typed language so if start a variable off as a number `let myVar = 0`, you can change it to a string by simply writing `myVar = 'hello'` without any trouble.
 
 Lets start off our demo by adding some variables to our [script tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
 
