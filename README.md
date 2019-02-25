@@ -30,6 +30,34 @@ This workshop starts as a very high level introduction to the core principles of
 
 After the project loads in your browser, click on `Step 1 - HTML/CSS/JS`. Then go to the `Day 1: Step 1` page for the lesson and exercise instructions.
 
+## Table Of Contents
+
+### Day One
+
+1. [Introduction to HTML, CSS and JavaScript](step1-01)
+   - [HTML Demo](step1-01/html-demo)
+   - [CSS Demo](step1-01/css-demo)
+   - [JavaScript Demo](step1-01/js-demo)
+2. [Writing a Todo App: HTML and CSS](step1-02)
+   - [Demo](step1-02/demo)
+   - [Exercise](step1-02/exercise)
+3. [Writing a Todo App: JavaScript](step1-03)
+   - [Demo](step1-03/demo)
+   - [Exercise](step1-03/exercise)
+4. [React Introduction](step1-04)
+   - [Demo](step1-04/demo)
+5. [Thinking in React: Building a Static Page](step1-05)
+   - [Demo](step1-05/demo)
+   - [Exercise](step1-05/exercise)
+6. [Thinking in React: State Driven UI](step1-06)
+   - [Demo](step1-06/demo)
+   - [Exercise](step1-06/exercise)
+7. [Thinking in React: UI Driven State](step1-07)
+   - [Demo](step1-07/demo)
+   - [Exercise](step1-07/exercise)
+
+### Day 2
+
 ### Additional Resources
 
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
