@@ -43,11 +43,7 @@ export const reducer = combineReducers({
 });
 ```
 
-# Take a peek at useful helpers and middleware created by community are:
-
-- immer: https://github.com/mweststrate/immer - improves ergonomics of working with immutables by introducing the concept of mutating a draft
-
-- redux-starter-kit: https://github.com/reduxjs/redux-starter-kit - help address common concerns of Redux in boilerplate and complexity
+`combineReducers` handles the grunt-work of sending *actions* to each combined reducer. Therefore, when an action arrives, each reducer is given the opportunity to modify its own state tree based on the incoming action.
 
 # Exercise
 
@@ -68,3 +64,9 @@ The Redux team came up with `redux-starter-kit` to address a lot of boilerplate 
 3. run `npm test` in the root folder to see if it still works!
 
 4. look at the web app to make sure it still works!
+
+# Further reading
+
+- immer: https://github.com/mweststrate/immer - improves ergonomics of working with immutables by introducing the concept of mutating a draft
+
+- redux-starter-kit: https://github.com/reduxjs/redux-starter-kit - help address common concerns of Redux in boilerplate and complexity

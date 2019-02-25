@@ -20,17 +20,32 @@ CSS is always applied in `property: value` pairs, like `background: blue;` and a
 CSS can be applied to HTML tags in three different ways.
 
 1. Inline - Styles are applied directly to the HTML tag
-
-- `<div style="background: blue; color: white;">Hello </div>`
-
+   - `<div style="background: blue; color: white;">Hello </div>`
 2. Via a `<style>` tag in the HTML page
 3. Through an externally loaded CSS file
-
-- `<link rel="stylesheet" href="./css-demo-finished.css" />`
+   - `<link rel="stylesheet" href="./css-demo-finished.css" />`
 
 ### Targeting specific HTML tags
 
-Inline styles are always applied directly to the element you place them on, style tags and external CSS files need a method for matching HTML elements with their prospective style sets. We call these "selectors", and they are just as important to learn as the properties/values themselves. Below are a series of selectors and property/value combinations that we'll apply to our CSS Demo page
+Inline styles are always applied directly to the element you place them on, style tags and external CSS files need a method for matching HTML elements with their prospective style sets. We call these "[CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)", and they are just as important to learn as the properties/values themselves. When selectors are combined with CSS styles, we call this a ruleset.
+
+CSS rulesets take on the following form:
+
+```css
+selector1,
+selector2 {
+  property1: value1;
+  property2: value2;
+}
+```
+
+Here's a more detailed view from [Chris Eppstein](https://twitter.com/chriseppstein/status/1100115119437111296)
+
+<img src="../../assets/css-syntax.png"/>
+
+Selectors can be a single tag, class, ID, or attribute. It can also be a [combination](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors) of those elements.
+
+Below are a series of selectors and property/value combinations that we'll apply to our CSS Demo page
 
 ```css
 /* Targeting the entire page */
@@ -125,3 +140,6 @@ input[type='submit'] {
   margin-top: 10px;
 }
 ```
+## Next Step
+
+[JavaScript Demo](../js-demo)
