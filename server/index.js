@@ -40,16 +40,19 @@ app.put('/todos/:id', (req, res) => {
 app.post('/todos/:id', (req, res) => {
   store.todos[req.params.id] = req.body;
   store.save();
+  res.json('ok');
 });
 
 app.delete('/todos/:id', (req, res) => {
   delete store.todos[req.params.id];
   store.save();
+  res.json('ok');
 });
 
-app.post('/todos', req => {
+app.post('/todos', (req, res) => {
   store.todos = req.body;
   store.save();
+  res.json('ok');
 });
 
 app.get('/hello', (req, res) => {
