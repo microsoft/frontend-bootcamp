@@ -31,7 +31,7 @@ As we saw in the previous demo, HTML elements can be used to describe different 
     <h1></h1>
     <div class="addTodo"></div>
     <nav></nav>
-  <header>
+  </header>
   <main class="filter"></main>
   <footer></footer>
 </body>

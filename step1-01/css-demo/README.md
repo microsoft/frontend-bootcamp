@@ -100,6 +100,7 @@ span {
   */
   padding: 10px 20px 15px;
   margin: 10px 20px 10px 0;
+  border: 1px solid white;
 }
 
 /* Qualified selector */
@@ -140,6 +141,7 @@ input[type='submit'] {
   margin-top: 10px;
 }
 ```
+
 ## Next Step
 
 [JavaScript Demo](../js-demo)
