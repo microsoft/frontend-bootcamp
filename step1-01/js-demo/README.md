@@ -121,3 +121,7 @@ If you are curious, we could have done this in a single line by chaining these m
 ```js
 document.querySelector('.submit').value = matches + ' matches';
 ```
+
+## Next Step
+
+[Start our Todo App](../../step1-02/demo/)
