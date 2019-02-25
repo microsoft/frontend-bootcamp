@@ -22,8 +22,8 @@ This workshop starts as a very high level introduction to the core principles of
 ### Getting Set Up
 
 ```bash
-  $ git clone tba
-  $ cd bootcamp
+  $ git clone https://github.com/Microsoft/frontend-bootcamp.git
+  $ cd frontend-bootcamp
   $ npm install
   
   // For Day 1, Steps 1-3
