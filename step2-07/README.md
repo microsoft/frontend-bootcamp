@@ -18,6 +18,8 @@ This `mapStateToProps` function selects out portions of the state tree. This fun
 
 2. open up `exercise/src/components/TodoFooter.tsx` and erase the "nullable" type modifier (i.e. the ?) in the interface definition of `TodoFooterProps`
 
-3. uncomment the bottom bits of code and fill in the implementation for `mapStateToProps()` and `mapDispatchToProps()` - feel free to use `TodoListItem.tsx` as a guide
+3. Remove the `export` from `export const TodoFooter = (props: TodoFooterProps) => {`
 
-4. do steps 2 and 3 for the `TodoHeader.tsx` file
+4. uncomment the bottom bits of code and fill in the implementation for `mapStateToProps()` and `mapDispatchToProps()` - feel free to use `TodoListItem.tsx` as a guide
+
+5. do steps 2, 3, and 4 for the `TodoHeader.tsx` file

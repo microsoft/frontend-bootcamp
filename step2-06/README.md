@@ -15,9 +15,11 @@ https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfk
 
 ## Visualize the state changes with Chrome extension
 
-1. Install that Chrome extension
+1. Install [Chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
-2.
+2. Open the inspector panel entitled **Redux**
+
+3. Modify `exercise/src/index.tsx` to dispatch actions
 
 ## Playing with dispatching actions inside tests
 
