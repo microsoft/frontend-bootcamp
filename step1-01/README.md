@@ -21,3 +21,8 @@ A simple web page is rendered on the screen via the following steps
 7. Once the browser gets to the bottom of the page it can start rendering, and then load the page
 
 ![MDN Page Load](https://user-images.githubusercontent.com/1434956/53033758-9da8d580-3426-11e9-9ab8-09f42ccab9a8.png)
+
+
+## Next Step
+
+[HTML Demo](./html-demo)
