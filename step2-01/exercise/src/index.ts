@@ -1,3 +1,6 @@
+// TODO: import the fib(n) function and the constant from './fibonacci.ts'
+// import {fib}, FibConst from ...
+
 // Some setup code for exercises
 const obj1 = {
   first: 'who',
