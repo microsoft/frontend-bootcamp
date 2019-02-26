@@ -129,7 +129,7 @@ interface TodoListProps {
 
 ### Updating TodoApp
 
-Our `TodoApp` doesn't take any props, but it does have state. We can use TypeSscript to define that as well.
+Our `TodoApp` doesn't take any props, but it does have state. We can use TypeScript to define that as well.
 
 I've already imported `Todos`, and `FilterTypes` into the `TodoApp`, so we just need to add them to our class. We can even skip the 'interface', if we want to, and add them directly to the class.
 
