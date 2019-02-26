@@ -1,29 +1,36 @@
-import { Store, FilterTypes } from '../store';
+import { Store } from '../store';
 
 export function addTodo(state: Store['todos'], id: string, label: string): Store['todos'] {
   return { ...state, [id]: { label, completed: false } };
 }
 
 export function remove(state: Store['todos'], id: string) {
+  // Clone the Todos
   const newTodos = { ...state };
 
+  // Delete an item in the object by the key
   delete newTodos[id];
 
   return newTodos;
 }
 
 export function complete(state: Store['todos'], id: string) {
+  // Clone the todos
   const newTodos = { ...state };
+
+  // Manipulate the completed flag
   newTodos[id].completed = !newTodos[id].completed;
 
   return newTodos;
 }
 
 export function clear(state: Store['todos']) {
+  // Clone the todos
   const newTodos = { ...state };
 
-  Object.keys(state.todos).forEach(key => {
-    if (state.todos[key].completed) {
+  // Delete all todos based on the completed flag, looping over the keys of the todos
+  Object.keys(state).forEach(key => {
+    if (state[key].completed) {
       delete newTodos[key];
     }
   });

@@ -34,8 +34,8 @@ export function complete(state: Store['todos'], id: string) {
 export function clear(state: Store['todos']) {
   const newTodos = { ...state };
 
-  Object.keys(state.todos).forEach(key => {
-    if (state.todos[key].completed) {
+  Object.keys(state).forEach(key => {
+    if (state[key].completed) {
       delete newTodos[key];
     }
   });
