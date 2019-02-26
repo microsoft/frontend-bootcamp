@@ -4,5 +4,8 @@ var appInsights=window.appInsights||function(a){
 }({
   instrumentationKey: "6ad37ae0-c4ab-4739-925c-1e2773c31f17"
 });
+
 // prettier-ignore
-window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView(null, null, {urlReferrer: document.referrer});
+if (window.location.hostname !== 'localhost') {
+  window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView(null, null, {urlReferrer: document.referrer});
+}
