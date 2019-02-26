@@ -24,7 +24,8 @@ steps:
       npm install
       git checkout -b build_$(Build.BuildId)
       npm run build
-      git add docs/
+      git add .
       git commit -m "adding docs"
-      git push origin `git subtree split --prefix docs master`:refs/heads/gh-pages --force
+      git subtree split --prefix docs -b temp_$(Build.BuildId)
+      git push origin temp_$(Build.BuildId):refs/heads/gh-pages --force
     displayName: 'npm install, build and push docs to gh-pages'
