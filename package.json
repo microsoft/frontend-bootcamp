@@ -9,7 +9,8 @@
     "build": "rimraf docs && webpack --progress --mode production",
     "start:server": "nodemon -w server server/index.js",
     "start": "run-p start:server start:client",
-    "static": "live-server --host=localhost"
+    "static": "live-server --host=localhost",
+    "deploy-ghpages": "git push origin :gh-pages && git subtree push --prefix docs origin gh-pages"
   },
   "keywords": [],
   "author": "",
