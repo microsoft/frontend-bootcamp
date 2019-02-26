@@ -25,10 +25,10 @@ We can create a new variable with the keywords `var`, `let`, `const` and use the
 
 - **boolean**: `true`, `false`
 - **number**: `1`, `3.14`
-- **string**: can use `'single quotes'`, `"double quotes"`, or `` `backticks` ``
-- **array**: `[1, 2, 3]`
-- **object**: defined inline (`{ foo: 3, bar: 'hello' })` or constructed (`new Foo()`)
-- **function**
+- **string**: `'single quotes'`, `"double quotes"`, or `` `backticks` ``
+- **array**: `[ 1, 2, 3, 'hello', 'world']`
+- **object**: `{ foo: 3, bar: 'hello' }`
+- **function**: `function(foo) { return foo + 1 }`
 - **null**
 - **undefined**
 
