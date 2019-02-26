@@ -67,10 +67,10 @@ h1 a {
   content: counter(steps);
   position: absolute;
   left: -20px;
-  bottom: -20px;
+  bottom: -3px;
   font-size: 220px;
   line-height: 188px;
-  color: #f3f2f1;
+  color: #eaeaea;
   z-index: 1;
 }
 
