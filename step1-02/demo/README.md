@@ -30,9 +30,9 @@ As we saw in the previous demo, HTML elements can be used to describe different 
   <header>
     <h1></h1>
     <div class="addTodo"></div>
-    <nav></nav>
+    <nav class="filter"></nav>
   </header>
-  <main class="filter"></main>
+  <main></main>
   <footer></footer>
 </body>
 ```
