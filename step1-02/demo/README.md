@@ -41,7 +41,7 @@ As we saw in the previous demo, HTML elements can be used to describe different 
 
 ### Updating the header
 
-The header of our page is where most of the action is going to happen. First, lets give our page a title (Not the HTML tag), adding 'TODO' to our `h1`. Then we can add an input and button to our `addTodo` div.
+The header of our page is where most of the action is going to happen. First, lets give our app a name, adding 'TODO' to our `h1`. Then we can add an input and button to our `addTodo` div.
 
 ```html
 <input class="textfield" placeholder="add todo" /> <button class="submit">Add</button>
