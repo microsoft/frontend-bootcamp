@@ -92,7 +92,7 @@ let cow = this.props.cow;
 
 > Note that we access props and state on `this`, which is how you reference all of the class properties and methods
 
-But this is verbose and repetative. Instead you can use destructuring to turn this into a one liner.
+But this is verbose and repetitive. Instead you can use destructuring to turn this into a one liner.
 
 ```js
 let { cat, dog, bird, pig, cow } = this.props;
@@ -184,11 +184,11 @@ Now that we have a function to increment out count, all that we have left is to 
 
 > Note the syntax is a bit different than HTML. `onclick="funcName()"` vs `onClick={this.funcName}`
 
-> Also note that each Counter maintains its own state! You can modify the state insde of one without affect the others.
+> Also note that each Counter maintains its own state! You can modify the state inside of one without affecting the others.
 
 ## Bonus: Using a Button component
 
-Buttons are one of the most common components to write. They help abstract common styling, add icons or other decorations, and increase functionality (menu buttons etc). Using an existing Button component is as easy as importing it `import {Button} from './Button';` and replacing `<button></button>` with `<Button></Button>`. Lets take a quick look at button to see how it came together.
+Buttons are one of the most common components to write. They help abstract common styling, add icons or other decorations, and increase functionality (menu buttons etc). Using an existing Button component is as easy as importing it `import {Button} from './Button';` and replacing `<button></button>` with `<Button></Button>`. Let's take a quick look at Button to see how it came together.
 
 ```jsx
 import React from 'react';
