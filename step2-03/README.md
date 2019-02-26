@@ -65,7 +65,7 @@ loadTheme({
 - You can even use a style function to change the style based on some style prop
 - Take a look at these customizations in `demo/src/components/TodoHeader.tsx`
 
-## Advanced / Non-Fabric Styling
+## Advanced / Non-Fabric Component Styling
 
 ### 1. CSS-in-JS with mergeStyles
 
