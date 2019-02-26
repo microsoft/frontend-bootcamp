@@ -48,7 +48,7 @@
 
     function updateRemaining() {
       const remaining = document.querySelector('.remaining');
-      const todos = document.querySelectorAll('.todo');
+      const todos = document.querySelectorAll('.todo').length;
       remaining.innerText = todos;
     }
 
