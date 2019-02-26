@@ -17,6 +17,8 @@ body {
   background: #efefef;
   padding: 50px;
   margin: 0 auto;
+  height: 100vh;
+  overflow: scroll;
 }
 
 pre {

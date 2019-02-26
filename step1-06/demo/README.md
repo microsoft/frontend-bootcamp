@@ -71,10 +71,10 @@ I've already pulled out our props into `filter` and `todos` variables, and writt
 }
 ```
 
-- A JavaScript map takes in an array and transforms it into a new array
-- We use the `id` from the `filterTodos` array as the [list key](https://reactjs.org/docs/lists-and-keys.html) to help React track each item as state changes.
-- The key is not actually passed into the component, so we pass the key in as `id` as well. This will help us out later.
-- Lastly we use the `id` to grab the todo from our `todos` object, then use the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to pass through the todo's `label` and `completed` values.
+- **map**: A JavaScript map takes in an array (filteredTodos) and transforms it into a new array (our rendered TodoListItems)
+- **key**: We use the `id` from the `filterTodos` array as the [list key](https://reactjs.org/docs/lists-and-keys.html) to help React track each item as state changes.
+- **id**: The key is not actually passed into the component, so we pass the key in as `id` as well. This will help us out later.
+- **todos[id]**: Lastly we use the `id` to grab the todo from our `todos` object, then use the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to pass through the todo's `label` and `completed` values.
   > This spread operator is the same as saying `label={todos[id].label} completed={todos[id].completed}`. Pretty obvious why spread is so handy!
 
 ### State Driven and Stateful Header
@@ -87,9 +87,9 @@ In CSS based styling, visual states are applied by adding and removing classes. 
 
 ```jsx
 <nav className="filter">
-  <button className={filter == 'all' ? 'completed' : ''}>all</button>
-  <button className={filter == 'active' ? 'completed' : ''}>active</button>
-  <button className={filter == 'completed' ? 'completed' : ''}>completed</button>
+  <button className={filter == 'all' ? 'selected' : ''}>all</button>
+  <button className={filter == 'active' ? 'selected' : ''}>active</button>
+  <button className={filter == 'completed' ? 'selected' : ''}>completed</button>
 </nav>
 ```
 

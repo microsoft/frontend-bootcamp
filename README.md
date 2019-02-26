@@ -17,7 +17,8 @@ This workshop starts as a very high level introduction to the core principles of
 - [Node/NPM](https://nodejs.org/en/) (choose the **LTS** option)
 - [Git](https://git-scm.com/downloads)
 - [VS Code Editor](https://code.visualstudio.com)
-- Up-to-date browser with dev tools (some demos will be shown using Chrome)
+- Up-to-date browser with React Developer Tools
+- React Developer Tools: [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
 ### Demo/Exercise Setup
 
@@ -48,13 +49,13 @@ This workshop starts as a very high level introduction to the core principles of
    - [Exercise](step1-03/exercise)
 4. [React Introduction](step1-04)
    - [Demo](step1-04/demo)
-5. [Thinking in React: Building a Static Page](step1-05)
+5. [Building a Static Page](step1-05)
    - [Demo](step1-05/demo)
    - [Exercise](step1-05/exercise)
-6. [Thinking in React: State Driven UI](step1-06)
+6. [State Driven UI](step1-06)
    - [Demo](step1-06/demo)
    - [Exercise](step1-06/exercise)
-7. [Thinking in React: UI Driven State](step1-07)
+7. [Types & UI Driven State](step1-07)
    - [Demo](step1-07/demo)
    - [Exercise](step1-07/exercise)
 
@@ -82,8 +83,8 @@ Demo and Exercises are combined
 
 If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems, follow us on Twitter:
 
-@kenneth_chau
-@micahgodbolt
+- [@kenneth_chau](https://twitter.com/kenneth_chau)
+- [@micahgodbolt](https://twitter.com/micahgodbolt)
 
 # Contributing
 
