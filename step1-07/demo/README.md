@@ -1,4 +1,4 @@
-# Creating a UI Driven State
+# Types and Creating a UI Driven State
 
 Now that we have a UI that is purely driven by the state of our app, we need to add functionality to allow the UI to drive the state. This is often done by creating functions that call `setState` like we saw in the `todoHeader`, that are passed down to the UI as props.
 
