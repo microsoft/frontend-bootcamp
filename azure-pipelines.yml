@@ -14,7 +14,7 @@ pool:
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '10.x'
+      versionSpec: '10.x'wan
     displayName: 'Install Node.js'
 
   - script: |
