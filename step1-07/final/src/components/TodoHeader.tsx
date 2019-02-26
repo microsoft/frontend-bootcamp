@@ -44,7 +44,7 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
   }
 
   _onFilter = evt => {
-    this.props.setFilter(evt.target.textContet);
+    this.props.setFilter(evt.target.innerText);
   };
 
   _onChange = evt => {

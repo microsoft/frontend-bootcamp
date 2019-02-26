@@ -10,7 +10,24 @@ export class TodoApp extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      todos: {},
+      todos: {
+        '04': {
+          label: 'Todo 4',
+          completed: true
+        },
+        '03': {
+          label: 'Todo 3',
+          completed: false
+        },
+        '02': {
+          label: 'Todo 2',
+          completed: false
+        },
+        '01': {
+          label: 'Todo 1',
+          completed: false
+        }
+      },
       filter: 'all'
     };
   }

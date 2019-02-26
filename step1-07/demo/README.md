@@ -160,8 +160,12 @@ const { label, completed, complete, id } = this.props;
 
 And then use the input's `onChange` event to fire our `complete` callback. We can see in the signature that we expect and `id` of type string, so we'll pass our `id` prop in.
 
+> A [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) is a function passed into a component as a prop
+
 ```tsx
 <input type="checkbox" checked={completed} onChange={() => complete(id)} />
 ```
 
 > Note that the function param and prop name just happen to be the same. This isn't required.
+
+Now that our todos are firing the `onChange` callback, give them a click and take look at how the app response. Since our footer text is driven off of the number of unchecked todos, the footer will automatically update to reflect the new state.
