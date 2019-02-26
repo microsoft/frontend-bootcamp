@@ -20,6 +20,7 @@ steps:
       git config user.name "Ken Chau"
       git remote set-url origin https://kenotron:$(git.pat)@github.com/Microsoft/frontend-bootcamp.git
       git checkout master
+      git pull
       npm install
       git checkout -b build_$(Build.BuildId)
       npm run build
