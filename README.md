@@ -82,8 +82,8 @@ Demo and Exercises are combined
 
 If you are interested in JavaScript, TypeScript, React, Redux, Design Systems, follow us on Twitter:
 
-@kenneth_chau
-@micahgodbolt
+- [@kenneth_chau](https://twitter.com/kenneth_chau)
+- [@micahgodbolt](https://twitter.com/micahgodbolt)
 
 # Contributing
 
