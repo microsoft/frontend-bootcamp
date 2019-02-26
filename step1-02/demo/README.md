@@ -61,7 +61,7 @@ The navigation for this application is quite simple. We want users to be able to
 
 ### Adding styles
 
-Now that we've got the top of our application scaffolded, we can add some of our styles in the head.
+Now that we've got the top of our application scaffolded, we can add some styles in the head.
 
 ```html
 <head>
