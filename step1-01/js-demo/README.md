@@ -29,7 +29,7 @@ We can create a new variable with the keywords `var, let, const` and use them wi
 4. array
 5. object
 
-> Javascript is a loosly typed language so if start a variable off as a number `let myVar = 0`, you can change it to a string by simply writing `myVar = 'hello'` without any trouble.
+> JavaScript is a loosely typed language so if start a variable off as a number `let myVar = 0`, you can change it to a string by simply writing `myVar = 'hello'` without any trouble.
 
 Lets start off our demo by adding some variables to our [script tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
 
@@ -40,7 +40,7 @@ let matches = 0;
 
 ### Functions
 
-Functions are resuable pieces of functionality. Functions can take inputs (parameters), and return values. Functions can be called from within your program, from within other functions, or invoked from within the DOM itself.
+Functions are reusable pieces of functionality. Functions can take inputs (parameters), and return values. Functions can be called from within your program, from within other functions, or invoked from within the DOM itself.
 
 In our example we'll create a function called displayMatches (camelCase is typical for functions) and we'll invoke this function anytime that our submit button is clicked. For now we'll simply call a console log (a function that prints values to the browser console);
 
@@ -89,7 +89,7 @@ function displayMatches() {
 
 Now that we have a function performing all of our logic, it's time to connect this to our DOM by using some of the browsers built in functions.
 
-First we need to get a reference to the email field in our app. To do this, I've added an `id` to the input, and we will call one of JavaScripts oldest methods (IE 5.5), getElementyId, which we find on the browser provided `document` global variable. This function will return a reference to that input, and we can store it in the `email` variable.
+First we need to get a reference to the email field in our app. To do this, I've added an `id` to the input, and we will call one of JavaScripts oldest methods (IE 5.5), getElementById, which we find on the browser provided `document` global variable. This function will return a reference to that input, and we can store it in the `email` variable.
 
 ```js
 const email = document.getElementById('email');

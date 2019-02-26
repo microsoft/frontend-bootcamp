@@ -1,8 +1,8 @@
-# Step 2.1: Introduction to Typescript
+# Step 2.1: Introduction to TypeScript
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-In this step, we'll cover enough of the Typescript concepts to be productive with the React & Redux frameworks.
+In this step, we'll cover enough of the TypeScript concepts to be productive with the React & Redux frameworks.
 
 Topics in this step will include:
 
@@ -22,13 +22,13 @@ The most important ones to know about are:
 - commonjs - Node.js's standard to support modules
   - synchronous
   - require() function, can be dynamically called in the course of a program
-- ESM (Ecmascript module) - language level support
+- ESM (ECMAScript module) - language level support
   - statically analyzable and synchronous
   - dynamic and asynchronous support via `import()` that returns a promise
 
-## Typescript Types
+## TypeScript Types
 
-Refer to the `demo/src` for some examples of some of the types avaible in TS that benefits a React developer.
+Refer to the `demo/src` for some examples of some of the types available in TS that benefits a React developer.
 
 ## Spread Syntax
 
@@ -162,7 +162,7 @@ Create inside `index.ts`:
 
 Inside `stack.ts`, create a generic class for a `Stack<T>` complete with a typed `pop()` and `push()` methods
 
-> Hint: the Javascript array already has `push()` and `pop()` implemented for you. That can be your backing store.
+> Hint: the JavaScript array already has `push()` and `pop()` implemented for you. That can be your backing store.
 
 Be sure to use the provided `log()` to show the functionality of `Stack<T>`
 

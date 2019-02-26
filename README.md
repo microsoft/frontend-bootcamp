@@ -8,7 +8,7 @@ This repo is the content for a two day workshop focused on introducing you to th
 
 ## Who is this workshop for
 
-This workshop starts as a very high level introduction to the core principles of the web: HTML, CSS and JavaScript. This section is targeted at new and experienced developers alike. The second day dives into more complex topics such as Typescript and state management within an application. The examples should be accessible to anyone, but you will get more out of the day if you have some foundational experience in programing or web technologies.
+This workshop starts as a very high level introduction to the core principles of the web: HTML, CSS and JavaScript. This section is targeted at new and experienced developers alike. The second day dives into more complex topics such as TypeScript and state management within an application. The examples should be accessible to anyone, but you will get more out of the day if you have some foundational experience in programing or web technologies.
 
 ## Web Workshop Setup
 
@@ -62,7 +62,7 @@ This workshop starts as a very high level introduction to the core principles of
 
 Demo and Exercises are combined
 
-1. [Introduction to Typescript](step2-01)
+1. [Introduction to TypeScript](step2-01)
 2. [UI Fabric Component Library](step2-02)
 3. [Theming and Styling](step2-03)
 4. [Testing with Jest](step2-04)

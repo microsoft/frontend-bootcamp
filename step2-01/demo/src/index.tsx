@@ -1,4 +1,4 @@
-// Interesting Typescript Topics
+// Interesting TypeScript Topics
 
 // types
 import './types';
