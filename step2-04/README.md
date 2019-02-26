@@ -6,11 +6,97 @@ Testing TypeScript code with jest. jest is a test framework made by Facebook and
 
 https://jestjs.io/
 
+# jest Features
+
 - Multi-threaded and isolated test runner
 - Provides a "fake" browser environment if needed (window, document, DOM, etc).
 - Snapshots: show API or large object changes along side code changes in pull requests
 - Code coverage is integrated (--coverage)
 - Very clear error messages of where the test failures occur
+- By default, will simulate a "good enough" browser environment called JSDOM
+
+# How to use jest
+
+- using `create-react-app` or other project generators, jest should already be preconfigured. Run `npm test` usually will trigger it!
+- needs `jest.config.js`
+- `jsdom` might not have enough API from real browsers, for those cases, polyfills are required. Place these inside `jest.setup.js` and hook up the setup file in `jest.config.js`
+- in order to use `enzyme` library to test React Components, more config bits are needed inside `jest.setup.js`
+
+# What does a test look like?
+
+```ts
+// describe(), it() and expect() are globally exported, so they don't need to be imported when jest runs these tests
+describe('Something to be tested', () => {
+  it('should describe the behavior', () => {
+    expect(true).toBe(true);
+  });
+});
+```
+
+# Test React Components by using `enzyme`
+
+- use `enzyme` to `mount()` the component (as oppose to rendering)
+- the `mount()` function will return a wrapper that can be inspected
+- the wrapper has functionality like `find()`, simulating clicks, etc.
+
+```tsx
+import React from 'react';
+import { mount } from 'enzyme';
+import { TestMe } from './TestMe';
+
+describe('TestMe Component', () => {
+  it('should have a non-clickable component when the origina InnerMe is clicked', () => {
+    const wrapper = mount(<TestMe name="world" />);
+    wrapper.find('#innerMe').simulate('click');
+    expect(wrapper.find('#innerMe').text()).toBe('Clicked');
+  });
+});
+```
+
+# Advanced Topics
+
+## Mocking
+
+Mocking functions is a large part of what makes `jest` a powerful testing library. `jest` actually intercepts module inclusion process in `node.js` allowing it to mock entire modules if needed.
+
+To mock a function:
+
+```ts
+it('some test function', () => {
+  const mockCallback = jest.fn(x => 42 + x);
+  mockCallback(1);
+  mockCallback(2);
+  expect(mockCallback.mock.calls.length).toBe(2);
+});
+```
+
+Read more about jest mocking here: https://jestjs.io/docs/en/mock-functions.html
+
+## Async Testing
+
+### callback
+
+```ts
+it('tests callback functions', (done) => {
+  someFunctionThatCallsbackWhend(done));
+})
+```
+
+### promise
+
+```ts
+it('tests promise functions', () => {
+  return someFunctionThatReturnsPromise());
+})
+```
+
+### (recommended) async / await
+
+```ts
+it('tests async functions', async () => {
+  expect(await someFunction()).toBe(5);
+});
+```
 
 # Demo
 
