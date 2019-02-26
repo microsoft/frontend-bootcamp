@@ -2,7 +2,7 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-Testing Typescript code with jest. jest is a test framework made by Facebook and is very popular in the React and the wider JS ecosystem. We will work on implementing simple unit tests here in this exercise.
+Testing TypeScript code with jest. jest is a test framework made by Facebook and is very popular in the React and the wider JS ecosystem. We will work on implementing simple unit tests here in this exercise.
 
 https://jestjs.io/
 
@@ -43,7 +43,7 @@ describe('Foo Component Tests', () => {
 });
 ```
 
-`mount` does a full mount of the component. You can use the `enzyme` wrapper to simulate clicks, etc:
+`mount` does a full mount of the component. You can use the `enzyme` wrapper to simulate clicks, etc.:
 
 ```ts
 wrapper.find('button').simulate('click');

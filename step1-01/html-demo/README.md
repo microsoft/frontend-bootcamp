@@ -1,6 +1,6 @@
 ## HTML Demo
 
-The [HTML demo page](http://localhost:8080/step1-00/html-demo/html-demo.html) is a large collection of HTML elements that you will come across during development. The full list of elements can be found on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
+The [HTML demo page](http://localhost:8080/step1-01/html-demo/html-demo.html) is a large collection of HTML elements that you will come across during development. The full list of elements can be found on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 
 To learn more about each element, click on the elements below.
 

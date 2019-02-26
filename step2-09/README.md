@@ -2,6 +2,8 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
+(First off, this doesn't work with the live site on github.io. Clone this repo to try this step out)
+
 Redux Thunk middleware for actions with service calls. The documentation is here:
 
 https://github.com/reduxjs/redux-thunk

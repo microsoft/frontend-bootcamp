@@ -26,10 +26,10 @@ export class App extends React.Component {
 }
 ```
 
-- **import React from 'react';** - This is how we [import modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in Javascript. This line creates a variable in this file called `React` that is equal to the default `export` of the `react` npm module.
+- **import React from 'react';** - This is how we [import modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in JavaScript. This line creates a variable in this file called `React` that is equal to the default `export` of the `react` npm module.
 - **export class App** - Just like react exports code, our App component is nothing more than an exported "App" class. This allows us to import the class into other files
 - **extends React.Component** - A JavaScript class is similar to other programming languages (it's a collection of methods and properties). Classes can also be extended, so when we create a React component class, we always extend the base React.Component class. Note that this `Component` class is coming from the `React` variable imported up top.
-  > Note that `<any, any>` is necessary for Typescript which we will touch on later
+  > Note that `<any, any>` is necessary for TypeScript which we will touch on later
 - **render()** - One of the methods defined by React.Component is the `render()` method. This is a function that defines the HTML the component is going to render.
 - **return** - Remember that functions can return values in addition to side effects, and this component is no different.
 - **Inside of the return?** It's HTML! Actually, it's JSX, but with very few exceptions you can treat it like HTML. A few key differences:
@@ -63,7 +63,7 @@ React solves this by allowing each control to specify its own data store, called
 
 #### Adding State
 
-JavaScipt uses a `constructor` method to instantiate each copy of a class. So for class based controls, this is where we specify state.
+JavaScript uses a `constructor` method to instantiate each copy of a class. So for class based controls, this is where we specify state.
 
 ```js
 constructor(props) {
@@ -138,7 +138,7 @@ return (
 );
 ```
 
-> Note the capitalization of Counter. HTML might not be case sensative, but JSX is! A common practice is to use the capitalized versions of HTML elements to name their JSX counterpart. Button, Select, Label, Form etc.
+> Note the capitalization of Counter. HTML might not be case sensitive, but JSX is! A common practice is to use the capitalized versions of HTML elements to name their JSX counterpart. Button, Select, Label, Form etc.
 
 ### Exploring Component Props
 

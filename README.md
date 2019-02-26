@@ -8,7 +8,7 @@ This repo is the content for a two day workshop focused on introducing you to th
 
 ## Who is this workshop for
 
-This workshop starts as a very high level introduction to the core principles of the web: HTML, CSS and JavaScript. This section is targeted at new and experienced developers alike. The second day dives into more complex topics such as Typescript and state management within an application. The examples should be accessible to anyone, but you will get more out of the day if you have some foundational experience in programing or web technologies.
+This workshop starts as a very high level introduction to the core principles of the web: HTML, CSS and JavaScript. This section is targeted at new and experienced developers alike. The second day dives into more complex topics such as TypeScript and state management within an application. The examples should be accessible to anyone, but you will get more out of the day if you have some foundational experience in programing or web technologies.
 
 ## Web Workshop Setup
 
@@ -17,7 +17,8 @@ This workshop starts as a very high level introduction to the core principles of
 - Current version of [Node/NPM](https://nodejs.org/en/)
 - Install [Git](https://git-scm.com/downloads)
 - [VSCode Editor](https://code.visualstudio.com)
-- Up to date browser with dev tools (some demos will be shown using Chrome)
+- Up to date browser with React Developer Tools
+- React Developer Tools: [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
 ### Getting Set Up
 
@@ -25,11 +26,11 @@ This workshop starts as a very high level introduction to the core principles of
   $ git clone https://github.com/Microsoft/frontend-bootcamp.git
   $ cd frontend-bootcamp
   $ npm install
-  
+
   // For Day 1, Steps 1-3
-  $ npm run static 
+  $ npm run static
   // For the rest of the steps
-  $ npm start 
+  $ npm start
 ```
 
 ## Table Of Contents
@@ -48,13 +49,13 @@ This workshop starts as a very high level introduction to the core principles of
    - [Exercise](step1-03/exercise)
 4. [React Introduction](step1-04)
    - [Demo](step1-04/demo)
-5. [Thinking in React: Building a Static Page](step1-05)
+5. [Building a Static Page](step1-05)
    - [Demo](step1-05/demo)
    - [Exercise](step1-05/exercise)
-6. [Thinking in React: State Driven UI](step1-06)
+6. [State Driven UI](step1-06)
    - [Demo](step1-06/demo)
    - [Exercise](step1-06/exercise)
-7. [Thinking in React: UI Driven State](step1-07)
+7. [Types & UI Driven State](step1-07)
    - [Demo](step1-07/demo)
    - [Exercise](step1-07/exercise)
 
@@ -62,7 +63,7 @@ This workshop starts as a very high level introduction to the core principles of
 
 Demo and Exercises are combined
 
-1. [Introduction to Typescript](step2-01)
+1. [Introduction to TypeScript](step2-01)
 2. [UI Fabric Component Library](step2-02)
 3. [Theming and Styling](step2-03)
 4. [Testing with Jest](step2-04)
@@ -77,6 +78,13 @@ Demo and Exercises are combined
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
 - [React Docs](https://reactjs.org/docs/getting-started.html)
 - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
+
+### Follow the Authors!
+
+If you are interested in JavaScript, TypeScript, React, Redux, Design Systems, follow us on Twitter:
+
+- [@kenneth_chau](https://twitter.com/kenneth_chau)
+- [@micahgodbolt](https://twitter.com/micahgodbolt)
 
 # Contributing
 

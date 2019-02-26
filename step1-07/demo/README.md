@@ -6,21 +6,21 @@ Now that we have a UI that is purely driven by the state of our app, we need to 
 
 This is our core 'business logic' and handles everything our basic 'CRUD' operations of "Create, Read, Update, Delete". We don't have time to walk through writing all of those functions, but you can see that they are already provided in the demo's `TodoApp` and passed into our components.
 
-## Intro to Typescript
+## Intro to TypeScript
 
 Taking a look at our components in `TodoApp` you can see that our list of props is not just getting longer, but is getting much more complex! We're passing through functions with various signatures, complex `todos` objects as well as filter strings which are always one of three values.
 
-As applications grow, it becomes increasing difficult to remember what each function does, or what each todo contains. Also, as JavaScript is a loosly type language, if I wanted to change the value of `todos` to an array inside my `TodoList`, javascript wouldn't care. But if `TodoListItems` was expecting an object, our application would break.
+As applications grow, it becomes increasing difficult to remember what each function does, or what each todo contains. Also, as JavaScript is a loosely type language, if I wanted to change the value of `todos` to an array inside my `TodoList`, JavaScript wouldn't care. But if `TodoListItems` was expecting an object, our application would break.
 
-It is because of these two reasons that the entire industry is shifting to writing applications that are strongly typed, and are using Typescript to accomplish that.
+It is because of these two reasons that the entire industry is shifting to writing applications that are strongly typed, and are using TypeScript to accomplish that.
 
 As [their website](https://www.typescriptlang.org/) state:
 
-> Typescript is a superset of JavaScript that compiles to plain JavaScript
+> TypeScript is a superset of JavaScript that compiles to plain JavaScript
 
-If you've ever used [Sass](https://sass-lang.com/) you are familiar with this concept. In the same say that all valid CSS is valid Sass, all valid JavaScript is valid Typescript. That's why most of this project has been writting in `ts` and `tsx` files instead of `js` and `jsx` files.
+If you've ever used [Sass](https://sass-lang.com/) you are familiar with this concept. In the same say that all valid CSS is valid Sass, all valid JavaScript is valid TypeScript. That's why most of this project has been writing in `ts` and `tsx` files instead of `js` and `jsx` files.
 
-Let's dive into the demo and see how Typescript can help us better understand our component props, and guard against future regressions.
+Let's dive into the demo and see how TypeScript can help us better understand our component props, and guard against future regressions.
 
 ## Demo
 
@@ -80,7 +80,7 @@ Now try going back to `TodoApp` and changing the `filter` attribute in `TodoList
 
 #### Complete Type
 
-The `complete` props isn't data, but rather a function. Fortunatly, Typescript can handle function types just as well as data.
+The `complete` props isn't data, but rather a function. Fortunately, TypeScript can handle function types just as well as data.
 
 ```tsx
 interface TodoListProps {
@@ -115,7 +115,7 @@ Now that our interface is complete, try changing the word 'all' in `filter === a
 
 ### Abstracting types
 
-Most of our components are going to need to add types for `todos` and `filter`, so it's a good thing that Typescript allows us to abstract those. I've already written up and exported those shared types in the file `TodoApp.types.ts`, so we just need to import them and pull them into our interface.
+Most of our components are going to need to add types for `todos` and `filter`, so it's a good thing that TypeScript allows us to abstract those. I've already written up and exported those shared types in the file `TodoApp.types.ts`, so we just need to import them and pull them into our interface.
 
 ```tsx
 import { FilterTypes, Todos } from '../TodoApp.types';
@@ -129,7 +129,7 @@ interface TodoListProps {
 
 ### Updating TodoApp
 
-Our `TodoApp` doesn't take any props, but it does have state. We can use Typescript to define that as well.
+Our `TodoApp` doesn't take any props, but it does have state. We can use TypeScript to define that as well.
 
 I've already imported `Todos`, and `FilterTypes` into the `TodoApp`, so we just need to add them to our class. We can even skip the 'interface', if we want to, and add them directly to the class.
 
@@ -160,8 +160,12 @@ const { label, completed, complete, id } = this.props;
 
 And then use the input's `onChange` event to fire our `complete` callback. We can see in the signature that we expect and `id` of type string, so we'll pass our `id` prop in.
 
+> A [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) is a function passed into a component as a prop
+
 ```tsx
 <input type="checkbox" checked={completed} onChange={() => complete(id)} />
 ```
 
 > Note that the function param and prop name just happen to be the same. This isn't required.
+
+Now that our todos are firing the `onChange` callback, give them a click and take look at how the app response. Since our footer text is driven off of the number of unchecked todos, the footer will automatically update to reflect the new state.

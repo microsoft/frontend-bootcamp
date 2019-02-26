@@ -4,7 +4,7 @@ Every website, application, form or component starts with markup. The HTML will 
 
 ## Demo
 
-In this exercise we will scaffold out some HTML for out Todo app, and add some basic styling to it.
+In this exercise we will scaffold out some HTML for our Todo app, then add some basic styling to it.
 
 ### Page scaffold
 
@@ -18,7 +18,7 @@ In this exercise we will scaffold out some HTML for out Todo app, and add some b
 
 1. The DOCTYPE tells the browser that this file is written in modern HTML.
 2. The HTML tag wraps the entire page, and is the page root. Nothing is placed outside of those tags. Attributes can be set on HTML
-3. Head will contain all of the page's meta data, in this case a link to our css file
+3. Head will contain all of the page's meta data, in this case a link to our CSS file
 4. Body is where all of the visible content should be placed.
 
 ### Content Sectioning
@@ -41,7 +41,7 @@ As we saw in the previous demo, HTML elements can be used to describe different 
 
 ### Updating the header
 
-The header of our page is where most of the action is going to happen. First, lets give our page a title, adding 'TODO' to our `h1`. Then we can add an input and button to our `addTodo` div.
+The header of our page is where most of the action is going to happen. First, lets give our app a name, adding 'TODO' to our `h1`. Then we can add an input and button to our `addTodo` div.
 
 ```html
 <input class="textfield" placeholder="add todo" /> <button class="submit">Add</button>
@@ -61,7 +61,7 @@ The navigation for this application is quite simple. We want users to be able to
 
 ### Adding styles
 
-Now that we've got the top of our application scaffolded, we can add some our styles in the head.
+Now that we've got the top of our application scaffolded, we can add some styles in the head.
 
 ```html
 <head>
@@ -73,7 +73,7 @@ Now that we've got the top of our application scaffolded, we can add some our st
 
 It looks like the selected button isn't getting any special styles. Let's dig in and see why that is.
 
-Open up the browser inspector and target our 'all' button. You'll notice that the blue style is present on the list, but it is being overriden by the `border: none` above it. This is a situation where specificity is winning out over the cascade.
+Open up the browser inspector and target our 'all' button. You'll notice that the blue style is present on the list, but it is being overridden by the `border: none` above it. This is a situation where specificity is winning out over the cascade.
 
 > **Cascade** states that if two selectors are equal, the lowest one on the page wins
 
