@@ -4,9 +4,9 @@
 
 ## Purpose of this workshop
 
-This repo is the content for a two day workshop focused on introducing you to the fundamentals of web development. By the end of these two days you will have better understanding of how we write and deliver features on the web. You will also get some hands on experience using everything from HTML, CSS and JavaScript to React, Redux and UI Fabric as we build a working application together.
+This repo is the content for a two-day workshop focused on introducing you to the fundamentals of web development. By the end of these two days you will have a better understanding of how we write and deliver features on the web. You will also get some hands-on experience using everything from HTML, CSS and JavaScript to React, Redux and UI Fabric as we build a working application together.
 
-## Who is this workshop for
+## Who this workshop is for
 
 This workshop starts as a very high level introduction to the core principles of the web: HTML, CSS and JavaScript. This section is targeted at new and experienced developers alike. The second day dives into more complex topics such as TypeScript and state management within an application. The examples should be accessible to anyone, but you will get more out of the day if you have some foundational experience in programing or web technologies.
 
@@ -14,26 +14,26 @@ This workshop starts as a very high level introduction to the core principles of
 
 #### Computer Setup
 
-- Current version of [Node/NPM](https://nodejs.org/en/)
-- Install [Git](https://git-scm.com/downloads)
-- [VSCode Editor](https://code.visualstudio.com)
-- Up to date browser with React Developer Tools
+- [Node/NPM](https://nodejs.org/en/) (choose the **LTS** option)
+- [Git](https://git-scm.com/downloads)
+- [VS Code Editor](https://code.visualstudio.com)
+- Up-to-date browser with React Developer Tools
 - React Developer Tools: [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
-### Getting Set Up
+### Demo/Exercise Setup
 
-```bash
+```
   $ git clone https://github.com/Microsoft/frontend-bootcamp.git
   $ cd frontend-bootcamp
   $ npm install
 
-  // For Day 1, Steps 1-3
+  # For Day 1, Steps 1-3
   $ npm run static
-  // For the rest of the steps
+  # For the rest of the steps
   $ npm start
 ```
 
-## Table Of Contents
+## Table of Contents
 
 ### Day One
 
@@ -81,7 +81,7 @@ Demo and Exercises are combined
 
 ### Follow the Authors!
 
-If you are interested in JavaScript, TypeScript, React, Redux, Design Systems, follow us on Twitter:
+If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems, follow us on Twitter:
 
 - [@kenneth_chau](https://twitter.com/kenneth_chau)
 - [@micahgodbolt](https://twitter.com/micahgodbolt)
