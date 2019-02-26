@@ -25,5 +25,5 @@ steps:
       npm run build
       git add docs/
       git commit -m "adding docs"
-      git push origin `git subtree split --prefix docs master`:gh-pages --force
+      git push origin `git subtree split --prefix docs master`:refs/heads/gh-pages --force
     displayName: 'npm install, build and push docs to gh-pages'
