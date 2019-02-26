@@ -2,25 +2,26 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-Theming and Styling with UI Fabric. In this section, we will illustrate how to utilize some of the built-in theming and styling features right inside UI Fabric component library. UI Fabric exposes its own css-in-js library called `mergeStyles` that is very performant compared with other similar libraries.
+Theming and Styling with UI Fabric. In this section, we will illustrate how to utilize some of the built-in theming and styling features right inside UI Fabric component library. 
 
-A CodePen that illustrates what `mergeStyles` does: https://codepen.io/dzearing/pen/jGdgrE?editors=1011
+For advanced or non-Fabric component scenarios, UI Fabric also exposes its own CSS-in-JS library called `mergeStyles` that is very performant compared with other similar libraries. A CodePen that illustrates what `mergeStyles` does: https://codepen.io/dzearing/pen/jGdgrE?editors=1011
 
-There are three areas that we should focus on in this step:
+These are the areas that we will focus on in this step:
 
 1. Theming with Fabric using `<Customizer>` component
 2. Customizing themes and loading with `loadTheme()`
-3. CSS-in-JS with mergeStyles
-4. Customizing Fabric Components `styles` prop
+3. Customizing Fabric Components `styles` prop
+4. CSS-in-JS with mergeStyles
 
-## 1. Theming with Fabric
+## Fabric Theming and Styling
 
+### 1. Applying Fabric Themes
 - Fabric applies themes by propagating the theme down the children through the React Context mechanism
 - It is applied with the `<Customizer>` component
 - There are some predefined themes within Fabric already, like Fluent (which will become the default in the next major), MDL2, Azure, and some other sample themes like Teams.
 - Take a look at `demo/src/components/TodoApp.tsx`
 
-## 2. Customizing Fabric Themes
+### 2. Customizing Fabric Themes
 
 - Use the `loadTheme()` function to load a theme (applies to entire application):
 - Erase the `<Customizer>` inside the `TodoApp.tsx` and place this code in the module scope. This will initialize a theme to be used throughout the application
@@ -57,24 +58,28 @@ loadTheme({
 });
 ```
 
-## 3. CSS-in-JS with mergeStyles
+### 3. Customizing One Fabric Control Instance
 
-- `mergeStyles` is a styling library that creates CSS class from styles that are expressed in JS
-- These classes can be passed into `className` prop of any component like `<div>`
-- This library replaces the need to import CSS stylesheets because they are bundled as normal JS code
-- Take a look at `demo/src/components/TodoApp.tsx`
-
-## 4. Customizing Fabric Controls
-
-- calling `mergeStyles` is time consuming and very static
 - Fabric components expose a `styles` prop (not to be confused with the React built-in one called `style`)
 - You can use intellisense to discover which parts of the component you can to customize
 - You can even use a style function to change the style based on some style prop
 - Take a look at these customizations in `demo/src/components/TodoHeader.tsx`
 
+## Advanced / Non-Fabric Component Styling
+
+### 1. CSS-in-JS with mergeStyles
+
+- `mergeStyles` is a styling library that creates CSS class from styles that are expressed in JS.
+- Fabric uses `mergeStyles` under the hood, so typically you would only directly use `mergeStyles` in niche or non-Fabric scenarios.
+- These classes can be passed into `className` prop of any component like `<div>`
+- This library replaces the need to import CSS stylesheets because they are bundled as normal JS code
+- Take a look at `demo/src/components/TodoApp.tsx`
+
 # Exercises
 
-## Themes - Using Predefined Theme
+## Fabric Theming and Styling
+
+### Applying Fabric Themes
 
 Apply some included and predefined themes from the UI Fabric package inside the `/step2-03/exercise/src/components/TodoApp.tsx`. Do this by replacing:
 
@@ -88,7 +93,7 @@ with:
 import { TeamsCustomizations } from '@uifabric/theme-samples';
 ```
 
-## Themes - Customized Theme
+### Customizing Fabric Themes
 
 Create your own theme and apply the color palette here:
 https://developer.microsoft.com/en-us/fabric#/styles/themegenerator
@@ -99,9 +104,23 @@ https://developer.microsoft.com/en-us/fabric#/styles/themegenerator
 
 3. Play around with the values and use intellisense to discover the `ITheme` type within VS Code
 
-## CSS in JS with MergeStyles
+### Customizing One Fabric Control Instance
 
-The styling library name is glamorous nor does it bring about emotion, but it is very quick and lightweight. `MergeStyles` turns CSS Rules into CSS class names to be applied to the components.
+1. Open `exercise/src/components/TodoFooter.tsx`
+
+2. Find the `<DefaultButton>` and insert a `styles` prop
+
+3. Try to customize this with a styles object (let the Intellisense of VS Code guide you on what you can use to customize)
+
+4. Try to customize this with a styles function
+
+## Advanced / Non-Fabric Component Styling
+
+### CSS in JS with MergeStyles
+
+The styling library name is neither glamorous nor does it bring about emotion, but it is very quick and lightweight. `MergeStyles` turns CSS Rules into CSS class names to be applied to the components.
+
+**NOTE:** Fabric components automatically use `mergeStyles` under the hood, so it is typically not necessary to directly call `mergeStyles` when styling Fabric components.
 
 1. Try applying a merged style `className` as a prop inside `TodoApp`
 
@@ -120,12 +139,3 @@ const className = mergeStyles({
 
 2. Try to give a few components extra padding
 
-## Customize the Fabric Components
-
-1. Open `exercise/src/components/TodoFooter.tsx`
-
-2. Find the `<DefaultButton>` and insert a `styles` prop
-
-3. Try to customize this with a styles object (let the Intellisense of VS Code guide you on what you can use to customize)
-
-4. Try to customize this with a styles function
