@@ -25,11 +25,11 @@ This workshop starts as a very high level introduction to the core principles of
   $ git clone https://github.com/Microsoft/frontend-bootcamp.git
   $ cd frontend-bootcamp
   $ npm install
-  
+
   // For Day 1, Steps 1-3
-  $ npm run static 
+  $ npm run static
   // For the rest of the steps
-  $ npm start 
+  $ npm start
 ```
 
 ## Table Of Contents
@@ -77,6 +77,13 @@ Demo and Exercises are combined
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
 - [React Docs](https://reactjs.org/docs/getting-started.html)
 - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
+
+### Follow the Authors!
+
+If you are interested in JavaScript, TypeScript, React, Redux, Design Systems, follow us on Twitter:
+
+@kenneth_chau
+@micahgodbolt
 
 # Contributing
 
