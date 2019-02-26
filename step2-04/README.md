@@ -57,7 +57,7 @@ describe('TestMe Component', () => {
 
 ## Mocking
 
-Mocking functions is a large part of what makes `jest` a powerful testing library. `jest` actually intercepts module inclusion process in `node.js` allowing it to mock entire modules if needed.
+Mocking functions is a large part of what makes `jest` a powerful testing library. `jest` actually intercepts module inclusion process in `node.js` allowing it to mock entire modules if needed. There are many ways to mock as you can imagine in a language as flexible as JS. We only look at the simplest case but there's a lot of depth here.
 
 To mock a function:
 
@@ -78,7 +78,7 @@ Read more about jest mocking here: https://jestjs.io/docs/en/mock-functions.html
 
 ```ts
 it('tests callback functions', (done) => {
-  someFunctionThatCallsbackWhend(done));
+  someFunctionThatCallsDone(done));
 })
 ```
 

@@ -2,6 +2,8 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
+# Discussion on Flux
+
 Ideally React gives us a mental model of:
 
 ```
@@ -45,6 +47,56 @@ From the official documentation site:
 > Reducers are just pure functions that take the previous state and an action, and return the next state. Remember to return new state objects, instead of mutating the previous state.
 
 **Mental Model**: think of Reducer as part of the store and should have no side effects outside of defining how data can change from one state to next given action messages.
+
+# Getting Started with Redux
+
+We begin the journey into Redux by looking at the store. The store consists of several parts
+
+1. the state or the data - we represent this both with an initial state and with a TypeScript interface
+2. the reducers - conceptually this should be very close to the shape to the store. One reducer should be responsible for reacting to action messages to change the state from a previous to the next state.
+3. the dispatcher - there should be only one dispatcher and the store exports this. We'll look at this in Step 6!
+
+## Create Store
+
+The `createStore()` takes in several arguments. The simplest for just takes in reducers. Reducers are the means by which the state changes from one snapshot to another.
+
+```ts
+const store = createStore(reducer);
+```
+
+`createStore()` can take in an initial state - the initial state can come from any source. There are two use cases:
+
+1. load initial data from an API server
+2. load data that is generated from a server side rendering environment
+
+```ts
+const store = createStore(reducer, {
+  /* the initial state */
+});
+```
+
+`createStore()` also takes in a third argument that injects **middleware**. From the documentation site:
+
+> [Redux Middleware] provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.
+
+## Reducers
+
+Remember that the reducers are **pure**. Pure functions have no side effects. They always return the same output given the same input (idempotent). They are easily testable.
+
+Reducers' only job is to change the state from one snapshot to another. They are simple functions that take in the state and an action message. These reducers looks at the action message to decide what to do to the state. A convention that has been established in the Flux community is the `type` key in the action message. Another convention is using switch statements against the `type` key to trigger further reducer functions.
+
+```ts
+function reducer(state: Store['todos'], payload: any): Store['todos'] {
+  switch (payload.type) {
+    case 'addTodo':
+      return addTodo(state, payload.id, payload.label);
+  }
+
+  return state;
+}
+```
+
+In these demo and exercises, I separated out the pure & reducer functions to make it cleaner. The tests inside `pureFunctions.spec.ts` should describe the behavior of the individual functions. They are easy to follow and easy to write.
 
 # Exercise
 
