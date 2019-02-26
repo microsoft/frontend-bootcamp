@@ -49,6 +49,7 @@
     function updateRemaining() {
       const remaining = document.querySelector('.remaining');
       const todos = document.querySelectorAll('.todo');
+      todos.filter(todo => todo.querySelector('input').checked == true);
       remaining.innerText = todos.length;
     }
 
