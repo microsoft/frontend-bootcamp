@@ -4,7 +4,7 @@ Every website, application, form or component starts with markup. The HTML will 
 
 ## Demo
 
-In this exercise we will scaffold out some HTML for out Todo app, and add some basic styling to it.
+In this exercise we will scaffold out some HTML for our Todo app, then add some basic styling to it.
 
 ### Page scaffold
 
@@ -41,7 +41,7 @@ As we saw in the previous demo, HTML elements can be used to describe different 
 
 ### Updating the header
 
-The header of our page is where most of the action is going to happen. First, lets give our page a title, adding 'TODO' to our `h1`. Then we can add an input and button to our `addTodo` div.
+The header of our page is where most of the action is going to happen. First, lets give our page a title (Not the HTML tag), adding 'TODO' to our `h1`. Then we can add an input and button to our `addTodo` div.
 
 ```html
 <input class="textfield" placeholder="add todo" /> <button class="submit">Add</button>
@@ -61,7 +61,7 @@ The navigation for this application is quite simple. We want users to be able to
 
 ### Adding styles
 
-Now that we've got the top of our application scaffolded, we can add some our styles in the head.
+Now that we've got the top of our application scaffolded, we can add some of our styles in the head.
 
 ```html
 <head>
