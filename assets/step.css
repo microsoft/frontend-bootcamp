@@ -27,4 +27,5 @@ pre {
   border-radius: 2px;
   background-color: white;
   margin: 15px 0;
+  overflow: auto;
 }
