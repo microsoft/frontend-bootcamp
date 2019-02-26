@@ -48,8 +48,8 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "@uifabric/experiments": "^6.57.0",
     "@uifabric/fluent-theme": "^0.14.1",
+    "@uifabric/theme-samples": "^0.1.4",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "express": "^4.16.4",
@@ -57,7 +57,7 @@
     "immer": "^1.12.1",
     "live-server": "^1.2.1",
     "marked": "^0.6.1",
-    "office-ui-fabric-react": "^6.140.0",
+    "office-ui-fabric-react": "^6.144.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",

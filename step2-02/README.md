@@ -2,7 +2,14 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-UI Fabric is a Component Library that is developed to reflect the latest Microsoft design language. It is used in many Microsoft web applications and is developed in the open:
+UI Fabric is a Component Library that is developed to reflect the latest Microsoft design language. It is used in many Microsoft web applications and is developed in the open.
+
+We'll talk about:
+
+- What makes it good
+- How to find it
+- How to use it
+- Laying out Apps with Stack
 
 # What Makes It Good
 

@@ -1,8 +1,6 @@
 import React from 'react';
-import { Text } from '@uifabric/experiments';
-import { Stack } from 'office-ui-fabric-react';
 import { Store } from '../store';
-import { DefaultButton } from 'office-ui-fabric-react';
+import { DefaultButton, Text, Stack } from 'office-ui-fabric-react';
 import { connect } from 'react-redux';
 import { actions } from '../actions';
 
