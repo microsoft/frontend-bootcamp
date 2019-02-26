@@ -1,4 +1,4 @@
-/* Targeting an HTML tag */
+/* Targeting the entire page */
 body {
   font: 1.2em sans-serif;
 }
@@ -8,17 +8,17 @@ h1 {
   /* Color name */
   color: black;
 
-  /* 6 digit hex  */
+  /* 6-digit hex  */
   background: #ababab;
 
-  /* Margin: property for each side */
+  /* Margin: specified separately for each side */
   margin-bottom: 15px;
   margin-top: 15px;
 
   /* Shorthand: Padding applies to all sides  */
   padding: 10px;
 
-  /* 3 digit hex and border shorthand */
+  /* Border shorthand and 3-digit hex */
   border: 1px solid #ddd;
 }
 
@@ -32,18 +32,18 @@ span {
   display: flex;
 }
 
-/* Decendant selector */
+/* Descendant selector */
 .tiles img {
   width: 100%;
 }
 
-/* Direct decendant selector */
+/* Direct descendant selector */
 .tiles > div {
-  /* rgb colors */
+  /* rgb color */
   background: rgb(10, 10, 10);
   color: white;
   flex-basis: 100%;
-  /* Longhand goes clockwise from top
+  /* Padding/margin shorthand. Goes clockwise from top.
   10px - all
   10px 20px - top/bottom left/right
   10px 20px 15px - top left/right bottom
@@ -63,18 +63,18 @@ a {
   color: white;
 }
 
-/* Pseudo hover selector */
+/* Hover pseudo-selector */
 a:hover {
   color: #ccc;
 }
 
-/* Sibling selectors */
+/* Sibling selector */
 a ~ a {
   /* Changing elements from inline to block */
   display: block;
 }
 
-/* Positional Pseudo Selectors  */
+/* Positional pseudo-selector  */
 .tiles > div:last-child {
   /* overrides margin-right but leaves other margins alone */
   margin-right: 0;
