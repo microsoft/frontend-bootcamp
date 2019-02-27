@@ -28,7 +28,7 @@ Let's start off in the TodoList, as that has the most data flow, up and down. Th
 
 ### Writing TodoListProps
 
-Looking at our `TodoApp` we know that `TodoList` has three props, `filter`, `todos`, and `filter`. We'll start by creating and interface that represents this component's props called `TodoListProps`.
+Looking at our `TodoApp` we know that `TodoList` has three props, `filter`, `todos`, and `complete`. We'll start by creating an interface that represents this component's props called `TodoListProps`.
 
 ```tsx
 interface TodoListProps {
