@@ -35,7 +35,7 @@ https://developer.microsoft.com/en-us/fabric/#/components
 
 ## Importing a Component
 
-```tsx
+```jsx
 import { DefaultButton } from 'office-ui-fabric-react';
 
 const MyComponent = () => {
@@ -53,7 +53,7 @@ Take a look at the documentation: https://developer.microsoft.com/en-us/fabric#/
 
 Let's say we want an Icon to be rendered with the Button Text, we'd use the `iconProps`
 
-```tsx
+```js
 import { DefaultButton } from 'office-ui-fabric-react';
 
 const MyComponent = () => {
@@ -69,7 +69,7 @@ const MyComponent = () => {
 
 Some Fabric components take in a render function like the TextField:
 
-```tsx
+```js
 import { TextField } from 'office-ui-fabric-react';
 
 const MyComponent = () => {

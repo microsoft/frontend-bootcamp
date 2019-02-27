@@ -44,7 +44,7 @@ This is the file that places your App onto the page.
 
 > Note that to avoid build errors, this file has been renamed to index.temp. Change the name to index.tsx.
 
-```tsx
+```ts
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
