@@ -27,9 +27,9 @@ export class App extends React.Component {
 ```
 
 - **import React from 'react';** - This is how we [import modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in JavaScript. This line creates a variable in this file called `React` that is equal to the default `export` of the `react` npm module.
-- **export class App** - Just like react exports code, our App component is nothing more than an exported "App" class. This allows us to import the class into other files
+- **export class App** - Just like react exports code, our App component is nothing more than an exported "App" class. This allows us to import the class into other files.
 - **extends React.Component** - A JavaScript class is similar to other programming languages (it's a collection of methods and properties). Classes can also be extended, so when we create a React component class, we always extend the base React.Component class. Note that this `Component` class is coming from the `React` variable imported up top.
-  > Note that `<any, any>` is necessary for TypeScript which we will touch on later
+  > Note that `<any, any>` is necessary for TypeScript which we will touch on later.
 - **render()** - One of the methods defined by React.Component is the `render()` method. This is a function that defines the HTML the component is going to render.
 - **return** - Remember that functions can return values in addition to side effects, and this component is no different.
 - **Inside of the return?** It's HTML! Actually, it's JSX, but with very few exceptions you can treat it like HTML. A few key differences:
@@ -92,7 +92,7 @@ let pig = this.props.pig;
 let cow = this.props.cow;
 ```
 
-> Note that we access props and state on `this`, which is how you reference all of the class properties and methods
+> Note that we access props and state on `this`, which is how you reference all of the class properties and methods.
 
 But this is verbose and repetitive. Instead you can use destructuring to turn this into a one liner.
 
@@ -122,7 +122,7 @@ Each JSX return needs to be a single element, so start with a wrapping `<div>`. 
 
 #### Updating the App to use Counters
 
-Before we can use our `Counter`, we need to import it into the App file
+Before we can use our `Counter`, we need to import it into the App file.
 
 ```js
 import { Counter } from './components/Counter';
@@ -169,7 +169,7 @@ Our next step is to wire up the button to increment the `counter` in our compone
 > By convention we place methods below render, and private methods (those for internal use only) are prefixed with an underscore.
 
 ```jsx
-_onButtonCLick = () => {
+_onButtonClick = () => {
   this.setState(prevState => ({ counter: prevState.counter + 1 }));
 };
 ```
@@ -183,7 +183,7 @@ This function will update our component state, incrementing our counter value by
 Now that we have a function to increment out count, all that we have left is to connect it to our button.
 
 ```jsx
-<button onClick={this._onButtonCLick}>Click</button>
+<button onClick={this._onButtonClick}>Click</button>
 ```
 
 > Note the syntax is a bit different than HTML. `onclick="funcName()"` vs `onClick={this.funcName}`
@@ -207,8 +207,8 @@ export const Button = props => {
 };
 ```
 
-- All controls need to import React (don't worry, only 1 copy ever gets into your app)
-- Importing CSS files into the component means that the CSS is only loaded if the component is used
+- All controls need to import React (don't worry, only 1 copy ever gets into your app).
+- Importing CSS files into the component means that the CSS is only loaded if the component is used.
 - React components can be created as a class **or** as a function. In this function, props are passed in as a function parameter.
   > Until recently, you could only access state in class based components. But with the advent of [hooks](https://reactjs.org/docs/hooks-intro.html) you can create stateful function components.
 - Since this is a function, we don't have any methods, including `render()`. Just return your JSX as you would in a class based component.
