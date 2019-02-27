@@ -41,7 +41,7 @@ selector2 {
 
 Here's a more detailed view from [Chris Eppstein](https://twitter.com/chriseppstein/status/1100115119437111296):
 
-<img src="../../assets/css-syntax.png"/>
+<img src="https://raw.githubusercontent.com/Microsoft/frontend-bootcamp/master/assets/css-syntax.png"/>
 
 Selectors can be a single tag, class, ID, or attribute. It can also be a [combination](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors) of those elements.
 
@@ -77,6 +77,12 @@ span {
   color: #004578;
 }
 
+/* Sibling selector */
+a ~ a {
+  /* Changing elements from inline to block */
+  display: block;
+}
+
 /* Targeting a class name  */
 .tiles {
   display: flex;
@@ -104,7 +110,7 @@ span {
 }
 
 /* Qualified selector */
-div.links {
+div.important-links {
   background: #004578;
 }
 

@@ -56,6 +56,8 @@ To learn more about each element, click on the element names below.
 - [`tbody`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody) - Table body container
 - [`td`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) - Normal table cell
 
+> We used to use tables to lay out applications. Each cell would be filled with slices of images from Photoshop or Fireworks. Rounded corners were created by elaborate table tricks
+
 ### [Forms](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms)
 
 - [`form`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) - Form container
@@ -70,7 +72,6 @@ To learn more about each element, click on the element names below.
   - `date`
   - `radio`
   - `submit`
-
 
 ## Next Step
 
