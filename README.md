@@ -86,6 +86,11 @@ If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems
 - [@kenneth_chau](https://twitter.com/kenneth_chau)
 - [@micahgodbolt](https://twitter.com/micahgodbolt)
 
+### Other projects from the UI Fabric team @ MS
+
+- [UI Fabric](https://developer.microsoft.com/en-us/fabric) - [github repo](https://github.com/officedev/office-ui-fabric-react)
+- [Just](https://microsoft.github.io/just) - [github repo](https://github.com/Microsoft/just)
+
 # Contributing
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a
