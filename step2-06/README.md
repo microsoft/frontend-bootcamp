@@ -17,7 +17,7 @@ const store = createStore(redcuers);
 store.dispatch(actions.addTodo('id0', 'hello world'));
 ```
 
-> Note: It is important to note that dispatches in general have a "fire and forget" approach. We expect React to re-render the UI correct on its own accord. Rendering isn't necessarily synchronous in React!
+> Note: It is important to note that dispatches in general have a "fire and forget" approach. We expect React to re-render the UI correct on its own accord. Rendering isn't necessarily synchronous in React! Chaining async action creators is a topic for Step 9
 
 # Reducers scoped to a portion of the state tree
 
