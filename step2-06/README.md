@@ -10,9 +10,10 @@ We also see how we may compose the reducers according to the shape.
 
 # Dispatch
 
-As long as there is a store reference, you can dispatch an action to trigger the middleware and reducers which in term changes the store which in turn will cause re-renders in the view.
+As long as there is a store reference (we'll look at how to pass the store and the dispatch function into the view later), you can dispatch an action to trigger the middleware and reducers which in term changes the store which in turn will cause re-renders in the view.
 
 ```ts
+const store = createStore(redcuers);
 store.dispatch(actions.addTodo('id0', 'hello world'));
 ```
 
