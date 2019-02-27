@@ -1,41 +1,38 @@
 # Frontend Bootcamp / Days in the Web
 
-> 🚨🚨 This project is still a WIP. Issues and PRs are welcome for typos or inaccuracies. 🚨🚨
+> 🚨🚨 This project is a work in progress! Issues and pull requests are encouraged. 🚨🚨
 
-## Purpose of this workshop
+## Welcome
 
-This repo is the content for a two-day workshop focused on introducing you to the fundamentals of web development. By the end of these two days you will have a better understanding of how we write and deliver features on the web. You will also get some hands-on experience using everything from HTML, CSS and JavaScript to React, Redux and UI Fabric as we build a working application together.
+In this two-day workshop you'll learn the basics of frontend development while building a working web app.
 
-## Who this workshop is for
+The first day provides an introduction to the fundamentals of the web: HTML, CSS and JavaScript. This is targeted at new and experienced developers alike. On the second day we'll dive into more advanced topics like TypeScript, testing, and state management. While the examples should be accessible to anyone, you'll get the most out of it if you have some prior experience with programming and web technologies.
 
-This workshop starts as a very high level introduction to the core principles of the web: HTML, CSS and JavaScript. This section is targeted at new and experienced developers alike. The second day dives into more complex topics such as TypeScript and state management within an application. The examples should be accessible to anyone, but you will get more out of the day if you have some foundational experience in programming or web technologies.
+## Getting set up
 
-## Web Workshop Setup
-
-#### Computer Setup
-
+### Required software
+Before starting, make sure your computer has the following installed:
 - [Node/NPM](https://nodejs.org/en/) (choose the **LTS** option)
 - [Git](https://git-scm.com/downloads)
-- [VS Code Editor](https://code.visualstudio.com)
-- Up-to-date browser with React Developer Tools
-- React Developer Tools: [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
+- [Visual Studio Code](https://code.visualstudio.com)
+- React Developer Tools for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
-### Demo/Exercise Setup
-
+### Installing and running the project
 ```
   $ git clone https://github.com/Microsoft/frontend-bootcamp.git
   $ cd frontend-bootcamp
   $ npm install
 
-  # For Day 1, Steps 1-3
+  # For day 1, steps 1-3
   $ npm run static
-  # For the rest of the steps
+ 
+  # For the rest of the workshop
   $ npm start
 ```
 
-## Table of Contents
+## Course material
 
-### Day One
+### Day one
 
 1. [Introduction to HTML, CSS and JavaScript](step1-01)
    - [HTML Demo](step1-01/html-demo)
@@ -59,9 +56,9 @@ This workshop starts as a very high level introduction to the core principles of
    - [Demo](step1-07/demo)
    - [Exercise](step1-07/exercise)
 
-### Day Two
+### Day two
 
-Demo and Exercises are combined
+The demos and exercises for today are combined.
 
 1. [Introduction to TypeScript](step2-01)
 2. [UI Fabric Component Library](step2-02)
@@ -73,26 +70,23 @@ Demo and Exercises are combined
 8. [Redux: Combining Reducers](step2-08)
 9. [Redux: Thunk Middleware](step2-09)
 
-### Additional Resources
-
+### Additional resources
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
 - [React Docs](https://reactjs.org/docs/getting-started.html)
 - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
 
-### Follow the Authors!
+### Follow the authors!
 
 If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems, follow us on Twitter:
-
 - [@kenneth_chau](https://twitter.com/kenneth_chau)
 - [@micahgodbolt](https://twitter.com/micahgodbolt)
 
-### Other projects from the UI Fabric team @ MS
-
+### Other projects from the UI Fabric team at Microsoft
 - [UI Fabric](https://developer.microsoft.com/en-us/fabric) - [github repo](https://github.com/officedev/office-ui-fabric-react)
 - [Just](https://microsoft.github.io/just): The task library that just works - [github repo](https://github.com/Microsoft/just)
 - [Rush](https://rushjs.io): A scalable monorepo manager for the web - [github repo](https://github.com/Microsoft/web-build-tools/)
 
-# Contributing
+## Contributing
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
@@ -106,7 +100,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-# Legal Notices
+## Legal notices
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
 in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
