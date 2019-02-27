@@ -3,17 +3,19 @@
 
 body {
   display: flex;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 #app {
-  flex: 1;
+  flex: 1 1 40%;
   padding: 50px;
 }
 
 #markdownReadme {
-  flex: 1;
+  box-sizing: border-box;
+  flex: 1 1 60%;
   background: #efefef;
   padding: 50px;
   margin: 0 auto;

@@ -32,13 +32,32 @@ async function run() {
     });
   }
 
-  // Set the renderer to marked.
-  // marked.setOptions({ renderer });
-
   if (div) {
     const response = await fetch('../README.md');
     const markdownText = await response.text();
     div.innerHTML = marked(markdownText, { baseUrl: '../' });
+    restoreScroll(div);
+  }
+
+  div.addEventListener('scroll', evt => {
+    saveScroll(div);
+  });
+
+  window.addEventListener('resize', evt => {
+    saveScroll(div);
+  });
+}
+
+const scrollKey = `${window.location.pathname}_scrolltop`;
+
+function saveScroll(div: HTMLElement) {
+  window.localStorage.setItem(scrollKey, String(div.scrollTop));
+}
+
+function restoreScroll(div: HTMLElement) {
+  const scrollTop = window.localStorage.getItem(scrollKey);
+  if (scrollTop) {
+    div.scrollTop = parseInt(scrollTop);
   }
 }
 
