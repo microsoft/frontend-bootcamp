@@ -2,6 +2,7 @@ import { Store } from '../store';
 import { addTodo, remove, complete, clear, setFilter } from './pureFunctions';
 import { combineReducers } from 'redux';
 
+// TODO: rewrite this with createReducer() function
 function todoReducer(state: Store['todos'] = {}, action: any): Store['todos'] {
   switch (action.type) {
     case 'addTodo':
@@ -20,9 +21,8 @@ function todoReducer(state: Store['todos'] = {}, action: any): Store['todos'] {
   return state;
 }
 
+// TODO: rewrite this with createReducer() function
 function filterReducer(state: Store['filter'] = 'all', action: any): Store['filter'] {
-  // TODO: fill in the blank here with a switch / case statement to return new filter state as specified in `action.filter` message
-
   return state;
 }
 

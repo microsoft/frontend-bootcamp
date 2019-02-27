@@ -2,11 +2,99 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-Combine Reducers
+The Boilerplate!!
 
-This lesson is just a helper to make the process of writing reducers use less boilerplate code. This step briefly introduces to a world of helpers in writing Redux code.
+At this point, you might asking why am I adding so much boilerplate code. A lot of code seems to be repeated with Redux. Redux is very much function based and has a lot of opportunites for some refactoring to make it less boilerplate'ish.
 
-Our Redux store so far has this shape, roughly:
+I argue that part of the boilerplate is just turning what would otherwise by implicit to be explicit. This is GOOD in a large applications so that there is no magic. I argue for two things:
+
+1. writing against immutable data structures is hard
+2. the switch statements is cumbersome and error prone (e.g. with default case missing)
+
+# `redux-starter-kit`: A simple batteries-included toolset to make using Redux easier
+
+Introducing an official library from Redux team that makes this much better. We'll start with `createReducer()`
+
+## `createReducer()`: takes away the switch statement
+
+`createReducers()` simplifies things a lot! The best way illustrate what it does is with some code:
+
+```ts
+function todoReducer(state, action) {
+  switch (action.type) {
+    case 'addTodo':
+      return addTodo(...)
+
+    case 'remove':
+      return remove(...)
+
+    case 'clear':
+      return clear(...)
+
+    case 'complete':
+      return complete(...)
+  }
+
+  return state;
+}
+```
+
+can be rewritten as:
+
+```ts
+import {createReducer} from 'redux-starter-kit';
+
+const todoReducer = createReducer({}, {
+  addTodo: (state, action) => ...,
+  remove: (state, action) => ...,
+  clear: (state, action) => ...,
+  complete: (state, action) => ...
+})
+```
+
+Several important features of `createReducer()`:
+
+1. it allows a more concise way of writing reducers with keys that match the `action.type` (using convention)
+
+2. handles "no match" case and returns the previous state (rather than a blank state like we had done previously)
+
+3. it incorporates a library called [`immer`](https://github.com/mweststrate/immer#reducer-example) that allows us to write code that mutates a draft object and ultimately copies over the old snapshot with the new. Instead of writing immutable data manipulation:
+
+```ts
+// Taken from: https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns#inserting-and-removing-items-in-arrays
+function insertItem(array, action) {
+  return [...array.slice(0, action.index), action.item, ...array.slice(action.index)];
+}
+
+function removeItem(array, action) {
+  return [...array.slice(0, action.index), ...array.slice(action.index + 1)];
+}
+```
+
+Can become code that we write with mutable arrays (without spread syntax):
+
+```ts
+function insertItem(array, action) {
+  // splice is a standard JS Array function
+  array.splice(action.index, 0, action.item);
+}
+
+function removeItem(array, action) {
+  array.splice(action.index, 1);
+}
+```
+
+There are cases where you need to replace the entire state at a time (like the `setFilter`). Simply returning a new value without modifying the state like so:
+
+```ts
+function setFilter(state, action) {
+  return action.filter;
+}
+```
+
+## `combineReducer()` - combining reducers
+
+This another is demonstration of how to write reducers with less boilerplate code. We can use a built-in `redux` function to combineReducers. Application state shape grows usually be splitting the store. Our Redux store so far has this shape, roughly:
 
 ```js
 const state = {
@@ -25,16 +113,20 @@ const state = {
 };
 ```
 
-As the application grows in complexity, so will the shape of the store. Currently, the store captures two separate but related ideas: the todo items and the selected filter. The reducers should follow the shape of the store. Think of reducers as part of the store itself and are responsible to update a single part of the store based on actions that they receive as a second argument. As complexity of state grows, we split these reducers:
+Currently, the store captures two separate but related ideas: the todo items and the selected filter. The reducers should follow the shape of the store. Think of reducers as part of the store itself and are responsible to update a single part of the store based on actions that they receive as a second argument. As complexity of state grows, we split these reducers:
 
 ```ts
-function todoReducer(state: Store['todos'] = {}, action: any) {
-  // reduce on the todos part of the state tree
-}
+// from last step, using createReducer
+const todoReducer = createReducer(
+  {},
+  {
+    // reduce on the todos part of the state tree
+  }
+);
 
-function filterReducer(state: Store['filter'] = 'all', action: any) {
+const filterReducer = createReducer('all', {
   // reduce on the filter flag
-}
+});
 
 // Then use the redux-provided combineReducers() to combine them
 export const reducer = combineReducers({
@@ -43,27 +135,21 @@ export const reducer = combineReducers({
 });
 ```
 
-`combineReducers` handles the grunt-work of sending *actions* to each combined reducer. Therefore, when an action arrives, each reducer is given the opportunity to modify its own state tree based on the incoming action.
+`combineReducers` handles the grunt-work of sending _actions_ to each combined reducer. Therefore, when an action arrives, each reducer is given the opportunity to modify its own state tree based on the incoming action.
 
 # Exercise
 
+> Hint! This section is tricky, so all the solution is inside "demo" as usual. Feel free to copy & paste if you get stuck!!
+
 1. open up `exercise/src/reducers/index.ts`
 
-2. implement the `filterReducer` function with a switch / case statement - it is contrived to have a switch case for ONE condition, but serves to be a good exercise here
+2. rewrite the reducer functions `todoReducers`, `filterReducers` with the help of `createReducer()`
 
-3. replace the export reducer function with the help of the `combineReducer()` function from `redux`
+3. rewrite the `reducer()` function with `combineReducer()`
 
-# Bonus Exercise
+4. open up `exercise/src/reducers/pureFunctions.ts`
 
-The Redux team came up with `redux-starter-kit` to address a lot of boilerplate concerns. They also embed the immer library to make it nicer to write reducer functions. So, let's try out `immer`! Look at this example: https://github.com/mweststrate/immer#reducer-example
-
-1. import immer into the `exercise/src/reducers/pureFunction.ts` file
-
-2. replace the implementation of the pure functions with the help of immer's `produce()`
-
-3. run `npm test` in the root folder to see if it still works!
-
-4. look at the web app to make sure it still works!
+5. rewrite all the reducers related to the todos by following instructions
 
 # Further reading
 

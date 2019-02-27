@@ -5,25 +5,19 @@ describe('TodoApp reducers', () => {
   it('can add an item', () => {
     const state = <Store['todos']>{};
 
-    const newState = addTodo(state, '0', 'item1');
+    addTodo(state, { id: '0', label: 'item1' });
 
-    const keys = Object.keys(newState);
-
-    expect(newState).not.toBe(state);
+    const keys = Object.keys(state);
     expect(keys.length).toBe(1);
-    expect(newState[keys[0]].label).toBe('item1');
-    expect(newState[keys[0]].completed).toBeFalsy();
+
+    expect(state['0'].label).toBe('item1');
+    expect(state['0'].completed).toBeFalsy();
   });
 
   it('can complete an item', () => {
     const state = <Store['todos']>{};
-
-    let newState = addTodo(state, '0', 'item1');
-
-    const key = Object.keys(newState)[0];
-
-    newState = complete(newState, key);
-
-    expect(newState[key].completed).toBeTruthy();
+    addTodo(state, { id: '0', label: 'item1' });
+    complete(state, { id: '0' });
+    expect(state['0'].completed).toBeTruthy();
   });
 });
