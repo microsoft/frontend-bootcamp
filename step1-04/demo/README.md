@@ -38,11 +38,13 @@ export class App extends React.Component {
   3. Controls can be self closing `<div><MyControl text='hi' /></div>`
   4. You can use JavaScript inside of JSX! If you declare `const name = 'Micah';` inside the render function, you can use that variable inside of your JSX `<div>{name}</div>` or `<div><MyControl text={name} /></div>`. Works with functions, loops, conditionals as well.
 
-### index.jsx
+### index.tsx
 
 This is the file that places your App onto the page.
 
-```jsx
+> Note that to avoid build errors, this file has been renamed to index.temp. Change the name to index.tsx.
+
+```tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
