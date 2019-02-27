@@ -14,6 +14,7 @@
     <section>
       <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Document_metadata">Document Metadata</a></h2>
       <pre>
+  &lt;html&gt;
     &lt;head&gt;
       &lt;title&gt;Intro to HTML&lt;/title&gt;
       &lt;link rel=&quot;stylesheet&quot; href=&quot;./style.css&quot; /&gt;
@@ -24,6 +25,7 @@
         }
       &lt;/style&gt;
     &lt;/head&gt;
+  &lt;/html&gt;
       </pre>
     </section>
     <hr />
@@ -46,7 +48,9 @@
           <h2>My Blog H2 inside Main</h2>
           <article>
             <header><h3>Blog Title 1 (H3 in Article Header)</h3></header>
-            <aside><p>Aside: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dictum ultricies elit eget luctus.</p></aside>
+            <aside>
+              <p>Aside: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dictum ultricies elit eget luctus.</p>
+            </aside>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur architecto mollitia ducimus. Tempora dignissimos incidunt
               consequuntur amet recusandae, eligendi eaque maxime in veritatis delectus non, molestiae vel ipsa! Natus, fuga!
@@ -107,12 +111,22 @@
       <h3>Pre</h3>
       <pre>
         // This is a pre tag            --           It respects spacing and tabs
-        // But actual code still needs to be escaped
+        
         &lt;ul&gt;
           &lt;li&gt;Unordered&lt;/li&gt;
           &lt;li&gt;list&lt;/li&gt;
           &lt;li&gt;items&lt;/li&gt;
         &lt;/ul&gt;
+      </pre>
+
+      <pre>
+        // But actual code still needs to be escaped
+        
+        &amp;lt;ul&amp;gt;
+          &amp;lt;li&amp;gt;Unordered&amp;lt;/li&amp;gt;
+          &amp;lt;li&amp;gt;list&amp;lt;/li&amp;gt;
+          &amp;lt;li&amp;gt;items&amp;lt;/li&amp;gt;
+        &amp;lt;/ul&amp;gt;
       </pre>
     </section>
     <hr />
@@ -123,7 +137,8 @@
 
       <h3>Anchor tag, br and span</h3>
 
-      <a target="_blank" href="https://example.com"> Website <span style="color: red">address in span tag</span> </a><br />
+      <a target="_blank" href="https://example.com"> Website <span style="color: red">address in span tag</span> </a> (&lt;br&gt; tag here)
+      <br />
       <a target="_blank" href="mailto:m.bluth@example.com">Email</a> (no &lt;br&gt;) <a target="_blank" href="tel:+123456789">Phone</a
       ><br />
 
@@ -233,5 +248,6 @@
         </div>
       </form>
     </section>
+    <a href="../css-demo/css-demo.html">CSS Demo</a>
   </body>
 </html>
