@@ -89,7 +89,8 @@ If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems
 ### Other projects from the UI Fabric team @ MS
 
 - [UI Fabric](https://developer.microsoft.com/en-us/fabric) - [github repo](https://github.com/officedev/office-ui-fabric-react)
-- [Just](https://microsoft.github.io/just) - [github repo](https://github.com/Microsoft/just)
+- [Just](https://microsoft.github.io/just): The task library that just works - [github repo](https://github.com/Microsoft/just)
+- [Rush](https://rushjs.io): A scalable monorepo manager for the web - [github repo](https://github.com/Microsoft/web-build-tools/)
 
 # Contributing
 
