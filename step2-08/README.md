@@ -2,11 +2,18 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-The Boilerplate!!
+At this point, you might asking why am I adding so much boilerplate code?!?!
 
-At this point, you might asking why am I adding so much boilerplate code. A lot of code seems to be repeated with Redux. Redux is very much function based and has a lot of opportunites for some refactoring to make it less boilerplate'ish.
+<details>
+<summary>It's okay. Don't be cry.</summary>
+<img src="https://media.giphy.com/media/eveLVPcHcbl0A/giphy.gif" />
+</details>
 
-I argue that part of the boilerplate is just turning what would otherwise by implicit to be explicit. This is GOOD in a large applications so that there is no magic. I argue for two things:
+A lot of code seems to be repeated with Redux. Redux is very much function based and has a lot of opportunites for some refactoring to make it less boilerplate'ish.
+
+I argue that part of the boilerplate is just turning what would otherwise by implicit to be explicit. This is GOOD in a large applications so that there is no magic.
+
+However, I argue for two things to make things much better:
 
 1. writing against immutable data structures is hard
 2. the switch statements is cumbersome and error prone (e.g. with default case missing)
