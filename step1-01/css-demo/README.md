@@ -124,12 +124,6 @@ a:hover {
   color: #ccc;
 }
 
-/* Sibling selector */
-a ~ a {
-  /* Changing elements from inline to block */
-  display: block;
-}
-
 /* Positional pseudo-selector  */
 .tiles > div:last-child {
   /* overrides margin-right but leaves other margins alone */

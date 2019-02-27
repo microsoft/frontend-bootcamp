@@ -1,3 +1,7 @@
+## What We'll Be Building
+
+![todo screenshot](https://raw.githubusercontent.com/Microsoft/frontend-bootcamp/master/assets/todo_screenshot.jpg)
+
 ## HTML and CSS
 
 Every website, application, form or component starts with markup. The HTML will change over time as you develop, but a first pass helps you understand the UI you are trying to build.

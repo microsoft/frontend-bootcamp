@@ -1,0 +1,62 @@
+/* body {
+  font: 1.2em sans-serif;
+} */
+
+/* h1 {
+  color: black;
+  background: #ababab;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+} */
+
+/* span {
+  color: #004578;
+} */
+
+/* a ~ a {
+  display: block;
+} */
+
+/* .tiles {
+  display: flex;
+} */
+
+/* .tiles img {
+  width: 100%;
+} */
+
+/* .tiles > div {
+  background: rgb(10, 10, 10);
+  color: white;
+  flex-basis: 100%;
+  padding: 10px 20px 15px;
+  margin: 10px 20px 10px 0;
+  border: 1px solid white;
+} */
+
+/* div.important-links {
+  background: #004578;
+} */
+
+/* a {
+  color: white;
+} */
+
+/* a:hover {
+  color: #ccc;
+} */
+
+/* .tiles > div:last-child {
+  margin-right: 0;
+} */
+
+/* #contact-form {
+  display: flex;
+  flex-direction: column;
+} */
+
+/* input[type='submit'] {
+  margin-top: 10px;
+} */

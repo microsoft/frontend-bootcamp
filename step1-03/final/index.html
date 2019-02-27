@@ -6,10 +6,10 @@
   <body>
     <header>
       <h1>todos</h1>
-      <div class="addTodo">
+      <form onsubmit="return addTodo()" class="addTodo">
         <input class="textfield" placeholder="add todo" />
-        <button onclick="addTodo()" class="submit">Add</button>
-      </div>
+        <button class="submit">Add</button>
+      </form>
       <nav class="filter">
         <button onclick="filter('all', this)" class="selected">all</button>
         <button onclick="filter('active', this)">active</button>
@@ -52,7 +52,8 @@
       remaining.innerText = todos;
     }
 
-    function addTodo() {
+    function addTodo(ev) {
+      console.log('hello');
       const todo = document.querySelector('.todo');
       const newTodo = todo.cloneNode(true);
       newTodo.querySelector('.title').innerText = getTodoText();

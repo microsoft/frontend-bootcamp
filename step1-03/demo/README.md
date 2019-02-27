@@ -10,18 +10,20 @@ This demo starts off with a few elements already in place. Let's walk through wh
 
 - **clearInput()** - This is a generic, reusable function that takes in a `selector` parameter, finds the first matching element, and sets the element's value to an empty string. This direct modification is called a side effect.
 - **getTodoText()** - This is a quick helper function that returns the value inside of our textfield. Notice how some functions return values and how you can set that return to a variable.
-- **addTodo()** - This is the primary logic of our todo app. Here's how the lines break down.
-  1. `todo` is set to equal the first todo item
-  2. `newTodo` is a clone of todo. Passing true means it is a deep clone, so we get the todo's children as well. Cloning does not duplicate the DOM node. We'll need to insert it in step 4
-     > Note that this approach is very fragile, as it requires a todo node to always be present on the page
-  3. We set the innerText of the `<span class='title'>` to the value returned from getTodoText
-     > Note that if we left off the `()` we'd actually be assigning innerText to the 'function' instead of the function return
-  4. Insert our new todo into the todo's parent (the `ul`), before our reference todo. [insertBefore](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
 - **filter()** - This function takes in a `filterName` string, and a `button` which is a reference to the clicked button.
   1. Remove any `selected` class names
   2. Add `selected` to the clicked button
   3. Get all of the todos with [querySelectAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll), and then loop through them.
   4. Set the `hidden` property of each todo based on the filter/state combination
+
+### Writing addTodo Function
+
+1. `todo` is set to equal the first todo item
+2. `newTodo` is a clone of todo. Passing true means it is a deep clone, so we get the todo's children as well. Cloning does not duplicate the DOM node. We'll need to insert it in step 4
+   > Note that this approach is very fragile, as it requires a todo node to always be present on the page
+3. We set the innerText of the `<span class='title'>` to the value returned from getTodoText
+   > Note that if we left off the `()` we'd actually be assigning innerText to the 'function' instead of the function return
+4. Insert our new todo into the todo's parent (the `ul`), before our reference todo. [insertBefore](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
 
 ### Triggering functions from click events
 

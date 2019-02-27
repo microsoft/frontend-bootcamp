@@ -5,7 +5,7 @@
 1. Get a reference to the span with the `remaining` class, and store it in a variable
 2. Use [querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) to get all of the todos.
 3. Set the `innerText` of the remaining span to the length of those todos.
-4. Add updateRemaining() to addTodo
+4. Add updateRemaining() to end of addTodo function
 
 ### Write a clearCompleted function
 
