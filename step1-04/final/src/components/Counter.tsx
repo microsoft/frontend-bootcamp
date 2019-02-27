@@ -14,12 +14,12 @@ export class Counter extends React.Component<any, any> {
     return (
       <div>
         {text}: {counter}
-        <Button onClick={this._onButtonCLick}>Click</Button>
+        <Button onClick={this._onButtonClick}>Click</Button>
       </div>
     );
   }
 
-  _onButtonCLick = () => {
-    this.setState({ counter: this.state.counter + 1 });
+  _onButtonClick = () => {
+    this.setState((state) => ({ counter: state.counter + 1 }));
   };
 }

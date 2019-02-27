@@ -170,13 +170,15 @@ Our next step is to wire up the button to increment the `counter` in our compone
 
 ```jsx
 _onButtonCLick = () => {
-  this.setState({ counter: this.state.counter + 1 });
+  this.setState(prevState => ({ counter: prevState.counter + 1 }));
 };
 ```
 
 This function will update our component state, incrementing our counter value by 1. Note that setState only affects the values of keys we have listed.
 
 > Note that this isn't exactly a method, but a property that is equal to a [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). This works just as well as `onButtonClick() { }`, but doesn't require extra binding up in the constructor.
+
+> Also note that `setState()` may update the state [asynchronously](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous). If the next state depends on the previous state or props, then we should use the second form of `setState()` which takes a function that receives the previous state as the first argument and the props as the second.
 
 Now that we have a function to increment out count, all that we have left is to connect it to our button.
 
