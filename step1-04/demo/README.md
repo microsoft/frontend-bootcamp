@@ -167,7 +167,7 @@ Our next step is to wire up the button to increment the `counter` in our compone
 > By convention we place methods below render, and private methods (those for internal use only) are prefixed with an underscore.
 
 ```jsx
-_onButtonCLick = () => {
+_onButtonClick = () => {
   this.setState({ counter: this.state.counter + 1 });
 };
 ```
