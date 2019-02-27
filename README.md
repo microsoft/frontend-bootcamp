@@ -11,23 +11,44 @@ The first day provides an introduction to the fundamentals of the web: HTML, CSS
 ## Getting set up
 
 ### Required software
+
 Before starting, make sure your computer has the following installed:
+
 - [Node/NPM](https://nodejs.org/en/) (choose the **LTS** option)
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com)
 - React Developer Tools for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
 ### Installing and running the project
-```
-  $ git clone https://github.com/Microsoft/frontend-bootcamp.git
-  $ cd frontend-bootcamp
-  $ npm install
 
-  # For day 1, steps 1-3
-  $ npm run static
- 
-  # For the rest of the workshop
-  $ npm start
+#### 1. find a good terminal program, we're going to use it a LOT!
+
+- On a PC, you can do this with `cmd.exe` (or some terminal programs such as [cmder](https://cmder.net/))
+
+- On a Mac, bring up a Terminal (inside Applications folder).
+
+- For those who really want something fancy looking: [hyper](https://hyper.is/)
+
+#### 2. Type the following
+
+```
+git clone https://github.com/Microsoft/frontend-bootcamp.git
+cd frontend-bootcamp
+npm install
+```
+
+#### 3. Run the "inner loop" build
+
+For steps 1-3 on Day 1:
+
+```
+npm run static
+```
+
+For everything else:
+
+```
+npm start
 ```
 
 ## Course material
@@ -71,6 +92,7 @@ The demos and exercises for today are combined.
 9. [Redux: Thunk Middleware](step2-09)
 
 ### Additional resources
+
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
 - [React Docs](https://reactjs.org/docs/getting-started.html)
 - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
@@ -78,10 +100,12 @@ The demos and exercises for today are combined.
 ### Follow the authors!
 
 If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems, follow us on Twitter:
+
 - [@kenneth_chau](https://twitter.com/kenneth_chau)
 - [@micahgodbolt](https://twitter.com/micahgodbolt)
 
 ### Other projects from the UI Fabric team at Microsoft
+
 - [UI Fabric](https://developer.microsoft.com/en-us/fabric) - [github repo](https://github.com/officedev/office-ui-fabric-react)
 - [Just](https://microsoft.github.io/just): The task library that just works - [github repo](https://github.com/Microsoft/just)
 - [Rush](https://rushjs.io): A scalable monorepo manager for the web - [github repo](https://github.com/Microsoft/web-build-tools/)
