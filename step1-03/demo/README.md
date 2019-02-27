@@ -13,8 +13,9 @@ This demo starts off with a few elements already in place. Let's walk through wh
 - **filter()** - This function takes in a `filterName` string, and a `button` which is a reference to the clicked button.
   1. Remove any `selected` class names
   2. Add `selected` to the clicked button
-  3. Get all of the todos with [querySelectAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll), and then loop through them.
-  4. Set the `hidden` property of each todo based on the filter/state combination
+  3. Set `filterName` to the clicked button's `innerText` value.
+  4. Get all of the todos with [querySelectAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll), and then loop through them.
+  5. Set the `hidden` property of each todo based on the filter/state combination
 
 ### Writing addTodo Function
 

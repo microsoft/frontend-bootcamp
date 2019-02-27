@@ -64,9 +64,11 @@
 
     // clearCompleted
 
-    function filter(filterName, button) {
+    function filter(button) {
       document.querySelector('.selected').classList.remove('selected');
       button.classList.add('selected');
+
+      const filterName = button.innerText;
       for (let todo of document.querySelectorAll('.todo')) {
         const checked = todo.querySelector('input').checked == true;
         if (filterName == 'all') {

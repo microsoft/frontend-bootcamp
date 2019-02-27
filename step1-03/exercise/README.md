@@ -1,5 +1,10 @@
 ## Exercise
 
+### Update Navigation
+
+1. Add an onclick attribute to all 3 buttons in the navigation
+2. For each onclick call the `filter` function. In our function we need a reference to the clicked button, so pass in the keyword `this` as the only parameter.
+
 ### Write updateRemaining function
 
 1. Get a reference to the span with the `remaining` class, and store it in a variable
