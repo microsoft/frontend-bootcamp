@@ -141,7 +141,7 @@ export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterT
 
 ### Writing TodoListItemProps
 
-Jumping down to the TodoListItem, as we start to write the TodoListItemProps we realize that two of the props, `label` and `completed` have already been defined in the `TodoItem` interface in `TodoApp.types`. So in the same way we can reuse individual types (`FilterTypes`), we can reuse, and extend upon entire interfaces.
+Jumping down to the TodoListItem, as we start to write the TodoListItemProps we realize that two of the props, `label` and `completed` have already been defined in the `TodoItem` interface in `TodoApp.types`. So in the same way we can reuse individual types (`FilterTypes`), and extend upon entire interfaces.
 
 ```tsx
 interface TodoListItemProps extends TodoItem {
