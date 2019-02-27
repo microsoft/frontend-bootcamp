@@ -2,12 +2,9 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-At this point, you might asking why am I adding so much boilerplate code?!?!
+At this point, you might asking why am I adding so much boilerplate code?
 
-<details>
-<summary>It's okay. Don't be cry.</summary>
-<img src="https://media.giphy.com/media/eveLVPcHcbl0A/giphy.gif" />
-</details>
+_Take a Deep Breath. It's Okay_
 
 A lot of code seems to be repeated with Redux. Redux is very much function based and has a lot of opportunites for some refactoring to make it less boilerplate'ish.
 
