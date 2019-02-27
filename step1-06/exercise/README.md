@@ -3,7 +3,7 @@
 ### TodoFooter
 
 1. Use the provided `itemCount` value drive the number of items left.
-2. Use a ternary operator to print `item` vs `items` based on if `itemCount > 1`
+2. Use a ternary operator to print `item` vs `items` based on if `itemCount == 1`
 
 ### TodoListItem
 
