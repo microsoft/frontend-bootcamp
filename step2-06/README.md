@@ -75,7 +75,7 @@ The Chrome / Firefox Redux dev tools extension is a work of genius! It lets you 
 
 # Exercise
 
-If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 6 to see results.
+If you still have `npm test` running from the previous step, stop it with `ctrl+C`. Start the app by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 6 to see results.
 
 ## Visualize the state changes with Chrome extension
 
