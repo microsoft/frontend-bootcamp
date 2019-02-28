@@ -87,28 +87,27 @@ The `styles` prop can take either an object, or a function which returns a style
 
 The following code (simplified from `demo/src/components/TodoHeader.tsx`) demonstrates using `styles` to customize individual components. The TextField uses a style function and the PrimaryButton uses a style object.
 
-```tsx
+```ts
 function render() {
+  const buttonStyles = {
+    root: { backgroundColor: 'maroon' },
+    rootHovered: { background: 'green' }
+  };
+
+  const textFieldStyles = (props: ITextFieldStyleProps): Partial<ITextFieldStyles> => ({
+    ...(props.focused && {
+      field: {
+        backgroundColor: '#c7e0f4'
+      }
+    })
+  });
+
   return (
     <Stack>
       <Stack.Item>
-        <TextField
-          placeholder="What needs to be done?"
-          styles={(props: ITextFieldStyleProps): Partial<ITextFieldStyles> => ({
-            ...(props.focused && {
-              field: {
-                backgroundColor: '#c7e0f4'
-              }
-            })
-          })}
-        />
+        <TextField placeholder="What needs to be done?" styles={textFieldStyles} />
       </Stack.Item>
-      <PrimaryButton styles={{
-        root: { backgroundColor: 'maroon' },
-        rootHovered: { background: 'green' }
-      }}>
-        Add
-      </PrimaryButton>
+      <PrimaryButton styles={buttonStyles}>Add</PrimaryButton>
     </Stack>
   );
 }
@@ -121,6 +120,7 @@ function render() {
 This is an advanced approach which also works outside of Fabric. Within Fabric-based apps, you would typically only use `mergeStyles` in certain niche scenarios. (Fabric itself uses `mergeStyles` under the hood to power some of its styling.)
 
 Benefits of `mergeStyles` include:
+
 - Works in any app
 - Eliminates the need to import or bundle CSS stylesheets (all styles are bundled as normal JS code)
 - Provides type checking for styles (like Sass) when used with TypeScript
@@ -144,11 +144,7 @@ const className = mergeStyles(blueBackgroundClassName, {
   }
 });
 
-const myDiv = (
-  <div className={className}>
-    I am a green div that turns red on hover!
-  </div>
-);
+const myDiv = <div className={className}>I am a green div that turns red on hover!</div>;
 ```
 
 # Exercises

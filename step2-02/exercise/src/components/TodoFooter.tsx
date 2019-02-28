@@ -1,7 +1,20 @@
 import React from 'react';
+import { Store } from '../store';
 
-export const TodoFooter = (props: any) => {
-  const itemCount = 3;
+// TODO: import DefaultButton, Stack, and Text
+
+interface TodoFooterProps {
+  clear: () => void;
+  todos: Store['todos'];
+}
+
+export const TodoFooter = (props: TodoFooterProps) => {
+  const itemCount = Object.keys(props.todos).filter(id => !props.todos[id].completed).length;
+
+  // TODO:
+  // 1. replace the <footer> with the Fabric control <Stack>
+  // 2. replace the <span> with the Fabric control <Text>
+  // 3. replace the <button> with Fabric control <DefaultButton>
 
   return (
     <footer>
