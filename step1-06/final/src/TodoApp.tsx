@@ -29,7 +29,7 @@ export class TodoApp extends React.Component<any, any> {
     };
   }
   render() {
-    const { filter, todos } = this.state;
+    const { filter, todos = [] } = this.state;
     return (
       <div>
         <TodoHeader filter={filter} />

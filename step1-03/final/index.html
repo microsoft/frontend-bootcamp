@@ -32,7 +32,7 @@
       </li>
     </ul>
     <footer>
-      <span><span class="remaining">4</span> items left</span>
+      <span><i class="remaining">4</i> items left</span>
       <button onclick="clearCompleted()" class="submit">Clear Completed</button>
     </footer>
   </body>
@@ -65,7 +65,7 @@
     function clearCompleted() {
       const todos = document.querySelectorAll('.todo');
       for (let todo of todos) {
-        if (todo.querySelector('input').checked == true) {
+        if (todo.querySelector('input').checked === true) {
           todo.remove();
         }
       }
@@ -78,12 +78,12 @@
 
       const filterName = button.innerText;
       for (let todo of document.querySelectorAll('.todo')) {
-        const checked = todo.querySelector('input').checked == true;
-        if (filterName == 'all') {
+        const checked = todo.querySelector('input').checked === true;
+        if (filterName === 'all') {
           todo.hidden = false;
-        } else if (filterName == 'active') {
+        } else if (filterName === 'active') {
           todo.hidden = checked;
-        } else if (filterName == 'completed') {
+        } else if (filterName === 'completed') {
           todo.hidden = !checked;
         }
       }

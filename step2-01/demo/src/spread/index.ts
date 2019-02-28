@@ -1,6 +1,6 @@
 // Destructuring
 var [a, b, ...rest] = [1, 2, 3, 4];
-console.log(a, b, rest); // 1,2,[3,4]
+console.log(a, b, rest); // 1 2 [3,4]
 
 // Array assignment
 var list = [1, 2];
@@ -20,5 +20,5 @@ const obj3 = { ...obj1, ...obj2 };
 // Destructuring object
 const { x } = obj3;
 
-// adding an export to turn this into a "module"
+// adding an export turns this into a "module"
 export default {};

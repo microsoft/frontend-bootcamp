@@ -2,38 +2,38 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-UI Fabric is a Component Library that is developed to reflect the latest Microsoft design language. It is used in many Microsoft web applications and is developed in the open.
+[UI Fabric](https://developer.microsoft.com/en-us/fabric) is a component library that reflects the latest Microsoft design language. It is used in many Microsoft web applications and is [developed in the open](https://github.com/OfficeDev/office-ui-fabric-react).
 
 We'll talk about:
 
-- What makes it good
-- How to find it
-- How to use it
-- Laying out Apps with Stack
+- [What makes it good](#what-makes-it-good)
+- [How to find it](#how-to-find-it)
+- [How to use it](#how-to-use-it)
+- [Laying out apps with Stack](#layout-with-stack)
 
-# What Makes It Good
+## What Makes It Good
 
 - Fabric has been developed BOTH by developers and design engineers working together as a team
 - Most notable Microsoft web products use it
-- It is documented both from examples and generated from API (TypeScript) itself
+- It is documented both with examples and TypeScript API documentation
 - Components are highly customizable and themeable
 - Comprehensive library
-- Works with (aria) and augments (focus management) web accessibility standards
+- Works with assistive technologies and conforms to web accessibility standards for focus management
 - Fully funded and well managed - shield rotation and lots of automation work
-- Engineering is done in the open in github.com
+- Engineering is done in the open on GitHub
 - Engineering system is shared and re-usable by other teams
 
-# How to Find It
+## How to Find It
 
-github repo:
+GitHub repo:
 https://github.com/officedev/office-ui-fabric-react
 
-Documentation can be found here:
+Documentation:
 https://developer.microsoft.com/en-us/fabric/#/components
 
-# How to Use It
+## How to Use It
 
-## Importing a Component
+### Importing a Component
 
 ```jsx
 import { DefaultButton } from 'office-ui-fabric-react';
@@ -47,11 +47,11 @@ const MyComponent = () => {
 };
 ```
 
-## Customizing Behavior of Individual Component
+### Customizing Behavior of Individual Components
 
-Take a look at the documentation: https://developer.microsoft.com/en-us/fabric#/components/button
+Take a look at the [Button documentation](https://developer.microsoft.com/en-us/fabric#/components/button).
 
-Let's say we want an Icon to be rendered with the Button Text, we'd use the `iconProps`
+From the documentation, we can see that if we want to render an icon along with the button's text, we can pass `iconProps` to the button:
 
 ```js
 import { DefaultButton } from 'office-ui-fabric-react';
@@ -65,9 +65,9 @@ const MyComponent = () => {
 };
 ```
 
-## Render Props
+### Customizing Component Rendering
 
-Some Fabric components take in a render function like the TextField:
+Some Fabric components take in a render functions to allow customizing certain parts of the component. An example with TextField:
 
 ```js
 import { TextField } from 'office-ui-fabric-react';
@@ -82,36 +82,36 @@ const MyComponent = () => {
 };
 ```
 
-# Layout with Stack
+## Layout with Stack
 
-Before we start, let's look at flexbox. It is really, really complex to use:
+Before we start, let's look at flexbox--a new CSS layout method which is powerful, but really, really complex to use:
 
-- a guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-- a tool: http://the-echoplex.net/flexyboxes/
-- did you know there were 3 or so flex box standards? i.e. Old links will have non-working code
+- A guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- A tool: http://the-echoplex.net/flexyboxes/
+- Did you know there were three or so flexbox standards? (this means old articles may have non-working code)
 
-Fabric's answer is: Stack
+Fabric's answer is: Stack.
 
-> A Stack is a container-type component that abstracts the implementation of a flexbox in order to define the layout of its children components.
+**Stack** is a container-type component that abstracts the usage of flexbox to define the layout of its child components.
 
-The concepts are:
+Flexbox uses CSS styles to control:
 
 - direction
 - grow
+- shrink
 - wrap
-- shrunk
-- justify-content
+- justification
 - alignment
 
-Stack abstracts these CSS and provides a type discoverable.
+Stack abstracts these CSS styles and provides typings to make them more discoverable.
 
-Checkout a cookbook of sorts in our documentation: https://developer.microsoft.com/en-us/fabric#/components/stack
+Check out a cookbook of sorts in our [documentation](https://developer.microsoft.com/en-us/fabric#/components/stack).
 
 # Exercise
 
-1. Open up the [Documentation for DefaultButton](https://developer.microsoft.com/en-us/fabric/#/components/button)
-2. Open up the TSX files inside `components/`
-3. Replace the DOM tags with Fabric components in those TSX files with these components:
+1. Open the [documentation for DefaultButton](https://developer.microsoft.com/en-us/fabric/#/components/button)
+2. Open each TSX file inside `exercise/src/components`
+3. Replace some of the built-in HTML tags with these Fabric components:
 
 - Stack
 - DefaultButton
@@ -119,10 +119,12 @@ Checkout a cookbook of sorts in our documentation: https://developer.microsoft.c
 - TextField
 - Pivot (for the filter)
 
-# Bonus Exercise
+> Hint: think about how you can use Stacks to make the layout look nicer.
 
-GO WILD! There are so many components from the Fabric library! Try to put some components in the exercise component files. Try out these concepts that we have mentioned above:
+## Bonus Exercise
+
+GO WILD! There are so many components in the Fabric library! Try to put some components in the exercise component files. Try out these concepts mentioned earlier:
 
 - Importing components from `office-ui-fabric-react`
 - Customizing component with props found on the documentation site
-- Customize component with render props (these will be called onRender or something like that)
+- Customize component with render props (these will be called onRender___ or similar)

@@ -4,7 +4,7 @@ import { Counter } from './components/Counter';
 export class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <h2>My App</h2>
         <Counter text="Chickens" />
         <Counter text="Ducks" />

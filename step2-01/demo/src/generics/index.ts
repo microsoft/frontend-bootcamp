@@ -19,5 +19,5 @@ function reverse<T>(arg: T[]): T[] {
   return arg;
 }
 
-// adding an export to turn this into a "module"
+// adding an export turns this into a "module"
 export default {};
