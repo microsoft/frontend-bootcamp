@@ -63,7 +63,7 @@ function displayMatches() {
 
 ### Iteration
 
-Next we'll update our function to iterate through a string of letters. We loop over each letter using the [`for of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) syntax. We'll use real input later, but for now this varifies that our function is working.
+Next we'll update our function to iterate through a string of letters. We loop over each letter using the [`for of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) syntax. We'll use real input later, but for now this verifies that our function is working.
 
 ```js
 function displayMatches() {
@@ -90,7 +90,7 @@ function displayMatches() {
 }
 ```
 
-> In JavaScript, it's safest to use strict `===` for comparisons, because `==` will try to convert the operands to the same type (and sometimes the behavior is [not what you'd expect](https://www.youtube.com/watch?v=et8xNAc2ic8)). For example, `"1" == 1` is true whereas `"1" === 1` would be false.
+> In JavaScript, it's safest to use strict `===` for comparisons, because `==` will try to convert the operands to the same type. For example, `"1" == 1` is true whereas `"1" === 1` is false, but the behavior in certain other cases is [not what you'd expect](https://www.youtube.com/watch?v=et8xNAc2ic8). (See [this video](https://www.destroyallsoftware.com/talks/wat) for more strange JavaScript behavior.)
 
 ### Interacting with the DOM
 
