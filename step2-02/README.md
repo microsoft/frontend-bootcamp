@@ -109,9 +109,11 @@ Check out a cookbook of sorts in our [documentation](https://developer.microsoft
 
 # Exercise 1: Getting familiar with the Fabric documentation site:
 
-Open the [documentation for DefaultButton](https://developer.microsoft.com/en-us/fabric/#/components/button)
+Open the [documentation for DefaultButton](https://developer.microsoft.com/en-us/fabric/#/components/button). Use the sidebar to explore other available components.
 
 # Exercise 2: "Fabric"ize the TodoFooter.tsx
+
+If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 2 to see results.
 
 1. Open TSX file inside `exercise/src/components/TodoFooter.tsx`
 2. Follow the top TODO comment to import Stack, Text and DefaultButton components from Fabric

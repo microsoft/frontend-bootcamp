@@ -115,7 +115,7 @@ it('tests async functions', async () => {
 
 ## Jest basics
 
-In this repo, we can start an inner loop development of tests with the command: `npm test`
+In this repo, we can start an inner loop development of tests by running `npm test` from the root of the `frontend-bootcamp` folder.
 
 Take a look at code inside `demo/src`:
 
