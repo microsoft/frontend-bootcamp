@@ -1,5 +1,7 @@
 ## Exercise
 
+If you don't already have the app running, start it with `npm run static` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 1 step 3 to see results.
+
 ### Update Navigation
 
 1. Add an `onclick` attribute to all three buttons in the navigation.

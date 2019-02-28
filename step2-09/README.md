@@ -51,6 +51,8 @@ Let's make some observations:
 
 # Exercise
 
+If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 9 to see results.
+
 1. open up `exercise/src/service/index.ts` and study the signature of the functions to call the service such as the `add()` function
 
 2. open `exercise/src/actions/index.ts` and fill in the missing content inside `actionsWithService`

@@ -1,5 +1,7 @@
 ## Exercise
 
+If you don't already have the app running, start it with `npm run static` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 1 step 2 to see results.
+
 1. Add an unordered list with class `todos` to the main section
 2. Add 4 list items with class `todo` inside of that list with the following content
    `<label><input type="checkbox" /> <span class="title"> Todo </span> </label>`

@@ -109,6 +109,8 @@ Check out a cookbook of sorts in our [documentation](https://developer.microsoft
 
 # Exercise
 
+If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 2 to see results.
+
 1. Open the [documentation for DefaultButton](https://developer.microsoft.com/en-us/fabric/#/components/button)
 2. Open each TSX file inside `exercise/src/components`
 3. Replace some of the built-in HTML tags with these Fabric components:

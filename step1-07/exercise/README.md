@@ -1,5 +1,7 @@
 ## Exercise
 
+If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 1 step 7 to see results.
+
 ### TodoFooter
 
 1. Open TodoFooter and write a TodoFooterProps interface. It should include two values, a function and an object. Use this interface in the function props like this: `(props: TodoFooterProps)`

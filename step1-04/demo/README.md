@@ -6,6 +6,10 @@ In this example we'll see how React turns that paradigm completely around. With 
 
 In this demo we'll be creating a simple counter that will display a count and increment on click.
 
+## Building
+
+If you already have the app running from a previous step, stop it with `ctrl+C`. Start the app version used in this step by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "demo" link under day 1 step 4 to see results.
+
 ## The App
 
 This is the starting point of our React application. It is a component just like the other ones we will be building, but this component will only ever be used once, to render the application. Here's how our app starts out. Let's walk through each line:

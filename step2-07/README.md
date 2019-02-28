@@ -75,6 +75,8 @@ function mapDispatchToProps(dispatch) {
 
 # Exercise
 
+If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 7 to see results.
+
 1. open up `exercise/src/index.tsx` and wrap `<TodoApp>` with `<Provider>` as instructed in the comment
 
 2. open up `exercise/src/components/TodoFooter.tsx` and erase the "nullable" type modifier (i.e. the ?) in the interface definition of `TodoFooterProps`
