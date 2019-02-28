@@ -10,7 +10,7 @@ export class TodoHeader extends React.Component<any, any> {
     const { filter } = this.props;
     return (
       <header>
-        <h1>todos</h1>
+        <h1>todos - step1-06 demo</h1>
         <div className="addTodo">
           <input className="textfield" placeholder="add todo" />
           <button className="submit">Add</button>
