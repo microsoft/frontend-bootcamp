@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-describe('TestMe Component', () => {
+describe('index', () => {
   it('placeholder', () => {
   });
 });
