@@ -1,6 +1,6 @@
 import React from "react";
 
-export class TodoListItem extends React.Component {
+export class TodoListItem extends React.Component<any, any> {
   render() {
     return (
       <li className="todo">

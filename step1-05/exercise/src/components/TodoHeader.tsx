@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class TodoHeader extends React.Component {
+export class TodoHeader extends React.Component<any, any> {
   render() {
     return (
       <header>
