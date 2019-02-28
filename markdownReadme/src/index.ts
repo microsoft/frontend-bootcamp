@@ -9,7 +9,7 @@ hljs.registerLanguage('typescript', typescript);
 async function run() {
   const div = document.getElementById('markdownReadme');
 
-  // // Create your custom renderer.
+  // Create your custom renderer.
   const renderer = new Renderer();
   renderer.code = (code, language) => {
     // Check whether the given language is valid for highlight.js.
@@ -21,32 +21,20 @@ async function run() {
   };
   marked.setOptions({ renderer });
 
-  // if (typeof hljs != 'undefined') {
-  //   marked.setOptions({
-  //     highlight: function(code, lang) {
-  //       if (lang && hljs.getLanguage(lang)) {
-  //         return hljs.highlight(lang, code).value;
-  //       } else {
-  //         return code;
-  //       }
-  //     }
-  //   });
-  // }
-
   if (div) {
     const response = await fetch('../README.md');
     const markdownText = await response.text();
     div.innerHTML = marked(markdownText, { baseUrl: '../' });
     restoreScroll(div);
+
+    div.addEventListener('scroll', evt => {
+      saveScroll(div);
+    });
+
+    window.addEventListener('resize', evt => {
+      saveScroll(div);
+    });
   }
-
-  div.addEventListener('scroll', evt => {
-    saveScroll(div);
-  });
-
-  window.addEventListener('resize', evt => {
-    saveScroll(div);
-  });
 }
 
 const scrollKey = `${window.location.pathname}_scrolltop`;
