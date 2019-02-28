@@ -1,7 +1,32 @@
 // TODO: import the fib(n) function and the constant from './fibonacci.ts'
 // import {fib}, FibConst from ...
 
-// Some setup code for exercises
+// TODO: import Stack from './stack.ts'
+
+// Do the exercises here, outputting results using console.log()
+console.log('hello world');
+
+// ---- Modules ----
+
+// TODO: log the result of fib(FibConst)
+
+// ---- Types and Interfaces ----
+
+// TODO: define TrafficLight type
+// type TrafficLight = ???
+
+// TODO: define Car interface
+// interface Car { ??? }
+
+// TODO: create Car instance
+// const myCar: Car = { ??? }
+
+// ---- Generics ----
+
+// TODO: Demonstrate the Stack
+// const myStack: Stack<number> = ???
+
+// ---- Spread and Destructuring ----
 const obj1 = {
   first: 'who',
   second: 'what',
@@ -15,17 +40,16 @@ const obj2 = {
   catcher: 'today'
 };
 
+// TODO: combine obj1 and obj2 into a single object megaObj using spread syntax
+// const megaObj = ???
+
+// TODO: use destructuring syntax to extract { first, second, catcher }
+
+// ---- Async / Await ----
 function makePromise() {
   return Promise.resolve(5);
 }
 
-// Do the exercises here, outputting results using console.log()
-// ...
-console.log('hello world');
+// TODO: call makePromise() using await syntax and log the results
 
-async function run() {
-  // Call the function you added for the async / await exercise here
-  // ...
-}
-
-run();
+// TODO: create a new async function
