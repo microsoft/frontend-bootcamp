@@ -58,7 +58,7 @@ We begin the journey into Redux by looking at the store. The store consists of s
 
 ## Create Store
 
-The `createStore()` takes in several arguments. The simplest for just takes in reducers. Reducers are the means by which the state changes from one snapshot to another.
+The `createStore()` takes in several arguments. The simplest form just takes in reducers. Reducers are the means by which the state changes from one snapshot to another.
 
 ```ts
 const store = createStore(reducer);
