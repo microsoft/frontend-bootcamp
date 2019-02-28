@@ -34,7 +34,7 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
               styles={props => ({
                 ...(props.focused && {
                   field: {
-                    backgroundColor: 'black'
+                    backgroundColor: '#c7e0f4'
                   }
                 })
               })}
