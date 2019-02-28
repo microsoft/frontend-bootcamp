@@ -22,7 +22,7 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
     return (
       <Stack gap={10}>
         <Stack horizontal horizontalAlign="center">
-          <Text variant="xxLarge">todos</Text>
+          <Text variant="xxLarge">todos - step2-03 demo</Text>
         </Stack>
 
         <Stack horizontal gap={10}>
