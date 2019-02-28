@@ -1,32 +1,48 @@
-# Step 2.3: Theming and Styling
+# Step 2.3: Theming and styling with UI Fabric
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-Theming and Styling with UI Fabric. In this section, we will illustrate how to utilize some of the built-in theming and styling features right inside UI Fabric component library.
+In this section, we will illustrate how to use some of the built-in theming and styling features of the UI Fabric component library.
 
-For advanced or non-Fabric component scenarios, UI Fabric also exposes its own CSS-in-JS library called `mergeStyles` that is very performant compared with other similar libraries. A CodePen that illustrates what `mergeStyles` does: https://codepen.io/dzearing/pen/jGdgrE?editors=1011
+These are the theming and styling methods that we will focus on in this step:
 
-These are the areas that we will focus on in this step:
-
-1. Theming with Fabric using `<Customizer>` component
+1. Theming using the `<Customizer>` component
 2. Customizing themes and loading with `loadTheme()`
-3. Customizing Fabric Components `styles` prop
-4. CSS-in-JS with mergeStyles
+3. Customizing Fabric components via the `styles` prop
+4. CSS-in-JS with `mergeStyles`
 
-## Fabric Theming and Styling
+The first three methods only work with Fabric components, but the fourth, `mergeStyles`, can be used in other projects as well (and is typically not used within Fabric-based projects).
 
-### 1. Applying Fabric Themes
+## 1. Applying Fabric themes using `<Customizer>`
 
-- Fabric applies themes by propagating the theme down the children through the React Context mechanism
-- It is applied with the `<Customizer>` component
-- There are some predefined themes within Fabric already, like Fluent (which will become the default in the next major), MDL2, Azure, and some other sample themes like Teams.
-- Take a look at `demo/src/components/TodoApp.tsx`
+One way to apply a theme is by wrapping the components to be themed with a `<Customizer>` component. `Customizer` propagates the theme down to children through the [React Context](https://reactjs.org/docs/context.html) mechanism.
 
-### 2. Customizing Fabric Themes
+There are some predefined themes within Fabric already, like Fluent (which will become the default in the next major release), MDL2, Azure, and some other sample themes like Teams.
 
-- Use the `loadTheme()` function to load a theme (applies to entire application):
-- Erase the `<Customizer>` inside the `TodoApp.tsx` and place this code in the module scope. This will initialize a theme to be used throughout the application
-- Fabric website has a handy theme generator to get you started with a theme: https://developer.microsoft.com/en-us/fabric#/styles/themegenerator
+The following code (simplified from `demo/src/components/TodoApp.tsx`) shows an example of applying the Fluent theme to our todo app using `Customizer`.
+
+```tsx
+import { Customizer } from 'office-ui-fabric-react';
+import { FluentCustomizations } from '@uifabric/fluent-theme';
+
+function render() {
+  return (
+    <Customizer {...FluentCustomizations}>
+      <Stack>
+        <TodoHeader />
+        <TodoList />
+        <TodoFooter />
+      </Stack>
+    </Customizer>
+  );
+}
+```
+
+## 2. Applying customized themes using `loadTheme()`
+
+Another way to apply a theme is using the `loadTheme()` function. Themes loaded this way apply to the entire application.
+
+To try out `loadTheme()` in our todo app, remove the `<Customizer>` tag from `TodoApp.tsx` and place this code in the module scope.
 
 ```ts
 import { loadTheme } from 'office-ui-fabric-react';
@@ -59,28 +75,89 @@ loadTheme({
 });
 ```
 
-### 3. Customizing One Fabric Control Instance
+> If you'd like to create your own theme, the Fabric website has a [handy theme generator](https://developer.microsoft.com/en-us/fabric#/styles/themegenerator) to help get you started.
 
-- Fabric components expose a `styles` prop (not to be confused with the React built-in one called `style`)
-- You can use intellisense to discover which parts of the component you can to customize
-- You can even use a style function to change the style based on some style prop
-- Take a look at these customizations in `demo/src/components/TodoHeader.tsx`
+## 3. Customizing one Fabric control instance
 
-### 4. CSS-in-JS with mergeStyles
+If you just want to customize a single component instance's styling, Fabric components expose a `styles` prop (not to be confused with the React built-in one called `style`).
 
-- `mergeStyles` is a styling library that creates CSS class from styles that are expressed in JS.
-- Fabric uses `mergeStyles` under the hood, so typically you would only directly use `mergeStyles` in niche or non-Fabric scenarios.
-- These classes can be passed into `className` prop of any component like `<div>`
-- This library replaces the need to import CSS stylesheets because they are bundled as normal JS code
-- Take a look at `demo/src/components/TodoApp.tsx`
+You can use intellisense to discover which parts of the component you can to customize.
+
+The `styles` prop can take either an object, or a function which returns a style object based on the component's prop values.
+
+The following code (simplified from `demo/src/components/TodoHeader.tsx`) demonstrates using `styles` to customize individual components. The TextField uses a style function and the PrimaryButton uses a style object.
+
+```tsx
+function render() {
+  return (
+    <Stack>
+      <Stack.Item>
+        <TextField
+          placeholder="What needs to be done?"
+          styles={(props: ITextFieldStyleProps): Partial<ITextFieldStyles> => ({
+            ...(props.focused && {
+              field: {
+                backgroundColor: '#c7e0f4'
+              }
+            })
+          })}
+        />
+      </Stack.Item>
+      <PrimaryButton styles={{
+        root: { backgroundColor: 'maroon' },
+        rootHovered: { background: 'green' }
+      }}>
+        Add
+      </PrimaryButton>
+    </Stack>
+  );
+}
+```
+
+## 4. CSS-in-JS with `mergeStyles`
+
+`mergeStyles` is a styling library that creates CSS class names from styles that are expressed as JavaScript objects. These classes can be used as the `className` prop of any component or element, such as `<div>`.
+
+This is an advanced approach which also works outside of Fabric. Within Fabric-based apps, you would typically only use `mergeStyles` in certain niche scenarios. (Fabric itself uses `mergeStyles` under the hood to power some of its styling.)
+
+Benefits of `mergeStyles` include:
+- Works in any app
+- Eliminates the need to import or bundle CSS stylesheets (all styles are bundled as normal JS code)
+- Provides type checking for styles (like Sass) when used with TypeScript
+- Very performant compared with other similar libraries
+
+The following is a basic example using mergeStyles. ([This CodePen](https://codepen.io/dzearing/pen/jGdgrE?editors=1011) illustrates in more detail what `mergeStyles` does and includes some advanced examples.)
+
+```tsx
+// can also import from office-ui-fabric-react in Fabric-based apps
+import { mergeStyles } from '@uifabric/merge-styles';
+
+const blueBackgroundClassName = mergeStyles({
+  backgroundColor: 'green'
+});
+const className = mergeStyles(blueBackgroundClassName, {
+  padding: 50, // px is assumed if no units are given
+  selectors: {
+    ':hover': {
+      backgroundColor: 'red'
+    }
+  }
+});
+
+const myDiv = (
+  <div className={className}>
+    I am a green div that turns red on hover!
+  </div>
+);
+```
 
 # Exercises
 
-## Fabric Theming and Styling
+## Fabric theming and styling
 
-### Applying Fabric Themes
+### Applying Fabric themes
 
-Apply some included and predefined themes from the UI Fabric package inside the `/step2-03/exercise/src/components/TodoApp.tsx`. Do this by replacing:
+Try applying some predefined themes from UI Fabric packages inside the TodoApp under `exercise/src/components/TodoApp.tsx`. Do this by replacing:
 
 ```ts
 import { FluentCustomizations } from '@uifabric/fluent-theme';
@@ -92,18 +169,17 @@ with:
 import { TeamsCustomizations } from '@uifabric/theme-samples';
 ```
 
-### Customizing Fabric Themes
+### Applying customized themes
 
-Create your own theme and apply the color palette here:
-https://developer.microsoft.com/en-us/fabric#/styles/themegenerator
+1. Create your own theme using the [theme generator](https://developer.microsoft.com/en-us/fabric#/styles/themegenerator) and copy the generated code.
 
-1. Delete the `Customizer` component
+2. In `exercise/src/components/TodoApp.tsx`, delete the `Customizer` component.
 
-2. Paste in this code in the `TodoApp.tsx` before the `TodoApp` component definition
+3. Paste in the generated theme code before the `TodoApp` component definition.
 
-3. Play around with the values and use intellisense to discover the `ITheme` type within VS Code
+4. Play around with the values and use VS Code's intellisense to discover more properties of the `ITheme` type.
 
-### Customizing One Fabric Control Instance
+### Customizing one Fabric control instance
 
 1. Open `exercise/src/components/TodoFooter.tsx`
 
@@ -113,15 +189,11 @@ https://developer.microsoft.com/en-us/fabric#/styles/themegenerator
 
 4. Try to customize this with a styles function
 
-## Advanced / Non-Fabric Component Styling
+## Advanced/non-Fabric component styling
 
-### CSS in JS with MergeStyles
+### CSS-in-JS with `mergeStyles`
 
-The styling library name is neither glamorous nor does it bring about emotion, but it is very quick and lightweight. `MergeStyles` turns CSS Rules into CSS class names to be applied to the components.
-
-**NOTE:** Fabric components automatically use `mergeStyles` under the hood, so it is typically not necessary to directly call `mergeStyles` when styling Fabric components.
-
-1. Try applying a merged style `className` as a prop inside `TodoApp`
+1. Try generating a class name using `mergeStyles` and use it as a `className` prop inside `TodoApp`
 
 ```tsx
 import { mergeStyles } from 'office-ui-fabric-react';
