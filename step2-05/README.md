@@ -52,9 +52,9 @@ From the official documentation site:
 
 We begin the journey into Redux by looking at the store. The store consists of several parts
 
-1. the state or the data - we represent this both with an initial state and with a TypeScript interface
-2. the reducers - conceptually this should be very close to the shape to the store. One reducer should be responsible for reacting to action messages to change the state from a previous to the next state.
-3. the dispatcher - there should be only one dispatcher and the store exports this. We'll look at this in Step 6!
+1. the state or the data - we represent this both with an initial state and with a TypeScript interface.
+2. the reducer - responsible for reacting to action messages to change the state from a previous to the next state.
+3. the dispatcher - there is only one dispatcher and the store exports this. We'll look at this in Step 6!
 
 ## Create Store
 
