@@ -17,11 +17,12 @@ Before starting, make sure your computer has the following installed:
 - [Node/NPM](https://nodejs.org/en/) (choose the **LTS** option)
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com)
+  - If using a Mac, also follow [these steps](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to install the `code` terminal command.
 - React Developer Tools for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
 ### Installing and running the project
 
-#### 1. find a good terminal program, we're going to use it a LOT!
+#### 1. Find a good terminal program--we're going to use it a LOT!
 
 - On a PC, you can do this with `cmd.exe` (or some terminal programs such as [cmder](https://cmder.net/))
 
@@ -29,12 +30,25 @@ Before starting, make sure your computer has the following installed:
 
 - For those who really want something fancy looking: [hyper](https://hyper.is/)
 
-#### 2. Type the following
+#### 2. Clone repo and npm install
+
+First, `cd` to a good place to put your copy of the Git repo.
+
+- Windows: run `cd %USERPROFILE%` (if using `cmd.exe`) or `cd ~` (if using Bash)
+- Mac: Terminal automatically opens to your user directory (`/Users/you`)
+
+Then run the following to make a local copy of the repo and get it ready to run:
 
 ```
 git clone https://github.com/Microsoft/frontend-bootcamp.git
 cd frontend-bootcamp
 npm install
+```
+
+If you have VS Code installed, type the following command to open a VS Code window where you can browse and open all the files in the project. (If on a Mac, be sure you've followed [these steps](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) first to make the `code` command available.)
+
+```
+code .
 ```
 
 #### 3. Run the "inner loop" build
