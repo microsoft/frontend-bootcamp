@@ -195,7 +195,7 @@ Inside `exercise/src/stack.ts`, create a generic class for a `Stack<T>` complete
 
 > Hint: the JavaScript array already has `push()` and `pop()` implemented for you. That can be your backing store.
 
-In `index.ts`, create a `Stack<number>` and use `console.log()` to demonstrate its functionality.
+In `exercise/src/index.ts`, create a `Stack<number>` and use `console.log()` to demonstrate its functionality.
 
 ## Spread and Destructuring
 
