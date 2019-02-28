@@ -17,20 +17,9 @@ This demo starts off with a few functions already in place. Let's walk through w
   4. Get all of the todos with [`querySelectAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll), and then loop through them.
   5. Set the `hidden` property of each todo based on the filter/state combination.
 
-<<<<<<< HEAD
 ## Writing `addTodo` Function
 
 We start writing all functions with the `function` keyword and the name of our function. Functions can take parameters, but in this case we don't need to pass any through, so we follow the function name with an empty `()`. Everything we want this function to do will then be placed in a set of brackets `{}`.
-=======
-### Writing `addTodo` function
-
-1. `todo` is set to the first todo item
-2. `newTodo` is a clone of `todo`. Passing true means it is a deep clone, so we get the todo's children as well. Cloning does not duplicate the DOM node. We'll need to insert it in step 4.
-   > Note that this approach is very fragile, as it requires a todo node to always be present on the page.
-3. We set the `innerText` of the `<span class='title'>` to the value returned from `getTodoText`
-   > Note that if we left off the `()` we'd actually be assigning the *function* to `innerText` instead of the function's returned value.
-4. Insert our new todo into the todo's parent (the `ul`) before our reference todo using [`insertBefore`](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore).
->>>>>>> 99e9b1e58c4479bd778c3e48c98c2a6f174f9cf8
 
 ```js
 function addTodo() {}
