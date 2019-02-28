@@ -6,7 +6,7 @@ export const TodoFooter = props => {
   return (
     <footer>
       <span>
-        {itemCount} item{itemCount > 1 ? 's' : ''} left
+        {itemCount} item{itemCount === 1 ? '' : 's'} left
       </span>
       <button className="submit">Clear Completed</button>
     </footer>

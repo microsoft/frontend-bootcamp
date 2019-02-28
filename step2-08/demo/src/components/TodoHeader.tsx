@@ -29,7 +29,7 @@ class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
 
         <Stack horizontal gap={10}>
           <Stack.Item grow>
-            <TextField placeholder="What needs toasdf be done?" value={this.state.labelInput} onChange={this.onChange} />
+            <TextField placeholder="What needs to be done?" value={this.state.labelInput} onChange={this.onChange} />
           </Stack.Item>
           <PrimaryButton onClick={this.onAdd}>Add</PrimaryButton>
         </Stack>

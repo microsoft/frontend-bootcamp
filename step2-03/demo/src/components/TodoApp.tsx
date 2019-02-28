@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Customizer, mergeStyles, getTheme } from 'office-ui-fabric-react';
+import { Stack, Customizer, mergeStyles, getTheme, loadTheme } from 'office-ui-fabric-react';
 import { TodoFooter } from './TodoFooter';
 import { TodoHeader } from './TodoHeader';
 import { TodoList } from './TodoList';
@@ -12,6 +12,36 @@ const className = mergeStyles({
   padding: 25,
   ...getTheme().effects.elevation4
 });
+
+// Uncomment to see loadTheme
+/*
+loadTheme({
+  palette: {
+    themePrimary: '#c41515',
+    themeLighterAlt: '#fdf4f4',
+    themeLighter: '#f6d3d3',
+    themeLight: '#edaeae',
+    themeTertiary: '#dc6666',
+    themeSecondary: '#cb2c2c',
+    themeDarkAlt: '#b11313',
+    themeDark: '#951010',
+    themeDarker: '#6e0c0c',
+    neutralLighterAlt: '#d5b1b1',
+    neutralLighter: '#d2aeae',
+    neutralLight: '#c9a7a7',
+    neutralQuaternaryAlt: '#bc9c9c',
+    neutralQuaternary: '#b39595',
+    neutralTertiaryAlt: '#ac8f8f',
+    neutralTertiary: '#c38c8c',
+    neutralSecondary: '#b06e6e',
+    neutralPrimaryAlt: '#9c5454',
+    neutralPrimary: '#500e0e',
+    neutralDark: '#762a2a',
+    black: '#621a1a',
+    white: '#dbb5b5'
+  }
+});
+*/
 
 export class TodoApp extends React.Component<any, Store> {
   constructor(props) {

@@ -99,11 +99,17 @@ In CSS-based styling, visual states are applied by adding and removing classes. 
 
 #### Adding a Controlled Input
 
-In traditional HTML forms, users interact with the form, and on submit, those values are captured and transmitted. Those are called **uncontrolled inputs**.
+In React, form elements such as `<input>`, `<textarea>`, and `<select>` can be used as either **uncontrolled** or **controlled**. (This paradigm also applies to UI Fabric's customized implementations of form components, which we'll use later.)
 
-A **controlled input** is one whose value is defined by state, and interaction with that input updates state with each keystroke. This round trip process might sound inefficient, but in reality it has little to no impact, and it makes forms much easier to work with.
+An **uncontrolled input** maintains its current value internally and updates it based on user interactions (entering text, choosing options, etc). The code only pulls the value from the input when it's needed, such as on submit. This is similar to how inputs in a plain HTML form work.
 
-To create a controlled component, we need two things, which our demo already provides:
+A **controlled input** takes its current value from a prop and use a callback to notify the parent component of changes made by the user. The input's value doesn't change until the parent component updates the input's props in response to the callback.
+
+Typically, a controlled input's current value is stored in the parent component's state (then passed to the input as a prop during render). The parent updates its state in response to the callback, which causes the input to be re-rendered with a new prop value. This round trip process might sound inefficient, but in reality it has little to no impact and helps enable some advanced form functionality.
+
+> The distinction between controlled and uncontrolled is important to understand when writing or using form components, and misunderstandings of this concept are a very common source of bugs. See [this article](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) for a more detailed explanation.
+
+To add a controlled input, we need two things, which our demo already provides:
 
 1. A state variable to hold the input's value:
 

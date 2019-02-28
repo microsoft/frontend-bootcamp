@@ -209,4 +209,3 @@ const className = mergeStyles({
 ```
 
 2. Try to give a few components extra padding
-

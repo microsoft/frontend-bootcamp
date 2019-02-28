@@ -15,7 +15,7 @@ const TodoFooter = (props: TodoFooterProps) => {
   return (
     <Stack horizontal horizontalAlign="space-between">
       <Text>
-        {itemCount} item{itemCount > 1 ? 's' : ''} left
+        {itemCount} item{itemCount === 1 ? '' : 's'} left
       </Text>
       <DefaultButton onClick={() => props.clear()}>Clear Completed</DefaultButton>
     </Stack>

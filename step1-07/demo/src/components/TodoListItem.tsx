@@ -8,7 +8,7 @@ export class TodoListItem extends React.Component<any, any> {
     return (
       <li className="todo">
         <label>
-          <input type="checkbox" checked={completed} /> {label}
+          <input type="checkbox" checked={completed} onChange={() => undefined} /> {label}
         </label>
       </li>
     );
