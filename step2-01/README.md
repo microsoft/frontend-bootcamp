@@ -169,35 +169,35 @@ Exercises will be completed under this step's `exercise/src` folder unless other
 
 ## Modules
 
-1. Open the file `exercise/src/index.ts` in VS Code
+1. Open the file `exercise/src/fibonacci.ts` in VS Code
 
-2. Create another module file called `fibonacci.ts`
-
-3. Inside the file from (step 2), write a function called `fib(n)` that takes in a number and returns the `n`-th Fibonacci number (be sure the specify the type of `n`).
+2. Inside this file, write a function called `fib(n)` that takes in a number and returns the `n`-th Fibonacci number (be sure the specify the type of `n`).
 
 > HINT: `function fib(n: number) { return n <= 1 ? n : fib(n - 1) + fib(n - 2); }`
 
-4. Export `fib(n)` as a **named export**
+3. Export `fib(n)` as a **named export**
 
-5. Export another const variable as a **default export**
+4. Export a const variable `FibConst` as a **default export**
 
-6. Inside `index.ts`, import both of the modules created in steps (4) and (5) and use the built-in `console.log()` function to log the result of `fib(FibConst)`.
+5. Inside `index.ts` in the same folder, import both `fib` and `FibConst`, and use the built-in `console.log()` function to log the result of `fib(FibConst)`.
 
 ## Types and Interfaces
 
-Inside `index.ts`:
+Inside `exercise/src/index.ts`:
 
 1. Add a type alias for string union type describing the states of Red-Green-Yellow traffic light: `type TrafficLight = ???`
 
 2. Describe a type of car with an interface: `interface Car { ... }` complete with `wheels`, `color`, `make`, `model`
 
+3. Create a valid car instance and log it using `console.log()`: `const myCar: Car = { ??? }`;
+
 ## Generics
 
-Inside `stack.ts`, create a generic class for a `Stack<T>` complete with a typed `pop()` and `push()` methods.
+Inside `exercise/src/stack.ts`, create a generic class for a `Stack<T>` complete with a typed `pop()` and `push()` methods.
 
 > Hint: the JavaScript array already has `push()` and `pop()` implemented for you. That can be your backing store.
 
-Be sure to use the built-in `console.log()` to show the functionality of `Stack<T>`.
+In `exercise/src/index.ts`, create a `Stack<number>` and use `console.log()` to demonstrate its functionality.
 
 ## Spread and Destructuring
 
@@ -218,9 +218,9 @@ const obj2 = {
 };
 ```
 
-2. Now create a one-liner using the spread syntax `{...x, ...y}` to create a new variable that combines these two objects.
+2. Now create a one-liner using the spread syntax `{...x, ...y}` to create a new variable `megaObj` that combines these two objects.
 
-3. Use the destructuring syntax to retrieve the values for `{first, second, catcher}` from the new object created in step (2).
+3. Use the destructuring syntax to retrieve the values for `{first, second, catcher}` from `megaObj`.
 
 ## Async / Await
 
@@ -232,6 +232,6 @@ function makePromise() {
 }
 ```
 
-1. Call `makePromise()` with the `await` syntax and log the results using the provided `log()` function.
+1. Call `makePromise()` with the `await` syntax and log the results.
 
-2. Create a new function that uses the `async` keyword. Make an `await` call to `makePromise()` and return the results.
+2. Create a new function that uses the `async` keyword. Inside the function, make an `await` call to `makePromise()` and return the results.

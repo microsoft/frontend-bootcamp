@@ -107,21 +107,21 @@ Stack abstracts these CSS styles and provides typings to make them more discover
 
 Check out a cookbook of sorts in our [documentation](https://developer.microsoft.com/en-us/fabric#/components/stack).
 
-# Exercise
+# Exercise 1: Getting familiar with the Fabric documentation site:
+
+Open the [documentation for DefaultButton](https://developer.microsoft.com/en-us/fabric/#/components/button). Use the sidebar to explore other available components.
+
+# Exercise 2: "Fabric"ize the TodoFooter.tsx
 
 If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 2 to see results.
 
-1. Open the [documentation for DefaultButton](https://developer.microsoft.com/en-us/fabric/#/components/button)
-2. Open each TSX file inside `exercise/src/components`
-3. Replace some of the built-in HTML tags with these Fabric components:
+1. Open TSX file inside `exercise/src/components/TodoFooter.tsx`
+2. Follow the top TODO comment to import Stack, Text and DefaultButton components from Fabric
+3. Follow the TODO comment to:
 
-- Stack
-- DefaultButton
-- Checkbox
-- TextField
-- Pivot (for the filter)
-
-> Hint: think about how you can use Stacks to make the layout look nicer.
+- replace `<footer>` with a `<Stack>`
+- replace `<span>` with a `<Text>`
+- replace `<button>` with a `<DefaultButton>`
 
 ## Bonus Exercise
 
@@ -129,4 +129,4 @@ GO WILD! There are so many components in the Fabric library! Try to put some com
 
 - Importing components from `office-ui-fabric-react`
 - Customizing component with props found on the documentation site
-- Customize component with render props (these will be called onRender___ or similar)
+- Customize component with render props (these will be called onRender\_\_\_ or similar)

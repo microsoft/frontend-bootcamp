@@ -129,18 +129,16 @@ Note how tests are re-run when either test files or source files under `src` are
 
 # Exercise
 
+Start the test runner by running `npm test` in the root of the `frontend-bootcamp` folder.
+
 ## Basic testing
 
-1. Run the tests by running `npm test` at the root of the bootcamp project
+1. Look at `exercise/src/stack.ts` for a sample implementation of a stack
 
-2. Look at `exercise/src/stack.ts` for a sample implementation of a stack
-
-3. Follow the instructions inside `stack.spec.ts` file to complete the two tests
+2. Follow the instructions inside `stack.spec.ts` file to complete the two tests
 
 ## Enzyme Testing
 
 1. Open up `exercise/src/TestMe.spec.tsx`
 
-2. Fill in the blank for the missing test using `enzyme` concepts introduced from the demo
-
-3. Run tests with `npm test`
+2. Fill in the test using Enzyme concepts introduced in the demo
