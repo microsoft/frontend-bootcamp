@@ -11,7 +11,7 @@ These are the theming and styling methods that we will focus on in this step:
 3. Customizing Fabric components via the `styles` prop
 4. CSS-in-JS with `mergeStyles`
 
-The first three methods only work with Fabric components, but the fourth, `mergeStyles`, can be used in other projects as well.
+The first three methods only work with Fabric components, but the fourth, `mergeStyles`, can be used in other projects as well (and is typically not used within Fabric-based projects).
 
 ## 1. Applying Fabric themes using `<Customizer>`
 
