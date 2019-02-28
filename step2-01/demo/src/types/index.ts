@@ -47,13 +47,18 @@ let choose1 = <Specific1>{ common: '5' };
 type CatStatus = 'alive' | 'dead' | 'both';
 
 // Classes
-class Animal {}
+class Animal { }
 
 // Illustration purposes only
 // In real apps, avoid inheritance if possible
 // noted exception: React.Component with react@<16.8.0
-class Cat extends Animal {}
-class Dog extends Animal {}
+class Cat extends Animal { }
+class Dog extends Animal { }
 
-// adding an export to turn this into a "module"
+// Any Type - avoid if possible
+let mystery: any = "I don't like the person who will be maintaining this code";
+mystery = 2;
+mystery = () => 3;
+
+// adding an export turns this into a "module"
 export default {};

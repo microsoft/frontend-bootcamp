@@ -3,10 +3,10 @@ async function fetchSomething() {
   return await response.text();
 }
 
-// Async functions always returns Promise
+// Async functions always return a Promise
 fetchSomething().then(text => {
   console.log('hello ' + text);
 });
 
-// adding an export to turn this into a "module"
+// adding an export turns this into a "module"
 export default {};

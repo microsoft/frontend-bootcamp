@@ -19,12 +19,12 @@ function makePromise() {
   return Promise.resolve(5);
 }
 
-// Do the exercises here, output your results with "console.log()" function
+// Do the exercises here, outputting results using console.log()
 // ...
 console.log('hello world');
 
 async function run() {
-  // Place your code for the async / await exercise here
+  // Call the function you added for the async / await exercise here
   // ...
 }
 
