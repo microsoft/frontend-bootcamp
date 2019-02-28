@@ -21,7 +21,7 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
     const { filter, setFilter } = this.props;
     return (
       <header>
-        <h1>todos</h1>
+        <h1>todos - step1-07 final</h1>
         <div className="addTodo">
           <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
           <button onClick={this._onAdd} className="submit">

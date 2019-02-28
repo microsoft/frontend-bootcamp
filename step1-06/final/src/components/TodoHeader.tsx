@@ -11,7 +11,7 @@ export class TodoHeader extends React.Component<any, any> {
 
     return (
       <header>
-        <h1>todos</h1>
+        <h1>todos - step1-06 final</h1>
         <div className="addTodo">
           <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
           <button className="submit">Add</button>
