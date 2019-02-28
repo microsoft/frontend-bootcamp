@@ -2,7 +2,7 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-# Discussion on Flux
+## Flux
 
 Ideally React gives us a mental model of:
 
@@ -12,62 +12,66 @@ f(data) => view
 
 This is fine if the data never changes. However, React exists to deal with data updates via props (immutable) and state (changes based on `setState()` API). In the real world, data is shaped like a tree and view is shaped like a tree. They don't always match.
 
-Facebook invented a the Flux pattern to solve this shared state issue. Redux is an implementation of the Flux architectural pattern. Redux expects the data to be a singleton state tree that listens for messages to manipulate the state as appropriate:
+Facebook invented the [Flux](https://facebook.github.io/flux/) architectural pattern to solve this shared state issue. [Redux](https://redux.js.org/) is an implementation of Flux.
+
+Redux is used inside many large, complex applications because of its clarity and predictability. It is really easy to debug and is easily extensible via its middleware architecture. In this lesson, we'll explore the heart of how Redux modifies state.
+
+Redux expects the data (store) to be a singleton state tree. It listens for messages to manipulate the state and passes updates down to views.
 
 ![Flux Diagram](../assets/flux.png)
 
-## View
+### View
 
-These are the React Components that consume the store as its data. There is a special way Redux will map its data from the state tree into the different React Components. The Components will know to re-render when these bits of state are changed.
+A view is a React components that consumes the store as its data. There is a special way Redux will map its data from the state tree into the different React components. The components will know to re-render when these bits of state are changed.
 
-## Action
+### Action
 
-Actions are messages that represent some event, such as a user's action or a network request. With the aid of _reducers_, they affect the overall state.
+Actions are messages that represent some event, such as a user's action or a network request. With the aid of *reducers*, they affect the overall state.
 
-## Store
+### Store
 
-This is a singleton state tree. The state tree is immutable and needs to be re-created at every action. This helps connected views to know when to update itself - just doing a simple reference comparison rather than a deep comparison.
+The store contains a singleton state tree. The state tree is immutable and needs to be re-created at every action. This helps connected views easily to know when to update by allowing them to do a simple reference comparison rather than a deep comparison. You can think of each state as a snapshot of the app at that point in time.
 
-## Reducers
+### Dispatcher
 
-These are simple stateless, pure functions that takes state + action message and returns a copy of state some modifications according to the action message type and payload.
+There is a single dispatcher. It simply informs the store of all the actions that need to be performed. Additional middleware (explained later) can be applied to the store, and the dispatcher's job is to dispatch the message through all the middleware layers.
 
-## Dispatcher
+### Reducers
 
-There is a single dispatcher. It simply informs of the store of all the actions that needs to be performed. Certain middleware can be applied to the store and the dispatcher's job is to dispatch the message through all the middleware layers.
+Redux uses **reducers** to manage state changes. This name comes from the "reducer" function passed to `Array.reduce()`.
 
-Redux is used inside many large and complex applications because of its clarity and its predictability. It is really easy to debug and is easily extensible via its middleware architecture. In this exercise, we'll explore the heart of how Redux modifies state.
+A Redux reducer is a simple stateless **pure function** (no side effects). Its only job is to change the state from one immutable snapshot to another. It takes state + an action message as input, makes a modified copy of the state based on the action message type and payload, and returns the new state. (Reducers should not modify the previous state.)
 
-Redux uses what is called a "reducer" to modify its state. It is called this because a "reducer" is what is used inside an `Array.reduce()`.
+**Mental Model**: Think of a reducer as part of the store. It should have no side effects and only define how data changes from one state to the next given action messages.
 
-A reducer is a **pure function** that receives some state and an action message as inputs and generates a copy of modified state as the output. Redux manages state changes mainly through reducers, and they are directly related to the UI, so for this exercise, we'll have to use jest tests to see the inner workings.
+### Advanced: Middleware
 
-From the official documentation site:
+From the [documentation site](https://redux.js.org/advanced/middleware):
 
-> Reducers are just pure functions that take the previous state and an action, and return the next state. Remember to return new state objects, instead of mutating the previous state.
+> Redux middleware provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.
 
-**Mental Model**: think of Reducer as part of the store and should have no side effects outside of defining how data can change from one state to next given action messages.
+We won't be covering middleware much in these lessons since it's a more advanced topic.
 
-# Getting Started with Redux
+## Getting started with Redux
 
-We begin the journey into Redux by looking at the store. The store consists of several parts
+We begin the journey into Redux by looking at the store. The store consists of several parts:
 
-1. the state or the data - we represent this both with an initial state and with a TypeScript interface.
-2. the reducer - responsible for reacting to action messages to change the state from a previous to the next state.
-3. the dispatcher - there is only one dispatcher and the store exports this. We'll look at this in Step 6!
+1. **State/data** - We represent this both with an initial state and with a TypeScript interface.
+2. **Reducers** - Responsible for reacting to action messages to change from a previous to the next state.
+3. **Dispatcher** - There should be only one dispatcher, which is exported by the store. We'll look at this in Step 6!
 
-## Create Store
+### Create store
 
-The `createStore()` takes in several arguments. The simplest form just takes in reducers. Reducers are the means by which the state changes from one snapshot to another.
+The `createStore()` function is provided by Redux and can take in several arguments. The simplest form just takes in reducers.
 
 ```ts
 const store = createStore(reducer);
 ```
 
-`createStore()` can take in an initial state - the initial state can come from any source. There are two use cases:
+`createStore()` can also take in an initial state. There are two common sources for the initial state:
 
-1. load initial data from an API server
-2. load data that is generated from a server side rendering environment
+1. Load initial data from a server
+2. Load data that is generated by a server-side rendering environment
 
 ```ts
 const store = createStore(reducer, {
@@ -75,15 +79,13 @@ const store = createStore(reducer, {
 });
 ```
 
-`createStore()` also takes in a third argument that injects **middleware**. From the documentation site:
+`createStore()` can take a third argument that injects middleware, but we won't use this until later.
 
-> [Redux Middleware] provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.
-
-## Reducers
+### Reducers
 
 Remember that the reducers are **pure**. Pure functions have no side effects. They always return the same output given the same input (idempotent). They are easily testable.
 
-Reducers' only job is to change the state from one snapshot to another. They are simple functions that take in the state and an action message. These reducers looks at the action message to decide what to do to the state. A convention that has been established in the Flux community is the `type` key in the action message. Another convention is using switch statements against the `type` key to trigger further reducer functions.
+Reducers look at the action's message to decide what to do to the state. A convention established in the Flux community is that the action message (payload) should include a `type` key. Another convention is using switch statements against the `type` key to trigger further reducer functions.
 
 ```ts
 function reducer(state: Store['todos'], payload: any): Store['todos'] {
@@ -96,14 +98,16 @@ function reducer(state: Store['todos'], payload: any): Store['todos'] {
 }
 ```
 
-In these demo and exercises, I separated out the pure & reducer functions to make it cleaner. The tests inside `pureFunctions.spec.ts` should describe the behavior of the individual functions. They are easy to follow and easy to write.
+In the demo and exercises for this step, I separated the pure and reducer functions into different files to make it cleaner. The tests inside `pureFunctions.spec.ts` should describe the behavior of the individual functions. They are easy to follow and easy to write.
 
 # Exercise
 
-1. First, take a look at the store interface in the `exercise/src/store/index.tsx` - note that the `Store` interface has two keys: `todos` and `filter`. We'll concentrate on the `todos` which is an object where the keys are IDs and the values are of an `TodoItem` type.
+If you still have the app running from a previous step, stop it with `ctrl+c`.  Start the tests instead by running `npm test` from the root of the `frontend-bootcamp` folder.
 
-2. Open `exercise/src/reducers/pureFunctions.ts` and fill in the missing body of the pure functions.
+1. First, take a look at the store interface in `exercise/src/store/index.ts`. Note that the `Store` interface has two keys: `todos` and `filter`. We'll concentrate on `todos`, which is an object where the keys are string IDs and the values are of a `TodoItem` type.
 
-3. Open `exercise/src/reducers/index.ts` and fill in the missing case statements for the switch of `action.type`.
+2. Open `exercise/src/reducers/pureFunctions.ts` and fill in the missing function bodies.
+
+3. Open `exercise/src/reducers/index.ts` and fill in the missing case statements for the switch on `action.type`.
 
 4. Open `exercise/src/reducers/pureFunctions.spec.ts` and implement tests for the functions you wrote for `remove`, `complete`, and `clear`.
