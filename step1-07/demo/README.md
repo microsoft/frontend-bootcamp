@@ -22,11 +22,11 @@ If you've ever used [Sass](https://sass-lang.com/) you are familiar with this co
 
 Let's dive into the demo and see how TypeScript can help us better understand our component props, and guard against future regressions.
 
-## Demo
+# Demo
 
 Let's start off in the TodoList, as that has the most data flow, up and down. There isn't any actionable UI in this component as we're simply passing `completed` down to each `TodoListItem`, but we can write a component interface to make sure that everything gets passed down properly.
 
-### Writing TodoListProps
+## Writing TodoListProps
 
 Looking at our `TodoApp` we know that `TodoList` has three props, `filter`, `todos`, and `complete`. We'll start by creating an interface that represents this component's props called `TodoListProps`.
 
@@ -50,11 +50,11 @@ export class TodoList extends React.Component<TodoListProps, any>
 
 Now that we have a typed component, let's go back to our `TodoApp` and see what happens if we try to change the name of a prop.
 
-### Adding type safety
+## Adding type safety
 
 So far we've only established what our prop names are, not the values inside of them. Let's first look at `filter`, and see how we can improve that prop's type safety.
 
-#### Filter Type
+### Filter Type
 
 We know that filter shouldn't be an object, array or function, so we can specify it should always be a string like this:
 
@@ -78,7 +78,7 @@ interface TodoListProps {
 
 Now try going back to `TodoApp` and changing the `filter` attribute in `TodoList` to something else.
 
-#### Complete Type
+### Complete Type
 
 The `complete` props isn't data, but rather a function. Fortunately, TypeScript can handle function types just as well as data.
 
@@ -92,7 +92,7 @@ interface TodoListProps {
 
 For functions we are only concerned with the parameters passed in and the return value. You can see in the example above that the function takes in an `id` of type string, and returns `void`, which means it has no return.
 
-### Todos Type
+## Todos Type
 
 The `todos` prop is interesting in that `todos` is an object with a bunch of unknown keys. So here's what that interface would look like.
 
@@ -113,7 +113,7 @@ interface TodoListProps {
 
 Now that our interface is complete, try changing the word 'all' in `filter === all` and see that VS Code will tell you this condition will always be false. Imagine you had a typo in that line and you couldn't understand why your filter wasn't working.
 
-### Abstracting types
+## Abstracting types
 
 Most of our components are going to need to add types for `todos` and `filter`, so it's a good thing that TypeScript allows us to abstract those. I've already written up and exported those shared types in the file `TodoApp.types.ts`, so we just need to import them and pull them into our interface.
 
@@ -127,7 +127,7 @@ interface TodoListProps {
 }
 ```
 
-### Updating TodoApp
+## Updating TodoApp
 
 Our `TodoApp` doesn't take any props, but it does have state. We can use TypeScript to define that as well.
 
@@ -139,7 +139,7 @@ export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterT
 
 > Note that the first value in `<>` always refers to props. Since `TodoApp` takes none, we'll set it to an empty object.
 
-### Writing TodoListItemProps
+## Writing TodoListItemProps
 
 Jumping down to the TodoListItem, as we start to write the TodoListItemProps we realize that two of the props, `label` and `completed` have already been defined in the `TodoItem` interface in `TodoApp.types`. So in the same way we can reuse individual types (`FilterTypes`), and extend upon entire interfaces.
 

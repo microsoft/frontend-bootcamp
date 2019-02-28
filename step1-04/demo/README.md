@@ -1,14 +1,12 @@
-# Introduction To React
+# Introduction To React Demo
 
 In our last example we saw how we could take a static HTML page and turn it into an interactive page with some buttons and their `onclick` handlers.
 
 In this example we'll see how React turns that paradigm completely around. With React, the entire DOM is generated and maintained by JavaScript, directly inside the browser. This makes it easier to assemble your application out of reusable pieces, maintain state within a component, and pass data between them.
 
-## Demo
-
 In this demo we'll be creating a simple counter that will display a count and increment on click.
 
-### The App
+## The App
 
 This is the starting point of our React application. It is a component just like the other ones we will be building, but this component will only ever be used once, to render the application. Here's how our app starts out. Let's walk through each line:
 
@@ -17,9 +15,10 @@ import React from 'react';
 
 export class App extends React.Component {
   render() {
+    const text = 'My App';
     return (
-      <div>
-        <h2>My App</h2>
+      <div className="App">
+        <h2>{text != '' ? text : 'Default App Name'}</h2>
       </div>
     );
   }
@@ -33,16 +32,15 @@ export class App extends React.Component {
 - `return` - Remember that functions can return values in addition to having side effects, and this component is no different.
 
 **Inside of the return?** It's HTML! Actually, it's [JSX](https://reactjs.org/docs/introducing-jsx.html), but with very few exceptions you can treat it like HTML. A few key differences:
+
 - Since `class` is a [reserved word](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords) in JavaScript, you will need to use `className` on your HTML tags: `<div className="foo">`
 - We can use custom HTML tags corresponding to the React components we create: `<div><MyControl>hi</MyControl></div>`
 - Controls can be self-closing: `<div><MyControl text='hi' /></div>`
-- You can use JavaScript inside of JSX! If you declare `const name = 'Micah';` inside the render function, you can use that variable inside of your JSX like `<div>{name}</div>` or `<div><MyControl text={name} /></div>`. This works with function calls and some types of conditionals as well.
+- You can use JavaScript inside of JSX!
 
-### index.tsx
+## index.tsx
 
 This is the file that places your App onto the page.
-
-> Note that to avoid build errors, this file has been renamed to `index.temp`. Change the name to `index.tsx`.
 
 ```ts
 import React from 'react';
@@ -57,13 +55,13 @@ ReactDOM.render(<App />, document.getElementById('app'));
   > This notation is called [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring), and it's awesome!
 - `ReactDOM.render...` - This line calls the render function inside of `ReactDOM` and attaches our `<App />` component to the element with `id=app`. Take a peek in the index.html file. Shouldn't be too hard to find it.
 
-### Counter Component
+## Counter Component
 
 In this example we'll start with an already scaffolded out control. The goal of our counter is to track how many times the counter button is clicked. In the past JavaScript demo we might have accessed the counter element using `document.querySelector('.counter')` and manually incremented the number found there. While using the DOM as your data store works, it's REALLY hard to scale past the most basic demo.
 
 React solves this by allowing each control to specify its own data store, called **state**. We can reference values in state when we render our UI, and we can also update state over the lifetime of our application.
 
-#### Adding State
+### Adding State
 
 JavaScript uses a `constructor` method to instantiate each copy of a class. So for class-based controls, this is where we define an initial value for `state`.
 
@@ -107,7 +105,7 @@ const { counter } = this.state;
 const { text } = this.props;
 ```
 
-#### Adding JSX
+### Adding JSX
 
 ```jsx
 return (
@@ -122,7 +120,7 @@ Each JSX return value needs to be a single element, so start with a wrapping `<d
 
 Now let's see how we can use this component in our app.
 
-#### Updating the App to Use Counters
+### Updating the App to Use Counters
 
 Before we can use our `Counter`, we need to import it into the App file.
 
@@ -144,7 +142,7 @@ return (
 
 > Note the capitalization of `Counter`. HTML might not be case-sensitive, but JSX is! A common practice is to use the capitalized names of HTML elements to name corresponding React components: Button, Select, Label, Form, etc.
 
-### Exploring Component Props
+## Exploring Component Props
 
 Now that we've got two counters on our page, we can see that the string passed into the `text` attribute got passed into our counter and rendered on the page. Being able to pass values (props) into controls makes them more flexible and reusable. Props can be strings, numbers, booleans, and even arrays and objects.
 

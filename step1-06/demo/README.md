@@ -46,8 +46,10 @@ constructor(props) {
 To avoid reaching into state over and over, we once again use destructuring to pull out the pieces we need.
 
 ```jsx
-const { filter, todos } = this.state;
+const { filter, todos = [] } = this.state;
 ```
+
+> Note that I've set `todos` to default to an empty array so that the `todos` variable is never undefined
 
 Now we can pass `filter` and `todos` into our components.
 
@@ -99,7 +101,7 @@ In CSS-based styling, visual states are applied by adding and removing classes. 
 
 In traditional HTML forms, users interact with the form, and on submit, those values are captured and transmitted. Those are called **uncontrolled inputs**.
 
-A **controlled input** is one whose value is defined by state, and interaction with that input updates state with each keystroke. This round trip process might sound inefficient, but in reality it has little to no impact, and it enables some advanced form functionality.
+A **controlled input** is one whose value is defined by state, and interaction with that input updates state with each keystroke. This round trip process might sound inefficient, but in reality it has little to no impact, and it makes forms much easier to work with.
 
 To create a controlled component, we need two things, which our demo already provides:
 
@@ -122,3 +124,5 @@ With those two pieces in place, we can update our uncontrolled input to being co
 ```jsx
 <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
 ```
+
+> If you have React Dev Tools installed, open them up and take a look at labelInput as we type in the input.

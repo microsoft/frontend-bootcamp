@@ -3,7 +3,7 @@ import { TodoListItem } from './TodoListItem';
 
 export class TodoList extends React.Component<any, any> {
   render() {
-    const { filter, todos } = this.props;
+    const { filter, todos = [] } = this.props;
 
     const filteredTodos = Object.keys(todos).filter(id => {
       return filter === 'all' || (filter === 'completed' && todos[id].completed) || (filter === 'active' && !todos[id].completed);
