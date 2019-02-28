@@ -20,8 +20,8 @@ export function remove(state: Store['todos'], id: string) {
 
 export function complete(state: Store['todos'], id: string) {
   // Write code:
-  // - to clone the state object into new state object
-  // - create a clone of the state[id] into a new item object
+  // - to clone the state[id] object into new todo object, using the spread syntax
+  // - in the spread syntax, also override the value of the completed key like this: {...foo, [id]: !foo[id].completed}
   // - modify new state and set the id key to the value of the new item object
 
   return state;

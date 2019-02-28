@@ -13,10 +13,9 @@ export function remove(state: Store['todos'], id: string) {
 }
 
 export function complete(state: Store['todos'], id: string) {
-  const newTodos = { ...state };
-  newTodos[id].completed = !newTodos[id].completed;
-
-  return newTodos;
+  // Clone the todo, overriding
+  const newTodo = { ...state[id], completed: !state[id].completed };
+  return { ...state, [id]: newTodo };
 }
 
 export function clear(state: Store['todos']) {
