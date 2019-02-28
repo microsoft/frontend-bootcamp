@@ -111,7 +111,7 @@ interface TodoListProps {
 }
 ```
 
-> Note that `[id: string]` does not indicate an array here; it is an [index signature](https://www.typescriptlang.org/docs/handbook/interfaces.html#indexable-types).
+> Note that `[id: string]` does not indicate an array; it is an object [index signature](https://www.typescriptlang.org/docs/handbook/interfaces.html#indexable-types).
 
 Now that our interface is complete, try changing the word "all" in `filter === all` and see that VS Code will tell you this condition will always be false. Compare this to plain JavaScript: if you had a typo in that line, you wouldn't understand why your filter wasn't working.
 
