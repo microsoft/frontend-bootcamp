@@ -85,7 +85,7 @@ const store = createStore(reducer, {
 
 Remember that the reducers are **pure**. Pure functions have no side effects. They always return the same output given the same input (idempotent). They are easily testable.
 
-Reducers looks at the action message to decide what to do to the state. A convention established in the Flux community is that the action message (payload) should include a `type` key. Another convention is using switch statements against the `type` key to trigger further reducer functions.
+Reducers look at the action's message to decide what to do to the state. A convention established in the Flux community is that the action message (payload) should include a `type` key. Another convention is using switch statements against the `type` key to trigger further reducer functions.
 
 ```ts
 function reducer(state: Store['todos'], payload: any): Store['todos'] {
@@ -98,7 +98,7 @@ function reducer(state: Store['todos'], payload: any): Store['todos'] {
 }
 ```
 
-In these demo and exercises, I separated the pure & reducer functions into different files to make it cleaner. The tests inside `pureFunctions.spec.ts` should describe the behavior of the individual functions. They are easy to follow and easy to write.
+In the demo and exercises for this step, I separated the pure and reducer functions into different files to make it cleaner. The tests inside `pureFunctions.spec.ts` should describe the behavior of the individual functions. They are easy to follow and easy to write.
 
 # Exercise
 
