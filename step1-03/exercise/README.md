@@ -20,5 +20,5 @@
    > Hint: you can use querySelector on any HTML node to find child elements within.
 4. Call `todo.remove()` for any todo whos input check is true.
 5. After the loop is done, run `updateRemaining()`.
-6. Attach this function to the footer button.
+6. Attach `clearCompleted()` function to the `onclick` of the footer button.
 7. Test it out!
