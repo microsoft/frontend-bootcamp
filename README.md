@@ -4,9 +4,9 @@
 
 ## Welcome
 
-In this two-day workshop you'll learn the basics of frontend development while building a working web app.
+In this two-day workshop, you'll learn the basics of frontend development while building a working web app.
 
-The first day provides an introduction to the fundamentals of the web: HTML, CSS and JavaScript. This is targeted at new and experienced developers alike. On the second day we'll dive into more advanced topics like TypeScript, testing, and state management. While the examples should be accessible to anyone, you'll get the most out of it if you have some prior experience with programming and web technologies.
+The first day provides an introduction to the fundamentals of the web: HTML, CSS and JavaScript. This is targeted at new and experienced developers alike. On the second day, we'll dive into more advanced topics like TypeScript, testing, and state management. While the examples should be accessible to anyone, you'll get the most out of it if you have some prior experience with programming and web technologies.
 
 ## Getting set up
 
@@ -113,7 +113,7 @@ If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems
 ## Contributing
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+Contributor License Agreement (CLA) declaring that you have the right to and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.microsoft.com.
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
@@ -128,7 +128,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
 in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
-see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
+see the [LICENSE](LICENSE) file and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
 [LICENSE-CODE](LICENSE-CODE) file.
 
 Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
