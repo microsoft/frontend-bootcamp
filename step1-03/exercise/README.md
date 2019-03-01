@@ -1,6 +1,8 @@
 ## Exercise
 
-If you don't already have the app running, start it with `npm run static` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 1 step 3 to see results.
+Open up the [Todo JavaScript Exercise Page](http://localhost:8080/step1-03/exercise/)
+
+Open the `index.html` file in this exercise folder.
 
 ### Update Navigation
 
@@ -9,7 +11,7 @@ If you don't already have the app running, start it with `npm run static` from t
 
 ### Complete the `updateRemaining` function
 
-1. Get a reference to the span with the `remaining` class, and store it in a variable.
+1. Using `querySelector`, get a reference to the span with the `remaining` class, and store it in a variable .
 2. Use [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) to get all of the todos.
 3. Set the `innerText` of the remaining span to the length of those todos.
 4. Add `updateRemaining()` to the end of the `addTodo` function.

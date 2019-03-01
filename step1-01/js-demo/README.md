@@ -1,4 +1,4 @@
-## JavaScript Demo
+# JavaScript Demo
 
 It's entirely possible to create a website with nothing but HTML and CSS, but as soon as you want user interaction other than links and forms, you'll need to reach for JavaScript, the scripting language of the web. Fortunately, JavaScript has grown up quite a bit since it was introduced in the 90s, and now runs just about everything: web applications, mobile applications, native applications, servers, robots and rocket ships.
 
@@ -14,14 +14,17 @@ In this demo we are going to cover a few of the core basics of the language that
 By the end of the demo we'll have covered the following:
 
 - Variables
+- Eventing
 - Functions
 - Conditionals
 - Loops
 - Interacting with the DOM (Document Object Model)
 
-### Introduction To Variables
+## Introduction To Variables
 
 We can create a new variable with the keywords `var`, `let`, `const` and use them within our application. These variables can contain one of the following types of values:
+
+> Use `const` for variables you never expect to change, and `let` for anything else. `var` is mostly out of fasion.
 
 - **boolean**: `true`, `false`
 - **number**: `1`, `3.14`
@@ -31,6 +34,19 @@ We can create a new variable with the keywords `var`, `let`, `const` and use the
 - **function**: `function(foo) { return foo + 1 }`
 - **null**
 - **undefined**
+
+### Variable Examples
+
+```js
+let myBoolean = true;
+let myNumber = 5;
+let myString = `Using backticks I can reuse other variables ${myNumber}`;
+let myArray = [1, 'cat', false, myString];
+let myObject = { key1: 'value1', anotherKey: myArray };
+let myFunction = function(myNumberParam) {
+  console.log(myNumber + myNumberParam);
+};
+```
 
 > JavaScript is a loosely typed (dynamic) language, so if you initially store a number in a variable (`let myVar = 0`), you can change it to contain a string by simply writing `myVar = 'hello'` without any trouble.
 
@@ -43,25 +59,71 @@ const match = 'a';
 let matches = 0;
 ```
 
-> Note that `const` variables are those that will never change during the duration of your program, whereas `let` can change over time. Our `match` value will stay constant, but our `matches` will increment as we find matches.
-
-### Functions
+## Functions
 
 Functions are reusable pieces of functionality. Functions can take inputs (parameters) and return values (or neither). Functions can be called from within your program, from within other functions, or invoked from within the DOM itself.
 
-In our example we'll create a function called `displayMatches` (camelCase is typical for functions) and we'll invoke this function every time that our submit button is clicked. For now we'll simply have our function call `console.log` (a function that prints values to the browser console):
-
-```html
-<input onclick="displayMatches()" class="submit" value="Submit" type="submit" />
-```
+In our example we'll create a function called `displayMatches` (camelCase is typical for functions) and we'll invoke this function every time that our submit button is clicked. For now we'll simply have our function call `alert("I'm Clicked")`, which is a function that creates an alert in your browser.
 
 ```js
 function displayMatches() {
-  console.log("I'm Clicked");
+  alert("I'm Clicked");
 }
 ```
 
-### Iteration
+## Events
+
+Functions on their own don't have any affect on the page. When I declare `function displayMatches()` I have only defined the function, I haven't actually triggered it.
+
+To execute a function we need to attach it to an event. There are a number of possible events: keyboard strokes, mouse clicks, document loading etc...
+
+### Add Event Listeners
+
+To attach a function to an event, we use an [`addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) like this:
+
+```js
+window.addEventListener('load', function() {
+  console.log('loaded');
+});
+
+window.addEventListener('click', function() {
+  console.log('click');
+});
+```
+
+> The `window` is a reference to the entire HTML document
+
+### Global Event Handlers
+
+If this feels a little verbose, you're not alone. Many of the [most common event types](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) are added as element properties. This way we can set properties like `onload` or `onclick` like this:
+
+```js
+window.onload = function() {
+  console.log('loaded!');
+};
+window.onclick = function() {
+  console.log('clicked!');
+};
+```
+
+> Note that only a single function can be assigned to `onload`, but many eventListeners can be added to `load`
+
+In our example we want to trigger a function based on the click of a button. To do this, we first need to get a reference to the button. We can use `querySelector` to get that reference. And then we can set its `onclick` value just like above.
+
+```js
+const button = docment.querySelector('.submit');
+button.onclick = displayMatches();
+```
+
+You can also combine these together like this:
+
+```js
+docment.querySelector('.submit').onclick = displayMatches();
+```
+
+Wire this up and see you function in action!
+
+## Iteration
 
 Next we'll update our function to iterate through a string of letters. We loop over each letter using the [`for of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) syntax. We'll use real input later, but for now this verifies that our function is working.
 
@@ -74,7 +136,7 @@ function displayMatches() {
 }
 ```
 
-### Conditionals
+## Conditionals
 
 Next we want to compare each `letter` with our `match` value, and if they are the same, we will increment our `matches` variable. Remember that `letter = match` would set the `letter` variable to the value in `match`, so to do comparisons, we use the equality operator `==` or the strict equality operator `===`.
 
@@ -92,7 +154,7 @@ function displayMatches() {
 
 > In JavaScript, it's safest to use strict `===` for comparisons, because `==` will try to convert the operands to the same type. For example, `"1" == 1` is true whereas `"1" === 1` is false, but the behavior in certain other cases is [not what you'd expect](https://www.youtube.com/watch?v=et8xNAc2ic8). (See [this video](https://www.destroyallsoftware.com/talks/wat) for more strange JavaScript behavior.)
 
-### Interacting with the DOM
+## Interacting with the DOM
 
 Now that we have a function performing all of our logic, it's time to connect this to our DOM by using some of the browser's built-in functions.
 
@@ -117,7 +179,7 @@ function displayMatches() {
 }
 ```
 
-#### Returning the values to the DOM
+### Returning the values to the DOM
 
 Now that we've read values from the DOM and fed that into our matching logic, we are ready to return the number of matches to our app. To do this we first need to grab a reference to our submit button, and since this button has no `id` we are going to use the more modern (IE8+) `querySelector` to get it. This function takes any valid CSS selector and returns the first match found.
 

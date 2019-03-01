@@ -1,4 +1,4 @@
-# Introduction To React Demo
+# Step 4 - Introduction To React Demo
 
 In our last example we saw how we could take a static HTML page and turn it into an interactive page with some buttons and their `onclick` handlers.
 
@@ -6,17 +6,63 @@ In this example we'll see how React turns that paradigm completely around. With 
 
 In this demo we'll be creating a simple counter that will display a count and increment on click.
 
-## Building
+## Building the App
 
 If you already have the app running from a previous step, stop it with `ctrl+C`. Start the app version used in this step by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "demo" link under day 1 step 4 to see results.
 
-## The App
+## index.html
 
-This is the starting point of our React application. It is a component just like the other ones we will be building, but this component will only ever be used once, to render the application. Here's how our app starts out. Let's walk through each line:
+The `index.html` file in a React project is going to be pretty mimimal. React is loading all of the application onto the page, so the only content you'll find in the page source is a div with an `id` of "app".
+
+> Note that our bundling tool, webpack, is adding this script tag to the HTML file we provided
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="app"></div>
+    <script src="../../step1-04/final/step1-04/final.js"></script>
+  </body>
+</html>
+```
+
+## index.tsx
+
+This is the entry point to your application.
+
+```ts
+import React from 'react';
+import ReactDOM from 'react-dom';
+ReactDOM.render(<p>Hello World</p>, document.getElementById('app'));
+```
+
+- `import React from 'react';` - This is how we [import modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in JavaScript. This line creates a variable in this file called `React` that is equal to the default `export` of the `react` npm module.
+- `import ReactDOM from "react-dom";` - We've seen React imported before, but now we're also grabbing `ReactDOM` from a package called `react-dom`.
+- `ReactDOM.render()` - This function is how our code gets on the page. The function takes two parameters, the content to place on the page, and the location that you want it placed.
+
+## Writing a React Component
+
+A React component is a piece of code that returns a portion of your application. This can include HTML markup, CSS styles as well as JavaScript driven functionality.
+
+Components can be created in two ways. The first is method is to use a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), which extends (inherits from) the React.Component class.
+
+Classes in JavaScript provide a way to collect methods(functions) and properties(values) in an extendable container. We extend React.Container because it provides us with several build in methods, including `render`.
 
 ```jsx
-import React from 'react';
+export class App extends React.Component {
+  render() {
+    return <p>Hello World</p>;
+  }
+}
+```
 
+Moving our "Hello World" markup into our App's `render` function, we can now update the `ReactDOM.render()` function to look like this
+
+```jsx
+ReactDOM.render(<App />, document.getElementById('app'));
+```
+
+```jsx
 export class App extends React.Component {
   render() {
     const text = 'My App';
@@ -29,8 +75,8 @@ export class App extends React.Component {
 }
 ```
 
-- `import React from 'react';` - This is how we [import modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in JavaScript. This line creates a variable in this file called `React` that is equal to the default `export` of the `react` npm module.
-- `export class App` - Just like React exports code, our App component is nothing more than an exported `App` class. This allows us to import the class into other files.
+- `import React from 'react';` - Each file needs to import React, but only on copy of the code is included in your application.
+- `export class App` - Just like React exports code, our App component exports a class called `App`. This allows us to import the class into other files.
 - `extends React.Component` - A JavaScript class is similar to a class in other programming languages (it's a collection of methods and properties). Classes can also be extended, so when we create a React component class, we always extend the base `React.Component` class. (Note that this `Component` class is coming from the `React` variable imported up top.)
 - `render()` - One of the methods defined by `React.Component` is the `render()` method, which defines the HTML the component is going to render.
 - `return` - Remember that functions can return values in addition to having side effects, and this component is no different.
@@ -41,23 +87,6 @@ export class App extends React.Component {
 - We can use custom HTML tags corresponding to the React components we create: `<div><MyControl>hi</MyControl></div>`
 - Controls can be self-closing: `<div><MyControl text='hi' /></div>`
 - You can use JavaScript inside of JSX!
-
-## index.tsx
-
-This is the file that places your App onto the page.
-
-```ts
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from './App';
-ReactDOM.render(<App />, document.getElementById('app'));
-```
-
-- `import ReactDOM from "react-dom";` - We've seen React imported before, but now we're also grabbing `ReactDOM` from a package called `react-dom`.
-  > Note that this casing is intentional. Usually, NPM packages are kebab-case and exported items are camelCase or PascalCase. PascalCase is usually used for "proper noun" exports: ProjectName, ComponentName, etc.
-- `import { App } from './App';` - If we had exported our app using `export default class App extends React.Component`, this line would look similar to the lines above - `import App from './App';`. But the convention for React components is to use named exports, which can easily be extracted using syntax like `{ App }`.
-  > This notation is called [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring), and it's awesome!
-- `ReactDOM.render...` - This line calls the render function inside of `ReactDOM` and attaches our `<App />` component to the element with `id=app`. Take a peek in the index.html file. Shouldn't be too hard to find it.
 
 ## Counter Component
 
