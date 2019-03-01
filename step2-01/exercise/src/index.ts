@@ -50,6 +50,12 @@ function makePromise() {
   return Promise.resolve(5);
 }
 
-// TODO: call makePromise() using await syntax and log the results
-
 // TODO: create a new async function
+
+async function run() {
+  // TODO: call makePromise() using await syntax and log the results
+
+  // TODO: call your new async function
+}
+
+run();
