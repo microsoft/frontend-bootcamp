@@ -50,6 +50,7 @@ body {
 
 #markdownReadme code.hljs {
   background-color: inherit;
+  font-weight: bold;
 }
 
 /**
