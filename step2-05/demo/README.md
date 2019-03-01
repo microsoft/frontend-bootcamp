@@ -1,4 +1,4 @@
-# Step 2.5: Redux: Reducers
+# Step 2.5: Redux: Reducers (Demo)
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
@@ -26,7 +26,7 @@ A view is a React components that consumes the store as its data. There is a spe
 
 ### Action
 
-Actions are messages that represent some event, such as a user's action or a network request. With the aid of *reducers*, they affect the overall state.
+Actions are messages that represent some event, such as a user's action or a network request. With the aid of _reducers_, they affect the overall state.
 
 ### Store
 
@@ -99,15 +99,3 @@ function reducer(state: Store['todos'], payload: any): Store['todos'] {
 ```
 
 In the demo and exercises for this step, I separated the pure and reducer functions into different files to make it cleaner. The tests inside `pureFunctions.spec.ts` should describe the behavior of the individual functions. They are easy to follow and easy to write.
-
-# Exercise
-
-If you still have the app running from a previous step, stop it with `ctrl+c`.  Start the tests instead by running `npm test` from the root of the `frontend-bootcamp` folder.
-
-1. First, take a look at the store interface in `exercise/src/store/index.ts`. Note that the `Store` interface has two keys: `todos` and `filter`. We'll concentrate on `todos`, which is an object where the keys are string IDs and the values are of a `TodoItem` type.
-
-2. Open `exercise/src/reducers/pureFunctions.ts` and fill in the missing function bodies.
-
-3. Open `exercise/src/reducers/index.ts` and fill in the missing case statements for the switch on `action.type`.
-
-4. Open `exercise/src/reducers/pureFunctions.spec.ts` and implement tests for the functions you wrote for `remove`, `complete`, and `clear`.
