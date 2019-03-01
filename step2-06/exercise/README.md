@@ -6,7 +6,9 @@
 
 If you still have `npm test` running from the previous step, stop it with `ctrl+C`. Start the app by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 6.
 
-1. Install the [Redux DevTools Chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+1. Install the [Redux DevTools extension](https://github.com/zalmoxisus/redux-devtools-extension)
+   - [Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+   - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/)
 
 2. Hit F12 (`cmd+option+I` on Mac) and open the inspector panel entitled **Redux**
 
