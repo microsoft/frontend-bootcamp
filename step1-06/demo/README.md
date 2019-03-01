@@ -1,6 +1,6 @@
 # Creating a State-Driven UI
 
-In React, data travels two directions: top-down in the form of state propagating throughout controls, and bottom-up as interacting with the UI flows back up to modify the state. When writing an application it's often helpful to think of these two directions as separate parts of the development process.
+In React, the data travels in one direction: top-down in the form of state propagating down the component hierarchy. Only the component containing the state can change the state itself. When a UI interaction occurs, a stateful component must pass down an event handler to the UI component triggering the event in order to signal a state change.
 
 ## Demo
 
@@ -8,7 +8,7 @@ In React, data travels two directions: top-down in the form of state propagating
 
 ### Adding State to App
 
-For our minimal state, we're going to include just two keys: `todos` and `filter`. We don't need to worry about a `remaining` value because we can calculate that by looking at the number of unchecked todos.
+Inside our `TodoApp` class, we will add the minimal state for our application, which includes just two keys: `todos` and `filter`. We don't need to worry about a `remaining` value because it can be calculated by counting the number of todos where the `completed` field is set to `false`.
 
 So here is our full constructor:
 
@@ -69,12 +69,12 @@ I've already pulled out our props into `filter` and `todos` variables, and writt
 
 ```jsx
 {
-  filteredTodos.map(id => <TodoListItem key={id} id={id} {...todos[id]} />);
+  filteredTodos.map(id => <TodoListItem key={id} id={id} {...todos[id]} />)
 }
 ```
 
-- [`map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map): This method transforms the array it's called on into a new array (our rendered TodoListItems).
-- `key`: We use the `id` from the `filterTodos` array as the [list item key](https://reactjs.org/docs/lists-and-keys.html) to help React track each item as state changes and the component re-renders.
+- [`map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map): This method iterates over the array it's called on, transforming each value with the passed in function and returning the values in a new array (our rendered TodoListItems).
+- `key`: We use the `id` from the `filterTodos` array as the [list item key](https://reactjs.org/docs/lists-and-keys.html) The keys should be unique as they help React track which items are added, removed, or updated and determine whether an instance of an item should be rerendered or a new one created.
 - `id`: The `key` is not actually passed into the component, so we pass the same value as `id` as well. This will help us out later.
 - `todos[id]`: Lastly we use the `id` to grab the todo from our `todos` object, then use the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to pass through the todo's `label` and `completed` values.
   > This spread operator is the same as saying `label={todos[id].label} completed={todos[id].completed}`. Pretty obvious why spread is so handy!
@@ -109,7 +109,7 @@ Typically, a controlled input's current value is stored in the parent component'
 
 > The distinction between controlled and uncontrolled is important to understand when writing or using form components, and misunderstandings of this concept are a very common source of bugs. See [this article](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) for a more detailed explanation.
 
-To add a controlled input, we need two things, which our demo already provides:
+Let's try changing the text field in our `TodoHeader` component to a controlled input. To add a controlled input, we need two things, which our demo already provides:
 
 1. A state variable to hold the input's value:
 
