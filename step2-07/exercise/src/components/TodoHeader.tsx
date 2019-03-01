@@ -50,11 +50,11 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
 
 TODO: uncomment the following and fill out the TODO's
 
-function mapStateToProps(state: Store) {
+function mapStateToProps(state: Store): Partial<TodoHeaderProps> {
   // TODO: fill this out
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: any): Partial<TodoHeaderProps> {
   // TODO: fill this out
 }
 

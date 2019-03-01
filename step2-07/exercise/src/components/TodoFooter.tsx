@@ -27,11 +27,11 @@ export const TodoFooter = (props: TodoFooterProps) => {
 /*
 TODO: uncomment this and fill out the below code
 
-function mapStateToProps(state: Store) {
+function mapStateToProps(state: Store): Partial<TodoFooterProps> {
   // TODO: FILL THIS OUT
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: any): Partial<TodoFooterProps> {
   // TODO: FILL THIS OUT
 }
 

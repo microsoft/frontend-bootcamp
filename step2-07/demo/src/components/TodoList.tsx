@@ -21,17 +21,12 @@ const TodoList = (props: TodoListProps) => {
   );
 };
 
-function mapStateToProps(state: Store) {
-  return { ...state };
-}
-
-function mapDispatchToProps(dispatch: any) {
-  return {};
+function mapStateToProps({ todos }: Store): Partial<TodoListProps> {
+  return { todos };
 }
 
 const component = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(TodoList);
 
 export { component as TodoList };

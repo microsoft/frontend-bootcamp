@@ -45,11 +45,11 @@ class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
   };
 }
 
-function mapStateToProps(state: Store) {
-  return { ...state };
+function mapStateToProps(state: Store): Partial<TodoHeaderProps> {
+  return {};
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: any): Partial<TodoHeaderProps> {
   return {
     addTodo: (label: string) => dispatch(actions.addTodo(label))
   };

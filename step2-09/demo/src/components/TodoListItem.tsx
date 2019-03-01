@@ -27,13 +27,11 @@ class TodoListItem extends React.Component<TodoListItemProps, {}> {
   }
 }
 
-function mapStateToProps({ todos }: Store) {
-  return {
-    todos
-  };
+function mapStateToProps({ todos }: Store): Pick<TodoListItemProps, 'todos'> {
+  return { todos };
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: any): Pick<TodoListItemProps, 'remove' | 'complete'> {
   return {
     remove: (id: string) => dispatch(actionsWithService.remove(id)),
     complete: (id: string) => dispatch(actionsWithService.complete(id))

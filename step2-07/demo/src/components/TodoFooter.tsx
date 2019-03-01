@@ -23,11 +23,11 @@ const TodoFooter = (props: TodoFooterProps) => {
   );
 };
 
-function mapStateToProps(state: Store) {
-  return { ...state };
+function mapStateToProps({ todos }: Store): Partial<TodoFooterProps> {
+  return { todos };
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: any): Partial<TodoFooterProps> {
   return {
     clear: () => dispatch(actions.clear())
   };
