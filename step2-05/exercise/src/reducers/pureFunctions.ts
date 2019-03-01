@@ -19,20 +19,21 @@ export function remove(state: Store['todos'], id: string) {
 }
 
 export function complete(state: Store['todos'], id: string) {
-  // Write code:
-  // - to clone the state[id] object into new todo object, using the spread syntax
-  // - in the spread syntax, also override the value of the completed key like this: {...foo, [id]: !foo[id].completed}
-  // - modify new state and set the id key to the value of the new item object
-
-  return state;
+  // Clone the todo, overriding
+  const newTodo = { ...state[id], completed: !state[id].completed };
+  return { ...state, [id]: newTodo };
 }
 
 export function clear(state: Store['todos']) {
-  // Write code:
-  // - to clone the state object into new state object
-  // - loop through the keys of the new state object
-  // - remove those items inside that new state if the item is completed using the "delete" keyword
-  // - return the new state
+  // Clone the todos
+  const newTodos = { ...state };
 
-  return state;
+  // Delete all todos based on the completed flag, looping over the keys of the todos
+  Object.keys(state).forEach(key => {
+    if (state[key].completed) {
+      delete newTodos[key];
+    }
+  });
+
+  return newTodos;
 }
