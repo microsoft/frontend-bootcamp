@@ -20,7 +20,7 @@ That's right, Redux doesn't only work with React. It can be used inside Vue.js, 
 
 The store doesn't magically get passed to the views randomly. It has to be supplied by a `react-redux` component called `<Provider>`. It can be placed anywhere, but it's best to just make it available at the root the app:
 
-```tsx
+```js
 const store = createStore(reducers);
 
 const App = () => {
@@ -36,7 +36,7 @@ const App = () => {
 
 Connect store to view with `react-redux`. `connect()` is used to turn Redux store and dispatch functions into props inside React components. The state and action dispatchers are passed along with a `<Provider>` component.
 
-```ts
+```js
 const OldComponent = props => {
   return <div>{props.foo}</div>;
 };
