@@ -15,5 +15,10 @@ store.dispatch(actions.addTodo('world'));
 
 initializeIcons();
 
-// TODO: wrap <TodoApp> with a <Provider store={store}> instance here
-ReactDOM.render(<TodoApp />, document.getElementById('app'));
+// TODO: see how we added Provider is the root element
+ReactDOM.render(
+  <Provider store={store}>
+    <TodoApp />
+  </Provider>,
+  document.getElementById('app')
+);

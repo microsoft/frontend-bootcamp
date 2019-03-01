@@ -4,7 +4,7 @@
 
 If you still have `npm test` running from the last step, stop it using `ctrl+C`. Start the app by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 7 to see results.
 
-1. open up `exercise/src/index.tsx` and wrap `<TodoApp>` with `<Provider store={store}>` as instructed in the comment
+1. open up `exercise/src/index.tsx` and note the `<Provider store={store}>` - see how it wraps the components as the new root component.
 
 2. open up `exercise/src/components/TodoFooter.tsx` and erase the "nullable" type modifier (i.e. the ?) in the interface definition of `TodoFooterProps`
 
