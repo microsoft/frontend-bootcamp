@@ -87,7 +87,7 @@ The `styles` prop can take either an object, or a function which returns a style
 
 The following code (simplified from `demo/src/components/TodoHeader.tsx`) demonstrates using `styles` to customize individual components. The TextField uses a style function and the PrimaryButton uses a style object.
 
-```ts
+```js
 function render() {
   const buttonStyles = {
     root: { backgroundColor: 'maroon' },
