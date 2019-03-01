@@ -21,7 +21,7 @@ There are some predefined themes within Fabric already, like Fluent (which will 
 
 The following code (simplified from `demo/src/components/TodoApp.tsx`) shows an example of applying the Fluent theme to our todo app using `Customizer`.
 
-```js
+```jsx
 import { Customizer } from 'office-ui-fabric-react';
 import { FluentCustomizations } from '@uifabric/fluent-theme';
 
@@ -128,7 +128,7 @@ Benefits of `mergeStyles` include:
 
 The following is a basic example using mergeStyles. ([This CodePen](https://codepen.io/dzearing/pen/jGdgrE?editors=1011) illustrates in more detail what `mergeStyles` does and includes some advanced examples.)
 
-```js
+```jsx
 // can also import from office-ui-fabric-react in Fabric-based apps
 import { mergeStyles } from '@uifabric/merge-styles';
 

@@ -30,7 +30,7 @@ Let's start off in the TodoList, as that has the most data flow up and down. The
 
 Looking at our `TodoApp` we know that `TodoList` has three props: `filter`, `todos`, and `complete`. We'll start by creating an interface called `TodoListProps` that represents this component's props.
 
-```tsx
+```ts
 interface TodoListProps {
   filter: any;
   todos: any;
@@ -42,7 +42,7 @@ interface TodoListProps {
 
 With that interface written, we'll add it to our component class.
 
-```tsx
+```ts
 export class TodoList extends React.Component<TodoListProps, any>
 ```
 
@@ -58,7 +58,7 @@ So far we've only established what our prop names are, not the type of values in
 
 We know that `filter` shouldn't be an object, array or function, so we can specify it should always be a string like this:
 
-```tsx
+```ts
 interface TodoListProps {
   filter: string;
   todos: any;
@@ -68,7 +68,7 @@ interface TodoListProps {
 
 But since we know that the filter can be only one of three values, we can make that explicit with a [union type](https://www.typescriptlang.org/docs/handbook/advanced-types.html#union-types):
 
-```tsx
+```ts
 interface TodoListProps {
   filter: 'all' | 'active' | 'completed';
   todos: any;
@@ -82,7 +82,7 @@ Now try going back to `TodoApp` and changing the `filter` attribute in `TodoList
 
 The `complete` prop isn't data, but a function. Fortunately, TypeScript can handle function types just as well as data.
 
-```tsx
+```ts
 interface TodoListProps {
   filter: 'all' | 'active' | 'completed';
   todos: any;
@@ -98,7 +98,7 @@ For functions we are only concerned with the parameters passed in and the return
 
 The `todos` prop is interesting in that `todos` is an object with a bunch of unknown keys. So here's what that interface would look like.
 
-```tsx
+```ts
 interface TodoListProps {
   filter: 'all' | 'active' | 'completed';
   todos: {
@@ -119,7 +119,7 @@ Now that our interface is complete, try changing the word "all" in `filter === a
 
 Most of our components will need to specify types for `todos` and `filter`, so it's a good thing that TypeScript allows us to share types between files. I've already written up and exported those shared types in the file `TodoApp.types.ts`, so we just need to import them and use them in our interface.
 
-```tsx
+```ts
 import { FilterTypes, Todos } from '../TodoApp.types';
 
 interface TodoListProps {
@@ -135,7 +135,7 @@ Our `TodoApp` doesn't take any props, but it does have state. We can use TypeScr
 
 I've already imported `Todos` and `FilterTypes` into the `TodoApp`, so we just need to add them to our class. If we want, we can even skip a separate interface definition and just declare the type inline. (This is not recommended for types of any complexity or types that are used in multiple places.)
 
-```tsx
+```ts
 export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterTypes }>
 ```
 
@@ -145,7 +145,7 @@ export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterT
 
 Jumping down to the TodoListItem, as we start to write the `TodoListItemProps` we realize that two of the props, `label` and `completed`, have already been defined in the `TodoItem` interface in `TodoApp.types`. So we can make `TodoListItemProps` reuse the `TodoItem` interface by extending it.
 
-```tsx
+```ts
 interface TodoListItemProps extends TodoItem {
   id: string;
   complete: (id: string) => void;
@@ -164,7 +164,7 @@ And then use the input's `onChange` event to fire our `complete` callback. We ca
 
 > A [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) is a function passed into a component as a prop.
 
-```tsx
+```jsx
 <input type="checkbox" checked={completed} onChange={() => complete(id)} />
 ```
 

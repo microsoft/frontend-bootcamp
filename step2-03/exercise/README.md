@@ -46,7 +46,7 @@ import { TeamsCustomizations } from '@uifabric/theme-samples';
 
 1. Try generating a class name using `mergeStyles` and use it as a `className` prop inside `TodoApp`
 
-```tsx
+```jsx
 import { mergeStyles } from 'office-ui-fabric-react';
 
 const className = mergeStyles({
