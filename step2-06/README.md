@@ -8,7 +8,7 @@ We also see how to compose reducers to make up the complete state shape.
 
 ## Dispatch
 
-Given a store reference, you can dispatch an action to trigger the middleware and reducers. This changes the store and causes the view to re-render. (We'll look at how to pass the store and the dispatch function into the view later.)
+Given a store reference, you can [dispatch](https://redux.js.org/api/store#dispatch) an action to trigger the middleware and reducers. This changes the store and causes the view to re-render. (We'll look at how to pass the store and the dispatch function into the view later.)
 
 ```ts
 const store = createStore(reducers);
@@ -21,7 +21,7 @@ store.dispatch(actions.addTodo('id0', 'hello world'));
 
 In general, when an application grows, so does the complexity of the state tree. In a Redux application, it is best to have reducers that deal with only a sub-portion of the tree.
 
-In our example, we have two parts of our state: `todos` and `filter`. We will split the reducer to pass the todos to a `todosReducer()` function and just return `all` to the `filter` key for now. This organization helps in navigating and understanding the reducers because it matches the shape of the state one-to-one: there's a separate reducer for each key in state.
+In our example, we have two parts of our state: `todos` and `filter`. We will [split the reducer](https://redux.js.org/basics/reducers#splitting-reducers) to pass the todos to a `todosReducer()` function and just return `all` to the `filter` key for now. This organization helps in navigating and understanding the reducers because it matches the shape of the state one-to-one: there's a separate reducer for each key in state.
 
 Compare this example which handles the whole state in one reducer...
 
@@ -59,7 +59,7 @@ With the second example, it is easy to understand which reducer changed a given 
 
 To examine the state of the store, you can call `store.getState()` to get a snapshot of the current state.
 
-In general, you should only store serializable things in the state so that you can easily save or transfer it. You can even save this state into a browser's local storage and restore for the next boot of your application!
+In general, you should only include serializable things in the state so that you can easily save or transfer it. You can even save this state into a browser's local storage and restore for the next boot of your application!
 
 ## Visualizing the reducer and store change
 
