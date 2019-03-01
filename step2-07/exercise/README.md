@@ -2,9 +2,7 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-# Exercise
-
-If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 7 to see results.
+If you still have `npm test` running from the last step, stop it using `ctrl+C`. Start the app by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 7 to see results.
 
 1. open up `exercise/src/index.tsx` and wrap `<TodoApp>` with `<Provider>` as instructed in the comment
 
@@ -16,7 +14,7 @@ If you don't already have the app running, start it by running `npm start` from 
 
 5. do steps 2, 3, and 4 for the `TodoHeader.tsx` file
 
-# Bonus Exercise
+## Bonus Exercise
 
 For further reading, go here to look up more information about the `mergeProps` and `options` parameters to `connect()`:
 
