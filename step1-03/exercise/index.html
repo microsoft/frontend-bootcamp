@@ -47,9 +47,6 @@
     }
 
     function updateRemaining() {
-      const remaining = document.querySelector('.remaining');
-      const todos = document.querySelectorAll('.todo').length;
-      remaining.innerText = todos;
     }
 
     function addTodo() {
@@ -59,7 +56,6 @@
       todo.parentElement.insertBefore(newTodo, todo);
 
       clearInput('.textfield');
-      updateRemaining();
     }
 
     // clearCompleted
