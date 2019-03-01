@@ -40,6 +40,18 @@ body {
   overflow: auto;
 }
 
+#markdownReadme code {
+  font-family: Consolas,Menlo,Monaco,monospace;
+  font-size: 0.9em;
+  background-color: white;
+  padding: 0.2em 0.4em;
+  border-radius: 5px;
+}
+
+#markdownReadme code.hljs {
+  background-color: inherit;
+}
+
 /**
  * highlight.js style
  */

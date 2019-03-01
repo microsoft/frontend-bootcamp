@@ -1,24 +1,20 @@
-# Step 2.7: Connect Redux Store to View (Demo)
+# Step 2.7: Connect Redux store to view (Demo)
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-# Redux Ecosystem
+Redux is currently the most popular Flux implementation, and the ecosystem of related libraries has grown as a result. This is one of the reasons why it is a very popular library within Microsoft products.
 
-Redux is the most popular Flux implementation, and the ecosystem of related libraries has grown as a result. This is one of the reason why it is a very popular library in use by many products made by Microsoft as well.
+Various GitHub users have collected "awesome lists" of tech and articles related to Redux. Here is [one such list](https://github.com/xgrommx/awesome-redux#react---a-javascript-library-for-building-user-interfaces), but it is literally impossible to list out all the related tech.
 
-There had been "awesome lists" that various github users have collected related to tech and articles about redux. Here's just one such list:
+In this step, we introduce but one useful library that works with Redux: [`react-redux`](https://react-redux.js.org/).
 
-https://github.com/xgrommx/awesome-redux#react---a-javascript-library-for-building-user-interfaces
+## The official React Redux binding: `react-redux`
 
-It is literally impossible to list out all the related tech. In this step, we introduce but one useful library that works with `redux`.
+That's right, Redux doesn't just work with React. It can also be used with Vue.js, Angular, and React Native, to name a few.
 
-# `react-redux`: the Official React Redux Binding
+### `<Provider>` component
 
-That's right, Redux doesn't only work with React. It can be used inside Vue.js, Angular, and React Native, to name a few.
-
-## <Provider> Component
-
-The store doesn't magically get passed to the views randomly. It has to be supplied by a `react-redux` component called `<Provider>`. It can be placed anywhere, but it's best to just make it available at the root the app:
+The store doesn't magically get passed to the views. It has to be supplied by a `react-redux` component called [`<Provider>`](https://react-redux.js.org/api/provider). A `<Provider>` can be placed anywhere, but it's best to just make it available at the root the app:
 
 ```js
 const store = createStore(reducers);
@@ -32,9 +28,9 @@ const App = () => {
 };
 ```
 
-## connect() higher order function
+### `connect()` higher-order function
 
-Connect store to view with `react-redux`. `connect()` is used to turn Redux store and dispatch functions into props inside React components. The state and action dispatchers are passed along with a `<Provider>` component.
+`react-redux` provides a [`connect()`](https://react-redux.js.org/api/connect) function that turns the Redux store and dispatch functions into props for React components. The state and action dispatchers are passed along with a `<Provider>` component.
 
 ```js
 const OldComponent = props => {
@@ -49,9 +45,9 @@ const NewComponent = connect(
 )(OldComponent);
 ```
 
-The `connect()` function takes in a few functions that maps some portion of the state tree and dispatcher functions as props. It is a **higher order function** meaning that the return value of `connect()` is a function that decorates OldComponents into a NewComponent with all the mapped props.
+`connect()` takes in a few functions that map portions of the state tree and dispatcher functions into props. It is a **higher-order function**, meaning that the return value of `connect()` is a function that decorates `OldComponent` into a `NewComponent` with all the mapped props.
 
-This `mapStateToProps` function selects out portions of the state tree. This function informs the connected view when to re-render based on a shallow comparison from previous state.
+A [`mapStateToProps`](https://react-redux.js.org/api/connect#mapstatetoprops-state-ownprops-object) function selects out portions of the state tree. This function informs the connected view when to re-render based on a shallow comparison from previous state.
 
 ```ts
 function mapStateToProps(state) {
@@ -61,7 +57,7 @@ function mapStateToProps(state) {
 }
 ```
 
-The `mapDispatchToProps` are functions that will trigger the action message dispatch mechanism of Redux. It looks like this:
+An optional [`mapDispatchToProps`](https://react-redux.js.org/api/connect#mapdispatchtoprops-object-dispatch-ownprops-object) function will trigger the action message dispatch mechanism of Redux. It looks like this:
 
 ```ts
 function mapDispatchToProps(dispatch) {
