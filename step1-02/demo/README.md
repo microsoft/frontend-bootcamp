@@ -85,4 +85,4 @@ Open up the browser inspector and target our "all" button. You'll notice that th
 
 To fix this problem we need to either reduce the specificity of our button styles, or increase the specificity of the selected style. In this situation we will add `.filter` in front of the `.selected` selector, because the selected style only applies to the filter anyway.
 ## Next Step
-[EXERCISE](./exercise)
+[EXERCISE](../exercise)
