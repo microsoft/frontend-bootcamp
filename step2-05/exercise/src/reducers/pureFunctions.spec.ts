@@ -21,5 +21,5 @@ describe('TodoApp reducers', () => {
     */
   });
 
-  // TODO: test remove, complete and clear
+  // TODO: add a test for remove()
 });
