@@ -10,3 +10,5 @@
 > Hint: Look back at the CSS demo to see the various ways you can use selectors to target existing HTML
 
 > There are many strategies for creating and organizing class names in a large application. This lesson is focused on using CSS selectors, not the optimized way to scale your CSS.
+## Next Step
+[Writing `addtodo` function](../../step1-03/demo/)
