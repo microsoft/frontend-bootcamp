@@ -22,3 +22,5 @@
 5. After the loop is done, run `updateRemaining()`.
 6. Attach `clearCompleted()` function to the `onclick` of the footer button.
 7. Test it out!
+## Next Step
+[Introduction To React Demo](../../step1-04/demo/)
