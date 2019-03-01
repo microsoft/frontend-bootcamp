@@ -26,7 +26,7 @@ Before starting, make sure your computer has the following installed:
 
 - On a PC, you can do this with `cmd.exe` (or some terminal programs such as [cmder](https://cmder.net/))
 
-- On a Mac, bring up a Terminal (inside Applications folder).
+- On a Mac, bring up a Terminal (inside `/Applications/Utilities` folder).
 
 - For those who really want something fancy looking: [hyper](https://hyper.is/)
 
