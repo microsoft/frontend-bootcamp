@@ -22,7 +22,7 @@ async function run() {
   marked.setOptions({ renderer });
 
   if (div) {
-    const response = await fetch('../README.md');
+    const response = await fetch(div.dataset['src'] || '../README.md');
     const markdownText = await response.text();
     div.innerHTML = marked(markdownText, { baseUrl: '../' });
     restoreScroll(div);

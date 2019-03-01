@@ -21,11 +21,15 @@ body {
 #markdownReadme {
   box-sizing: border-box;
   flex: 1 1 60%;
-  background: #efefef;
+  background: #f3f2f1;
   padding: 50px;
   margin: 0 auto;
   height: 100vh;
   overflow: scroll;
+}
+
+#markdownReadme.exercise {
+  background-color: #deecf9;
 }
 
 #markdownReadme pre {
