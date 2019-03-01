@@ -36,8 +36,9 @@ export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterT
   };
 
   private _complete = id => {
-    const newTodos = { ...this.state.todos };
-    newTodos[id].completed = !newTodos[id].completed;
+    const { todos } = this.state;
+    const todo = todos[id];
+    const newTodos = { ...todos, [id]: { ...todo, completed: !todo.completed } };
 
     this.setState({
       todos: newTodos
