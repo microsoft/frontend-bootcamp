@@ -7,7 +7,7 @@ If you don't already have the app running, start it with `npm run static` from t
 1. Add an `onclick` attribute to all three buttons in the navigation.
 2. In each `onclick` call the `filter` function. In our function we need a reference to the clicked button, so pass in the keyword `this` as the only parameter.
 
-### Write an `updateRemaining` function
+### Complete the `updateRemaining` function
 
 1. Get a reference to the span with the `remaining` class, and store it in a variable.
 2. Use [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) to get all of the todos.

@@ -74,13 +74,12 @@ function addTodo() {
 
 ### Cleanup
 
-Now that our todo has been inserted into the DOM, we can clear the text input and call `updateRemaining()`.
+Now that our todo has been inserted into the DOM, we can clear the text input. In the exercise, we'll also update the count of the remaining todos in the footer from here.
 
 ```js
 function addTodo() {
   ...
   clearInput('.textfield');
-  updateRemaining();
 }
 ```
 
