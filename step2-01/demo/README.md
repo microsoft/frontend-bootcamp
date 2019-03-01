@@ -72,7 +72,7 @@ myFunc(...arr);
 
 Spreading an object into props for a React component:
 
-```tsx
+```jsx
 const obj = { a: 1, b: 2, c: 3 };
 // equivalent to:
 // <MyComponent a={obj.a} b={obj.b} c={obj.c} />
