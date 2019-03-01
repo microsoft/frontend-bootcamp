@@ -52,7 +52,7 @@ Both of these above commands will load the following site:
 
 <img src="https://user-images.githubusercontent.com/1434956/53656239-88426100-3c07-11e9-8456-e3d958aa4def.png" width=500 />
 
-## Course material
+## What to Expect
 
 ### Day one
 
@@ -63,27 +63,16 @@ The format of this day is the following:
 1. I will walk through some demo code to teach some core concepts about the topic. Don't worry about writing code at this point. Just follow along via the readme's listed below.
 2. In the excercise portion return to VS Code and open the 'exercise' folder for the given exercise. The demo folder will include a README file with directions and a link to the demo page.
 
+### Course Material
+
 1. [Introduction to HTML, CSS and JavaScript](step1-01)
-   - [HTML Demo](step1-01/html-demo)
-   - [CSS Demo](step1-01/css-demo)
-   - [JavaScript Demo](step1-01/js-demo)
 2. [Writing a Todo App: HTML and CSS](step1-02)
-   - [Demo](step1-02/demo)
-   - [Exercise](step1-02/exercise)
 3. [Writing a Todo App: JavaScript](step1-03)
-   - [Demo](step1-03/demo)
-   - [Exercise](step1-03/exercise)
 4. [React Introduction](step1-04)
-   - [Demo](step1-04/demo)
 5. [Building a Static Page](step1-05)
-   - [Demo](step1-05/demo)
-   - [Exercise](step1-05/exercise)
 6. [State Driven UI](step1-06)
-   - [Demo](step1-06/demo)
-   - [Exercise](step1-06/exercise)
 7. [Types & UI Driven State](step1-07)
-   - [Demo](step1-07/demo)
-   - [Exercise](step1-07/exercise)
+
 
 ### Day two
 
