@@ -27,7 +27,7 @@ function addTodo() {}
 
 ### Creating a Todo Clone
 
-The first thing we need to do in this function is create a `newTodo` wish is a clone of an existing Todo.
+The first thing we need to do in this function is create a `newTodo` which is a clone of an existing Todo.
 
 ```js
 function addTodo() {
