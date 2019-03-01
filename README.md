@@ -58,12 +58,14 @@ Both of these above commands will load the following site:
 
 Day one is going to cover the basics of HTML, CSS and JavaScript, as well as an introduction to React and Typescript.
 
+#### How we'll work
+
 The format of this day is the following:
 
 1. I will walk through some demo code to teach some core concepts about the topic. Don't worry about writing code at this point. Just follow along via the readme's listed below.
 2. In the excercise portion return to VS Code and open the 'exercise' folder for the given exercise. The demo folder will include a README file with directions and a link to the demo page.
 
-### Course Material
+#### Course Material
 
 1. [Introduction to HTML, CSS and JavaScript](step1-01)
 2. [Writing a Todo App: HTML and CSS](step1-02)
