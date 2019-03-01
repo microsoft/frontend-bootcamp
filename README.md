@@ -10,7 +10,7 @@ The first day provides an introduction to the fundamentals of the web: HTML, CSS
 
 ## Getting set up
 
-### Required software
+### 1. Required software
 
 Before starting, make sure your computer has the following installed:
 
@@ -20,76 +20,61 @@ Before starting, make sure your computer has the following installed:
   - If using a Mac, also follow [these steps](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to install the `code` terminal command.
 - React Developer Tools for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
-### Installing and running the project
+### 2. Installing and opening the project
 
-#### 1. Find a good terminal program--we're going to use it a LOT!
+- Open VS Code and then press `ctrl + ~` to open the built in terminal
+- Use the `cd` (change directory) command to find an appropriate place for your code 
+- Type `git clone https://github.com/Microsoft/frontend-bootcamp.git` into the terminal, this will pull down a copy of the workshop code
+- Type `cd bootcamp` to change your current directory to the bootcamp folder
+- Type `npm install` to install of the project dependencies
+- Type `code ./` to open the bootcamp code in VS Code
+> If on a Mac, be sure you've followed [these steps](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) first to make the `code` command available.
 
-- On a PC, you can do this with `cmd.exe` (or some terminal programs such as [cmder](https://cmder.net/))
+### 3. Run the "inner loop" build
 
-- On a Mac, bring up a Terminal (inside `/Applications/Utilities` folder).
+Now that we have VS Code open with the bootcamp code, open the terminal again `ctrl + ~` and your project should look like this
 
-- For those who really want something fancy looking: [hyper](https://hyper.is/)
+<img src="https://user-images.githubusercontent.com/1434956/53654442-9c379400-3c02-11e9-8768-d19e092b606d.png" width=500 />
 
-#### 2. Clone repo and npm install
-
-First, `cd` to a good place to put your copy of the Git repo.
-
-- Windows: run `cd %USERPROFILE%` (if using `cmd.exe`) or `cd ~` (if using Bash)
-- Mac: Terminal automatically opens to your user directory (`/Users/you`)
-
-Then run the following to make a local copy of the repo and get it ready to run:
-
-```
-git clone https://github.com/Microsoft/frontend-bootcamp.git
-cd frontend-bootcamp
-npm install
-```
-
-If you have VS Code installed, type the following command to open a VS Code window where you can browse and open all the files in the project. (If on a Mac, be sure you've followed [these steps](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) first to make the `code` command available.)
-
-```
-code .
-```
-
-#### 3. Run the "inner loop" build
-
-For steps 1-3 on Day 1:
-
+To run the dev "inner loop" for the first 3 lessons type:
 ```
 npm run static
 ```
 
-For everything else:
+When we get to lesson 4, and React we will stop the static inner loop and start:
+1. press `ctrl + c` to stop the static inner loop
 
 ```
-npm start
+npm run start
 ```
 
-## Course material
+Both of these above commands will load the following site:
+
+<img src="https://user-images.githubusercontent.com/1434956/53656239-88426100-3c07-11e9-8456-e3d958aa4def.png" width=500 />
+
+## What to Expect
 
 ### Day one
 
+Day one is going to cover the basics of HTML, CSS and JavaScript, as well as an introduction to React and Typescript.
+
+#### How we'll work
+
+The format of this day is the following:
+
+1. I will walk through some demo code to teach some core concepts about the topic. Don't worry about writing code at this point. Just follow along via the readme's listed below.
+2. In the excercise portion return to VS Code and open the 'exercise' folder for the given exercise. The demo folder will include a README file with directions and a link to the demo page.
+
+#### Course Material
+
 1. [Introduction to HTML, CSS and JavaScript](step1-01)
-   - [HTML Demo](step1-01/html-demo)
-   - [CSS Demo](step1-01/css-demo)
-   - [JavaScript Demo](step1-01/js-demo)
 2. [Writing a Todo App: HTML and CSS](step1-02)
-   - [Demo](step1-02/demo)
-   - [Exercise](step1-02/exercise)
 3. [Writing a Todo App: JavaScript](step1-03)
-   - [Demo](step1-03/demo)
-   - [Exercise](step1-03/exercise)
 4. [React Introduction](step1-04)
-   - [Demo](step1-04/demo)
 5. [Building a Static Page](step1-05)
-   - [Demo](step1-05/demo)
-   - [Exercise](step1-05/exercise)
 6. [State Driven UI](step1-06)
-   - [Demo](step1-06/demo)
-   - [Exercise](step1-06/exercise)
 7. [Types & UI Driven State](step1-07)
-   - [Demo](step1-07/demo)
-   - [Exercise](step1-07/exercise)
+
 
 ### Day two
 
