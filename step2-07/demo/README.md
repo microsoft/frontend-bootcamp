@@ -10,7 +10,7 @@ In this step, we introduce but one useful library that works with Redux: [`react
 
 ## The official React Redux binding: `react-redux`
 
-That's right, Redux doesn't only work with React. It can also be used with Vue.js, Angular, and React Native, to name a few.
+That's right, Redux doesn't just work with React. It can also be used with Vue.js, Angular, and React Native, to name a few.
 
 ### `<Provider>` component
 
