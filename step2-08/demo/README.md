@@ -9,22 +9,22 @@ At this point, you might asking why am I adding so much boilerplate code?
 <img src="https://media.giphy.com/media/eveLVPcHcbl0A/giphy.gif" />
 </details>
 
-A lot of code seems to be repeated with Redux. Redux is very much function based and has a lot of opportunites for some refactoring to make it less boilerplate'ish.
+A lot of code seems to be repeated with Redux. Redux is very much function-based and has a lot of opportunities for some refactoring to make it less boilerplate-heavy.
 
-I argue that part of the boilerplate is just turning what would otherwise by implicit to be explicit. This is GOOD in a large applications so that there is no magic.
+I argue that part of the boilerplate is just making things explicit that would otherwise be implicit. This is GOOD in a large application so that there is no magic.
 
-However, I argue for two things to make things much better:
+However, I argue that there are two major areas for improvement:
 
-1. writing against immutable data structures is hard
-2. the switch statements is cumbersome and error prone (e.g. with default case missing)
+1. Writing against immutable data structures is hard
+2. The switch statements are cumbersome and error-prone (e.g. with default case missing)
 
-# `redux-starter-kit`: A simple batteries-included toolset to make using Redux easier
+## `redux-starter-kit`: A simple batteries-included toolset to make using Redux easier
 
-Introducing an official library from Redux team that makes this much better. We'll start with `createReducer()`
+Introducing [`redux-starter-kit`](https://redux-starter-kit.js.org/), an official helper library from Redux team, makes this much better. We'll start with `createReducer()`.
 
-## `createReducer()`: takes away the switch statement
+### `createReducer()`: takes away the switch statement
 
-`createReducers()` simplifies things a lot! The best way illustrate what it does is with some code:
+[`createReducer()`](https://redux-starter-kit.js.org/api/createreducer) simplifies things a lot! The best way illustrate what it does is with some code. Previously, we'd write our reducer like this:
 
 ```ts
 function todoReducer(state, action) {
@@ -46,10 +46,10 @@ function todoReducer(state, action) {
 }
 ```
 
-can be rewritten as:
+We can rewrite this with `redux-starter-kit` as follows:
 
 ```ts
-import {createReducer} from 'redux-starter-kit';
+import { createReducer } from 'redux-starter-kit';
 
 const todoReducer = createReducer({}, {
   addTodo: (state, action) => ...,
@@ -61,9 +61,9 @@ const todoReducer = createReducer({}, {
 
 Several important features of `createReducer()`:
 
-1. it allows a more concise way of writing reducers with keys that match the `action.type` (using convention)
+1. Provides a more concise way of writing reducers, using an object with keys that match the possible values of `action.type`
 
-2. handles "no match" case and returns the previous state (rather than a blank state like we had done previously)
+2. Handles "no match" case and returns the previous state (rather than a blank state like we had done previously)
 
 3. it incorporates a library called [`immer`](https://github.com/mweststrate/immer#reducer-example) that allows us to write code that mutates a draft object and ultimately copies over the old snapshot with the new. Instead of writing immutable data manipulation:
 
@@ -78,7 +78,7 @@ function removeItem(array, action) {
 }
 ```
 
-Can become code that we write with mutable arrays (without spread syntax):
+We can write code with mutable arrays (without spread syntax):
 
 ```ts
 function insertItem(array, action) {
@@ -91,7 +91,7 @@ function removeItem(array, action) {
 }
 ```
 
-There are cases where you need to replace the entire state at a time (like the `setFilter`). Simply returning a new value without modifying the state like so:
+In cases where you need to replace the entire state (like `setFilter`), simply return a new value without modifying the state like so:
 
 ```ts
 function setFilter(state, action) {
@@ -99,9 +99,11 @@ function setFilter(state, action) {
 }
 ```
 
-## `combineReducer()` - combining reducers
+### `combineReducers()` - combining reducers
 
-This another is demonstration of how to write reducers with less boilerplate code. We can use a built-in `redux` function to combineReducers. Application state shape grows usually be splitting the store. Our Redux store so far has this shape, roughly:
+Using [`combineReducers()`](https://redux.js.org/recipes/structuring-reducers/using-combinereducers), we can further reduce the amount of boilerplate code. As the application store evolves and is responsible for increasing amounts of state, it becomes advantageous to decompose the reducer into smaller functions. `combineReducers()` provides an API that lets authors build more, smaller reducers, each with a single responsibility.
+
+Our todo app's Redux store so far has this shape, roughly:
 
 ```js
 const state = {
@@ -120,7 +122,7 @@ const state = {
 };
 ```
 
-Currently, the store captures two separate but related ideas: the todo items and the selected filter. The reducers should follow the shape of the store. Think of reducers as part of the store itself and are responsible to update a single part of the store based on actions that they receive as a second argument. As complexity of state grows, we split these reducers:
+Currently, the store captures two separate but related pieces of data: the todo items and the selected filter. The reducers should follow the shape of the store. Think of reducers as parts of the store which are responsible to update a single part of the store based on the action passed in. As complexity of state grows, we split these reducers:
 
 ```ts
 // from last step, using createReducer
@@ -142,4 +144,4 @@ export const reducer = combineReducers({
 });
 ```
 
-`combineReducers` handles the grunt-work of sending _actions_ to each combined reducer. Therefore, when an action arrives, each reducer is given the opportunity to modify its own state tree based on the incoming action.
+`combineReducers` handles the grunt work of sending actions to the appropriate reducer. Therefore, when an action arrives, each reducer is given the opportunity to modify its own section of the state tree based on the incoming action.
