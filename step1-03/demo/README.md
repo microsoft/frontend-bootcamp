@@ -103,3 +103,5 @@ document.querySelector('.addTodo .submit').onclick = addTodo;
 ```
 
 Today we'll use #2, as this is the way it will work in React as well.
+## Next Step
+[EXERCISE](../exercise)
