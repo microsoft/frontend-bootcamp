@@ -42,7 +42,7 @@ In a real app using ReactDOM, the top-level component will be rendered on the pa
 
 The following code demonstrates how Enzyme can be used to help test React components.
 
-```tsx
+```jsx
 import React from 'react';
 import { mount } from 'enzyme';
 import { TestMe } from './TestMe';
