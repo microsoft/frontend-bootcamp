@@ -1,4 +1,4 @@
-# Step 2.9
+# Step 2.9: Service Calls (Exercise)
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
