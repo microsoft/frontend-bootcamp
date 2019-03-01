@@ -48,15 +48,3 @@ Let's make some observations:
 3. the inner function is `async` enabled, and can await on "side effects" like asynchronous service calls
 4. this inner function has the ability to dispatch additional actions because it has been passed the `dispatch()` function from the store
 5. this inner function also has access to the state tree via `getState()`
-
-# Exercise
-
-If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 9 to see results.
-
-1. open up `exercise/src/service/index.ts` and study the signature of the functions to call the service such as the `add()` function
-
-2. open `exercise/src/actions/index.ts` and fill in the missing content inside `actionsWithService`
-
-- note that the `complete` and `clear` functions require you to write your own wrapper function
-
-3. open `exercise/src/index.tsx` and follow the instructions in the TODO comment to make the app prepopulate with data from the service.

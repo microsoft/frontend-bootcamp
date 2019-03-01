@@ -2,8 +2,6 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-# Exercise
-
 If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 8 to see results.
 
 > Hint! This section is tricky, so all the solution is inside "demo" as usual. Feel free to copy & paste if you get stuck!!

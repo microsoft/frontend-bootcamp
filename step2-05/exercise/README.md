@@ -2,8 +2,6 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-# Exercise
-
 If you still have the app running from a previous step, stop it with `ctrl+c`. Start the tests instead by running `npm test` from the root of the `frontend-bootcamp` folder.
 
 1. First, take a look at the store interface in `exercise/src/store/index.ts`. Note that the `Store` interface has two keys: `todos` and `filter`. We'll concentrate on `todos`, which is an object where the keys are string IDs and the values are of a `TodoItem` type.

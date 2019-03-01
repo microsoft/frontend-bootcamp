@@ -2,8 +2,6 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-# Exercise
-
 Start the test runner by running `npm test` in the root of the `frontend-bootcamp` folder.
 
 ## Basic testing
