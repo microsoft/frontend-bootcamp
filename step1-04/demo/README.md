@@ -44,9 +44,9 @@ ReactDOM.render(<p>Hello World</p>, document.getElementById('app'));
 
 A React component is a piece of code that returns a portion of your application. This can include HTML markup, CSS styles as well as JavaScript driven functionality.
 
-Components can be created in two ways. The first is method is to use a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), which extends (inherits from) the React.Component class.
+Components can be created in two ways. The first is method is to use a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), which extends (inherits from) the `React.Component` class.
 
-Classes in JavaScript provide a way to collect methods(functions) and properties(values) in an extendable container. We extend React.Container because it provides us with several build in methods, including `render`.
+Classes in JavaScript provide a way to collect methods(functions) and properties(values) in an extendable container. We extend `React.Component` because it provides us with several built-in methods, including `render`.
 
 ```jsx
 export class App extends React.Component {
@@ -56,7 +56,7 @@ export class App extends React.Component {
 }
 ```
 
-Moving our "Hello World" markup into our App's `render` function, we can now update the `ReactDOM.render()` function to look like this
+Moving our "Hello World" markup into our App's `render` function, we can now update the `ReactDOM.render()` function to look like this:
 
 ```jsx
 ReactDOM.render(<App />, document.getElementById('app'));
@@ -75,7 +75,7 @@ export class App extends React.Component {
 }
 ```
 
-- `import React from 'react';` - Each file needs to import React, but only on copy of the code is included in your application.
+- `import React from 'react';` - Each file needs to import React, but only one copy of the code is included in your application.
 - `export class App` - Just like React exports code, our App component exports a class called `App`. This allows us to import the class into other files.
 - `extends React.Component` - A JavaScript class is similar to a class in other programming languages (it's a collection of methods and properties). Classes can also be extended, so when we create a React component class, we always extend the base `React.Component` class. (Note that this `Component` class is coming from the `React` variable imported up top.)
 - `render()` - One of the methods defined by `React.Component` is the `render()` method, which defines the HTML the component is going to render.
@@ -90,7 +90,7 @@ export class App extends React.Component {
 
 ## Counter Component
 
-In this example we'll start with an already scaffolded out control. The goal of our counter is to track how many times the counter button is clicked. In the past JavaScript demo we might have accessed the counter element using `document.querySelector('.counter')` and manually incremented the number found there. While using the DOM as your data store works, it's REALLY hard to scale past the most basic demo.
+In this example we'll start with an already scaffolded-out control. The goal of our counter is to track how many times the counter button is clicked. In the past JavaScript demo we might have accessed the counter element using `document.querySelector('.counter')` and manually incremented the number found there. While using the DOM as your data store works, it's REALLY hard to scale past the most basic demo.
 
 React solves this by allowing each control to specify its own data store, called **state**. We can reference values in state when we render our UI, and we can also update state over the lifetime of our application.
 
@@ -107,7 +107,7 @@ constructor(props) {
   }
 ```
 
-- The constructor takes in the component's props (values passed into the control).
+- The constructor takes in the component's `props` (values passed into the control).
 - The [`super()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) function calls the constructor of the parent class (in this case `React.Component`) to do any shared setup.
 - Now we can define any state variables we want to use in the control and give them a default value. Our counter value can now be accessed via `this.state.counter`. Later, we can update state by calling `this.setState({ counter: 1 })`.
 
@@ -199,9 +199,9 @@ Now that we've got two counters on our page, we can see that the string passed i
 
 Our next step is to wire up the button to increment the `counter` in our component state. This will very similar to what we did in step 3, but instead of placing the function in a script tag, we can create it as a class method, and keep it out of the global scope.
 
-> By convention we place other methods below render, and private methods (those for internal use only) are prefixed with an underscore.
+> By convention we place other methods below `render()`, and private methods (those for internal use only) are prefixed with an underscore.
 
-This function will update our component's state, incrementing the counter value by 1. (Note that `setState` only modifies the values of keys listed in object passed as its parameter.)
+This function will update our component's state, incrementing the counter value by 1. (Note that `setState` only modifies the values of keys listed in the object passed as its parameter.)
 
 ```jsx
 _onButtonClick = () => {
@@ -219,7 +219,7 @@ Now that we have a function to increment our count, all that's left is to connec
 
 > Note the syntax is a bit different than in HTML: `onclick="funcName()"` in HTML vs `onClick={this.funcName}` in JSX.
 
-> Also note that each Counter maintains its own state! You can modify the state inside of one counter without affecting the others.
+> Also note that each `Counter` maintains its own state! You can modify the state inside of one counter without affecting the others.
 
 ## Bonus: Using a Button component
 
