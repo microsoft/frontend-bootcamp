@@ -7,7 +7,7 @@ The power of HTML is its ability to represent complex information in a way that 
 1. Create a recipe page to host our recipe (page title, headings, sections, paragraphs, lists etc)
 2. Use title, header, main, footer, headings (h1/h2 etc), paragraphs, lists
 3. Use ordered and unordered lists appropriately
-4. Add the `baked_beans.jpg` iagine included in this folder
+4. Add the `baked_beans.jpg` image included in this folder
 5. Add an anchor tag around 'Wisconsin Beer Brats'
 
 ## 4th of July Baked Beans
