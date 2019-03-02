@@ -30,7 +30,7 @@ The most important ones to know about are:
 
 ## TypeScript Types
 
-Refer to [`demo/src`](./demo/src) for examples of some of the types available in TS that benefit a React developer.
+Refer to [`demo/src/types`](./src/types/index.ts) for examples of some of the types available in TS that benefit a React developer.
 
 ## Spread Operator
 
