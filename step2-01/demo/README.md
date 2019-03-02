@@ -36,7 +36,7 @@ Refer to [`demo/src/types`](./src/types/index.ts) for examples of some of the ty
 
 The spread operator `...` provides a quick way to clone and concatenate objects and arrays. This syntax is seen a lot inside React props and Redux reducers.
 
-With objects:
+With **objects**:
 
 ```ts
 // Shallow copy an object
@@ -52,7 +52,7 @@ const cloned2 = { ...obj1, ...obj2, key: value };
 const overridden = { ...object, [key + '-suffix']: value };
 ```
 
-With arrays:
+With **arrays**:
 
 ```ts
 const copy1 = [...arr];
@@ -107,7 +107,7 @@ const [foo, ...bar] = arr;
 
 ## Promise
 
-A promise is an object representing work that will be completed later, asynchronously. Promises are chainable, which helps with writing maintainable async code. (Typically, legacy async code uses callbacks to let the caller have control over what to do after the task has been completed, which becomes very hard to read.)
+A promise is an object representing work that will be completed later, asynchronously. Promises are chainable, which helps with writing maintainable async code. (Typically, legacy async code uses callbacks to let the caller have control over what to do after the task has been completed, which becomes [very hard to read](http://callbackhell.com/).)
 
 ```ts
 const aPromise = new Promise((resolve, reject) => {
@@ -141,7 +141,7 @@ aPromise
 
 ## Async / Await
 
-This syntax is inspired heavily by C#'s async / await syntax. An async function is written like this:
+**Async / Await** is a language-level feature for writing asynchronous functions as if they are ordinary, synchronous code. JS support for this is built on top of `Promise`s and is inspired heavily by [C#'s async / await syntax](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/). An async function is written like this:
 
 ```ts
 async function someFunctionAsync() {
