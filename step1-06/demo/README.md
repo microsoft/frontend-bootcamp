@@ -73,8 +73,8 @@ I've already pulled out our props into `filter` and `todos` variables, and writt
 }
 ```
 
-- [`map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map): This method iterates over the array it's called on, transforming each value with the passed in function and returning the values in a new array (our rendered TodoListItems).
-- `key`: We use the `id` from the `filterTodos` array as the [list item key](https://reactjs.org/docs/lists-and-keys.html) The keys should be unique as they help React track which items are added, removed, or updated and determine whether an instance of an item should be rerendered or a new one created.
+- [`map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map): This method iterates over the array it's called on, transforming each value with the passed in function and returning the values in a new array (our rendered `TodoListItem`s).
+- `key`: We use the `id` from the `filterTodos` array as the [list item key](https://reactjs.org/docs/lists-and-keys.html). The keys should be unique as they help React track which items are added, removed, or updated and determine whether an instance of an item should be rerendered or a new one created.
 - `id`: The `key` is not actually passed into the component, so we pass the same value as `id` as well. This will help us out later.
 - `todos[id]`: Lastly we use the `id` to grab the todo from our `todos` object, then use the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to pass through the todo's `label` and `completed` values.
   > This spread operator is the same as saying `label={todos[id].label} completed={todos[id].completed}`. Pretty obvious why spread is so handy!
@@ -105,7 +105,7 @@ An **uncontrolled input** maintains its current value internally and updates it 
 
 A **controlled input** takes its current value from a prop and use a callback to notify the parent component of changes made by the user. The input's value doesn't change until the parent component updates the input's props in response to the callback.
 
-Typically, a controlled input's current value is stored in the parent component's state (then passed to the input as a prop during render). The parent updates its state in response to the callback, which causes the input to be re-rendered with a new prop value. This round trip process might sound inefficient, but in reality it has little to no impact and helps enable some advanced form functionality.
+Typically, a controlled input's current value is stored in the parent component's state (then passed to the input as a prop during render). The parent updates its state in response to the callback, which causes the input to be re-rendered with a new prop value. This round-trip process might sound inefficient, but in reality it has little to no impact and helps enable some advanced form functionality.
 
 > The distinction between controlled and uncontrolled is important to understand when writing or using form components, and misunderstandings of this concept are a very common source of bugs. See [this article](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) for a more detailed explanation.
 
@@ -131,4 +131,4 @@ With those two pieces in place, we can update our uncontrolled input to being co
 <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
 ```
 
-> If you have React Dev Tools installed, open them up and take a look at labelInput as we type in the input.
+> If you have React Dev Tools installed, open them up and take a look at `labelInput` as we type in the input.
