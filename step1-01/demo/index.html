@@ -32,39 +32,27 @@
 
     <section>
       <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning">Content Sections</a></h2>
+      <pre>
+  &lt;body&gt;
+    &lt;header&gt;
+      &lt;h1&gt;Heading 1&lt;/h1&gt;
+      &lt;h2&gt;Heading 2&lt;/h2&gt;
+      &lt;h3&gt;Heading 3&lt;/h3&gt;
+      &lt;h4&gt;Heading 4&lt;/h4&gt;
+      &lt;h5&gt;Heading 5&lt;/h5&gt;
+      &lt;h6&gt;Heading 6&lt;/h6&gt;
 
-      <div>
-        <header>
-          <h1>My Website H1 inside Header</h1>
-          <nav>
-            <ul>
-              <li><a href="page1">About Me</a></li>
-              <li><a href="page2">Contact Me</a></li>
-            </ul>
-          </nav>
-        </header>
+      &lt;nav&gt;&lt;/nav&gt;
+    &lt;/header&gt;
 
-        <main>
-          <h2>My Blog H2 inside Main</h2>
-          <article>
-            <header><h3>Blog Title 1 (H3 in Article Header)</h3></header>
-            <aside>
-              <p>Aside: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dictum ultricies elit eget luctus.</p>
-            </aside>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur architecto mollitia ducimus. Tempora dignissimos incidunt
-              consequuntur amet recusandae, eligendi eaque maxime in veritatis delectus non, molestiae vel ipsa! Natus, fuga!
-            </p>
-          </article>
-          <article>
-            <header><h3>Blog Title 2</h3></header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, rem.
-            </p>
-          </article>
-        </main>
-        <footer>Copyright 2019 in the Footer</footer>
-      </div>
+    &lt;main&gt;
+      &lt;article&gt;&lt;/article&gt;
+      &lt;aside&gt;&lt;/aside&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;&lt;/footer&gt;
+  &lt;/body&gt;
+      </pre>
     </section>
     <hr />
     <section>
@@ -135,21 +123,18 @@
         <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Inline_text_semantics">Inline text elements</a>
       </h2>
 
-      <h3>Anchor tag, br and span</h3>
+      <h3>Anchor tag and span</h3>
 
-      <a target="_blank" href="https://example.com"> Website <span style="color: red">address in span tag</span> </a> (&lt;br&gt; tag here)
-      <br />
-      <a target="_blank" href="mailto:m.bluth@example.com">Email</a> (no &lt;br&gt;) <a target="_blank" href="tel:+123456789">Phone</a
-      ><br />
+      <a target="_blank" href="https://example.com"> Anchor Tag with <span style="color: red">span tag wrapped around part of it</span> </a>
 
       <h3>Inline style tags</h3>
       <p><b>b tag</b> <em>em tag</em> <i>i tag</i> <sub>sub tag</sub> <sup>sup tab</sup> <code>code tag</code></p>
 
       <h3>Image tag</h3>
       <div>
-        <img src="../../assets/fabric.jpg" width="100" />
-        <img src="../../assets/fabric.jpg" width="50" />
-        <img src="../../assets/fabric.jpg" width="150" />
+        <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="100" />
+        <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="50" />
+        <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="150" />
       </div>
     </section>
     <hr />
@@ -248,6 +233,5 @@
         </div>
       </form>
     </section>
-    <a href="../css-demo/css-demo.html">CSS Demo</a>
   </body>
 </html>

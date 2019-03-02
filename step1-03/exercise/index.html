@@ -1,80 +1,37 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+  <style>
+    label,
+    button {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
   <body>
-    <header>
-      <h1>todos - step1-03 exercise</h1>
-      <div class="addTodo">
-        <input class="textfield" placeholder="add todo" />
-        <button onclick="addTodo()" class="submit">Add</button>
-      </div>
-      <nav class="filter">
-        <button class="selected">all</button>
-        <button>active</button>
-        <button>completed</button>
-      </nav>
-    </header>
+    <label><input type="checkbox" />Ice cream</label>
+    <label><input type="checkbox" />Pizza</label>
+    <label><input type="checkbox" />Tacos</label>
+    <label><input type="checkbox" />Meatloaf</label>
+    <label><input type="checkbox" />Brocolli</label>
 
-    <ul class="todos">
-      <li class="todo">
-        <label><input type="checkbox" /> <span class="title"> Todo 1 </span></label>
-      </li>
-      <li class="todo">
-        <label><input type="checkbox" /> <span class="title"> Todo 2 </span></label>
-      </li>
-      <li class="todo">
-        <label><input type="checkbox" /> <span class="title"> Todo 3 </span></label>
-      </li>
-      <li class="todo">
-        <label><input type="checkbox" /> <span class="title"> Todo 4 </span></label>
-      </li>
-    </ul>
-    <footer>
-      <span><i class="remaining">4</i> items left</span>
-      <button class="submit">Clear Completed</button>
-    </footer>
+    <button>Display Your Favorites</button>
+
+    <div class="favorites"></div>
   </body>
 
-  <script type="text/javascript">
-    function clearInput(selector) {
-      document.querySelector(selector).value = '';
-    }
-
-    function getTodoText() {
-      return document.querySelector('.textfield').value;
-    }
-
-    function updateRemaining() {
-    }
-
-    function addTodo() {
-      const todo = document.querySelector('.todo');
-      const newTodo = todo.cloneNode(true);
-      newTodo.querySelector('.title').innerText = getTodoText();
-      todo.parentElement.insertBefore(newTodo, todo);
-
-      clearInput('.textfield');
-    }
-
-    // clearCompleted
-
-    function filter(button) {
-      document.querySelector('.selected').classList.remove('selected');
-      button.classList.add('selected');
-
-      const filterName = button.innerText;
-      for (let todo of document.querySelectorAll('.todo')) {
-        const checked = todo.querySelector('input').checked === true;
-        if (filterName === 'all') {
-          todo.hidden = false;
-        } else if (filterName === 'active') {
-          todo.hidden = checked;
-        } else if (filterName === 'completed') {
-          todo.hidden = !checked;
+  <script>
+    function getFavs() {
+      let favList = [];
+      const inputs = document.querySelectorAll('input');
+      for (const input of inputs) {
+        if (input.checked === true) {
+          favList.push(input.parentNode.textContent);
         }
       }
+      document.querySelector('.favorites').textContent = favList.join(' ');
     }
+
+    let button = document.querySelector('button');
+
+    button.addEventListener('click', getFavs);
   </script>
 </html>

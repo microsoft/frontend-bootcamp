@@ -1,41 +1,62 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  width: 400px;
-  margin: 20px auto;
-}
+/* body {
+  font: 1.2em sans-serif;
+} */
 
-h1 {
-  text-align: center;
-}
+/* h1 {
+  color: black;
+  background: #ababab;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+} */
 
-.addTodo {
+/* span {
+  color: #004578;
+} */
+
+/* a ~ a {
+  display: block;
+} */
+
+/* .tiles {
   display: flex;
-}
+} */
 
-.textfield {
-  flex-grow: 1;
-  margin-right: 10px;
-}
+/* .tiles img {
+  width: 100%;
+} */
 
-.submit {
-  border: none;
-  padding: 5px 10px;
-}
+/* .tiles > div {
+  background: rgb(10, 10, 10);
+  color: white;
+  flex-basis: 100%;
+  padding: 10px 20px 15px;
+  margin: 10px 20px 10px 0;
+  border: 1px solid white;
+} */
 
-.filter {
-  margin: 10px 0 0;
-}
+/* div.important-links {
+  background: #004578;
+} */
 
-.filter button {
-  background: transparent;
-  border: none;
-}
+/* a {
+  color: white;
+} */
 
-.selected {
-  border-bottom: 2px solid blue;
-}
+/* a:hover {
+  color: #ccc;
+} */
 
-.todos {
-  list-style: none;
-  padding: 0;
-}
+/* .tiles > div:last-child {
+  margin-right: 0;
+} */
+
+/* #contact-form {
+  display: flex;
+  flex-direction: column;
+} */
+
+/* input[type='submit'] {
+  margin-top: 10px;
+} */
