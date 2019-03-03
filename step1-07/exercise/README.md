@@ -25,3 +25,6 @@
 5. Call `_onAdd` from the submit button
 
 6. Check out this new functionality! We can now add and filter todos!
+## Next Step
+
+[Introduction to TypeScript](../../step2-01/)
