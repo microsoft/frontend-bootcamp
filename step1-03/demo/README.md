@@ -111,14 +111,14 @@ window.onclick = function() {
 In our example we want to trigger a function based on the click of a button. To do this, we first need to get a reference to the button. We can use `querySelector` to get that reference. And then we can set its `onclick` value just like above.
 
 ```js
-const button = docment.querySelector('.submit');
+const button = document.querySelector('.submit');
 button.onclick = displayMatches();
 ```
 
 You can also combine these together like this:
 
 ```js
-docment.querySelector('.submit').onclick = displayMatches();
+document.querySelector('.submit').onclick = displayMatches();
 ```
 
 Wire this up and see you function in action!
