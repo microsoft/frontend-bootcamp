@@ -1,11 +1,16 @@
 import React from 'react';
 import { DefaultButton, Stack, Text } from 'office-ui-fabric-react';
 import { actionsWithService } from '../actions';
-import { useMappedState, useDispatch } from 'redux-react-hook';
+import { connect } from 'react-redux';
+import { Store } from '../store';
 
-export const TodoFooter = () => {
-  const { todos } = useMappedState(state => state);
-  const dispatch = useDispatch();
+interface TodoFooterProps {
+  todos: Store['todos'];
+  clear: () => void;
+}
+
+const TodoFooter = (props: TodoFooterProps) => {
+  const { todos, clear } = props;
 
   const itemCount = Object.keys(todos).filter(id => !todos[id].completed).length;
 
@@ -14,7 +19,18 @@ export const TodoFooter = () => {
       <Text>
         {itemCount} item{itemCount === 1 ? '' : 's'} left
       </Text>
-      <DefaultButton onClick={() => dispatch(actionsWithService.clear())}>Clear Completed</DefaultButton>
+      <DefaultButton onClick={() => clear()}>Clear Completed</DefaultButton>
     </Stack>
   );
 };
+
+const ConnectedTodoFooter = connect(
+  (state: Store) => ({
+    todos: state.todos
+  }),
+  (dispatch: any) => ({
+    clear: () => dispatch(actionsWithService.clear())
+  })
+)(TodoFooter);
+
+export { ConnectedTodoFooter as TodoFooter };

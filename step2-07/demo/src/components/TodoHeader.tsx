@@ -1,15 +1,20 @@
 import React from 'react';
 import { Stack, Text, Pivot, PivotItem, TextField, PrimaryButton } from 'office-ui-fabric-react';
 import { FilterTypes } from '../store';
-import { actionsWithService, actions } from '../actions';
-import { StoreContext } from 'redux-react-hook';
+import { actions, actionsWithService } from '../actions';
+import { connect } from 'react-redux';
+
+interface TodoHeaderProps {
+  addTodo: (label: string) => void;
+  setFilter: (filter: FilterTypes) => void;
+}
 
 interface TodoHeaderState {
   labelInput: string;
 }
 
-export class TodoHeader extends React.Component<{}, TodoHeaderState> {
-  constructor(props: {}) {
+class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
+  constructor(props: TodoHeaderProps) {
     super(props);
     this.state = { labelInput: undefined };
   }
@@ -49,7 +54,7 @@ export class TodoHeader extends React.Component<{}, TodoHeaderState> {
   }
 
   private onAdd = () => {
-    this.context.dispatch(actionsWithService.addTodo(this.state.labelInput));
+    this.props.addTodo(this.state.labelInput);
     this.setState({ labelInput: undefined });
   };
 
@@ -58,8 +63,16 @@ export class TodoHeader extends React.Component<{}, TodoHeaderState> {
   };
 
   private onFilter = (item: PivotItem) => {
-    this.context.dispatch(actions.setFilter(item.props.headerText as FilterTypes));
+    this.props.setFilter(item.props.headerText as FilterTypes);
   };
 }
 
-TodoHeader.contextType = StoreContext;
+const ConnectedTodoHeader = connect(
+  state => {},
+  (dispatch: any) => ({
+    addTodo: label => dispatch(actionsWithService.addTodo(label)),
+    setFilter: filter => dispatch(actions.setFilter(filter))
+  })
+)(TodoHeader);
+
+export { ConnectedTodoHeader as TodoHeader };

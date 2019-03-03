@@ -2,16 +2,20 @@
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-## Bind Redux Store with Class Component
+If you haven't arStart the app by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 6 to see results.
 
-1. Open `exercise/src/components/TodoHeader.tsx`.
+At the beginning of this exercise, the "Add" and "Clear Completed" buttons do not work. We'll be fixing that in this step!
 
-2. Just like the 2.4 exercise, implement `onAdd` and `onFilter` using `this.context.dispatch()` calls to dispatch actions.
+1. Open `exercise/src/index.tsx` and wrap `<TodoApp>` with `<Provider>` as instructed in the comment
 
-## Bind Redux Store with Functional Component
+2. Open `exercise/src/components/TodoFooter.tsx` and erase the "nullable" type modifier (i.e. the ?) in the interface definition of `TodoFooterProps`
 
-1. Open `exercise/src/components/TodoFooter.tsx`.
+3. Uncomment the bottom bits of code and fill in `connect()` arguments - feel free to use `TodoListItem.tsx` as a guide
 
-2. Follow the instructions in the file to replace the `todos` const using the `useMappedState()` hook.
+4. Repeat steps 2, 3 for the `TodoHeader.tsx` file
 
-3. Retrieve the dispatch function with `useDispatch()` hook.
+## Bonus exercise
+
+For further reading, go here to learn more about the `mergeProps` and `options` parameters to `connect()`:
+
+https://react-redux.js.org/api/connect

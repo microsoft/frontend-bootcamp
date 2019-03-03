@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { reducer } from './reducers';
 import { createStore, applyMiddleware } from 'redux';
 import { TodoApp } from './components/TodoApp';
+import { Provider } from 'react-redux';
 import { initializeIcons } from '@uifabric/icons';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { StoreContext } from 'redux-react-hook';
 import thunk from 'redux-thunk';
 import { FilterTypes } from './store';
 
@@ -22,9 +22,9 @@ import { FilterTypes } from './store';
   initializeIcons();
 
   ReactDOM.render(
-    <StoreContext.Provider value={store}>
+    <Provider store={store}>
       <TodoApp />
-    </StoreContext.Provider>,
+    </Provider>,
     document.getElementById('app')
   );
 })();

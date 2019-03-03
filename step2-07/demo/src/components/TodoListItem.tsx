@@ -1,10 +1,15 @@
 import React from 'react';
 import { Stack, Checkbox, IconButton, TextField, DefaultButton } from 'office-ui-fabric-react';
-import { actionsWithService } from '../actions';
-import { StoreContext } from 'redux-react-hook';
+import { actions, actionsWithService } from '../actions';
+import { Store } from '../store';
+import { connect } from 'react-redux';
 
 interface TodoListItemProps {
   id: string;
+  todos: Store['todos'];
+  complete: (id: string) => void;
+  remove: (id: string) => void;
+  edit: (id: string, label: string) => void;
 }
 
 interface TodoListItemState {
@@ -12,7 +17,7 @@ interface TodoListItemState {
   editLabel: string;
 }
 
-export class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
+class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
   constructor(props: TodoListItemProps) {
     super(props);
     this.state = { editing: false, editLabel: undefined };
@@ -29,10 +34,10 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
       <Stack horizontal verticalAlign="center" horizontalAlign="space-between">
         {!this.state.editing && (
           <>
-            <Checkbox label={item.label} checked={item.completed} onChange={() => dispatch(actionsWithService.complete(id))} />
+            <Checkbox label={item.label} checked={item.completed} onChange={() => dispatch(actions.complete(id))} />
             <div>
               <IconButton iconProps={{ iconName: 'Edit' }} onClick={this.onEdit} />
-              <IconButton iconProps={{ iconName: 'Cancel' }} onClick={() => dispatch(actionsWithService.remove(id))} />
+              <IconButton iconProps={{ iconName: 'Cancel' }} onClick={() => dispatch(actions.remove(id))} />
             </div>
           </>
         )}
@@ -63,7 +68,7 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
   };
 
   private onDoneEdit = () => {
-    this.context.dispatch(actionsWithService.edit(this.props.id, this.state.editLabel));
+    this.props.edit(this.props.id, this.state.editLabel);
     this.setState({
       editing: false,
       editLabel: undefined
@@ -75,4 +80,13 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
   };
 }
 
-TodoListItem.contextType = StoreContext;
+const ConnectedTodoListItem = connect(
+  (state: Store) => ({ todos: state.todos }),
+  (dispatch: any) => ({
+    complete: label => dispatch(actionsWithService.addTodo(label)),
+    remove: label => dispatch(actionsWithService.addTodo(label)),
+    edit: filter => dispatch(actions.setFilter(filter))
+  })
+)(TodoListItem);
+
+export { ConnectedTodoListItem as TodoListItem };

@@ -2,14 +2,21 @@ import React from 'react';
 import { Stack, Text, Pivot, PivotItem, TextField, PrimaryButton } from 'office-ui-fabric-react';
 import { FilterTypes } from '../store';
 import { actions } from '../actions';
-import { StoreContext } from 'redux-react-hook';
+import { connect } from 'react-redux';
+
+// TODO: these ?'s after the keys of an interface makes it optional
+// and can be removed when you finished connecting this component
+interface TodoHeaderProps {
+  addTodo?: (label: string) => void;
+  setFilter?: (filter: FilterTypes) => void;
+}
 
 interface TodoHeaderState {
   labelInput: string;
 }
 
-export class TodoHeader extends React.Component<{}, TodoHeaderState> {
-  constructor(props: {}) {
+class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
+  constructor(props: TodoHeaderProps) {
     super(props);
     this.state = { labelInput: undefined };
   }
@@ -49,8 +56,7 @@ export class TodoHeader extends React.Component<{}, TodoHeaderState> {
   }
 
   private onAdd = () => {
-    // TODO: Fill in a dispatch call to add the todo item
-    // HINT: this.context.dispatch(...);
+    this.props.addTodo(this.state.labelInput);
     this.setState({ labelInput: undefined });
   };
 
@@ -59,9 +65,22 @@ export class TodoHeader extends React.Component<{}, TodoHeaderState> {
   };
 
   private onFilter = (item: PivotItem) => {
-    // TODO: Fill in the dispatch call to set the filter
-    // HINT: this.context.dispatch(...);
+    this.props.setFilter(item.props.headerText as FilterTypes);
   };
 }
 
-// TODO: set the context type of this Class to StoreContext
+// TODO: write out the mapping functions for state and dispatch functions
+/*
+  HINT: you can get started by copy pasting below code as arguments to connect()
+
+  (state: Store) => ({
+    // TODO: mapping for state
+    // HINT: look at what the component needed from the props interface
+  }),
+  dispatch => ({
+    // TODO: mapping for dispatch actions
+    // HINT: look at what the component needed from the props interface
+  })
+*/
+const ConnectedTodoHeader = connect()(TodoHeader);
+export { ConnectedTodoHeader as TodoHeader };

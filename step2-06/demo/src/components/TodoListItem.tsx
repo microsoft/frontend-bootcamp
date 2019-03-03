@@ -1,7 +1,6 @@
 import React from 'react';
 import { Stack, Checkbox, IconButton, TextField, DefaultButton } from 'office-ui-fabric-react';
 import { actions } from '../actions';
-import { StoreContext } from 'redux-react-hook';
 import { Store } from '../store';
 import { connect } from 'react-redux';
 
@@ -69,7 +68,7 @@ class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState>
   };
 
   private onDoneEdit = () => {
-    this.context.dispatch(actions.edit(this.props.id, this.state.editLabel));
+    this.props.edit(this.props.id, this.state.editLabel);
     this.setState({
       editing: false,
       editLabel: undefined
