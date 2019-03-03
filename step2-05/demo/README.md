@@ -18,7 +18,7 @@ As a reminder, the problem that we want to address are:
 
 Redux is an implementation of the Flux architectural pattern:
 
-![Flux Diagram](../assets/flux.png)
+![Flux Diagram](../../assets/flux.png)
 
 ### View
 
