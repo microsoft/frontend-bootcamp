@@ -12,7 +12,7 @@ We will solve these problems with the React Context API. The Context API consist
 
 ---
 
-For a single component, React gives us a mental model like this:
+React represents a single component like this:
 
 ```
 (props) => view;
@@ -24,7 +24,7 @@ In a real application, these functions are composed. It looks more like this:
 
 ## Problems in a Complex Application
 
-1. Data needs to be passed down from component to component via props. Even when some components do not need to know about some data.
+1. Data needs to be passed down from component to component via props. Even when some components do not need to know about some data. This is a problem called **props drilling**
 
 2. There is a lack of coordination of changes that can happen to the data
 
@@ -48,12 +48,11 @@ All of these props are not used, except to be passed down to a child Component, 
 
 ## Context API
 
-Let's solve the first one with the Context API. A `context` is a special way for React to share data from components to their descendant children components without having to explicitly pass down through props at every level of the tree.
-
-We create a context by calling `createContext()` with some initial data:
+Let's solve these problems with the React Context API. _context_ is React's way to share data from components to their descendant children components without explicitly passing down through props at every level of the tree. React context is created by calling `createContext()` with some initial data:
 
 ```ts
-const TodoContext = React.createContext();
+// To create a completed empty context
+const TodoContext = React.createContext(undefined);
 ```
 
 Now that we have a `TodoContext` stuffed with some initial state, we will wrap `TodoApp` component with `TodoContext.Provider` so that it can provide data to all its children:

@@ -4,6 +4,7 @@ import { TodoFooter } from './TodoFooter';
 import { TodoHeader } from './TodoHeader';
 import { TodoList } from './TodoList';
 import { Store } from '../store';
+import { TodoContext } from '../TodoContext';
 
 let index = 0;
 
@@ -11,24 +12,31 @@ export class TodoApp extends React.Component<any, Store> {
   constructor(props) {
     super(props);
     this.state = {
-      todos: {
-        id0: { label: 'hello', completed: false },
-        id1: { label: 'world', completed: false }
-      },
+      todos: {},
       filter: 'all'
     };
   }
-
   render() {
-    const { filter, todos } = this.state;
     return (
-      <Stack horizontalAlign="center">
-        <Stack style={{ width: 400 }} gap={25}>
-          <TodoHeader addTodo={this._addTodo} setFilter={this._setFilter} filter={filter} />
-          <TodoList complete={this._complete} todos={todos} filter={filter} remove={this._remove} edit={this._edit} />
-          <TodoFooter clear={this._clear} todos={todos} />
+      <TodoContext.Provider
+        value={{
+          ...this.state,
+          addTodo: this._addTodo,
+          remove: this._remove,
+          complete: this._complete,
+          clear: this._clear,
+          setFilter: this._setFilter,
+          edit: this._edit
+        }}
+      >
+        <Stack horizontalAlign="center">
+          <Stack style={{ width: 400 }} gap={25}>
+            <TodoHeader />
+            <TodoList />
+            <TodoFooter />
+          </Stack>
         </Stack>
-      </Stack>
+      </TodoContext.Provider>
     );
   }
 
