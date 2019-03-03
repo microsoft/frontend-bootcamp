@@ -14,15 +14,15 @@ export const todosReducer = createReducer<Store['todos']>(
     },
 
     clear(state, action) {
-      state[action.id].completed = !state[action.id].completed;
-    },
-
-    complete(state, action) {
       Object.keys(state).forEach(key => {
         if (state[key].completed) {
           delete state[key];
         }
       });
+    },
+
+    complete(state, action) {
+      state[action.id].completed = !state[action.id].completed;
     },
 
     edit(state, action) {
