@@ -1,128 +1,108 @@
-# Step 2.4: Testing TypeScript code with Jest (Demo)
+# Step 2.4 - React Context (Demo)
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-[Jest](https://jestjs.io/) is a test framework made by Facebook and is very popular in the React and wider JS ecosystems.
+In this step, we describe some problems we encounter when creating a more complex application.
 
-In this exercise, we will work on implementing simple unit tests using Jest.
+We will solve these problems with the React Context API. The Context API consists of:
 
-## Jest Features
+1. Provider component
+2. Consuming context from a Class Component
+3. Consuming context from a Functional Component
 
-- Multi-threaded and isolated test runner
-- Provides a fake browser-like environment if needed (window, document, DOM, etc) using jsdom
-- Snapshots: Jest can create text-based snapshots of rendered components. These snapshots can be checked in and show API or large object changes alongside code changes in pull requests.
-- Code coverage is integrated (`--coverage`)
-- Very clear error messages showing where a test failure occurred
+---
 
-## How to use Jest
+For a single component, React gives us a mental model like this:
 
-- Using `create-react-app` or other project generators, Jest should already be pre-configured. Running `npm test` usually will trigger it!
-- A `jest.config.js` file is used for configuration
-- `jsdom` might not have enough API from real browsers, for those cases, polyfills are required. Place these inside `jest.setup.js` and hook up the setup file in `jest.config.js`
-- in order to use `enzyme` library to test React Components, more config bits are needed inside `jest.setup.js`
+```
+(props) => view;
+```
 
-## What does a test look like?
+In a real application, these functions are composed. It looks more like this:
+
+![](../../assets/todo-components.png)
+
+## Problems in a Complex Application
+
+1. Data needs to be passed down from component to component via props. Even when some components do not need to know about some data.
+
+2. There is a lack of coordination of changes that can happen to the data
+
+Even in our simple application, we saw this problem. For example, `<TodoList>` has this props interface:
 
 ```ts
-// describe(), it() and expect() are globally exported, so they don't need to be imported when jest runs these tests
-describe('Something to be tested', () => {
-  it('should describe the behavior', () => {
-    expect(true).toBe(true);
-  });
-});
+interface TodoListProps {
+  complete: (id: string) => void;
+  remove: (id: string) => void;
+  todos: Store['todos'];
+  filter: FilterTypes;
+  edit: (id: string, label: string) => void;
+}
 ```
 
-## Testing React components using Enzyme
+All of these props are not used, except to be passed down to a child Component, `TodoListItem`:
 
-[Enzyme](https://airbnb.io/enzyme/) is made by Airbnb and provides utilities to help test React components.
-
-In a real app using ReactDOM, the top-level component will be rendered on the page using `ReactDOM.render()`. Enzyme provides a lighter-weight `mount()` function which is usually adequate for testing purposes.
-
-`mount()` returns a wrapper that can be inspected and provides functionality like `find()`, simulating clicks, etc.
-
-The following code demonstrates how Enzyme can be used to help test React components.
-
-```jsx
-import React from 'react';
-import { mount } from 'enzyme';
-import { TestMe } from './TestMe';
-
-describe('TestMe Component', () => {
-  it('should have a non-clickable component when the original InnerMe is clicked', () => {
-    const wrapper = mount(<TestMe name="world" />);
-    wrapper.find('#innerMe').simulate('click');
-    expect(wrapper.find('#innerMe').text()).toBe('Clicked');
-  });
-});
-
-describe('Foo Component Tests', () => {
-  it('allows us to set props', () => {
-    const wrapper = mount(<Foo bar="baz" />);
-    expect(wrapper.props().bar).toBe('baz');
-    wrapper.setProps({ bar: 'foo' });
-    expect(wrapper.props().bar).toBe('foo');
-
-    wrapper.find('button').simulate('click');
-  });
-});
+```js
+<TodoListItem todos="{todos}" complete="{complete}" remove="{remove}" edit="{edit}" />
 ```
 
-## Advanced topics
+## Context API
 
-### Mocking
+Let's solve the first one with the Context API. A `context` is a special way for React to share data from components to their descendant children components without having to explicitly pass down through props at every level of the tree.
 
-Mocking functions is a large part of what makes Jest a powerful testing library. Jest actually intercepts the module loading process in Node.js, allowing it to mock entire modules if needed.
-
-There are many ways to mock, as you'd imagine in a language as flexible as JS. We only look at the simplest case, but there's a lot of depth here.
-
-To mock a function:
+We create a context by calling `createContext()` with some initial data:
 
 ```ts
-it('some test function', () => {
-  const mockCallback = jest.fn(x => 42 + x);
-  mockCallback(1);
-  mockCallback(2);
-  expect(mockCallback).toHaveBeenCalledTimes(2);
-});
+const TodoContext = React.createContext();
 ```
 
-Read more about jest mocking [here](https://jestjs.io/docs/en/mock-functions.html).
+Now that we have a `TodoContext` stuffed with some initial state, we will wrap `TodoApp` component with `TodoContext.Provider` so that it can provide data to all its children:
 
-### Async Testing
-
-For testing async scenarios, the test runner needs some way to know when the scenario is finished. Jest tests can handle async scenarios using callbacks, promises, or async/await.
-
-```ts
-// Callback
-it('tests callback functions', (done) => {
-  setTimeout(() => {
-    done();
-  }, 1000);
-});
-
-// Returning a promise
-it('tests promise functions', () => {
-  return someFunctionThatReturnsPromise());
-});
-
-// Async/await (recommended)
-it('tests async functions', async () => {
-  expect(await someFunction()).toBe(5);
-});
+```js
+class TodoApp extends React.Component {
+  render() {
+    return (
+      <TodoContext.Provider
+        value={{
+          ...this.state,
+          addTodo={this._addTodo},
+          setFilter={this._setFilter},
+          /* same goes for remove, complete, and clear */
+        }}>
+        <div>
+          <TodoHeader />
+          <TodoList />
+          <TodoFooter />
+        </div>
+      </TodoContext.Provider>
+    );
+  }
+}
 ```
 
-# Demo
+Inside the children components, like the `<TodoHeader>` component, the value can be access from the component's `context` prop like this:
 
-## Jest basics
+```js
+class TodoHeader extends React.Component {
+  render() {
+    // Step 1: use the context prop
+    return <div>Filter is {this.context.filter}</div>;
+  }
+}
 
-In this repo, we can start an inner loop development of tests by running `npm test` from the root of the `frontend-bootcamp` folder.
+// Step 2: be sure to set the contextType property of the component class
+TodoHeader.contextType = TodoContext;
+```
 
-Take a look at code inside `demo/src`:
+If you're using the functional component syntax, you can access the context with the `useContext()` function (we are using the function passed down inside the context, in this case):
 
-1. `index.ts` exports a few functions for a counter as well as a function for squaring numbers. We'll use this last function to demonstrate how mocks work.
-
-2. `multiply.ts` is a contrived example of a function that is exported
-
-3. `index.spec.ts` is the test file
-
-Note how tests are re-run when either test files or source files under `src` are saved.
+```js
+const TodoFooter = props => {
+  const context = useContext(TodoContext);
+  return (
+    <div>
+      <button onClick={context.clear()}>Clear Completed</button>
+    </div>
+  );
+};
+```
