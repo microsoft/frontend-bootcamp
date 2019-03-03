@@ -211,3 +211,6 @@ export const Button = props => {
   > Until recently, you could only access state in class-based components. But with the advent of [hooks](https://reactjs.org/docs/hooks-intro.html) you can create stateful function components.
 - Since this is a function, we don't have any methods, including `render()`. Just return your JSX as you would in the render function of a class-based component.
 - `props.children` contains anything passed between the opening and closing tags: `<Button>I'm in children</Button>`
+## Next Step
+
+[Building a Static Page](../../step1-05/demo/)
