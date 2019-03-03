@@ -171,3 +171,5 @@ And then use the input's `onChange` event to fire our `complete` callback. We ca
 > Note that the function param and prop name just happen to be the same. This isn't required.
 
 Now that our todos are firing the `onChange` callback, give them a click and take look at how the app responds. Since our footer text is based on the number of unchecked todos, the footer will automatically update to reflect the new state.
+## Next Step
+[EXERCISE](../../step1-07/exercise/)
