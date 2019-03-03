@@ -1,16 +1,13 @@
 import React from 'react';
 import { Stack } from 'office-ui-fabric-react';
 import { TodoListItem } from './TodoListItem';
-import { Store } from '../store';
-import { connect } from 'react-redux';
+import { useMappedState } from 'redux-react-hook';
 
-interface TodoListProps {
-  todos: Store['todos'];
-}
-
-const TodoList = (props: TodoListProps) => {
-  const { todos } = props;
-  const filteredTodos = Object.keys(todos);
+export const TodoList = () => {
+  const { filter, todos } = useMappedState(state => state);
+  const filteredTodos = Object.keys(todos).filter(id => {
+    return filter === 'all' || (filter === 'completed' && todos[id].completed) || (filter === 'active' && !todos[id].completed);
+  });
 
   return (
     <Stack gap={10}>
@@ -20,18 +17,3 @@ const TodoList = (props: TodoListProps) => {
     </Stack>
   );
 };
-
-function mapStateToProps(state: Store) {
-  return { ...state };
-}
-
-function mapDispatchToProps(dispatch: any) {
-  return {};
-}
-
-const component = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList);
-
-export { component as TodoList };

@@ -1,19 +1,15 @@
 import React from 'react';
-import { Text, Stack, TextField, PrimaryButton } from 'office-ui-fabric-react';
-import { Store } from '../store';
-import { connect } from 'react-redux';
-import { actions } from '../actions';
-
-interface TodoHeaderProps {
-  addTodo: (label: string) => void;
-}
+import { Stack, Text, Pivot, PivotItem, TextField, PrimaryButton } from 'office-ui-fabric-react';
+import { FilterTypes } from '../store';
+import { actionsWithService, actions } from '../actions';
+import { StoreContext } from 'redux-react-hook';
 
 interface TodoHeaderState {
   labelInput: string;
 }
 
-class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
-  constructor(props: TodoHeaderProps) {
+export class TodoHeader extends React.Component<{}, TodoHeaderState> {
+  constructor(props: {}) {
     super(props);
     this.state = { labelInput: undefined };
   }
@@ -22,42 +18,48 @@ class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
     return (
       <Stack gap={10}>
         <Stack horizontal horizontalAlign="center">
-          <Text variant="xxLarge">todos - step2-07 demo</Text>
+          <Text variant="xxLarge">todos</Text>
         </Stack>
 
         <Stack horizontal gap={10}>
           <Stack.Item grow>
-            <TextField placeholder="What needs to be done?" value={this.state.labelInput} onChange={this.onChange} />
+            <TextField
+              placeholder="What needs to be done?"
+              value={this.state.labelInput}
+              onChange={this.onChange}
+              styles={props => ({
+                ...(props.focused && {
+                  field: {
+                    backgroundColor: '#c7e0f4'
+                  }
+                })
+              })}
+            />
           </Stack.Item>
           <PrimaryButton onClick={this.onAdd}>Add</PrimaryButton>
         </Stack>
+
+        <Pivot onLinkClick={this.onFilter}>
+          <PivotItem headerText="all" />
+          <PivotItem headerText="active" />
+          <PivotItem headerText="completed" />
+        </Pivot>
       </Stack>
     );
   }
 
   private onAdd = () => {
-    this.props.addTodo(this.state.labelInput);
+    this.context.dispatch(actionsWithService.addTodo(this.state.labelInput));
     this.setState({ labelInput: undefined });
   };
 
   private onChange = (evt: React.FormEvent<HTMLInputElement>, newValue: string) => {
     this.setState({ labelInput: newValue });
   };
-}
 
-function mapStateToProps(state: Store) {
-  return { ...state };
-}
-
-function mapDispatchToProps(dispatch: any) {
-  return {
-    addTodo: (label: string) => dispatch(actions.addTodo(label))
+  private onFilter = (item: PivotItem) => {
+    this.context.dispatch(actions.setFilter(item.props.headerText as FilterTypes));
   };
 }
 
-const component = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoHeader);
-
-export { component as TodoHeader };
+TodoHeader.contextType = StoreContext;
