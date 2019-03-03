@@ -48,18 +48,16 @@ All of these props are not used, except to be passed down to a child Component, 
 
 ## Context API
 
-Let's solve these problems with the React Context API. _context_ is React's way to share data from components to their descendant children components without explicitly passing down through props at every level of the tree. React context is created by calling `createContext()` with some initial data:
-
-```ts
-// To create a completed empty context
-const TodoContext = React.createContext(undefined);
-```
-
-Now that we have a `TodoContext` stuffed with some initial state, we will wrap `TodoApp` component with `TodoContext.Provider` so that it can provide data to all its children:
+Let's solve these problems with the React Context API. _context_ is React's way to share data from components to their descendant children components without explicitly passing down through props at every level of the tree. React context is created by calling `createContext()` with some initial data. Use the `<TodoContext.Provider>` component to wrap a part of the component tree that should be handed the _context_.
 
 ```js
+// To create a completed empty context
+const TodoContext = React.createContext(undefined);
+
 class TodoApp extends React.Component {
   render() {
+
+    // Pass in some state and function to the provider's value prop
     return (
       <TodoContext.Provider
         value={{
@@ -79,6 +77,8 @@ class TodoApp extends React.Component {
 }
 ```
 
+### Consume _context_ from a Class Component
+
 Inside the children components, like the `<TodoHeader>` component, the value can be access from the component's `context` prop like this:
 
 ```js
@@ -93,7 +93,9 @@ class TodoHeader extends React.Component {
 TodoHeader.contextType = TodoContext;
 ```
 
-If you're using the functional component syntax, you can access the context with the `useContext()` function (we are using the function passed down inside the context, in this case):
+### Consume _context_ from a Functional Component
+
+If you're using the functional component syntax, you can access the context with the `useContext()` function. `useContext()` requires a recent release of React (16.8):
 
 ```js
 const TodoFooter = props => {
