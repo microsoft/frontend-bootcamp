@@ -132,3 +132,6 @@ With those two pieces in place, we can update our uncontrolled input to being co
 ```
 
 > If you have React Dev Tools installed, open them up and take a look at labelInput as we type in the input.
+# Next Step
+
+[EXERCISE](../exercise)
