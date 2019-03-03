@@ -49,7 +49,7 @@ All of these props are not used, except to be passed down to a child Component, 
 
 ## React Context API
 
-Let's solve these problems with the React Context API. Context is React's way to share data from components to their descendant children components without explicitly passing down through props at every level of the tree. In simpler terms, it solves the props drilling issue above!
+Let's solve these problems with the React Context API. Context is React's way to share data from components to their descendant children components without explicitly passing down through props at every level of the tree. In simpler terms, it solves the props drilling issue mentioned above!
 
 React context is created by calling `createContext()` with some initial data. Use the `<TodoContext.Provider>` component to wrap a part of the component tree that should be handed the context.
 
@@ -84,7 +84,7 @@ class TodoApp extends React.Component {
 
 ### Consume context from a Class Component
 
-Inside the children components, like the `<TodoHeader>` component, the value can be access from the component's `context` prop like this:
+Inside a class-based child component, such as the `<TodoHeader>` component, the value can be accessed from the component's `context` property like this:
 
 ```js
 class TodoHeader extends React.Component {
@@ -100,7 +100,7 @@ TodoHeader.contextType = TodoContext;
 
 ### Consume context from a Functional Component
 
-If you're using the functional component syntax, you can access the context with the `useContext()` function. `useContext()` requires a recent release of React (16.8):
+If you're using the functional component syntax, you can access the context with the `useContext()` hook. Note that `useContext()` requires a recent release of React (16.8):
 
 ```js
 const TodoFooter = props => {
@@ -112,3 +112,5 @@ const TodoFooter = props => {
   );
 };
 ```
+
+There is another legal syntax for accessing context with the `<TodoContext.Consumer>`, but we'll leave that out as an exercise for you!
