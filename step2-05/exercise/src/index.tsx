@@ -5,11 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(reducer, {}, composeWithDevTools());
 
-store.dispatch(actions.addTodo('hello'));
-
-let action = actions.addTodo('world');
-store.dispatch(action);
-
-store.dispatch(actions.remove(action.id));
+// TODO: try doing some store.dispatch() calls here
+// HINT: remember to use the functions inside "actions" object
 
 console.log(store.getState());
