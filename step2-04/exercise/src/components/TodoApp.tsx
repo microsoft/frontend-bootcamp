@@ -20,13 +20,14 @@ export class TodoApp extends React.Component<any, Store> {
     return (
       <TodoContext.Provider
         value={{
-          ...this.state,
-          addTodo: this._addTodo,
-          remove: this._remove,
-          complete: this._complete,
-          clear: this._clear,
-          setFilter: this._setFilter,
-          edit: this._edit
+          ...this.state
+          // TODO: put the missing functions into the context value
+          // addTodo: this._addTodo,
+          // remove: this._remove,
+          // complete: this._complete,
+          // clear: this._clear,
+          // setFilter: this._setFilter,
+          // edit: this._edit
         }}
       >
         <Stack horizontalAlign="center">

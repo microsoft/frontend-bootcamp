@@ -48,7 +48,8 @@ export class TodoHeader extends React.Component<{}, TodoHeaderState> {
   }
 
   private onAdd = () => {
-    this.context.addTodo(this.state.labelInput);
+    // TODO: insert a this.context.addTodo call
+    // HINT: this.context.addTodo(this.state.labelInput);
     this.setState({ labelInput: undefined });
   };
 
@@ -57,8 +58,9 @@ export class TodoHeader extends React.Component<{}, TodoHeaderState> {
   };
 
   private onFilter = (item: PivotItem) => {
-    this.context.setFilter(item.props.headerText as FilterTypes);
+    // TODO: insert a this.context.setFilter call
+    // HINT: this.context.setFilter(item.props.headerText as FilterTypes);
   };
 }
 
-TodoHeader.contextType = TodoContext;
+// TODO: TodoHeader.contextType = TodoContext;
