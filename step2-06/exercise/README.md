@@ -1,25 +1,17 @@
-# Step 2.6 - Redux: Dispatching actions and examining state (Exercise)
+# Step 2.6: Redux: React Binding (Exercise)
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-## Visualize state changes with Chrome extension
+## Bind Redux Store with Class Component
 
-If you still have `npm test` running from the previous step, stop it with `ctrl+C`. Start the app by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 6.
+1. Open `exercise/src/components/TodoHeader.tsx`.
 
-1. Install the [Redux DevTools extension](https://github.com/zalmoxisus/redux-devtools-extension)
-   - [Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
-   - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/)
+2. Just like the 2.4 exercise, implement `onAdd` and `onFilter` using `this.context.dispatch()` calls to dispatch actions.
 
-2. Hit F12 (`cmd+option+I` on Mac) and open the inspector panel entitled **Redux**
+## Bind Redux Store with Functional Component
 
-3. Modify `exercise/src/index.tsx` to dispatch actions (you're not limited to adding todos; you can also remove and clear)
+1. Open `exercise/src/components/TodoFooter.tsx`.
 
-4. Explore the actions' effects using the extension
+2. Follow the instructions in the file to replace the `todos` const using the `useMappedState()` hook.
 
-## Playing with dispatching actions inside tests
-
-Stop the app using `ctrl+C` and start the tests by running `npm test`.
-
-1. Open `exercise/src/reducers/reducer.spec.ts`
-
-2. Follow the instructions to fill out the reducer tests
+3. Retrieve the dispatch function with `useDispatch()` hook.

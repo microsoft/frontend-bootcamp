@@ -20,4 +20,8 @@ If you don't already have the app running, start it by running `npm start` from 
 
 1. Open `exercise/src/components/TodoHeader.tsx`
 
-2. Replace the couple of TODO
+2. Replace the `onAdd` with a real implementation using the `this.context` object
+
+3. Replace the `onFilter` with a real implementation using the `this.context` object
+
+4. Be sure to set the `contextType` of the TodoHeader component
