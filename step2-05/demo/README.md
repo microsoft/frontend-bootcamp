@@ -5,11 +5,14 @@
 In this step, we will look at solving the problems of complex application (as mentioned in Step 4) with a library called Redux.
 
 1. Introduction to Redux
-2. Creating the Redux store
-3. Writing reducers
-4. Dispatching actions
+2. Why Use Redux?
+3. Creating the Redux store
+4. Writing reducers
+5. Dispatching actions
 
 ---
+
+## Introduction to Redux
 
 As a reminder, the problem that we want to address are:
 
@@ -37,6 +40,15 @@ The [store](https://redux.js.org/basics/store) consists of a **state tree**, a *
 2. The **dispatcher** accepts actions passing them to the reducers.
 
 3. **Reducers** are functions that take in the current state tree and an action, producing the next snapshot of the state tree.
+
+## Why Use Redux?
+
+There are lots of alternatives available, but here are some really good reasons to go with Redux:
+
+1. For more complex applications, Flux pattern forces code to be written in a way that is easy to reason about
+2. There maybe a need to serialize the application state to be transmitted across the wire somehow
+3. Dev tooling is really amazing
+4. Popularity of the framework means the ecosystem is mature at this point
 
 # Creating the Redux store
 

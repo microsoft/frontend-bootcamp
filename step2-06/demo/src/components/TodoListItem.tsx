@@ -2,9 +2,15 @@ import React from 'react';
 import { Stack, Checkbox, IconButton, TextField, DefaultButton } from 'office-ui-fabric-react';
 import { actions } from '../actions';
 import { StoreContext } from 'redux-react-hook';
+import { Store } from '../store';
+import { connect } from 'react-redux';
 
 interface TodoListItemProps {
   id: string;
+  todos: Store['todos'];
+  complete: (id: string) => void;
+  remove: (id: string) => void;
+  edit: (id: string, label: string) => void;
 }
 
 interface TodoListItemState {
@@ -12,7 +18,7 @@ interface TodoListItemState {
   editLabel: string;
 }
 
-export class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
+class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
   constructor(props: TodoListItemProps) {
     super(props);
     this.state = { editing: false, editLabel: undefined };
@@ -75,4 +81,13 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
   };
 }
 
-TodoListItem.contextType = StoreContext;
+const ConnectedTodoListItem = connect(
+  (state: Store) => ({ todos: state.todos }),
+  dispatch => ({
+    complete: label => dispatch(actions.addTodo(label)),
+    remove: label => dispatch(actions.addTodo(label)),
+    edit: filter => dispatch(actions.setFilter(filter))
+  })
+)(TodoListItem);
+
+export { ConnectedTodoListItem as TodoListItem };

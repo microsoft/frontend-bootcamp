@@ -5,15 +5,15 @@ import { createStore } from 'redux';
 import { TodoApp } from './components/TodoApp';
 import { initializeIcons } from '@uifabric/icons';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { StoreContext } from 'redux-react-hook';
+import { Provider } from 'react-redux';
 
 const store = createStore(reducer, {}, composeWithDevTools());
 
 initializeIcons();
 
 ReactDOM.render(
-  <StoreContext.Provider value={store}>
+  <Provider store={store}>
     <TodoApp />
-  </StoreContext.Provider>,
+  </Provider>,
   document.getElementById('app')
 );
