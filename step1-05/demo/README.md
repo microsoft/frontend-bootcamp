@@ -74,4 +74,4 @@ return (
 > Note that I've removed the title span as it was only needed to make targeting that text easier.
 # Next Step
 
-[CSS Demo](../css-demo)
+[EXERCISE](../exercise)
