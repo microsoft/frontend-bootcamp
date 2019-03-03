@@ -4,13 +4,16 @@
 
 In this step, we describe some problems we encounter when creating a more complex application.
 
-We will solve these problems with the React Context API. The Context API consists of:
+We will solve these problems with the React Context API. The Context API consists of Provider and Consumer components. Let's take a look at what is in this step:
 
-1. Provider component
-2. Consuming context from a Class Component
-3. Consuming context from a Functional Component
+1. The problem of complex applications
+2. React Context API
+3. Consuming context from a Class Component
+4. Consuming context from a Functional Component
 
 ---
+
+## The problem of complex applications
 
 React represents a single component like this:
 
@@ -21,8 +24,6 @@ React represents a single component like this:
 In a real application, these functions are composed. It looks more like this:
 
 ![](../../assets/todo-components.png)
-
-## Problems in a Complex Application
 
 1. Data needs to be passed down from component to component via props. Even when some components do not need to know about some data. This is a problem called **props drilling**
 
@@ -46,9 +47,13 @@ All of these props are not used, except to be passed down to a child Component, 
 <TodoListItem todos="{todos}" complete="{complete}" remove="{remove}" edit="{edit}" />
 ```
 
-## Context API
+## React Context API
 
-Let's solve these problems with the React Context API. _context_ is React's way to share data from components to their descendant children components without explicitly passing down through props at every level of the tree. React context is created by calling `createContext()` with some initial data. Use the `<TodoContext.Provider>` component to wrap a part of the component tree that should be handed the _context_.
+Let's solve these problems with the React Context API. Context is React's way to share data from components to their descendant children components without explicitly passing down through props at every level of the tree. In simpler terms, it solves the props drilling issue above!
+
+React context is created by calling `createContext()` with some initial data. Use the `<TodoContext.Provider>` component to wrap a part of the component tree that should be handed the context.
+
+### Providing context with `<TodoContext.Provider>`
 
 ```js
 // To create a completed empty context
@@ -77,7 +82,7 @@ class TodoApp extends React.Component {
 }
 ```
 
-### Consume _context_ from a Class Component
+### Consume context from a Class Component
 
 Inside the children components, like the `<TodoHeader>` component, the value can be access from the component's `context` prop like this:
 
@@ -93,7 +98,7 @@ class TodoHeader extends React.Component {
 TodoHeader.contextType = TodoContext;
 ```
 
-### Consume _context_ from a Functional Component
+### Consume context from a Functional Component
 
 If you're using the functional component syntax, you can access the context with the `useContext()` function. `useContext()` requires a recent release of React (16.8):
 
