@@ -26,17 +26,17 @@ A view is a React component that consumes the store as its data.
 
 ### Action
 
-[Actions](https://redux.js.org/basics/actions) are messages that represent some event, such as a user's action or a network request. With the aid of _reducers_, they affect the overall state.
+[Actions](https://redux.js.org/basics/actions) are serializable JSON messages that represent some event, such as a user's action or a network request. With the aid of _reducers_, they affect the overall state. At the minimum, it should contain a `type` key. Sometimes it contains additional data as a _payload_.
 
 ### Store
 
 The [store](https://redux.js.org/basics/store) consists of a **state tree**, a **dispatcher**, and **reducers**.
 
-1. A state tree is a **singleton**, **serializable**, **immutable** json data. It is updated from one snapshot to another through `reducers`.
+1. The **state tree** is a _singleton_, _serializable_, _immutable_ json data. It is updated from one snapshot to another through `reducers`.
 
-2. A dispatcher accepts actions passing them to the reducers.
+2. The **dispatcher** accepts actions passing them to the reducers.
 
-3. Reducers are functions that take in the current state tree and an action, producing the next snapshot of the state tree.
+3. **Reducers** are functions that take in the current state tree and an action, producing the next snapshot of the state tree.
 
 # Creating the Redux store
 
