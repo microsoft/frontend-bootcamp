@@ -12,6 +12,13 @@ ReactDOM.render(<p>Hello World</p>, document.getElementById('app'));
 
 Calling `ReactDOM.render()` is how our code gets on the page. The function takes two parameters: the content to place on the page, and the element in which you want it placed.
 
+The first parameter to `render()` looks a lot like HTML, but actually, it's [JSX](https://reactjs.org/docs/introducing-jsx.html). There are a few key differences between JSX and HTML:
+
+- Since `class` is a [reserved word](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords) in JavaScript, you will need to use `className` on your HTML tags: `<div className="foo">`
+- We can use custom HTML tags corresponding to the React components we create: `<div><MyControl>hi</MyControl></div>`
+- Controls can be self-closing: `<MyControl text='hi' />`
+- You can use JavaScript inside of JSX!
+
 ## Writing a React Component
 
 A React component is a piece of code that returns a portion of your application. This can include HTML markup, CSS styles, and JavaScript driven functionality.
@@ -28,7 +35,7 @@ class App extends React.Component {
 }
 ```
 
-We could also write this component as a function that takes in `props` and returns [JSX](https://reactjs.org/docs/introducing-jsx.html).
+We could also write this component as a function:
 
 ```jsx
 const App = props => {
@@ -210,7 +217,9 @@ _onButtonClick = () => {
 };
 ```
 
-> Note that this could also be written as `this.setState(prevState => ({ counter: prevState.counter + 1 }));` to ensure that state is not updated until the previous state has been determined.
+> This isn't exactly a method, but a class property that is set to an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). This mostly works the same as `onButtonClick() { }` but eliminates the need for [extra boilerplate](https://medium.freecodecamp.org/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb) used to avoid potential "gotchas" with [how `this` works in JavaScript](https://codeburst.io/javascript-the-keyword-this-for-beginners-fb5238d99f85).)
+
+> Note that the `setState` call could also be written as `this.setState(prevState => ({ counter: prevState.counter + 1 }));` to ensure that state is not updated until the previous state has been determined.
 
 Now that we have a function to increment our count, all that's left is to connect it to our button.
 
