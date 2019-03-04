@@ -122,4 +122,4 @@ With those two pieces in place, we can update our uncontrolled input to being co
 <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
 ```
 
-> If you have React Dev Tools installed, open them up and take a look at labelInput as we type in the input.
+> If you have React Dev Tools installed, open them up and take a look at `labelInput` as we type in the input.
