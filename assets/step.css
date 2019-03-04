@@ -7,6 +7,11 @@ body {
   padding: 0;
 }
 
+body.ms-Fabric {
+  font-size: 14px;
+  line-height: 20px;
+}
+
 #app {
   flex: 1 1 40%;
   padding: 50px;
@@ -41,7 +46,7 @@ body {
 }
 
 #markdownReadme code {
-  font-family: Consolas,Menlo,Monaco,monospace;
+  font-family: Consolas, Menlo, Monaco, monospace;
   font-size: 0.9em;
   background-color: white;
   padding: 0.2em 0.4em;

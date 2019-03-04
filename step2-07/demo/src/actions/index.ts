@@ -44,7 +44,7 @@ export const actionsWithService = {
 
   edit: (id: string, label: string) => {
     return async (dispatch: any, getState: () => Store) => {
-      dispatch(actions.complete(id));
+      dispatch(actions.edit(id, label));
       await service.update(id, getState().todos[id]);
     };
   }

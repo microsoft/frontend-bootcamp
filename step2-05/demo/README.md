@@ -35,11 +35,11 @@ A view is a React component that consumes the store as its data.
 
 The [store](https://redux.js.org/basics/store) consists of a **state tree**, a **dispatcher**, and **reducers**.
 
-1. The **state tree** is a _singleton_, _serializable_, _immutable_ json data. It is updated from one snapshot to another through `reducers`.
+1. The **state tree** is a _singleton_, _serializable_, _immutable_ nested json data. It is updated from one snapshot to another through `reducers`.
 
 2. The **dispatcher** accepts actions passing them to the reducers.
 
-3. **Reducers** are functions that take in the current state tree and an action, producing the next snapshot of the state tree.
+3. **Reducers** are functions that take in the current state tree and an action, producing the next snapshot of the state tree. This is the only way to update the state tree.
 
 ## Why Use Redux?
 
@@ -52,17 +52,15 @@ There are lots of alternatives available, but here are some really good reasons 
 
 # Creating the Redux store
 
-The [`createStore()`](https://redux.js.org/api/createstore) function is provided by Redux and can take in several arguments. The simplest form just takes in reducers.
+The [`createStore()`](https://redux.js.org/api/createstore) function is provided by Redux to create a store. In general, an application would just have one single store. It takes in the reducer and an initial snapshot of the state tree.
 
 ```ts
 const store = createStore(reducer, initialState);
 ```
 
-`createStore()` creates a store with a reducer, and some initial state.
-
 # Writing Reducers
 
-We will write our reducers with the help of some utilities from `redux-starter-kit`. Here is how we will write our reducers:
+We will write our reducers with the help of some utilities from the official `redux-starter-kit`. Here is how we will write our reducers:
 
 ## 1. Organize reducers according to the keys of the state tree object:
 

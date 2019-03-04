@@ -24,9 +24,7 @@ class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState>
   }
 
   render() {
-    const { id } = this.props;
-    const { todos } = this.context.getState();
-    const dispatch = this.context.dispatch;
+    const { id, todos, complete, remove } = this.props;
 
     const item = todos[id];
 
@@ -34,10 +32,10 @@ class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState>
       <Stack horizontal verticalAlign="center" horizontalAlign="space-between">
         {!this.state.editing && (
           <>
-            <Checkbox label={item.label} checked={item.completed} onChange={() => dispatch(actions.complete(id))} />
+            <Checkbox label={item.label} checked={item.completed} onChange={() => complete(id)} />
             <div>
               <IconButton iconProps={{ iconName: 'Edit' }} onClick={this.onEdit} />
-              <IconButton iconProps={{ iconName: 'Cancel' }} onClick={() => dispatch(actions.remove(id))} />
+              <IconButton iconProps={{ iconName: 'Cancel' }} onClick={() => remove(id)} />
             </div>
           </>
         )}
@@ -57,8 +55,7 @@ class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState>
   }
 
   private onEdit = () => {
-    const { id } = this.props;
-    const { todos } = this.context.getState();
+    const { id, todos } = this.props;
     const { label } = todos[id];
 
     this.setState({
@@ -83,9 +80,9 @@ class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState>
 const ConnectedTodoListItem = connect(
   (state: Store) => ({ todos: state.todos }),
   dispatch => ({
-    complete: label => dispatch(actions.addTodo(label)),
-    remove: label => dispatch(actions.addTodo(label)),
-    edit: filter => dispatch(actions.setFilter(filter))
+    complete: id => dispatch(actions.complete(id)),
+    remove: id => dispatch(actions.remove(id)),
+    edit: (id, label) => dispatch(actions.edit(id, label))
   })
 )(TodoListItem);
 

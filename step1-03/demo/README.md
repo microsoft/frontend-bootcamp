@@ -119,7 +119,7 @@ button.onclick = displayMatches();
 You can also combine these together like this:
 
 ```js
-docment.querySelector('.submit').onclick = displayMatches;
+document.querySelector('.submit').onclick = displayMatches;
 ```
 
 Wire this up and see you function in action!
