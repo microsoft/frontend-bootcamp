@@ -14,14 +14,14 @@ If you don't already have the app running, start it by running `npm start` from 
 
 1. Open `exercise/src/components/TodoFooter.tsx`
 
-2. Replace the two constants by using useContext(TodoContext)
+2. Use `useContext` to access the `TodoContext` and replace the two constants with values from the context
 
 ## TodoHeader, Context inside Class Component
 
 1. Open `exercise/src/components/TodoHeader.tsx`
 
-2. Replace the `onAdd` with a real implementation using the `this.context` object
+2. Replace `onAdd` with a real implementation using the `this.context` object
 
-3. Replace the `onFilter` with a real implementation using the `this.context` object
+3. Replace `onFilter` with a real implementation using the `this.context` object
 
 4. Be sure to set the `contextType` of the TodoHeader component
