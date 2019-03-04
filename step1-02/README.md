@@ -44,12 +44,3 @@ Here's a more detailed view from [Chris Eppstein](https://twitter.com/chriseppst
 <img src="https://raw.githubusercontent.com/Microsoft/frontend-bootcamp/master/assets/css-syntax.png"/>
 
 Selectors can be a single tag, class, ID, or attribute. It can also be a [combination](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors) of those elements.
-
-Below is a series of selectors and property/value combinations that we'll apply to our CSS demo page.
-
-```css
-```
-
-## Next Step
-
-[JavaScript Demo](../js-demo)
