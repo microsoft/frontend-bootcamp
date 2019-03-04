@@ -17,7 +17,7 @@ In this step, we will look at solving the problems of complex application (as me
 As a reminder, the problem that we want to address are:
 
 1. Data needs to be passed down from component to component via props. Even when some components do not need to know about some data.
-2. There is a lack of coordination of changes that can happen to the data
+2. Shared data can be changed by various actors (user interaction, updates from server), and there is no coordination of these changes
 
 Redux is an implementation of the Flux architectural pattern:
 

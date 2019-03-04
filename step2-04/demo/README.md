@@ -27,7 +27,7 @@ In a real application, these functions are composed. It looks more like this:
 
 1. Data needs to be passed down from component to component via props. Even when some components do not need to know about some data. This is a problem called **props drilling**
 
-2. There is a lack of coordination of changes that can happen to the data
+2. Shared data can be changed by various actors (user interaction, updates from server), and there is no coordination of these changes
 
 Even in our simple application, we saw this problem. For example, `<TodoList>` has this props interface:
 
