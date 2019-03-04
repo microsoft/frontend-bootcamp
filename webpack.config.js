@@ -34,7 +34,7 @@ fs.readdirSync('./').filter(step => {
     }
   }
 
-  if (!isEntryPoint && step.includes('step')) {
+  if (!isEntryPoint && (step.includes('step') || step.includes('playground'))) {
     nonWebpackedEntries.push(step);
   }
 });
