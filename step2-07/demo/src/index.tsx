@@ -7,13 +7,12 @@ import { Provider } from 'react-redux';
 import { initializeIcons } from '@uifabric/icons';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import { FilterTypes } from './store';
+import * as service from './service';
+import { Store, FilterTypes } from './store';
 
 (async () => {
-  // TODO: to make the store pre-populate with data from the service,
-  // replace the todos value below with a call to "await service.getAll()"
   const preloadStore = {
-    todos: {},
+    todos: (await service.getAll()) as Store['todos'],
     filter: 'all' as FilterTypes
   };
 

@@ -68,7 +68,7 @@ class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
 }
 
 const ConnectedTodoHeader = connect(
-  state => {},
+  state => ({}),
   (dispatch: any) => ({
     addTodo: label => dispatch(actionsWithService.addTodo(label)),
     setFilter: filter => dispatch(actions.setFilter(filter))
