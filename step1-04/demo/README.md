@@ -1,36 +1,10 @@
 # Step 4 - Introduction To React Demo
 
-In our last example we saw how we could take a static HTML page and turn it into an interactive page with some buttons and their `onclick` handlers.
-
-In this example we'll see how React turns that paradigm completely around. With React, the entire DOM is generated and maintained by JavaScript, directly inside the browser. This makes it easier to assemble your application out of reusable pieces, maintain state within a component, and pass data between them.
-
 In this demo we'll be creating a simple counter that will display a count and increment on click.
 
-## Building the App
+## React Hello World
 
-If you already have the app running from a previous step, stop it with `ctrl+C`. Start the app version used in this step by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "demo" link under day 1 step 4 to see results.
-
-## index.html
-
-The `index.html` file in a React project is going to be pretty mimimal. React is loading all of the application onto the page, so the only content you'll find in the page source is a div with an `id` of "app".
-
-> Note that our bundling tool, webpack, is adding this script tag to the HTML file we provided
-
-```html
-<!DOCTYPE html>
-<html>
-  <body>
-    <div id="app"></div>
-    <script src="../../step1-04/final/step1-04/final.js"></script>
-  </body>
-</html>
-```
-
-## index.tsx
-
-This is the entry point to your application.
-
-```ts
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 ReactDOM.render(<p>Hello World</p>, document.getElementById('app'));
@@ -90,9 +64,9 @@ export class App extends React.Component {
 
 ## Counter Component
 
-In this example we'll start with an already scaffolded-out control. The goal of our counter is to track how many times the counter button is clicked. In the past JavaScript demo we might have accessed the counter element using `document.querySelector('.counter')` and manually incremented the number found there. While using the DOM as your data store works, it's REALLY hard to scale past the most basic demo.
+In this example we'll start with an already scaffolded-out control. The goal of our counter is to track how many times the counter button is clicked.
 
-React solves this by allowing each control to specify its own data store, called **state**. We can reference values in state when we render our UI, and we can also update state over the lifetime of our application.
+React allows each control to specify its own data store, called **state**. We can reference values in state when we render our UI, and we can also update state over the lifetime of our application.
 
 ### Adding State
 
@@ -113,7 +87,7 @@ constructor(props) {
 
 #### Using [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) for props and state
 
-Both `props` are `state` are JavaScript objects. They have a bunch of key/value pairs in them which you can access via `this.props.foo` or `this.state.bar`. Sometimes they have MANY values inside of them which you need access to. You could do this:
+Both `props` and `state` are JavaScript objects. They have a bunch of key/value pairs in them which you can access via `this.props.foo` or `this.state.bar`. Sometimes they have MANY values inside of them which you need access to. You could do this:
 
 ```js
 let cat = this.props.cat;
@@ -205,11 +179,13 @@ This function will update our component's state, incrementing the counter value 
 
 ```jsx
 _onButtonClick = () => {
-  this.setState(prevState => ({ counter: prevState.counter + 1 }));
+  this.setState({
+    counter: this.state.counter + 1
+  });
 };
 ```
 
-> This isn't exactly a method, but a class property that is set to an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). This mostly works the same as `onButtonClick() { }` but eliminates the need for [extra boilerplate](https://medium.freecodecamp.org/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb) used to avoid potential "gotchas" with [how `this` works in JavaScript](https://codeburst.io/javascript-the-keyword-this-for-beginners-fb5238d99f85).)
+> Note that this could also be written as `this.setState(prevState => ({ counter: prevState.counter + 1 }));` to ensure that state is not updated until the previous state has been determined
 
 Now that we have a function to increment our count, all that's left is to connect it to our button.
 
@@ -217,11 +193,9 @@ Now that we have a function to increment our count, all that's left is to connec
 <button onClick={this._onButtonClick}>Click</button>
 ```
 
-> Note the syntax is a bit different than in HTML: `onclick="funcName()"` in HTML vs `onClick={this.funcName}` in JSX.
-
 > Also note that each `Counter` maintains its own state! You can modify the state inside of one counter without affecting the others.
 
-## Bonus: Using a Button component
+## Using a Button component
 
 Buttons are among the most commonly written components. Custom buttons help abstract common styling, add icons or other decorations, and increase functionality (menu buttons etc). Let's take a quick look at a custom button component to see how it comes together.
 

@@ -1,19 +1,58 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="../css-demo/css-demo-final.css" />
-  </head>
   <body>
-    <div>
-      <div class="tiles">
-        <div>
-          <h2>Contact Us</h2>
-          <div id="contact-form">
-            <label>Email</label><input id="email" type="email" />
-            <input class="submit" value="Submit" type="submit" />
-          </div>
-        </div>
-      </div>
+    <div
+      class="codepen"
+      data-theme-id="36294"
+      data-prefill
+      data-editable="true"
+      data-height="100%"
+      data-theme-id="1"
+      data-default-tab="js,result"
+    >
+      <pre data-lang="css">
+
+body {
+  font: 1.2em sans-serif;
+}
+
+.tiles > div {
+  background: rgb(10, 10, 10);
+  color: white;
+  flex-basis: 100%;
+  padding: 10px 20px 15px;
+  margin: 10px 20px 10px 0;
+  border: 1px solid white;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='submit'] {
+  align-self: flex-start;
+  margin-top: 10px;
+}   
+      </pre>
+      <pre data-lang="html">
+&lt;div class=&quot;tiles&quot;&gt;
+  &lt;div&gt;
+    &lt;h2&gt;Contact Us&lt;/h2&gt;
+    &lt;div id=&quot;contact-form&quot;&gt;
+      &lt;label&gt;Email&lt;/label&gt;&lt;input id=&quot;email&quot; type=&quot;email&quot; /&gt;
+      &lt;input class=&quot;submit&quot; value=&quot;Submit&quot; type=&quot;submit&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </pre>
+      <pre data-lang="js">
+// Count the number of 'a' characters in the email form. 
+// Update button to reflect that number.  
+
+</pre
+      >
     </div>
+
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
   </body>
-  <script></script>
 </html>
