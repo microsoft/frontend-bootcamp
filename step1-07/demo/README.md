@@ -120,35 +120,25 @@ Now that our interface is complete, try changing the word "all" in `filter === a
 Most of our components will need to specify types for `todos` and `filter`, so it's a good thing that TypeScript allows us to share types between files. I've already written up and exported those shared types in the file `TodoApp.types.ts`, so we just need to import them and use them in our interface.
 
 ```ts
-import { FilterTypes, Todos } from '../TodoApp.types';
+import { FilterTypes, Todos, CompleteTodo } from '../TodoApp.types';
 
 interface TodoListProps {
-  complete: (id: string) => void;
+  complete: CompleteTodo;
   todos: Todos;
   filter: FilterTypes;
 }
 ```
 
-## Updating TodoApp
-
-Our `TodoApp` doesn't take any props, but it does have state. We can use TypeScript to define that as well.
-
-I've already imported `Todos` and `FilterTypes` into the `TodoApp`, so we just need to add them to our class. If we want, we can even skip a separate interface definition and just declare the type inline. (This is not recommended for types of any complexity or types that are used in multiple places.)
-
-```ts
-export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterTypes }>
-```
-
-> Note that the first value in `<>` always refers to props. Since `TodoApp` takes none, we'll set it to an empty object type.
-
 ## Writing TodoListItemProps
 
-Jumping down to the TodoListItem, as we start to write the `TodoListItemProps` we realize that two of the props, `label` and `completed`, have already been defined in the `TodoItem` interface in `TodoApp.types`. So we can make `TodoListItemProps` reuse the `TodoItem` interface by extending it.
+Jumping down to the TodoListItem, as we start to write the `TodoListItemProps` we realize that two of the props, `label` and `completed`, have already been defined in the `TodoItem` interface. So we can make `TodoListItemProps` reuse the `TodoItem` interface by extending it.
 
 ```ts
+import { CompleteTodo } from '../TodoApp.types';
+
 interface TodoListItemProps extends TodoItem {
   id: string;
-  complete: (id: string) => void;
+  complete: CompleteTodo;
 }
 ```
 

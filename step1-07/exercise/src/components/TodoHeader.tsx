@@ -32,4 +32,9 @@ export class TodoHeader extends React.Component<any, any> {
   _onChange = evt => {
     this.setState({ labelInput: evt.target.value });
   };
+
+  _onAdd = () => {
+    this.props.addTodo(this.state.labelInput);
+    this.setState({ labelInput: '' });
+  };
 }

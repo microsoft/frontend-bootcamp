@@ -1,4 +1,4 @@
-# Building a Static Page
+# Step 1-05: Demo Building a Static Page
 
 To start off our todo application we are going to follow the steps outlined in [Thinking in React](https://reactjs.org/docs/thinking-in-react.html). The first step of the process is to break our application into a component hierarchy. For this app, we're going to keep it simple and just use four parts.
 

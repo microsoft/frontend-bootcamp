@@ -1,5 +1,7 @@
 export type FilterTypes = 'all' | 'active' | 'completed';
 
+export type CompleteTodo = (id) => null;
+
 export interface TodoItem {
   label: string;
   completed: boolean;
