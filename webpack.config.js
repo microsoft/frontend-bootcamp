@@ -9,8 +9,12 @@ const outPath = path.resolve(__dirname, 'docs');
 const entries = {};
 const nonWebpackedEntries = [];
 
+function isValidLessonFolder(folder) {
+  return folder.includes('step') || folder.includes('playground') || folder.includes('bonus');
+}
+
 function* getEntryPoint(step) {
-  if (step.includes('step') || step.includes('playground')) {
+  if (isValidLessonFolder(step)) {
     for (let prefix of ['', 'demo/', 'exercise/', 'final/']) {
       for (let suffix of ['.js', '.jsx', '.ts', '.tsx']) {
         const entryRequest = `./${step}/${prefix}src/index${suffix}`;
@@ -34,7 +38,7 @@ fs.readdirSync('./').filter(step => {
     }
   }
 
-  if (!isEntryPoint && (step.includes('step') || step.includes('playground'))) {
+  if (!isEntryPoint && isValidLessonFolder(step)) {
     nonWebpackedEntries.push(step);
   }
 });
