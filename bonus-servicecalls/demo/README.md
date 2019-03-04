@@ -1,4 +1,4 @@
-# Step 2.7: Service calls (Demo)
+# Bonus: Service calls (Demo)
 
 [Lessons](../)
 
