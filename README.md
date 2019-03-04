@@ -25,7 +25,7 @@ Before starting, make sure your computer has the following installed:
 - Open VS Code and then press `ctrl + ~` to open the built in terminal
 - Use the `cd` (change directory) command to find an appropriate place for your code 
 - Type `git clone https://github.com/Microsoft/frontend-bootcamp.git` into the terminal, this will pull down a copy of the workshop code
-- Type `cd bootcamp` to change your current directory to the bootcamp folder
+- Type `cd frontend-bootcamp` to change your current directory to the bootcamp folder
 - Type `npm install` to install of the project dependencies
 - Type `code ./` to open the bootcamp code in VS Code
 > If on a Mac, be sure you've followed [these steps](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) first to make the `code` command available.
