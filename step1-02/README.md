@@ -6,10 +6,10 @@ Now that we've gone over adding HTML tags to the page, let's cover adding styles
 
 - Typography
 - Colors
-- Appearance (Corners, Borders, Decorations)
+- Appearance (corners, borders, decorations)
 - Layout
 - Position
-- Inline vs Block
+- Display format: inline vs block
 - Animations
 - and [many more](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
 
@@ -43,4 +43,4 @@ Here's a more detailed view from [Chris Eppstein](https://twitter.com/chriseppst
 
 <img src="https://raw.githubusercontent.com/Microsoft/frontend-bootcamp/master/assets/css-syntax.png"/>
 
-Selectors can be a single tag, class, ID, or attribute. It can also be a [combination](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors) of those elements.
+A selector can be a single tag, class, ID, or attribute. It can also be a [combination](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors) of those elements.

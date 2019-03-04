@@ -2,7 +2,7 @@
 
 In this demo we'll be creating a simple counter that will display a count and increment on click.
 
-Let's start this demo [in CodePen](https://codepen.io/micahgodbolt/pen/wOWeVb?editors=0010)
+Let's start this demo [in CodePen](https://codepen.io/micahgodbolt/pen/wOWeVb?editors=0010).
 
 ## React Hello World
 
@@ -10,15 +10,15 @@ Let's start this demo [in CodePen](https://codepen.io/micahgodbolt/pen/wOWeVb?ed
 ReactDOM.render(<p>Hello World</p>, document.getElementById('app'));
 ```
 
-- `ReactDOM.render()` - This function is how our code gets on the page. The function takes two parameters, the content to place on the page, and the location that you want it placed.
+Calling `ReactDOM.render()` is how our code gets on the page. The function takes two parameters: the content to place on the page, and the element in which you want it placed.
 
 ## Writing a React Component
 
-A React component is a piece of code that returns a portion of your application. This can include HTML markup, CSS styles as well as JavaScript driven functionality.
+A React component is a piece of code that returns a portion of your application. This can include HTML markup, CSS styles, and JavaScript driven functionality.
 
 Components can be created in two ways. The first is method is to use a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), which extends (inherits from) the `React.Component` class.
 
-Classes in JavaScript provide a way to collect methods(functions) and properties(values) in an extendable container. We extend `React.Component` because it provides us with several built-in methods, including `render`.
+Classes in JavaScript provide a way to collect methods (functions) and properties (values) in an extensible container. We extend `React.Component` because it provides us with several built-in methods, including `render`.
 
 ```jsx
 class App extends React.Component {
@@ -28,7 +28,7 @@ class App extends React.Component {
 }
 ```
 
-We could also write this component as a function that takes in `props` and returns [JSX](https://reactjs.org/docs/introducing-jsx.html)
+We could also write this component as a function that takes in `props` and returns [JSX](https://reactjs.org/docs/introducing-jsx.html).
 
 ```jsx
 const App = props => {
@@ -36,23 +36,23 @@ const App = props => {
 };
 ```
 
-Moving our "Hello World" markup into our App's `render` function, we can now update the `ReactDOM.render()` function to look like this:
+Moving our "Hello World" markup into our App's `render` function, we can now update the `ReactDOM.render()` call to look like this:
 
 ```jsx
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
-> Note that React components can be reused by writing them in the same way you would an HTML tag
+> Note that React components can be reused by writing them in the same way you would an HTML tag.
 
 ### Props
 
-Either way you write the component, the component can take in additional props using the same syntax as HTML attribute like `id` or `href`.
+Whether you write the component as a class or a function, it can take in additional props using the same syntax as HTML attributes like `id` or `href`.
 
 ```jsx
 <App text="Hello World" />
 ```
 
-The prop can then be accessed by your component via `props.text` in our function or `this.props.text` in the class.
+The `text` prop can be accessed inside your component via `props.text` in a function component or `this.props.text` in a class component.
 
 ```jsx
 const App = props => {
@@ -60,7 +60,7 @@ const App = props => {
 };
 ```
 
-`props` allow your component to be more reusable as you can use multiple instances of the same component with different props.
+`props` allow your component to be more reusable, since you can create multiple instances of the same component with different props.
 
 ```jsx
 ReactDOM.render(
@@ -82,7 +82,7 @@ const App = props => {
 
 ### Destructuring Props
 
-Writing `props.text` over and over in a function (or `this.props.text` in a class) can be quite tedius. Since this is all JavaScript you could create a new variable for this text using variable assignment.
+Writing `props.text` over and over in a function (or `this.props.text` in a class) can be quite tedious. Since this is all JavaScript, you could create a new variable for this text using variable assignment.
 
 ```jsx
 const App = props => {
@@ -120,9 +120,9 @@ const start = props.config.start;
 const end = props.config.end;
 ```
 
-A common approach to simplify this process is to use a technique called [`destructuring`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring).
+A common approach to simplify this process is to use a syntax called [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring).
 
-Destructuring allows you to pull individual pieces of information out of a complex data type in a single line.
+Destructuring allows you to pull individual pieces of information out of an object in a single statement.
 
 ```jsx
 const {
@@ -136,18 +136,11 @@ const {
 
 So while this might be overkill right now, it makes it easier to add props down the road.
 
-```jsx
-const App = props => {
-  const text = props.text;
-  return <p>{text ? text : 'you missed something'}</p>;
-};
-```
-
 ### Cleanup
 
-Before we move on, we'll reset our `ReactDom.render` to just return our App. This render function typically includes just the single component with no props.
+Before we move on, we'll modify our `ReactDOM.render` call to just include our App. This render call typically includes just a single component with no props.
 
-Next we'll be creating a `Counter` component, so we'll add that to our App now, and start to write the control.
+Next we'll be creating a `Counter` component. We'll add that to our App now, and then start to write the control.
 
 ```jsx
 const App = props => {
@@ -167,7 +160,7 @@ React allows each control to specify its own data store, called **state**. We ca
 
 ### Adding State
 
-JavaScript classes uses a `constructor` method to instantiate each copy of a class, along with any applicable state. Let's create a new component called `Counter` and give it a state of `clicks` with a default value of `0`;
+JavaScript classes use a `constructor` method to instantiate each copy of a class, along with any applicable state. Let's create a new component called `Counter` and give it a state containing a `clicks` property with a default value of `0`;
 
 ```js
 class Counter extends React.Component {
@@ -181,12 +174,12 @@ class Counter extends React.Component {
 ```
 
 - The constructor takes in the component's `props`.
-- The [`super(props)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) function calls the constructor of the parent class (in this case `React.Component`).
+- The [`super()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) function calls the constructor of the parent class (in this case `React.Component`).
 - Our `counter` state value can now be accessed via `this.state.counter`. Later, we can update state by calling `this.setState({ counter: 1 })`.
 
 ### Creating our Counter
 
-For our `Counter` component, the goal is to be able to track how many times the `counter`'s button is clicked. We'll use the following markup.
+For our `Counter` component, the goal is to be able to track how many times the counter's button is clicked. We'll use the following markup.
 
 ```jsx
 render() {
@@ -217,7 +210,7 @@ _onButtonClick = () => {
 };
 ```
 
-> Note that this could also be written as `this.setState(prevState => ({ counter: prevState.counter + 1 }));` to ensure that state is not updated until the previous state has been determined
+> Note that this could also be written as `this.setState(prevState => ({ counter: prevState.counter + 1 }));` to ensure that state is not updated until the previous state has been determined.
 
 Now that we have a function to increment our count, all that's left is to connect it to our button.
 
@@ -231,9 +224,9 @@ Now that we have a function to increment our count, all that's left is to connec
 
 Add a couple `Counter`s to our `App`, each with different text. Notice how they can easy take in different props and maintain their own state.
 
-## Moving this into out codebase
+## Moving this into our codebase
 
-To scale our application we are going to need to break up file into smaller, reusable pieces. In this part of the demo we'll look at the `final` folder and how the Javascript module system allows us to break up our components into a collection of files exporting their functionality.
+To scale our application we'll need to break up the file into smaller, reusable pieces. In this part of the demo we'll look at the `final` folder and how the JavaScript module system allows us to break up our components into a collection of files exporting their functionality.
 
 ### Module Exports and Imports
 
@@ -241,33 +234,33 @@ Open up the `step1-04/final/components/Counter.tsx` and look at the `Counter` co
 
 ```tsx
 export class Counter extends React.Component {
-...
+  // ...
 }
 ```
 
-This file exports the Counter component as a 'named' export. This means when we import it we do the following
+This file exports the Counter component as a **named export**. This means when we import it we do the following:
 
 ```tsx
 import { Counter } from './components/Counter';
 ```
 
+> Note the `{}` wrapped around the import value. This is actually an example of destructuring.
+
 #### Default Exports
 
-We usually export named exports, but it's also possible export a default value like this:
+We typically use named exports, but it's also possible export a default value like this:
 
 ```tsx
-export default class extends React.Component {
-...
+export default class Counter extends React.Component {
+  // ...
 }
 ```
 
-In this case the export isn't named, so when we import the component we can call it whatever we want:
+When we import the component we can call it whatever we want:
 
 ```tsx
 import SomeCounterComponent from './components/Counter';
 ```
-
-> Note that this example doesn't have `{}` wrapped around the import value. This is actually an example of destructuring.
 
 ## Using a Button component
 

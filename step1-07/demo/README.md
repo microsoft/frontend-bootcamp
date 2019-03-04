@@ -10,7 +10,7 @@ This is our core "business logic" and handles everything our basic "CRUD" operat
 
 Taking a look at our components in `TodoApp`, you can see that our list of props is not just getting longer, but is getting much more complex! We're passing through functions with various signatures, complex `todos` objects, and filter strings which are always one of three values.
 
-As applications grow, it becomes increasing difficult to remember what each function does, or what each todo contains. Also, as JavaScript is a loosely typed language, if I wanted to change the value of `todos` to an array inside my `TodoList`, JavaScript wouldn't care. But if `TodoListItems` was expecting an object, our application would break.
+As applications grow, it becomes increasing difficult to remember what each function does, or what each todo contains. Also, as JavaScript is a dynamically typed language, if I wanted to change the value of `todos` to an array inside my `TodoList`, JavaScript wouldn't care. But if `TodoListItems` was expecting an object, our application would break.
 
 It for these two reasons that the entire industry is shifting to writing applications that are strongly typed, and many are using TypeScript to accomplish that.
 
