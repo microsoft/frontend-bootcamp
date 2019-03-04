@@ -87,7 +87,7 @@ constructor(props) {
 
 #### Using [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) for props and state
 
-Both `props` are `state` are JavaScript objects. They have a bunch of key/value pairs in them which you can access via `this.props.foo` or `this.state.bar`. Sometimes they have MANY values inside of them which you need access to. You could do this:
+Both `props` and `state` are JavaScript objects. They have a bunch of key/value pairs in them which you can access via `this.props.foo` or `this.state.bar`. Sometimes they have MANY values inside of them which you need access to. You could do this:
 
 ```js
 let cat = this.props.cat;
