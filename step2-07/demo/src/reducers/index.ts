@@ -1,27 +1,43 @@
 import { Store } from '../store';
-import { addTodo, remove, complete, clear } from './pureFunctions';
+import { combineReducers } from 'redux';
+import { createReducer } from 'redux-starter-kit';
 
-function todoReducer(state: Store['todos'] = {}, action: any): Store['todos'] {
-  switch (action.type) {
-    case 'addTodo':
-      return addTodo(state, action.id, action.label);
+export const todosReducer = createReducer<Store['todos']>(
+  {},
+  {
+    addTodo(state, action) {
+      state[action.id] = { label: action.label, completed: false };
+    },
 
-    case 'remove':
-      return remove(state, action.id);
+    remove(state, action) {
+      delete state[action.id];
+    },
 
-    case 'clear':
-      return clear(state);
+    clear(state, action) {
+      Object.keys(state).forEach(key => {
+        if (state[key].completed) {
+          delete state[key];
+        }
+      });
+    },
 
-    case 'complete':
-      return complete(state, action.id);
+    complete(state, action) {
+      state[action.id].completed = !state[action.id].completed;
+    },
+
+    edit(state, action) {
+      state[action.id].label = action.label;
+    }
   }
+);
 
-  return state;
-}
+export const filterReducer = createReducer<Store['filter']>('all', {
+  setFilter(state, action) {
+    return action.filter;
+  }
+});
 
-export function reducer(state: Store, action: any): Store {
-  return {
-    todos: todoReducer(state.todos, action),
-    filter: 'all'
-  };
-}
+export const reducer = combineReducers({
+  todos: todosReducer,
+  filter: filterReducer
+});

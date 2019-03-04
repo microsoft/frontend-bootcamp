@@ -1,41 +1,36 @@
 import React from 'react';
-import { Store } from '../store';
-import { Stack, Text, DefaultButton } from 'office-ui-fabric-react';
+import { DefaultButton, Stack, Text } from 'office-ui-fabric-react';
+import { actionsWithService } from '../actions';
 import { connect } from 'react-redux';
-import { actions } from '../actions';
+import { Store } from '../store';
 
 interface TodoFooterProps {
-  clear: () => void;
   todos: Store['todos'];
+  clear: () => void;
 }
 
 const TodoFooter = (props: TodoFooterProps) => {
-  const { todos } = props;
-  const itemCount = todos ? Object.keys(todos).filter(id => !props.todos[id].completed).length : 0;
+  const { todos, clear } = props;
+
+  const itemCount = Object.keys(todos).filter(id => !todos[id].completed).length;
 
   return (
     <Stack horizontal horizontalAlign="space-between">
       <Text>
         {itemCount} item{itemCount === 1 ? '' : 's'} left
       </Text>
-      <DefaultButton onClick={() => props.clear()}>Clear Completed</DefaultButton>
+      <DefaultButton onClick={() => clear()}>Clear Completed</DefaultButton>
     </Stack>
   );
 };
 
-function mapStateToProps(state: Store) {
-  return { ...state };
-}
-
-function mapDispatchToProps(dispatch: any) {
-  return {
-    clear: () => dispatch(actions.clear())
-  };
-}
-
-const component = connect(
-  mapStateToProps,
-  mapDispatchToProps
+const ConnectedTodoFooter = connect(
+  (state: Store) => ({
+    todos: state.todos
+  }),
+  (dispatch: any) => ({
+    clear: () => dispatch(actionsWithService.clear())
+  })
 )(TodoFooter);
 
-export { component as TodoFooter };
+export { ConnectedTodoFooter as TodoFooter };

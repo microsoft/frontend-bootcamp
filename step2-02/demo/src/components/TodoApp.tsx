@@ -18,6 +18,7 @@ export class TodoApp extends React.Component<any, Store> {
       filter: 'all'
     };
   }
+
   render() {
     const { filter, todos } = this.state;
     return (

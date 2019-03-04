@@ -1,23 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { reducer } from './reducers';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 import { TodoApp } from './components/TodoApp';
-import { actions } from './actions';
+import { Provider } from 'react-redux';
 import { initializeIcons } from '@uifabric/icons';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import { FilterTypes } from './store';
 
-const store = createStore(reducer, {}, composeWithDevTools());
+(async () => {
+  // TODO: to make the store pre-populate with data from the service,
+  // replace the todos value below with a call to "await service.getAll()"
+  const preloadStore = {
+    todos: {},
+    filter: 'all' as FilterTypes
+  };
 
-store.dispatch(actions.addTodo('hello'));
-store.dispatch(actions.addTodo('world'));
+  const store = createStore(reducer, preloadStore, composeWithDevTools(applyMiddleware(thunk)));
 
-initializeIcons();
+  initializeIcons();
 
-ReactDOM.render(
-  <Provider store={store}>
-    <TodoApp />
-  </Provider>,
-  document.getElementById('app')
-);
+  ReactDOM.render(
+    <Provider store={store}>
+      <TodoApp />
+    </Provider>,
+    document.getElementById('app')
+  );
+})();

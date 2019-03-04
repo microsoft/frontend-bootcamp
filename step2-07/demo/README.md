@@ -1,88 +1,48 @@
-# Step 2.7: Connect Redux store to view (Demo)
+# Step 2.7: Service calls (Demo)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../)
 
-Redux is currently the most popular Flux implementation, and the ecosystem of related libraries has grown as a result. This is one of the reasons why it is a very popular library within Microsoft products.
+> Note: this step doesn't work with the live site on github.io. Clone the repo to try this step out.
 
-Various GitHub users have collected "awesome lists" of tech and articles related to Redux. Here is [one such list](https://github.com/xgrommx/awesome-redux#react---a-javascript-library-for-building-user-interfaces), but it is literally impossible to list out all the related tech.
+## `redux-thunk`: side effects inside action creators
 
-In this step, we introduce but one useful library that works with Redux: [`react-redux`](https://react-redux.js.org/).
+The [Redux Thunk](https://github.com/reduxjs/redux-thunk) middleware allows writing actions that make service calls.
 
-## The official React Redux binding: `react-redux`
+Remember those simple little action functions? They're called action creators. These little functions can be charged with superpowers to allow asynchronous side effects to happen while creating the messages. Asynchronous side effects include service calls against APIs.
 
-That's right, Redux doesn't just work with React. It can also be used with Vue.js, Angular, and React Native, to name a few.
+Action creators are a natural place to put service calls. Redux Thunk middleware passes `dispatch()` and `getState()` from the store into the action creators. This allows the action creator itself to dispatch different actions in between async side effects. Combined with the async / await syntax, coding service calls is a cinch!
 
-### `<Provider>` component
+Most of the time, in a single-page app, we apply **optimistic UI updates**. We can update the UI before the network call completes so the UI feels more responsive.
 
-The store doesn't magically get passed to the views. It has to be supplied by a `react-redux` component called [`<Provider>`](https://react-redux.js.org/api/provider). A `<Provider>` can be placed anywhere, but it's best to just make it available at the root the app:
+## Action creator with a thunk
 
-```js
-const store = createStore(reducers);
+[What's a thunk?](https://daveceddia.com/what-is-a-thunk/) - it is a wrapper function that returns a function. What does it do? Let's find out!
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <div>Hello World!</div>
-    </Provider>
-  );
-};
-```
-
-### `connect()` higher-order function
-
-`react-redux` provides a [`connect()`](https://react-redux.js.org/api/connect) function that turns the Redux store and dispatch functions into props for React components. The state and action dispatchers are passed along with a `<Provider>` component.
-
-```js
-const OldComponent = props => {
-  return <div>{props.foo}</div>;
-};
-
-const NewComponent = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps,
-  options
-)(OldComponent);
-```
-
-`connect()` takes in a few functions that map portions of the state tree and dispatcher functions into props. It is a **higher-order function**, meaning that the return value of `connect()` is a function that decorates `OldComponent` into a `NewComponent` with all the mapped props.
-
-Next we'll learn about how to write `mapStateToProps` and `mapDispatchToProps`. For demonstration purposes, we'll assume the store and the component props look like this:
+This action creator just returns an object:
 
 ```ts
-interface Store {
-  foo: string;
-  // and probably some other properties
-}
-
-interface ComponentProps {
-  foo: string;
-  addTodo: (label: string) => void;
+function addTodo(label: string) {
+  return { type: 'addTodo', id: uuid(), label };
 }
 ```
 
-#### `mapStateToProps`
-
-A [`mapStateToProps`](https://react-redux.js.org/api/connect#mapstatetoprops-state-ownprops-object) function uses the state tree as a parameter and selects portions of it that will be passed to the component as part of `props`. When values in the state tree change, the `mapStateToProps` function is called, and the new props are passed to the component (causing React to re-render it).
+In order for us to make service calls, we need to supercharge this with the power of `redux-thunk`
 
 ```ts
-function mapStateToProps(state: Store): Partial<ComponentProps> {
-  return {
-    foo: state.foo
+function addTodo(label: string) {
+  return async (dispatch: any, getState: () => Store) => {
+    const addAction = actions.addTodo(label);
+    const id = addAction.id;
+    dispatch(addAction);
+    await service.add(id, getState().todos[id]);
   };
 }
 ```
 
-#### `mapDispatchToProps`
+Let's make some observations:
 
-A [`mapDispatchToProps`](https://react-redux.js.org/api/connect#mapdispatchtoprops-object-dispatch-ownprops-object) function generates props which are used to dispatch Redux actions. This function generally returns props which the component will use as callbacks in response to user actions.
-
-```ts
-function mapDispatchToProps(dispatch: any): Partial<ComponentProps> {
-  return {
-    // the dispatched message COULD be generated by an
-    // action creator instead (see later steps)
-    addTodo: (label: string) => dispatch({ type: 'addTodo', label })
-  }
-}
-```
+1. The outer function has the same function signature as the previous one
+2. It returns a function that has `dispatch` and `getState` as parameters
+3. The inner function is `async` enabled, and can await on "side effects" like asynchronous service calls
+4. This inner function has the ability to dispatch additional actions because it has been passed the `dispatch()` function from the store
+5. This inner function also has access to the state tree via `getState()`

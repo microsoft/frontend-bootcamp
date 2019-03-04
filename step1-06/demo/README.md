@@ -46,7 +46,7 @@ constructor(props) {
 To avoid reaching into state over and over, we once again use destructuring to pull out the pieces we need.
 
 ```jsx
-const { filter, todos = [] } = this.state;
+const { filter, todos } = this.state;
 ```
 
 > Note that I've set `todos` to default to an empty array so that the `todos` variable is never undefined
@@ -69,7 +69,7 @@ I've already pulled out our props into `filter` and `todos` variables, and writt
 
 ```jsx
 {
-  filteredTodos.map(id => <TodoListItem key={id} id={id} {...todos[id]} />)
+  filteredTodos.map(id => <TodoListItem key={id} id={id} {...todos[id]} />);
 }
 ```
 

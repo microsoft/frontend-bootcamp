@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, Stack, TextField, PrimaryButton } from 'office-ui-fabric-react';
-import { Store } from '../store';
+import { Stack, Text, Pivot, PivotItem, TextField, PrimaryButton } from 'office-ui-fabric-react';
+import { FilterTypes } from '../store';
+import { actions, actionsWithService } from '../actions';
 import { connect } from 'react-redux';
-import { actions } from '../actions';
 
 interface TodoHeaderProps {
   addTodo: (label: string) => void;
+  setFilter: (filter: FilterTypes) => void;
 }
 
 interface TodoHeaderState {
@@ -22,15 +23,32 @@ class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
     return (
       <Stack gap={10}>
         <Stack horizontal horizontalAlign="center">
-          <Text variant="xxLarge">todos - step2-07 demo</Text>
+          <Text variant="xxLarge">todos</Text>
         </Stack>
 
         <Stack horizontal gap={10}>
           <Stack.Item grow>
-            <TextField placeholder="What needs to be done?" value={this.state.labelInput} onChange={this.onChange} />
+            <TextField
+              placeholder="What needs to be done?"
+              value={this.state.labelInput}
+              onChange={this.onChange}
+              styles={props => ({
+                ...(props.focused && {
+                  field: {
+                    backgroundColor: '#c7e0f4'
+                  }
+                })
+              })}
+            />
           </Stack.Item>
           <PrimaryButton onClick={this.onAdd}>Add</PrimaryButton>
         </Stack>
+
+        <Pivot onLinkClick={this.onFilter}>
+          <PivotItem headerText="all" />
+          <PivotItem headerText="active" />
+          <PivotItem headerText="completed" />
+        </Pivot>
       </Stack>
     );
   }
@@ -43,21 +61,18 @@ class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
   private onChange = (evt: React.FormEvent<HTMLInputElement>, newValue: string) => {
     this.setState({ labelInput: newValue });
   };
-}
 
-function mapStateToProps(state: Store) {
-  return { ...state };
-}
-
-function mapDispatchToProps(dispatch: any) {
-  return {
-    addTodo: (label: string) => dispatch(actions.addTodo(label))
+  private onFilter = (item: PivotItem) => {
+    this.props.setFilter(item.props.headerText as FilterTypes);
   };
 }
 
-const component = connect(
-  mapStateToProps,
-  mapDispatchToProps
+const ConnectedTodoHeader = connect(
+  state => {},
+  (dispatch: any) => ({
+    addTodo: label => dispatch(actionsWithService.addTodo(label)),
+    setFilter: filter => dispatch(actions.setFilter(filter))
+  })
 )(TodoHeader);
 
-export { component as TodoHeader };
+export { ConnectedTodoHeader as TodoHeader };
