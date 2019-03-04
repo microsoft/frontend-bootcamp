@@ -1,68 +1,69 @@
-# Step 2.6 - Redux: Dispatching actions and examining state (Demo)
+# Step 2.6: Redux: React Binding (Demo)
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-In this step, we learn about the Redux methods `dispatch()` and `getState()`. Dispatching action messages to the store is the only means by which to instruct the reducers to modify the shared state tree.
+Redux is currently the most popular Flux implementation, and the ecosystem of related libraries has grown as a result. This is one of the reasons why it is a very popular library within Microsoft products.
 
-We also see how to compose reducers to make up the complete state shape.
+Various GitHub users have collected "awesome lists" of tech and articles related to Redux. Here is [one such list](https://github.com/xgrommx/awesome-redux#react---a-javascript-library-for-building-user-interfaces), but it is literally impossible to list out all the related tech.
 
-## Dispatch
+In this step, we will continue with Redux. Step 2.5 code can be used with any other web frameworks. This step, we will hook up the Redux store with React components. The official way to do this is with the the [`react-redux`](https://react-redux.js.org/) library.
 
-Given a store reference, you can [dispatch](https://redux.js.org/api/store#dispatch) an action to trigger the middleware and reducers. This changes the store and causes the view to re-render. (We'll look at how to pass the store and the dispatch function into the view later.)
+We will demonstrate how to use `react-redux` to pass down the Redux store to the views:
 
-```ts
+1. Providing the Store to the Views
+2. Mapping the Redux store to props
+
+## Provide the Store Context
+
+Class Components will access the Redux store via the `StoreContext` from `react-redux-hooks`. In Step 2.4, you saw how the context is hooked up. So, instead of providing our own context for Redux store, we just take one that is already been created. We need to first hook up the `<StoreContext.Provider>` component just like in Step 2.4.
+
+```js
 const store = createStore(reducers);
-store.dispatch(actions.addTodo('id0', 'hello world'));
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <div>Hello World!</div>
+    </Provider>
+  );
+};
 ```
 
-> Important note: Dispatches generally have a "fire and forget" approach. We expect React to re-render the UI correctly of its own accord. (Rendering isn't necessarily synchronous in React! Chaining async action creators is a topic for Step 9.)
+## Mapping the Redux store to props
 
-## Reducers scoped to a portion of the state tree
+`react-redux` exports the [`connect()`](https://react-redux.js.org/api/connect) function that maps portions of the state tree and dispatch functions into props in the child React component. Let's look at how that is done.
 
-In general, when an application grows, so does the complexity of the state tree. In a Redux application, it is best to have reducers that deal with only a sub-portion of the tree.
+```js
+import { connect } from 'react-redux';
 
-In our example, we have two parts of our state: `todos` and `filter`. We will [split the reducer](https://redux.js.org/basics/reducers#splitting-reducers) to pass the todos to a `todosReducer()` function and just return `all` to the `filter` key for now. This organization helps in navigating and understanding the reducers because it matches the shape of the state one-to-one: there's a separate reducer for each key in state.
+const MyComponent = props => {
+  return <div>
+    {props.prop1}
+    <button onClick={props.action1()}>Click Me</button>
+  </div>;
+};
 
-Compare this example which handles the whole state in one reducer...
-
-```ts
-// remember the shape of the store
-{
-  todos: {
-    id0: {...},
-    id1: {...},
+const ConnectedComponent = connect(
+  state => {
+    prop1: state.key1,
+    prop2: state.key2
   },
-
-  filter: 'all'
-}
-```
-
-...to this one which splits it up.
-
-```ts
-function reducers(state, action) {
-  return {
-    todos: function todoReducers(state['todos'], action) {
-      ...
-    },
-
-    filter: function filterReducers(state['filter'], action) {
-      ...
-    }
+  dispatch => {
+    action1: (arg) => dispatch(actions.action1(arg)),
+    action2: (arg) => dispatch(actions.action2(arg)),
   }
-}
+)(MyComponent);
 ```
 
-With the second example, it is easy to understand which reducer changed a given part of the state.
+So, that's a lot to digest. We'll go through these different parts:
 
-## `getState()`
+1. First, the `<MyComponent>` is simple component that expects to have props, without any knowledge of Redux. It is just a plain React Component.
 
-To examine the state of the store, you can call `store.getState()` to get a snapshot of the current state.
+2. The `connect()` function takes in several arguments.
 
-In general, you should only include serializable things in the state so that you can easily save or transfer it. You can even save this state into a browser's local storage and restore for the next boot of your application!
+   - The first argument maps portions of the Redux _state tree_ into `<MyComponent>` _props_
+   - The second arguments maps dispatch functions into `<MyComponent>` _props_
 
-## Visualizing the reducer and store change
+3. Finally, `connect()` actually returns a function that **decorates** a `<MyComponent>` into `<ConnectedComponent>` - it is a strange syntax, so do study it more closely here.
 
-If you want a really neat UI to show what the store looks when actions are dispatched to the store, use the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd).
-
-This extension (available for Chrome and Firefox) is a work of genius! It lets you replay actions and step backwards to debug the current state of a Redux application. In a large enough application, this kind of debuggability is invaluable. It also helps developers who are not familiar with your application to quickly get a handle on how the state changes in response to some actions.
+> Yes, `connect()` is a function that takes in functions as arguments that returns a function that takes in a component that return a component. Try to say this fast 10 times :)

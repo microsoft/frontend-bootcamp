@@ -1,25 +1,26 @@
 import React from 'react';
-import { Button } from './Button';
 
 export class Counter extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0
+      clicks: 0
     };
   }
   render() {
-    const { counter } = this.state;
     const { text } = this.props;
+    const { clicks } = this.state;
     return (
       <div>
-        {text}: {counter}
-        <Button onClick={this._onButtonClick}>Click</Button>
+        {text}: {clicks}
+        <button onClick={this._onButtonClick}>Click</button>
       </div>
     );
   }
 
   _onButtonClick = () => {
-    this.setState((state) => ({ counter: state.counter + 1 }));
+    this.setState({
+      clicks: this.state.clicks + 1
+    });
   };
 }

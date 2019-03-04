@@ -1,0 +1,132 @@
+<html>
+  <body>
+    <div
+      class="codepen"
+      data-theme-id="36294"
+      data-prefill
+      data-editable="true"
+      data-height="100%"
+      data-theme-id="1"
+      data-default-tab="html,result"
+    >
+      <pre data-lang="css">
+/* Targeting the entire page */
+//body {
+  font: 1.2em sans-serif;
+}
+
+/* Targeting an HTML tag */
+//h1 {
+  /* Color name */
+  color: black;
+
+  /* 6-digit hex  */
+  background: #ababab;
+
+  /* Margin: specified separately for each side */
+  margin-bottom: 15px;
+  margin-top: 15px;
+
+  /* Shorthand: Padding applies to all sides  */
+  padding: 10px;
+
+  /* Border shorthand and 3-digit hex */
+  border: 1px solid #ddd;
+}
+
+/* Overriding inherited styles */
+//span {
+  color: #004578;
+}
+
+/* Sibling selector */
+//a + a {
+  /* Changing elements from inline to block */
+  display: block;
+}
+
+/* Targeting a class name  */
+//.tiles {
+  display: flex;
+}
+
+/* Descendant selector */
+//.tiles img {
+  width: 100%;
+}
+
+/* Direct descendant selector */
+//.tiles > div {
+  /* rgb color */
+  background: rgb(10, 10, 10);
+  color: white;
+  flex-basis: 100%;
+  /* Padding/margin shorthand. Goes clockwise from top.
+  10px - all
+  10px 20px - top/bottom left/right
+  10px 20px 15px - top left/right bottom
+  */
+  padding: 10px 20px 15px;
+  margin: 10px 20px 10px 0;
+  border: 1px solid white;
+}
+
+/* Qualified selector */
+//div.important-links {
+  background: #004578;
+}
+
+/* Style inheritance only works for unstyled elements */
+//a {
+  color: white;
+}
+
+/* Hover pseudo-selector */
+//a:hover {
+  color: #ccc;
+}
+
+/* Positional pseudo-selector  */
+//.tiles > div:last-child {
+  /* overrides margin-right but leaves other margins alone */
+  margin-right: 0;
+}
+
+/* ID selector */
+//#contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Attribute selector */
+//input[type='submit'] {
+  margin-top: 10px;
+}   
+      </pre>
+      <pre data-lang="html">
+&lt;h1&gt;This is my &lt;span&gt;Title&lt;/span&gt;&lt;/h1&gt;
+&lt;div class=&quot;tiles&quot;&gt;
+  &lt;div class=&quot;important-links&quot;&gt;
+    &lt;h2&gt;Important Links&lt;/h2&gt;
+    &lt;a href=&quot;#&quot;&gt;We're Awesome&lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;Hire Us&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h2&gt;Our Logo&lt;/h2&gt;
+    &lt;img src=&quot;../../assets/fabric.jpg&quot; width=&quot;100&quot; alt=&quot;fabric logo&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h2&gt;Contact Us&lt;/h2&gt;
+    &lt;div id=&quot;contact-form&quot;&gt;
+      &lt;label&gt;Email&lt;/label&gt;&lt;input type=&quot;email&quot; /&gt;
+      &lt;input value=&quot;Submit&quot; type=&quot;submit&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </pre>
+    </div>
+
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

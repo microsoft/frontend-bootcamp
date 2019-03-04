@@ -22,7 +22,7 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
     return (
       <Stack gap={10}>
         <Stack horizontal horizontalAlign="center">
-          <Text variant="xxLarge">todos - step2-03 demo</Text>
+          <Text variant="xxLarge">todos</Text>
         </Stack>
 
         <Stack horizontal gap={10}>
@@ -40,9 +40,7 @@ export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState
               })}
             />
           </Stack.Item>
-          <PrimaryButton onClick={this.onAdd} styles={{ root: { backgroundColor: 'maroon' }, rootHovered: { background: 'green' } }}>
-            Add
-          </PrimaryButton>
+          <PrimaryButton onClick={this.onAdd}>Add</PrimaryButton>
         </Stack>
 
         <Pivot onLinkClick={this.onFilter}>

@@ -1,13 +1,19 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { reducer } from './reducers';
 import { createStore } from 'redux';
+import { TodoApp } from './components/TodoApp';
+import { initializeIcons } from '@uifabric/icons';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { actions } from './actions';
+import { Provider } from 'react-redux';
 
 const store = createStore(reducer, {}, composeWithDevTools());
 
-console.log(store.getState());
+initializeIcons();
 
-store.dispatch(actions.addTodo('hello'));
-store.dispatch(actions.addTodo('world'));
-
-console.log(store.getState());
+ReactDOM.render(
+  <Provider store={store}>
+    <TodoApp />
+  </Provider>,
+  document.getElementById('app')
+);

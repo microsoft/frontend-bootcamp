@@ -1,17 +1,27 @@
-# Step 2.4: Testing TypeScript code with Jest (Exercise)
+# Step 2.4 - React Context (Exercise)
 
 [Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
 
-Start the test runner by running `npm test` in the root of the `frontend-bootcamp` folder.
+If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 4 to see results.
 
-## Basic testing
+## TodoContext.Provider Component
 
-1. Look at `exercise/src/stack.ts` for a sample implementation of a stack
+1. Open `exercise/src/components/TodoApp.tsx`
 
-2. Follow the instructions inside `stack.spec.ts` file to complete the two tests
+2. Uncomment the missing functions inside the value prop
 
-## Enzyme Testing
+## TodoFooter, Context inside Functional Component
 
-1. Open up `exercise/src/TestMe.spec.tsx`
+1. Open `exercise/src/components/TodoFooter.tsx`
 
-2. Fill in the test using Enzyme concepts introduced in the demo
+2. Replace the two constants by using useContext(TodoContext)
+
+## TodoHeader, Context inside Class Component
+
+1. Open `exercise/src/components/TodoHeader.tsx`
+
+2. Replace the `onAdd` with a real implementation using the `this.context` object
+
+3. Replace the `onFilter` with a real implementation using the `this.context` object
+
+4. Be sure to set the `contextType` of the TodoHeader component

@@ -52,11 +52,10 @@ let myFunction = function(myNumberParam) {
 
 ### Adding Variables
 
-Let's start off our demo by adding some variables to our [script tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script). The other examples on this page will reference these variables.
+Let's start off our demo by adding a variable to our [script tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script). This variable will be global and constant.
 
 ```js
 const match = 'a';
-let matches = 0;
 ```
 
 ## Functions
@@ -64,6 +63,8 @@ let matches = 0;
 Functions are reusable pieces of functionality. Functions can take inputs (parameters) and return values (or neither). Functions can be called from within your program, from within other functions, or invoked from within the DOM itself.
 
 In our example we'll create a function called `displayMatches` (camelCase is typical for functions) and we'll invoke this function every time that our submit button is clicked. For now we'll simply have our function call `alert("I'm Clicked")`, which is a function that creates an alert in your browser.
+
+> Note that we want to place `matches` inside of the function so that it resets to 0 each time the function is called
 
 ```js
 function displayMatches() {
@@ -111,14 +112,14 @@ window.onclick = function() {
 In our example we want to trigger a function based on the click of a button. To do this, we first need to get a reference to the button. We can use `querySelector` to get that reference. And then we can set its `onclick` value just like above.
 
 ```js
-const button = docment.querySelector('.submit');
+const button = document.querySelector('.submit');
 button.onclick = displayMatches();
 ```
 
 You can also combine these together like this:
 
 ```js
-docment.querySelector('.submit').onclick = displayMatches();
+document.querySelector('.submit').onclick = displayMatches;
 ```
 
 Wire this up and see you function in action!
@@ -138,11 +139,12 @@ function displayMatches() {
 
 ## Conditionals
 
-Next we want to compare each `letter` with our `match` value, and if they are the same, we will increment our `matches` variable. Remember that `letter = match` would set the `letter` variable to the value in `match`, so to do comparisons, we use the equality operator `==` or the strict equality operator `===`.
+Next we want to compare each `letter` with our global `match` value, and if they are the same, we will increment a `matches` variable. Remember that `letter = match` would set the `letter` variable to the value in `match`, so to do comparisons, we use the equality operator `==` or the strict equality operator `===`.
 
 ```js
 function displayMatches() {
   const text = 'abcda';
+  let matches = 0;
   for (let letter of text) {
     if (letter === match) {
       matches++;
