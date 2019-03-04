@@ -233,9 +233,41 @@ Add a couple `Counter`s to our `App`, each with different text. Notice how they 
 
 ## Moving this into out codebase
 
-### Module Exports
+To scale our application we are going to need to break up file into smaller, reusable pieces. In this part of the demo we'll look at the `final` folder and how the Javascript module system allows us to break up our components into a collection of files exporting their functionality.
 
-### Module Imports
+### Module Exports and Imports
+
+Open up the `step1-04/final/components/Counter.tsx` and look at the `Counter` component.
+
+```tsx
+export class Counter extends React.Component {
+...
+}
+```
+
+This file exports the Counter component as a 'named' export. This means when we import it we do the following
+
+```tsx
+import { Counter } from './components/Counter';
+```
+
+#### Default Exports
+
+We usually export named exports, but it's also possible export a default value like this:
+
+```tsx
+export default class extends React.Component {
+...
+}
+```
+
+In this case the export isn't named, so when we import the component we can call it whatever we want:
+
+```tsx
+import SomeCounterComponent from './components/Counter';
+```
+
+> Note that this example doesn't have `{}` wrapped around the import value. This is actually an example of destructuring.
 
 ## Using a Button component
 
@@ -253,10 +285,3 @@ export const Button = props => {
   );
 };
 ```
-
-- All components need to import React (don't worry, only one copy ever gets into your app)
-- CSS files imported into the component are only loaded if the component is used
-- React components can be created as a class **or** as a function. In this function component, props are passed in as a function parameter.
-  > Until recently, you could only access state in class-based components. But with the advent of [hooks](https://reactjs.org/docs/hooks-intro.html) you can create stateful function components.
-- Since this is a function, we don't have any methods, including `render()`. Just return your JSX as you would in the render function of a class-based component.
-- `props.children` contains anything passed between the opening and closing tags: `<Button>I'm in children</Button>`
