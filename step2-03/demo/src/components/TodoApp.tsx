@@ -10,7 +10,7 @@ let index = 0;
 
 const className = mergeStyles({
   padding: 25,
-  boxShadow: getTheme().effects.elevation4
+  ...getTheme().effects.elevation4
 });
 
 // Uncomment to see loadTheme
