@@ -1,7 +1,7 @@
 // TODO: import the fib(n) function and the constant from './fibonacci.ts'
-// import {fib}, FibConst from ...
+// import FibConst, {fib} from ...
 
-// TODO: import Stack from './stack.ts'
+// TODO: import Stack from ...
 
 // Do the exercises here, outputting results using console.log()
 console.log('hello world');
@@ -54,11 +54,10 @@ function makePromise() {
 
 async function run() {
   // TODO: call makePromise() using await syntax and log the results
-
   // TODO: call your new async function
 }
 
 run();
 
 // Make this file a module so its code doesn't go in the global scope
-export { };
+export {};
