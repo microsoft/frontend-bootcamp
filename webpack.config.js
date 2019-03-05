@@ -40,10 +40,13 @@ fs.readdirSync('./').filter(step => {
 
   if (!isEntryPoint && isValidLessonFolder(step)) {
     nonWebpackedEntries.push(step);
+  } else if (step === 'step1-04') {
+    // special case: this folder's `final` has code, but its `demo` doesn't
+    nonWebpackedEntries.push('step1-04/demo');
   }
 });
 
-module.exports = function(env, argv) {
+module.exports = function (env, argv) {
   return {
     entry: { ...entries, markdownReadme: './markdownReadme/src/index.ts' },
     module: {
