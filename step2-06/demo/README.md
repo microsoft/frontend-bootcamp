@@ -1,4 +1,4 @@
-# Step 2.6: Redux: React Binding (Demo)
+# Step 2.6 - Redux: React binding (Demo)
 
 [Lessons](../../) | [Exercise](../exercise/)
 

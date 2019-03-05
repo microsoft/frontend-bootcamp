@@ -1,4 +1,4 @@
-# Step 2.1: Introduction to TypeScript (Exercise)
+# Step 2.1 - Introduction to TypeScript (Exercise)
 
 [Lessons](../../) | [Demo](../demo/)
 
@@ -20,7 +20,7 @@ Exercises will be completed under this step's `exercise/src` folder unless other
 
 5. Inside `index.ts` in the same folder, import both `fib` and `FibConst`, and use the built-in `console.log()` function to log the result of `fib(FibConst)`.
 
-## Types and Interfaces
+## Types and interfaces
 
 Inside `exercise/src/index.ts`:
 
@@ -38,7 +38,7 @@ Inside `exercise/src/stack.ts`, create a generic class for a `Stack<T>` complete
 
 In `exercise/src/index.ts`, create a `Stack<number>` and use `console.log()` to demonstrate its functionality.
 
-## Spread and Destructuring
+## Spread and destructuring
 
 1. Note the following code in index.ts:
 
@@ -61,7 +61,7 @@ const obj2 = {
 
 3. Use the destructuring syntax to retrieve the values for `{first, second, catcher}` from `megaObj`.
 
-## Async / Await
+## Async / await
 
 Note the following code in index.ts:
 

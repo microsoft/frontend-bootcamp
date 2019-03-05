@@ -1,4 +1,4 @@
-# Step 2.3: Theming and styling with UI Fabric (Demo)
+# Step 2.3 - Theming and styling with UI Fabric (Demo)
 
 [Lessons](../../) | [Exercise](../exercise/)
 
