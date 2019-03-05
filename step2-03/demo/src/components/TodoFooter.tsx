@@ -15,7 +15,14 @@ export const TodoFooter = (props: TodoFooterProps) => {
       <Text>
         {itemCount} item{itemCount === 1 ? '' : 's'} left
       </Text>
-      <DefaultButton onClick={() => props.clear()}>Clear Completed</DefaultButton>
+      <DefaultButton
+        onClick={() => props.clear()}
+        styles={{
+          root: { fontStyle: 'oblique' }
+        }}
+      >
+        Clear Completed
+      </DefaultButton>
     </Stack>
   );
 };
