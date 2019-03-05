@@ -8,6 +8,10 @@ h1 {
   text-align: center;
 }
 
+small {
+  font-size: 0.5em;
+}
+
 .addTodo {
   display: flex;
 }
