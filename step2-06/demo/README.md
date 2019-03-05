@@ -15,7 +15,7 @@ We will demonstrate how to use `react-redux` to pass down the Redux store to the
 
 ## Provide the Store Context
 
-Class Components will access the Redux store via the `StoreContext` from `react-redux-hooks`. In Step 2.4, you saw how the context is hooked up. So, instead of providing our own context for Redux store, we just take one that is already been created. We need to first hook up the `<StoreContext.Provider>` component just like in Step 2.4.
+Class Components will access the Redux store via the `<Provider>` from `react-redux`. Under the hood, `react-redux` also uses the Context API to pass the store into the descendant components.
 
 ```js
 const store = createStore(reducers);
