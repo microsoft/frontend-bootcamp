@@ -59,3 +59,6 @@ async function run() {
 }
 
 run();
+
+// Make this file a module so its code doesn't go in the global scope
+export { };
