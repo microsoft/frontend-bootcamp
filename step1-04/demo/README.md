@@ -2,7 +2,7 @@
 
 In this demo we'll be creating a simple counter that will display a count and increment on click.
 
-Let's start this demo [in CodePen](https://codepen.io/micahgodbolt/pen/wOWeVb?editors=0010).
+Let's start this demo in [CodePen](https://codepen.io/micahgodbolt/pen/wOWeVb?editors=0010).
 
 ## React Hello World
 
