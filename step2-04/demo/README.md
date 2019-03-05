@@ -1,6 +1,6 @@
 # Step 2.4 - React Context (Demo)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Exercise](../exercise/)
 
 In this step, we describe some problems we encounter when creating a more complex application.
 

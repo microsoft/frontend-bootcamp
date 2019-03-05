@@ -1,6 +1,6 @@
 # Step 2.1: Introduction to TypeScript (Demo)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Exercise](../exercise/)
 
 In this step, we'll cover enough TypeScript concepts to be productive with the React & Redux frameworks.
 

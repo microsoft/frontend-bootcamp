@@ -1,6 +1,6 @@
 # Bonus: Testing TypeScript code with Jest (Demo)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Exercise](../exercise/)
 
 [Jest](https://jestjs.io/) is a test framework made by Facebook and is very popular in the React and wider JS ecosystems.
 

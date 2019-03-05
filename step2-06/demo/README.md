@@ -1,6 +1,6 @@
 # Step 2.6: Redux: React Binding (Demo)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Exercise](../exercise/)
 
 Redux is currently the most popular Flux implementation, and the ecosystem of related libraries has grown as a result. This is one of the reasons why it is a very popular library within Microsoft products.
 

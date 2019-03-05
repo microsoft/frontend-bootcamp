@@ -1,6 +1,6 @@
 # Bonus: Service calls (Demo)
 
-[Lessons](../)
+[Lessons](../../)
 
 > Note: this step doesn't work with the live site on github.io. Clone the repo to try this step out.
 

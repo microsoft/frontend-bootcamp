@@ -1,6 +1,6 @@
 # Step 2.1: Introduction to TypeScript (Exercise)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Demo](../demo/)
 
 If you don't already have the app running, start it by running `npm start` from the root of the `frontend-bootcamp` folder.
 

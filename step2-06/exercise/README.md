@@ -1,6 +1,6 @@
 # Step 2.6: Redux: React Binding (Exercise)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Demo](../demo/)
 
 If you haven't arStart the app by running `npm start` from the root of the `frontend-bootcamp` folder. Click the "exercise" link under day 2 step 6 to see results.
 

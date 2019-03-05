@@ -111,7 +111,7 @@ module.exports = function(env, argv) {
       extensions: ['.tsx', '.ts', '.js']
     },
     output: {
-      filename: '[name]/[name].js',
+      filename: '[name]/bundle.js',
       path: outPath
     },
     devServer: {

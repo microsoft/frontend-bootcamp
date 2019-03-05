@@ -1,6 +1,6 @@
 # Bonus: Testing TypeScript code with Jest (Exercise)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Demo](../demo/)
 
 Start the test runner by running `npm test` in the root of the `frontend-bootcamp` folder.
 
