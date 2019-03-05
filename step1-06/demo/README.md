@@ -4,7 +4,7 @@ In React, the data travels in one direction: top-down in the form of state propa
 
 [Step #3 of "Thinking in React"](https://reactjs.org/docs/thinking-in-react.html) suggests finding the "minimal set of mutable state" that your application requires. So in this demo we are going to add that "minimal state" to our application and drive our UI off of that data. With that done, the next step will be to create ways to modify that state, which will in turn cascade down through our UI. This [reconciliation](https://reactjs.org/docs/reconciliation.html) process, figuring out what in your UI needs to change based on changing state, is what React excels at.
 
-## Adding State to `AppTodo.tsx`
+## Adding State to `TodoApp.tsx`
 
 Inside our `TodoApp` class, we will add the minimal state for our application, which includes just two keys: `todos` and `filter`. We don't need to worry about a `remaining` value because it can be calculated by counting the number of todos where the `completed` field is set to `false`.
 
@@ -122,4 +122,4 @@ With those two pieces in place, we can update our uncontrolled input to being co
 <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
 ```
 
-> If you have React Dev Tools installed, open them up and take a look at labelInput as we type in the input.
+> If you have React Dev Tools installed, open them up and take a look at `labelInput` as we type in the input.

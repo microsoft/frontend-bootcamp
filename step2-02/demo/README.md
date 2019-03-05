@@ -1,6 +1,6 @@
 # Step 2.2: UI Fabric Component Library (Demo)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Exercise](../exercise/)
 
 [UI Fabric](https://developer.microsoft.com/en-us/fabric) is a component library that reflects the latest Microsoft design language. It is used in many Microsoft web applications and is [developed in the open](https://github.com/OfficeDev/office-ui-fabric-react).
 

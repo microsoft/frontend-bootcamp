@@ -12,12 +12,13 @@ The first day provides an introduction to the fundamentals of the web: HTML, CSS
 
 ### 1. Required software
 
-Before starting, make sure your computer has the following installed:
+Before starting, make sure your computer has up-to-date versions of the following installed:
 
-- [Node/NPM](https://nodejs.org/en/) (choose the **LTS** option)
+- [Node/NPM](https://nodejs.org/en/) (choose the **LTS** option, which should be version 10)
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com)
   - If using a Mac, also follow [these steps](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to install the `code` terminal command.
+  - If you already had VS Code installed, check for updates!
 - React Developer Tools for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
 ### 2. Installing and opening the project

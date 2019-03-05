@@ -24,7 +24,7 @@ async function run() {
   if (div) {
     const response = await fetch(div.dataset['src'] || '../README.md');
     const markdownText = await response.text();
-    div.innerHTML = marked(markdownText, { baseUrl: '../' });
+    div.innerHTML = marked(markdownText);
     restoreScroll(div);
 
     div.addEventListener('scroll', evt => {
