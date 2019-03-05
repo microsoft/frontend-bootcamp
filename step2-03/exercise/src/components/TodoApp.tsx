@@ -13,7 +13,7 @@ let index = 0;
 // TODO: Change this to add other CSS styles like backgroundColor, fontSize, etc
 const className = mergeStyles({
   padding: 25,
-  ...getTheme().effects.elevation4
+  boxShadow: getTheme().effects.elevation4
 });
 
 export class TodoApp extends React.Component<any, Store> {
