@@ -1,30 +1,30 @@
-# Types and Creating a UI-Driven State
+# Step 1.7 - Types and creating a UI-driven state (Demo)
 
-Now that we have a UI that is purely driven by the state of our app, we need to add functionality to allow the UI to drive the state. This is often done by creating functions that call `setState` like we saw in the `TodoHeader`. Values from the state are then passed down to the UI as props.
+Now that we have a UI that is purely driven by the state of our app, we need to add functionality to allow the UI to drive the state. This is often done by creating functions that call `setState` like we saw in the `TodoHeader`. Values from the state are then passed down child components as props.
 
 > We'll be learning in part 2 of this workshop how we can expose these functions without explicitly passing them down via props.
 
-This is our core "business logic" and handles everything our basic "CRUD" operations: Create, Read, Update, Delete. We don't have time to walk through writing all of those functions, but you can see that they are already provided in the demo's `TodoApp` and passed into our components.
+This is our core "business logic" and handles our basic "CRUD" operations: Create, Read, Update, Delete. We don't have time to walk through writing all of those functions, but you can see that they are already provided in the demo's `TodoApp` and passed into our components.
 
 ## Intro to TypeScript
 
-Taking a look at our components in `TodoApp`, you can see that our list of props is not just getting longer, but is getting much more complex! We're passing through functions with various signatures, complex `todos` objects, and filter strings which are always one of three values.
+Taking a look at our components in `TodoApp`, you can see that our list of props is getting not just longer, but much more complex! We're passing through functions with various signatures, complex `todos` objects, and filter strings which are always one of three values.
 
-As applications grow, it becomes increasing difficult to remember what each function does, or what each todo contains. Also, as JavaScript is a dynamically typed language, if I wanted to change the value of `todos` to an array inside my `TodoList`, JavaScript wouldn't care. But if `TodoListItems` was expecting an object, our application would break.
+As applications grow, it becomes difficult to remember what each function does or what each todo contains. Also, as JavaScript is a dynamically typed language, if I wanted to change the value of `todos` to an array inside my `TodoList`, JavaScript wouldn't care. But if `TodoListItems` was expecting an object, our application would break.
 
-It for these two reasons that the entire industry is shifting to writing applications that are strongly typed, and many are using TypeScript to accomplish that.
+For these two reasons, the industry is shifting to writing applications that are strongly typed, and many are using TypeScript to accomplish that.
 
 As [TypeScript's website](https://www.typescriptlang.org/) states:
 
 > TypeScript is a superset of JavaScript that compiles to plain JavaScript.
 
-If you've ever used [Sass](https://sass-lang.com/) you are familiar with this concept. In the same way that all valid CSS is valid Sass, all valid JavaScript is valid TypeScript. That's why most of these exercises have been written in `ts` and `tsx` files instead of `js` and `jsx` files.
+If you've used [Sass](https://sass-lang.com/), you're familiar with this concept. In the same way that all valid CSS is valid Sass, all valid JavaScript is valid TypeScript. That's why our exercises have been written in `ts` and `tsx` files instead of `js` and `jsx`.
 
-Let's dive into the demo and see how TypeScript can help us better understand our component props and guard against future regressions.
+Let's dive in and see how TypeScript can help clarify our component props and guard against future regressions.
 
 # Demo
 
-Let's start off in the TodoList, as that has the most data flow up and down. There isn't any interactive UI in this component, as we're simply passing `completed` down to each `TodoListItem`, but we can write a props interface for the component to make sure that everything gets passed down properly.
+Let's start off in the TodoList, as that has the most data flow up and down. There isn't any interactive UI in this component, as we're simply passing `completed` down to each `TodoListItem`, but we can write a props interface to make sure that everything gets passed down properly.
 
 ## Writing TodoListProps
 

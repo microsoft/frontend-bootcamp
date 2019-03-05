@@ -8,8 +8,8 @@ We will solve these problems with the [React Context API](https://reactjs.org/do
 
 1. The problem of complex applications
 2. React Context API
-3. Consuming context from a Class Component
-4. Consuming context from a Functional Component
+3. Consuming context from a class component
+4. Consuming context from a functional component
 
 ## The problem of complex applications
 
@@ -66,8 +66,8 @@ class TodoApp extends React.Component {
       <TodoContext.Provider
         value={{
           ...this.state,
-          addTodo={this._addTodo},
-          setFilter={this._setFilter},
+          addTodo: this._addTodo,
+          setFilter: this._setFilter,
           /* same goes for remove, complete, and clear */
         }}>
         <div>
@@ -81,7 +81,7 @@ class TodoApp extends React.Component {
 }
 ```
 
-### Consume context from a Class Component
+### Consume context from a class component
 
 Inside a class-based child component, such as `<TodoHeader>`, the context created in the parent can be accessed via `this.context`. Note that for this to work, you must also set the component class's `contextType` property to the context type created above.
 
@@ -97,7 +97,7 @@ class TodoHeader extends React.Component {
 TodoHeader.contextType = TodoContext;
 ```
 
-### Consume context from a Functional Component
+### Consume context from a functional component
 
 If you're using the functional component syntax, you can access the context with the `useContext()` hook:
 

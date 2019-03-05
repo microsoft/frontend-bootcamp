@@ -1,4 +1,4 @@
-# Step 2.2: UI Fabric Component Library (Demo)
+# Step 2.2 - UI Fabric component library (Demo)
 
 [Lessons](../../) | [Exercise](../exercise/)
 
@@ -11,7 +11,7 @@ We'll talk about:
 - [How to use it](#how-to-use-it)
 - [Laying out apps with Stack](#layout-with-stack)
 
-## What Makes It Good
+## What makes it good
 
 - Fabric has been developed BOTH by developers and design engineers working together as a team
 - Most notable Microsoft web products use it
@@ -23,7 +23,7 @@ We'll talk about:
 - Engineering is done in the open on GitHub
 - Engineering system is shared and re-usable by other teams
 
-## How to Find It
+## How to find it
 
 GitHub repo:
 https://github.com/officedev/office-ui-fabric-react
@@ -31,9 +31,9 @@ https://github.com/officedev/office-ui-fabric-react
 Documentation:
 https://developer.microsoft.com/en-us/fabric/#/components
 
-## How to Use It
+## How to use it
 
-### Importing a Component
+### Importing a component
 
 ```jsx
 import { DefaultButton } from 'office-ui-fabric-react';
@@ -47,7 +47,7 @@ const MyComponent = () => {
 };
 ```
 
-### Customizing Behavior of Individual Components
+### Customizing behavior of individual components
 
 Take a look at the [Button documentation](https://developer.microsoft.com/en-us/fabric#/components/button).
 
@@ -65,7 +65,7 @@ const MyComponent = () => {
 };
 ```
 
-### Customizing Component Rendering
+### Customizing component rendering
 
 Some Fabric components take in a render functions to allow customizing certain parts of the component. An example with TextField:
 
@@ -84,7 +84,7 @@ const MyComponent = () => {
 
 ## Layout with Stack
 
-Before we start, let's look at flexbox--a new CSS layout method which is powerful, but really, really complex to use:
+Before we start, let's look at flexbox--a modern CSS layout method which is powerful, but really, really complex to use:
 
 - A guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - A tool: http://the-echoplex.net/flexyboxes/

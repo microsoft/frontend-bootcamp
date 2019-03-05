@@ -1,4 +1,4 @@
-# JavaScript Demo
+# Step 1.3 - Introduction to JavaScript (Demo)
 
 It's entirely possible to create a website with nothing but HTML and CSS, but as soon as you want user interaction other than links and forms, you'll need to reach for JavaScript, the scripting language of the web. Fortunately, JavaScript has grown up quite a bit since it was introduced in the '90s, and now runs just about everything: web applications, mobile applications, native applications, servers, robots and rocket ships.
 
@@ -20,7 +20,7 @@ By the end of the demo we'll have covered the following:
 - Loops
 - Interacting with the DOM (Document Object Model)
 
-## Introduction To Variables
+## Introduction to variables
 
 We can create a new variable with the keywords `var`, `let`, `const` and use them within our application. These variables can contain one of the following types of values:
 
@@ -35,7 +35,7 @@ We can create a new variable with the keywords `var`, `let`, `const` and use the
 
 > [When to use `var`/`let`/`const`?](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable-in-jav) Use `const` for variables you never expect to change, and `let` for anything else. `var` is mostly no longer used. See the link for more details about how each works.
 
-### Variable Examples
+### Variable examples
 
 ```js
 const myBoolean = true;
@@ -50,7 +50,7 @@ const myFunction = function(myNumberParam) {
 
 > JavaScript is a dynamically typed language, so if you initially store a number in a variable (`let myVar = 0`), you can change it to contain a string by simply writing `myVar = 'hello'` without any trouble.
 
-### Adding Variables
+### Adding variables
 
 Let's start off our demo by adding a variable to our [script tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script). This variable will be global and constant.
 
@@ -76,7 +76,7 @@ Functions on their own don't have any effect on the page. When I declare `functi
 
 To execute a function we need to attach it to an event. There are a number of possible events: keyboard strokes, mouse clicks, document loading, and more.
 
-### Add Event Listeners
+### Add event listeners
 
 To attach a function to an event, we use an [`addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) like this:
 
@@ -92,7 +92,7 @@ window.addEventListener('click', function() {
 
 > [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) is a reference to the entire window containing the HTML document.
 
-### Global Event Handlers
+### Global event handlers
 
 If you think this feels a little verbose, you're not alone. Many of the [most common event types](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) are available as element properties. This way we can set properties like `onload` or `onclick` like this:
 
@@ -208,7 +208,3 @@ function displayMatches() {
   document.querySelector('.submit').value = matches + ' matches';
 }
 ```
-
-## Next Step
-
-[Start our Todo App](../../step1-02/demo/)

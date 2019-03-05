@@ -1,4 +1,6 @@
-# How the Web Works
+# Step 1.1 - Introduction to HTML (Demo)
+
+## How the web works
 
 A simple web page is rendered on the screen via the following steps.
 
@@ -21,7 +23,7 @@ A simple web page is rendered on the screen via the following steps.
 
 ![MDN Page Load](https://user-images.githubusercontent.com/1434956/53033758-9da8d580-3426-11e9-9ab8-09f42ccab9a8.png)
 
-# HTML Demo
+## HTML demo
 
 HTML tags are the basis of all web applications. They give the page structure and define the content within.
 
@@ -35,7 +37,7 @@ HTML tags can also be nested to create a tree that we call the [Document Object 
 
 The [HTML demo page](https://microsoft.github.io/frontend-bootcamp/step1-01/demo) shows a large collection of HTML elements that you will come across during development. The full list of elements can be found on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 
-## Sample Website
+## Sample webpage
 
 ```html
 <html>

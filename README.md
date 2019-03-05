@@ -6,7 +6,7 @@
 
 In this two-day workshop you'll learn the basics of frontend development while building a working web app.
 
-The first day provides an introduction to the fundamentals of the web: HTML, CSS and JavaScript. This is targeted at new and experienced developers alike. On the second day we'll dive into more advanced topics like TypeScript, testing, and state management. While the examples should be accessible to anyone, you'll get the most out of it if you have some prior experience with programming and web technologies.
+The first day provides an introduction to the fundamentals of the web: HTML, CSS and JavaScript. This is targeted at new and experienced developers alike. On the second day we'll dive into more advanced topics like TypeScript, state management, and testing. While the examples should be accessible to anyone, you'll get the most out of it if you have some prior experience with programming and web technologies.
 
 ## Getting set up
 
@@ -23,88 +23,75 @@ Before starting, make sure your computer has up-to-date versions of the followin
 
 ### 2. Installing and opening the project
 
-- Open VS Code and then press `ctrl + ~` to open the built in terminal
-- Use the `cd` (change directory) command to find an appropriate place for your code 
-- Type `git clone https://github.com/Microsoft/frontend-bootcamp.git` into the terminal, this will pull down a copy of the workshop code
+- Open VS Code and then press ```ctrl + ` ``` (backtick, in top left corner of keyboard) to open the built-in terminal
+- Use the `cd` (change directory) command to find an appropriate place for your code
+- Type `git clone https://github.com/Microsoft/frontend-bootcamp.git` into the terminal to pull down a copy of the workshop code
 - Type `cd frontend-bootcamp` to change your current directory to the bootcamp folder
-- Type `npm install` to install of the project dependencies
-- Type `code ./` to open the bootcamp code in VS Code
+- Type `npm install` to install all of the project dependencies
+- Type `code -r .` to open the bootcamp code in VS Code
 > If on a Mac, be sure you've followed [these steps](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) first to make the `code` command available.
 
 ### 3. Run the "inner loop" build
 
-Now that we have VS Code open with the bootcamp code, open the terminal again `ctrl + ~` and your project should look like this
+At this point, your VS Code window should look something like this:
 
 <img src="https://user-images.githubusercontent.com/1434956/53654442-9c379400-3c02-11e9-8768-d19e092b606d.png" width=500 />
 
-To run the dev "inner loop" for the first 3 lessons type:
+To start the dev "inner loop," run:
 ```
-npm run static
-```
-
-When we get to lesson 4, and React we will stop the static inner loop and start:
-1. press `ctrl + c` to stop the static inner loop
-
-```
-npm run start
+npm start
 ```
 
-Both of these above commands will load the following site:
+This will load the site shown below.
 
 <img src="https://user-images.githubusercontent.com/1434956/53656239-88426100-3c07-11e9-8456-e3d958aa4def.png" width=500 />
 
-## What to Expect
+## What to expect
+
+For each lesson, the presenter will walk through some demo code to teach core concepts about the topic. Don't worry about writing code at this point. Just follow along via the readmes linked below.
+
+Most lessons also have an exercise portion. Exercise instructions are usually found in the readme for each step's "exercise" folder.
 
 ### Day one
 
-Day one is going to cover the basics of HTML, CSS and JavaScript, as well as an introduction to React and Typescript.
+Day one covers the basics of HTML, CSS and JavaScript, as well as an introduction to React and Typescript.
 
-#### How we'll work
-
-The format of this day is the following:
-
-1. I will walk through some demo code to teach some core concepts about the topic. Don't worry about writing code at this point. Just follow along via the readme's listed below.
-2. In the excercise portion return to VS Code and open the 'exercise' folder for the given exercise. The demo folder will include a README file with directions and a link to the demo page.
-
-#### Course Material
-
-1. [Introduction to HTML, CSS and JavaScript](step1-01)
-2. [Writing a Todo App: HTML and CSS](step1-02)
-3. [Writing a Todo App: JavaScript](step1-03)
-4. [React Introduction](step1-04)
-5. [Building a Static Page](step1-05)
-6. [State Driven UI](step1-06)
-7. [Types & UI Driven State](step1-07)
-
+1. [Introduction to HTML](step1-01)
+2. [Introduction to CSS](step1-02)
+3. [Introduction JavaScript](step1-03)
+4. [Introduction to React](step1-04)
+5. [Building a static page](step1-05)
+6. [State-driven UI](step1-06)
+7. [Types and UI-driven state](step1-07)
 
 ### Day two
 
-The demos and exercises for today are combined.
+1. [TypeScript basics](step2-01)
+2. [UI Fabric component library](step2-02)
+3. [Theming and styling](step2-03)
+4. [React Context](step2-04)
+5. [Redux: Store](step2-05)
+6. [Redux: React binding](step2-06)
 
-1. [Introduction to TypeScript](step2-01)
-2. [UI Fabric Component Library](step2-02)
-3. [Theming and Styling](step2-03)
-4. [Testing with Jest](step2-04)
-5. [Redux: Reducers](step2-05)
-6. [Redux: Dispatching Actions and Examining State](step2-06)
-7. [Redux: Stores and Dispatch](step2-07)
-8. [Redux: Combining Reducers](step2-08)
-9. [Redux: Thunk Middleware](step2-09)
+### Bonus content
 
-### Additional resources
+* [Redux: Service calls](bonus-servicecalls)
+* [Testing with Jest](bonus-jest)
+
+## Additional resources
 
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
 - [React Docs](https://reactjs.org/docs/getting-started.html)
 - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
 
-### Follow the authors!
+## Follow the authors!
 
 If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems, follow us on Twitter:
 
 - [@kenneth_chau](https://twitter.com/kenneth_chau)
 - [@micahgodbolt](https://twitter.com/micahgodbolt)
 
-### Other projects from the UI Fabric team at Microsoft
+## Other projects from the UI Fabric team at Microsoft
 
 - [UI Fabric](https://developer.microsoft.com/en-us/fabric) - [github repo](https://github.com/officedev/office-ui-fabric-react)
 - [Just](https://microsoft.github.io/just): The task library that just works - [github repo](https://github.com/Microsoft/just)

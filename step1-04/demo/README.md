@@ -1,8 +1,8 @@
-# Step 4 - Introduction To React Demo
+# Step 1.4 - Introduction to React (Demo)
 
 In this demo we'll be creating a simple counter that will display a count and increment on click.
 
-Let's start this demo [in CodePen](https://codepen.io/micahgodbolt/pen/wOWeVb?editors=0010).
+Let's start this demo in [CodePen](https://codepen.io/micahgodbolt/pen/wOWeVb?editors=0010).
 
 ## React Hello World
 
@@ -19,7 +19,7 @@ The first parameter to `render()` looks a lot like HTML, but actually, it's [JSX
 - Controls can be self-closing: `<MyControl text='hi' />`
 - You can use JavaScript inside of JSX!
 
-## Writing a React Component
+## Writing a React component
 
 A React component is a piece of code that returns a portion of your application. This can include HTML markup, CSS styles, and JavaScript driven functionality.
 
@@ -87,7 +87,7 @@ const App = props => {
 };
 ```
 
-### Destructuring Props
+### Destructuring props
 
 Writing `props.text` over and over in a function (or `this.props.text` in a class) can be quite tedious. Since this is all JavaScript, you could create a new variable for this text using variable assignment.
 
@@ -159,13 +159,13 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 > Note the capitalization of `Counter`. HTML might not be case-sensitive, but JSX is! A common practice is to use the capitalized names of HTML elements to name corresponding React components: Button, Select, Label, Form, etc.
 
-## React State
+## Writing a stateful Counter component
 
 React allows each control to specify its own data store, called **state**. We can reference values in state when we render our UI, and we can also update state over the lifetime of our application.
 
 > Most stateful components you'll see today will be `class` based. It is just recently possible to add state to function components through the use of [`hooks`](https://reactjs.org/docs/hooks-intro.html)
 
-### Adding State
+### Adding state
 
 JavaScript classes use a `constructor` method to instantiate each copy of a class, along with any applicable state. Let's create a new component called `Counter` and give it a state containing a `clicks` property with a default value of `0`;
 
@@ -184,7 +184,7 @@ class Counter extends React.Component {
 - The [`super()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) function calls the constructor of the parent class (in this case `React.Component`).
 - Our `counter` state value can now be accessed via `this.state.counter`. Later, we can update state by calling `this.setState({ counter: 1 })`.
 
-### Creating our Counter
+### Rendering our Counter
 
 For our `Counter` component, the goal is to be able to track how many times the counter's button is clicked. We'll use the following markup.
 
@@ -201,7 +201,7 @@ render() {
 }
 ```
 
-### Writing our Button Click Handler
+### Writing our button click handler
 
 Our next step is to wire up the button to increment the `counter` in our component state.
 
@@ -235,11 +235,11 @@ Add a couple `Counter`s to our `App`, each with different text. Notice how they 
 
 ## Moving this into our codebase
 
-To scale our application we'll need to break up the file into smaller, reusable pieces. In this part of the demo we'll look at the `final` folder and how the JavaScript module system allows us to break up our components into a collection of files exporting their functionality.
+To scale our application, we'll need to break up the file into smaller, reusable pieces. In this part of the demo we'll look at the `final` folder and how the JavaScript module system allows us to break up our components into a collection of files exporting their functionality.
 
-### Module Exports and Imports
+### Module exports and imports
 
-Open up the `step1-04/final/components/Counter.tsx` and look at the `Counter` component.
+Open up `step1-04/final/components/Counter.tsx` and look at the `Counter` component.
 
 ```tsx
 export class Counter extends React.Component {
@@ -255,7 +255,7 @@ import { Counter } from './components/Counter';
 
 > Note the `{}` wrapped around the import value. This is actually an example of destructuring.
 
-#### Default Exports
+#### Default exports
 
 We typically use named exports, but it's also possible export a default value like this:
 
@@ -271,7 +271,7 @@ When we import the component we can call it whatever we want:
 import SomeCounterComponent from './components/Counter';
 ```
 
-## Using a Button component
+## Writing a Button component
 
 Buttons are among the most commonly written components. Custom buttons help abstract common styling, add icons or other decorations, and increase functionality (menu buttons etc). Let's take a quick look at a custom button component to see how it comes together.
 
