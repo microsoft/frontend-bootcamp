@@ -64,23 +64,34 @@ We'll write our reducers with the help of some utilities from the official [`red
 
 #### 1. Organize reducers according to the keys of the state tree object
 
+Given a state tree shaped like:
+
+```ts
+{
+  todos: {
+    [id: string]: TodoItem,
+  },
+
+  filter: 'all' | 'complete' | 'active'
+}
+```
+
+We would organize our reducers matching the keys of the state tree:
+
 ```ts
 import { createReducer } from 'redux-starter-kit';
-
-// first argument: initial state
-// second argument: object whose keys correspond to possible values of action.type
-const todosReducer = createReducer({}, {
-  addTodo: (state, action) => ...
-});
-
-const filterReducer = createReducer('all', {
-  setFilter: (state, action) => ...
-});
+import { combineReducer } from 'redux';
 
 const reducer = combineReducer({
-  todos: todosReducer,
-  filter: filterReducer
-});
+  // first argument: initial state
+  // second argument: object whose keys correspond to possible values of action.type
+  todos: createReducer({}, {
+    addTodo: (state, action) => { /* ... */}
+  }),
+  filter: createReducer('all', {
+    setFilter: (state, action) => ...
+  })
+})
 ```
 
 #### 2. Write the reducers with mutables
