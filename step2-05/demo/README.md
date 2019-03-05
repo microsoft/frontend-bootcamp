@@ -1,6 +1,6 @@
 # Step 2.5 - Redux: The Store (Demo)
 
-[Lessons](../../) | [Exercise](../exercise/) | [Demo](../demo/)
+[Lessons](../../) | [Exercise](../exercise/)
 
 In this step, we will look at solving the problems of complex applications (as mentioned in Step 4) with a library called [Redux](https://redux.js.org).
 
