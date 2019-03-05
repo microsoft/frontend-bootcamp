@@ -1,19 +1,19 @@
-# Step 1-05: Demo Building a Static Page
+# Step 1.5 - Building a static page in React (Demo)
 
-To start off our todo application we are going to follow the steps outlined in [Thinking in React](https://reactjs.org/docs/thinking-in-react.html). The first step of the process is to break our application into a component hierarchy. For this app, we're going to keep it simple and just use four parts.
+To start building our todo application, we'll follow the steps outlined in [Thinking in React](https://reactjs.org/docs/thinking-in-react.html). The first step of the process is to break our application into a component hierarchy. For this app, we're going to keep it simple and just use four parts.
 
 - TodoHeader
 - TodoList
 - TodoListItem
 - TodoFooter
 
-You can find the HTML for our application in `step1-05/TodoApp.html`
+You can find the HTML for our application in `step1-05/TodoApp.html`.
 
 ## TodoHeader
 
-We are going to store all of our components inside of a `components` folder. Lets create that now. We'll then start with the `TodoHeader` inside of a file called `TodoHeader.tsx`. This file format tells our application that this file includes React code written in Typescript.
+We'll store all of our components inside a `components` folder under `src`. Let's create that now. We'll then start writing the `TodoHeader` in `components/src/TodoHeader.tsx`. The `tsx` file extension tells our editor that this file includes React code written in TypeScript.
 
-> We'll talk about Typescript soon, but for now know that all valid JavaScript is valid Typescript
+> We'll talk about TypeScript soon, but for now, know that all valid JavaScript is valid TypeScript.
 
 ```jsx
 import React from 'react';
@@ -38,7 +38,7 @@ export class TodoHeader extends React.Component<any, any> {
 }
 ```
 
-> Note that since this is React we had to change `class` to `className`, but nothing else changes.
+> Note that since this is React, we had to change `class` to `className`, but nothing else changes.
 
 ## TodoListItem
 
@@ -60,4 +60,15 @@ export class TodolistItem extends React.Component<any, any> {
 }
 ```
 
-> Note that this control could also be created as a function instead of a class: `export const TodoListItem = (props) => {}`
+> Note that this control could also be created as a function instead of a class:
+> ```jsx
+> export const TodoListItem = (props) => {
+>   return (
+>     <li className="todo">
+>       <label>
+>         <input type="checkbox" /> Todo 1
+>       </label>
+>     </li>
+>   );
+> }
+> ```

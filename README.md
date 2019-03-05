@@ -37,17 +37,12 @@ At this point, your VS Code window should look something like this:
 
 <img src="https://user-images.githubusercontent.com/1434956/53654442-9c379400-3c02-11e9-8768-d19e092b606d.png" width=500 />
 
-To start the dev "inner loop" for the first three lessons, run:
+To start the dev "inner loop," run:
 ```
-npm run static
-```
-
-When we get to lesson 4 and React, we'll stop the static inner loop (press `ctrl + C`) and instead run:
-```
-npm run start
+npm start
 ```
 
-Both of these commands will load the site shown below.
+This will load the site shown below.
 
 <img src="https://user-images.githubusercontent.com/1434956/53656239-88426100-3c07-11e9-8456-e3d958aa4def.png" width=500 />
 
