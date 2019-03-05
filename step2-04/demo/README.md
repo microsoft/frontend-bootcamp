@@ -66,8 +66,8 @@ class TodoApp extends React.Component {
       <TodoContext.Provider
         value={{
           ...this.state,
-          addTodo={this._addTodo},
-          setFilter={this._setFilter},
+          addTodo: this._addTodo,
+          setFilter: this._setFilter,
           /* same goes for remove, complete, and clear */
         }}>
         <div>
