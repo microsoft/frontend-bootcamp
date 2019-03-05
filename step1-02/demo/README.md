@@ -1,6 +1,6 @@
-## CSS Demo
+# Step 1.2 - Introduction to CSS (Demo)
 
-### CSS Properties
+## CSS properties
 
 Now that we've gone over adding HTML tags to the page, let's cover adding styles to those tags. We can do quite a lot with styles! We can change:
 
@@ -15,7 +15,7 @@ Now that we've gone over adding HTML tags to the page, let's cover adding styles
 
 CSS styles are always written in `property: value` pairs (like `background: blue;`) and terminated with a semicolon.
 
-### Applying CSS to an HTML file
+## Applying CSS to an HTML file
 
 CSS can be applied to HTML tags in three different ways.
 
@@ -25,7 +25,7 @@ CSS can be applied to HTML tags in three different ways.
 3. Through an external CSS file
    - `<link rel="stylesheet" href="./css-demo-finished.css" />`
 
-### Targeting specific elements
+## Targeting specific elements
 
 Inline styles are always applied directly to the element you place them on, but `<style>` tags and external CSS files need a way to match elements with their respective style sets. This is done with **[CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)**. When selectors are combined with CSS styles, we call this a **ruleset**.
 

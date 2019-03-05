@@ -1,12 +1,12 @@
-# Step 1-06 Demo: Creating a State-Driven UI
+# Step 1.6 - Creating a state-driven UI (Demo)
 
 In React, the data travels in one direction: top-down in the form of state propagating down the component hierarchy. Only the component containing the state can change the state itself. When a UI interaction occurs, a stateful component must pass down an event handler to the UI component triggering the event in order to signal a state change.
 
 [Step #3 of "Thinking in React"](https://reactjs.org/docs/thinking-in-react.html) suggests finding the "minimal set of mutable state" that your application requires. So in this demo we are going to add that "minimal state" to our application and drive our UI off of that data. With that done, the next step will be to create ways to modify that state, which will in turn cascade down through our UI. This [reconciliation](https://reactjs.org/docs/reconciliation.html) process, figuring out what in your UI needs to change based on changing state, is what React excels at.
 
-## Adding State to `TodoApp.tsx`
+## Adding state to TodoApp
 
-Inside our `TodoApp` class, we will add the minimal state for our application, which includes just two keys: `todos` and `filter`. We don't need to worry about a `remaining` value because it can be calculated by counting the number of todos where the `completed` field is set to `false`.
+Inside our `TodoApp` class, we will add the minimal state for our application, which includes just two keys: `todos` and `filter`. We don't need to worry about a `remaining` count because it can be calculated by counting the number of todos where the `completed` field is set to `false`.
 
 So here is our full constructor:
 
@@ -39,7 +39,7 @@ constructor(props) {
 
 > You could also use an array to represent your todos. Array manipulation can be easier in some cases, but this object approach simplifies other functionality and will ultimately be more performant.
 
-## Passing State Through to UI
+## Passing state through to UI
 
 Now we can pass `filter` and `todos` into our components.
 
@@ -56,7 +56,7 @@ render() {
 }
 ```
 
-## State-Driven TodoList
+## State-driven TodoList
 
 I've already pulled out our props into `filter` and `todos` variables, and written a bit of JS that will return an array of filtered todo `id`s. We'll be using that filtered array to render our todo items.
 
@@ -72,11 +72,11 @@ return (
 );
 ```
 
-## State-Driven and Stateful Header
+## State-driven and stateful TodoHeader
 
-Within the header we've got a situation where we not only want to pass `filter` state down to it, but we also want to maintain state within the control. Fortunately, this is no problem at all for React. First off let's deal with the incoming state.
+Within the header, we've got a situation where we not only want to pass `filter` state down to it, but we also want to maintain state within the control. Fortunately, this is no problem at all for React. First off let's deal with the incoming state.
 
-### Conditional Class Names
+### Conditional class names
 
 In CSS-based styling, visual states are applied by adding and removing classes. We can use the filter value to conditionally add a class, thereby lighting up the correct filter button.
 
@@ -90,7 +90,7 @@ In CSS-based styling, visual states are applied by adding and removing classes. 
 
 > The [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) `condition ? expressionIfTrue : expressionIfFalse` is widely used in React code, as each expression could be a string for a className or even a JSX element.
 
-### Adding a Controlled Input
+### Adding a controlled input
 
 In React, form elements such as `<input>`, `<textarea>`, and `<select>` can be used as either **uncontrolled** or **controlled**.
 

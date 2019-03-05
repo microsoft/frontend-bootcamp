@@ -1,4 +1,4 @@
-# Step 2.1: Introduction to TypeScript (Demo)
+# Step 2.1 - Introduction to TypeScript (Demo)
 
 [Lessons](../../) | [Exercise](../exercise/)
 
@@ -28,11 +28,11 @@ The most important ones to know about are:
 
 > For more information about the _many_ modularity patterns and standards developed over time, see [this article](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc). You may still encounter some of the older patterns in legacy code.
 
-## TypeScript Types
+## TypeScript types
 
 Refer to [`demo/src/types`](./src/types/index.ts) for examples of some of the types available in TS that benefit a React developer.
 
-## Spread Operator
+## Spread operator
 
 The spread operator `...` provides a quick way to clone and concatenate objects and arrays. This syntax is seen a lot inside React props and Redux reducers.
 
@@ -139,7 +139,7 @@ aPromise
 
 > For more information, see [this overview of promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) or [this deep dive](https://developers.google.com/web/fundamentals/primers/promises).
 
-## Async / Await
+## Async / await
 
 **Async / Await** is a language-level feature for writing asynchronous functions as if they are ordinary, synchronous code. JS support for this is built on top of `Promise`s and is inspired heavily by [C#'s async / await syntax](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/). An async function is written like this:
 
