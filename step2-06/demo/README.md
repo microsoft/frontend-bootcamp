@@ -67,3 +67,9 @@ So, that's a lot to digest. We'll go through these different parts:
 3. Finally, `connect()` actually returns a function that **decorates** a `<MyComponent>` into `<ConnectedComponent>` - it is a strange syntax, so do study it more closely here.
 
 > Yes, `connect()` is a function that takes in functions as arguments that returns a function that takes in a component that return a component. Try to say this fast 10 times :)
+
+## A Note on Performance
+
+Some folks going through this bootcamp cannot wait to start making screaming fast apps with Redux. Performance isn't free, and it certainly isn't with Redux. Try going through these links to get started on that topic:
+
+https://github.com/markerikson/react-redux-links/blob/master/react-performance.md#redux-performance
