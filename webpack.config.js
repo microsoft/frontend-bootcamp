@@ -108,7 +108,11 @@ module.exports = function(env, argv) {
       })
     ],
     resolve: {
-      extensions: ['.tsx', '.ts', '.js']
+      extensions: ['.tsx', '.ts', '.js'],
+      alias: {
+        'react-dom$': 'react-dom/profiling',
+        'scheduler/tracing': 'scheduler/tracing-profiling'
+      }
     },
     output: {
       filename: '[name]/bundle.js',
