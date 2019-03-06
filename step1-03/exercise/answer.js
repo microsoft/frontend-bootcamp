@@ -2,7 +2,7 @@ function getFavs() {
   let favList = [];
   const inputs = document.querySelectorAll('input');
   for (const input of inputs) {
-    if (input.checked === true) {
+    if (input.checked) {
       favList.push(input.parentNode.textContent);
     }
   }
