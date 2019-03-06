@@ -1,37 +1,65 @@
 <html>
-  <style>
-    label,
-    button {
-      display: block;
-      margin-bottom: 10px;
-    }
-  </style>
   <body>
-    <label><input type="checkbox" />Ice cream</label>
-    <label><input type="checkbox" />Pizza</label>
-    <label><input type="checkbox" />Tacos</label>
-    <label><input type="checkbox" />Meatloaf</label>
-    <label><input type="checkbox" />Brocolli</label>
+    <div
+      class="codepen"
+      data-theme-id="36294"
+      data-prefill
+      data-editable="true"
+      data-height="100%"
+      data-theme-id="1"
+      data-default-tab="js,result"
+    >
+      <pre data-lang="css">
+label,
+button {
+  display: block;
+  margin-bottom: 10px;
+}
+      </pre>
+      <pre data-lang="html">
+&lt;label&gt;&lt;input type=&quot;checkbox&quot; /&gt;Ice cream&lt;/label&gt;
+&lt;label&gt;&lt;input type=&quot;checkbox&quot; /&gt;Pizza&lt;/label&gt;
+&lt;label&gt;&lt;input type=&quot;checkbox&quot; /&gt;Tacos&lt;/label&gt;
+&lt;label&gt;&lt;input type=&quot;checkbox&quot; /&gt;Meatloaf&lt;/label&gt;
+&lt;label&gt;&lt;input type=&quot;checkbox&quot; /&gt;Brocolli&lt;/label&gt;
 
-    <button>Display Your Favorites</button>
+&lt;button&gt;Display Your Favorites&lt;/button&gt;
 
-    <div class="favorites"></div>
+&lt;div class=&quot;favorites&quot;&gt;&lt;/div&gt;
+      </pre>
+      <pre data-lang="js">
+/*
+1. Create a function named `getFavs`. Inside, run:
+    alert('clicked')
+
+2. Create a variable `button` and set it to a reference to our button using:
+    document.querySelector('button')
+
+3. Add a click event listener to the button that calls `getFavs`.
+   Click the button and make sure the alert is displayed.
+
+4. Replace the `alert` call with a new `favList` variable set to an empty array: []
+
+5. Create a const variable `inputs` set to all of the inputs on the page.
+   `querySelectorAll` will help here.
+
+6. Iterate over all of the inputs using:
+    for (const input of inputs) {}
+
+7. In each iteration, use an `if` statement to check if `input.checked` is equal to true
+
+8. If the above tests passes, push the `input.parentNode.textContent` into the `favList`
+   array by passing the text as a parameter to `favList.push()`
+  - `push` is a built-in array method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+
+9. Outside of the for loop, use `document.querySelector('.favorites')` to target the
+   div at the bottom of the page. Set the div's `textContent` to `favList.join(' ')`.
+   This will join each of the foods together into a string separated by a space.
+*/
+
+      </pre>
+    </div>
+
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
   </body>
-
-  <script>
-    function getFavs() {
-      let favList = [];
-      const inputs = document.querySelectorAll('input');
-      for (const input of inputs) {
-        if (input.checked === true) {
-          favList.push(input.parentNode.textContent);
-        }
-      }
-      document.querySelector('.favorites').textContent = favList.join(' ');
-    }
-
-    let button = document.querySelector('button');
-
-    button.addEventListener('click', getFavs);
-  </script>
 </html>

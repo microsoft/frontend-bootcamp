@@ -9,8 +9,12 @@ const outPath = path.resolve(__dirname, 'docs');
 const entries = {};
 const nonWebpackedEntries = [];
 
+function isValidLessonFolder(folder) {
+  return folder.includes('step') || folder.includes('playground') || folder.includes('bonus');
+}
+
 function* getEntryPoint(step) {
-  if (step.includes('step') || step.includes('playground')) {
+  if (isValidLessonFolder(step)) {
     for (let prefix of ['', 'demo/', 'exercise/', 'final/']) {
       for (let suffix of ['.js', '.jsx', '.ts', '.tsx']) {
         const entryRequest = `./${step}/${prefix}src/index${suffix}`;
@@ -34,12 +38,15 @@ fs.readdirSync('./').filter(step => {
     }
   }
 
-  if (!isEntryPoint && step.includes('step')) {
+  if (!isEntryPoint && isValidLessonFolder(step)) {
     nonWebpackedEntries.push(step);
+  } else if (step === 'step1-04') {
+    // special case: this folder's `final` has code, but its `demo` doesn't
+    nonWebpackedEntries.push('step1-04/demo');
   }
 });
 
-module.exports = function(env, argv) {
+module.exports = function (env, argv) {
   return {
     entry: { ...entries, markdownReadme: './markdownReadme/src/index.ts' },
     module: {
@@ -104,10 +111,14 @@ module.exports = function(env, argv) {
       })
     ],
     resolve: {
-      extensions: ['.tsx', '.ts', '.js']
+      extensions: ['.tsx', '.ts', '.js'],
+      alias: {
+        'react-dom$': 'react-dom/profiling',
+        'scheduler/tracing': 'scheduler/tracing-profiling'
+      }
     },
     output: {
-      filename: '[name]/[name].js',
+      filename: '[name]/bundle.js',
       path: outPath
     },
     devServer: {

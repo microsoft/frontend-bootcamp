@@ -1,8 +1,8 @@
-# JavaScript Demo
+# Step 1.3 - Introduction to JavaScript (Demo)
 
-It's entirely possible to create a website with nothing but HTML and CSS, but as soon as you want user interaction other than links and forms, you'll need to reach for JavaScript, the scripting language of the web. Fortunately, JavaScript has grown up quite a bit since it was introduced in the 90s, and now runs just about everything: web applications, mobile applications, native applications, servers, robots and rocket ships.
+It's entirely possible to create a website with nothing but HTML and CSS, but as soon as you want user interaction other than links and forms, you'll need to reach for JavaScript, the scripting language of the web. Fortunately, JavaScript has grown up quite a bit since it was introduced in the '90s, and now runs just about everything: web applications, mobile applications, native applications, servers, robots and rocket ships.
 
-In this demo we are going to cover a few of the core basics of the language that will help us when we start writing our TODO app. At the end of this demo we will be able to display the number of the letter "a"s in our email input. Here's the markup we're working with:
+In this demo we are going to cover a few core basics of the language that will help us when we start writing our todo app. At the end of this demo we will be able to count and display the number of the letter "a"s in our email input. Here's the markup we're working with:
 
 ```html
 <div id="contact-form">
@@ -20,11 +20,9 @@ By the end of the demo we'll have covered the following:
 - Loops
 - Interacting with the DOM (Document Object Model)
 
-## Introduction To Variables
+## Introduction to variables
 
 We can create a new variable with the keywords `var`, `let`, `const` and use them within our application. These variables can contain one of the following types of values:
-
-> Use `const` for variables you never expect to change, and `let` for anything else. `var` is mostly out of fasion.
 
 - **boolean**: `true`, `false`
 - **number**: `1`, `3.14`
@@ -35,35 +33,36 @@ We can create a new variable with the keywords `var`, `let`, `const` and use the
 - **null**
 - **undefined**
 
-### Variable Examples
+> [When to use `var`/`let`/`const`?](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable-in-jav) Use `const` for variables you never expect to change, and `let` for anything else. `var` is mostly no longer used. See the link for more details about how each works.
+
+### Variable examples
 
 ```js
-let myBoolean = true;
-let myNumber = 5;
-let myString = `Using backticks I can reuse other variables ${myNumber}`;
-let myArray = [1, 'cat', false, myString];
-let myObject = { key1: 'value1', anotherKey: myArray };
-let myFunction = function(myNumberParam) {
+const myBoolean = true;
+const myNumber = 5;
+const myString = `Using backticks I can reuse other variables ${myNumber}`;
+const myArray = [1, 'cat', false, myString];
+const myObject = { key1: 'value1', anotherKey: myArray };
+const myFunction = function(myNumberParam) {
   console.log(myNumber + myNumberParam);
 };
 ```
 
-> JavaScript is a loosely typed (dynamic) language, so if you initially store a number in a variable (`let myVar = 0`), you can change it to contain a string by simply writing `myVar = 'hello'` without any trouble.
+> JavaScript is a dynamically typed language, so if you initially store a number in a variable (`let myVar = 0`), you can change it to contain a string by simply writing `myVar = 'hello'` without any trouble.
 
-### Adding Variables
+### Adding variables
 
-Let's start off our demo by adding some variables to our [script tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script). The other examples on this page will reference these variables.
+Let's start off our demo by adding a variable to our [script tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script). This variable will be global and constant.
 
 ```js
 const match = 'a';
-let matches = 0;
 ```
 
 ## Functions
 
 Functions are reusable pieces of functionality. Functions can take inputs (parameters) and return values (or neither). Functions can be called from within your program, from within other functions, or invoked from within the DOM itself.
 
-In our example we'll create a function called `displayMatches` (camelCase is typical for functions) and we'll invoke this function every time that our submit button is clicked. For now we'll simply have our function call `alert("I'm Clicked")`, which is a function that creates an alert in your browser.
+In our example we'll create a function called `displayMatches` (camelCase is typical for functions) and we'll invoke this function every time that our submit button is clicked. For now we'll simply have our function call `alert("I'm Clicked")`, which is a function that displays an alert message box in your browser.
 
 ```js
 function displayMatches() {
@@ -73,11 +72,11 @@ function displayMatches() {
 
 ## Events
 
-Functions on their own don't have any affect on the page. When I declare `function displayMatches()` I have only defined the function, I haven't actually triggered it.
+Functions on their own don't have any effect on the page. When I declare `function displayMatches()` I have only defined the function; I haven't actually executed it.
 
-To execute a function we need to attach it to an event. There are a number of possible events: keyboard strokes, mouse clicks, document loading etc...
+To execute a function we need to attach it to an event. There are a number of possible events: keyboard strokes, mouse clicks, document loading, and more.
 
-### Add Event Listeners
+### Add event listeners
 
 To attach a function to an event, we use an [`addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) like this:
 
@@ -91,11 +90,11 @@ window.addEventListener('click', function() {
 });
 ```
 
-> The `window` is a reference to the entire HTML document
+> [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) is a reference to the entire window containing the HTML document.
 
-### Global Event Handlers
+### Global event handlers
 
-If this feels a little verbose, you're not alone. Many of the [most common event types](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) are added as element properties. This way we can set properties like `onload` or `onclick` like this:
+If you think this feels a little verbose, you're not alone. Many of the [most common event types](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) are available as element properties. This way we can set properties like `onload` or `onclick` like this:
 
 ```js
 window.onload = function() {
@@ -106,22 +105,22 @@ window.onclick = function() {
 };
 ```
 
-> Note that only a single function can be assigned to `onload`, but many eventListeners can be added to `load`
+> Note that only a single function can be assigned to `onload`, but many event listeners can be added for `load`.
 
-In our example we want to trigger a function based on the click of a button. To do this, we first need to get a reference to the button. We can use `querySelector` to get that reference. And then we can set its `onclick` value just like above.
+In our example, we want to trigger a function when a button is clicked. To do this, we first need to get a reference to the button. We can use the [`querySelector`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) method of the browser-provided [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) global variable to get that reference, and then we can set its `onclick` value just like above.
 
 ```js
-const button = docment.querySelector('.submit');
+const button = document.querySelector('.submit');
 button.onclick = displayMatches();
 ```
 
-You can also combine these together like this:
+You can also combine the two statements together like this:
 
 ```js
-docment.querySelector('.submit').onclick = displayMatches();
+document.querySelector('.submit').onclick = displayMatches;
 ```
 
-Wire this up and see you function in action!
+Reload the page and click the button to see your function in action!
 
 ## Iteration
 
@@ -138,11 +137,12 @@ function displayMatches() {
 
 ## Conditionals
 
-Next we want to compare each `letter` with our `match` value, and if they are the same, we will increment our `matches` variable. Remember that `letter = match` would set the `letter` variable to the value in `match`, so to do comparisons, we use the equality operator `==` or the strict equality operator `===`.
+Next we want to compare each `letter` with our global `match` value, and if they are the same, we will increment a `matches` variable. Remember that `letter = match` would set the `letter` variable to the value in `match`, so to do comparisons, we use the equality operator `==` or the strict equality operator `===`.
 
 ```js
 function displayMatches() {
   const text = 'abcda';
+  let matches = 0;
   for (let letter of text) {
     if (letter === match) {
       matches++;
@@ -152,13 +152,13 @@ function displayMatches() {
 }
 ```
 
-> In JavaScript, it's safest to use strict `===` for comparisons, because `==` will try to convert the operands to the same type. For example, `"1" == 1` is true whereas `"1" === 1` is false, but the behavior in certain other cases is [not what you'd expect](https://www.youtube.com/watch?v=et8xNAc2ic8). (See [this video](https://www.destroyallsoftware.com/talks/wat) for more strange JavaScript behavior.)
+> In JavaScript, it's safest to use strict `===` for comparisons, because `==` will try to convert the operands to the same type. For example, `"1" == 1` converts `"1"` to a number and returns true. This result makes decent sense, but the behavior in certain other cases is [not what you'd expect](https://www.youtube.com/watch?v=et8xNAc2ic8). (See [this video](https://www.destroyallsoftware.com/talks/wat) for more strange JavaScript behavior.)
 
 ## Interacting with the DOM
 
 Now that we have a function performing all of our logic, it's time to connect this to our DOM by using some of the browser's built-in functions.
 
-First we need to get a reference to the email field in our app's DOM. To do this, I've added an `id` to the input, and we will call one of JavaScript's oldest methods (IE 5.5), `getElementById`, which we find on the browser-provided `document` global variable. This function will return a reference to that input, and we can store it in the `email` variable.
+First we need to get a reference to the email field in our app's DOM. To do this, I've added an `id` to the input, and we'll find the element using [`getElementById`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) from the `document` global variable. This function will return a reference to that input, and we can store it in the `email` variable.
 
 ```js
 function displayMatches() {
@@ -168,7 +168,7 @@ function displayMatches() {
 }
 ```
 
-Since what we're actually after is the value of the input field, we can set our `text` variable to the string assigned to the email input's `value` key. To see this in action, in Chrome you can right click on the console message created by the code above, choose "save as variable" and then type `variableName.value`.
+Since what we're actually after is the value of the input field, we can set our `text` variable to the string contained in the email input's `value` key. To see this in action, in Chrome you can right click on the console message created by the code above, choose "save as variable" and then type `variableName.value`.
 
 ```js
 function displayMatches() {
@@ -179,9 +179,9 @@ function displayMatches() {
 }
 ```
 
-### Returning the values to the DOM
+### Writing values back to the DOM
 
-Now that we've read values from the DOM and fed that into our matching logic, we are ready to return the number of matches to our app. To do this we first need to grab a reference to our submit button, and since this button has no `id` we are going to use the more modern (IE8+) `querySelector` to get it. This function takes any valid CSS selector and returns the first match found.
+Now that we've read values from the DOM and fed that into our matching logic, we are ready to return the number of matches to our app. To do this we first need to grab a reference to our submit button, and since this button has no `id`, we'll use `querySelector` to get it. This function takes any valid CSS selector and returns the first match found.
 
 ```js
 function displayMatches() {
@@ -208,7 +208,3 @@ function displayMatches() {
   document.querySelector('.submit').value = matches + ' matches';
 }
 ```
-
-## Next Step
-
-[Start our Todo App](../../step1-02/demo/)

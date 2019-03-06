@@ -1,0 +1,27 @@
+h2 {
+  color: red;
+}
+
+h2 + div {
+  color: green;
+}
+
+.myList li {
+  border: 1px solid green;
+}
+
+.myClass {
+  background: green;
+}
+
+#myId {
+  background: yellow;
+}
+
+.myClass.otherClass {
+  color: white;
+}
+
+section > div:last-child {
+  border: 1px solid pink;
+}

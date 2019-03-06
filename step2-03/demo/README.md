@@ -1,6 +1,6 @@
-# Step 2.3: Theming and styling with UI Fabric (Demo)
+# Step 2.3 - Theming and styling with UI Fabric (Demo)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Exercise](../exercise/)
 
 In this section, we will illustrate how to use some of the built-in theming and styling features of the UI Fabric component library.
 

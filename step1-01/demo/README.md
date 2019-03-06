@@ -1,11 +1,13 @@
-# How the Web Works
+# Step 1.1 - Introduction to HTML (Demo)
+
+## How the web works
 
 A simple web page is rendered on the screen via the following steps.
 
-_There are many sub-steps in this process, but these are the highlights._
+> There are many sub-steps in this process, but these are the highlights.
 
 1. You instruct the browser which web page you'd like to see
-2. The browser looks up the site in a "DNS Server"
+2. The browser looks up the site on a DNS server
    - This is like a big phone book for website server addresses
 3. The browser asks the server to send over a specific page of the website, such as `developer.mozilla.org/filename.html` or `developer.mozilla.org`
    - If asked for a "root"-level address, most servers will return `<root>/index.html`
@@ -21,9 +23,9 @@ _There are many sub-steps in this process, but these are the highlights._
 
 ![MDN Page Load](https://user-images.githubusercontent.com/1434956/53033758-9da8d580-3426-11e9-9ab8-09f42ccab9a8.png)
 
-# HTML Demo
+## HTML demo
 
-HTML tags are the basis of all web applications. They give the page structure, and define the content within.
+HTML tags are the basis of all web applications. They give the page structure and define the content within.
 
 An HTML tag takes the following form:
 
@@ -31,11 +33,11 @@ An HTML tag takes the following form:
 <tag class="foo" onclick="myFunction()" otherAttributes="values"> </tag>
 ```
 
-HTML tags can also be nested to create a tree that we call the [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+HTML tags can also be nested to create a tree that we call the [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
 
-The [HTML demo page](https://microsoft.github.io/frontend-bootcamp/step1-01/html-demo/html-demo.html) is a large collection of HTML elements that you will come across during development. The full list of elements can be found on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
+The [HTML demo page](https://microsoft.github.io/frontend-bootcamp/step1-01/demo) shows a large collection of HTML elements that you will come across during development. The full list of elements can be found on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 
-## Sample Website
+## Sample webpage
 
 ```html
 <html>

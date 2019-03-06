@@ -1,6 +1,6 @@
-# Step 2.1: Introduction to TypeScript (Demo)
+# Step 2.1 - Introduction to TypeScript (Demo)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Exercise](../exercise/) | [Final](../final/)
 
 In this step, we'll cover enough TypeScript concepts to be productive with the React & Redux frameworks.
 
@@ -28,15 +28,15 @@ The most important ones to know about are:
 
 > For more information about the _many_ modularity patterns and standards developed over time, see [this article](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc). You may still encounter some of the older patterns in legacy code.
 
-## TypeScript Types
+## TypeScript types
 
-Refer to [`demo/src`](./demo/src) for examples of some of the types available in TS that benefit a React developer.
+Refer to [`demo/src/types`](./src/types/index.ts) for examples of some of the types available in TS that benefit a React developer.
 
-## Spread Operator
+## Spread operator
 
 The spread operator `...` provides a quick way to clone and concatenate objects and arrays. This syntax is seen a lot inside React props and Redux reducers.
 
-With objects:
+With **objects**:
 
 ```ts
 // Shallow copy an object
@@ -52,7 +52,7 @@ const cloned2 = { ...obj1, ...obj2, key: value };
 const overridden = { ...object, [key + '-suffix']: value };
 ```
 
-With arrays:
+With **arrays**:
 
 ```ts
 const copy1 = [...arr];
@@ -107,7 +107,7 @@ const [foo, ...bar] = arr;
 
 ## Promise
 
-A promise is an object representing work that will be completed later, asynchronously. Promises are chainable, which helps with writing maintainable async code. (Typically, legacy async code uses callbacks to let the caller have control over what to do after the task has been completed, which becomes very hard to read.)
+A promise is an object representing work that will be completed later, asynchronously. Promises are chainable, which helps with writing maintainable async code. (Typically, legacy async code uses callbacks to let the caller have control over what to do after the task has been completed, which becomes [very hard to read](http://callbackhell.com/).)
 
 ```ts
 const aPromise = new Promise((resolve, reject) => {
@@ -139,9 +139,9 @@ aPromise
 
 > For more information, see [this overview of promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) or [this deep dive](https://developers.google.com/web/fundamentals/primers/promises).
 
-## Async / Await
+## Async / await
 
-This syntax is inspired heavily by C#'s async / await syntax. An async function is written like this:
+**Async / Await** is a language-level feature for writing asynchronous functions as if they are ordinary, synchronous code. JS support for this is built on top of `Promise`s and is inspired heavily by [C#'s async / await syntax](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/). An async function is written like this:
 
 ```ts
 async function someFunctionAsync() {

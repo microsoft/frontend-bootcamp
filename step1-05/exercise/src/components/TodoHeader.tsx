@@ -4,7 +4,7 @@ export class TodoHeader extends React.Component<any, any> {
   render() {
     return (
       <header>
-        <h1>todos - step1-05 exercise</h1>
+        <h1>todos <small>(1.5 exercise)</small></h1>
         <div className="addTodo">
           <input className="textfield" placeholder="add todo" />
           <button className="submit">Add</button>

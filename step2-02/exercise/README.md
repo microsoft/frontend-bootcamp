@@ -1,6 +1,6 @@
-# Step 2.2: UI Fabric Component Library (Exercise)
+# Step 2.2 - UI Fabric component library (Exercise)
 
-[Lessons](../) | [Exercise](./exercise/) | [Demo](./demo/)
+[Lessons](../../) | [Demo](../demo/)
 
 # Exercise 1: Getting familiar with the Fabric documentation site:
 
