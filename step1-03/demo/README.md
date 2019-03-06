@@ -14,7 +14,7 @@ In this demo we are going to cover a few core basics of the language that will h
 By the end of the demo we'll have covered the following:
 
 - Variables
-- Eventing
+- Events
 - Functions
 - Conditionals
 - Loops
@@ -111,7 +111,7 @@ In our example, we want to trigger a function when a button is clicked. To do th
 
 ```js
 const button = document.querySelector('.submit');
-button.onclick = displayMatches();
+button.onclick = displayMatches;
 ```
 
 You can also combine the two statements together like this:
