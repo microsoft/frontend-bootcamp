@@ -64,7 +64,7 @@ We'll write our reducers with the help of some utilities from the official [`red
 
 #### 1. Organize reducers according to the keys of the state tree object
 
-Given a state tree shaped like:
+Given a state tree shaped like this:
 
 ```ts
 {
@@ -76,27 +76,25 @@ Given a state tree shaped like:
 }
 ```
 
-We would organize our reducers matching the keys of the state tree:
+We would organize our reducers matching the keys of the state tree and combine them with [`combineReducers()`](https://redux.js.org/recipes/structuring-reducers/using-combinereducers):
 
 ```ts
 import { createReducer } from 'redux-starter-kit';
-import { combineReducer } from 'redux';
+import { combineReducers } from 'redux';
 
-const reducer = combineReducer({
-  // first argument: initial state
-  // second argument: object whose keys correspond to possible values of action.type
+const reducer = combineReducers({
   todos: createReducer({}, {
-    addTodo: (state, action) => { /* ... */}
+    addTodo: (state, action) => { /* ... */ }
   }),
   filter: createReducer('all', {
-    setFilter: (state, action) => ...
+    setFilter: (state, action) => { /* ... */ }
   })
 })
 ```
 
 #### 2. Write the reducers with mutables
 
-In plain Redux, reducers must make a copy of the state before making modifications, but `createReducer()` will automatically translate all the mutations to the state into immutable snapshots (!!!!!):
+In plain Redux, reducers must make a copy of the state before making modifications, but [`createReducer()`](https://redux-starter-kit.js.org/api/createreducer) will automatically translate all the mutations to the state into immutable snapshots (!!!!!):
 
 ```ts
 // first argument: initial state
