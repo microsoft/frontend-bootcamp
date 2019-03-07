@@ -7,7 +7,7 @@ In this demo we are going to cover a few core basics of the language that will h
 ```html
 <div id="contact-form">
   <label for="email">Email</label><input id="email" type="email"/>
-  <input class="submit" value="Submit" type="submit" />
+  <input class="submit" value="Submit" type="submit"/>
 </div>
 ```
 
