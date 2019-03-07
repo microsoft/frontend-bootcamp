@@ -7,7 +7,7 @@ export const TodoFooter = () => {
   const itemCount = Object.keys(context.todos).filter(id => !context.todos[id].completed).length;
 
   return (
-    <Stack horizontal horizontalAlign="space-between">
+    <Stack horizontal horizontalAlign="space-between" verticalAlign="center">
       <Text>
         {itemCount} item{itemCount === 1 ? '' : 's'} left
       </Text>

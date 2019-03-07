@@ -13,7 +13,6 @@
     "build": "rimraf docs && webpack --progress --mode production",
     "start:server": "nodemon -w server server/index.js",
     "start": "run-p start:server start:client",
-    "static": "live-server --host=localhost",
     "deploy-ghpages": "git push origin :gh-pages && git subtree push --prefix docs origin gh-pages"
   },
   "keywords": [],
@@ -60,7 +59,6 @@
     "express": "^4.16.4",
     "highlight.js": "^9.14.2",
     "immer": "^1.12.1",
-    "live-server": "^1.2.1",
     "marked": "^0.6.1",
     "office-ui-fabric-react": "^6.144.0",
     "react": "^16.8.3",
