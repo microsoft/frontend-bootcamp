@@ -4,7 +4,7 @@
 
 ## Welcome
 
-This will be two-day workshop you'll learn the basics of frontend development while building a working web app.
+In this two-day workshop you'll learn the basics of frontend development while building a working web app.
 
 The first day provides an introduction to the fundamentals of the web: HTML, CSS and JavaScript. This is targeted at new and experienced developers alike. On the second day we'll dive into more advanced topics like TypeScript, state management, and testing. While the examples should be accessible to anyone, you'll get the most out of it if you have some prior experience with programming and web technologies.
 
@@ -46,15 +46,11 @@ This will load the site shown below.
 
 <img src="https://user-images.githubusercontent.com/1434956/53656239-88426100-3c07-11e9-8456-e3d958aa4def.png" width=500 />
 
-### 4. Guidelines
+### 4. Lesson Structure
 
-1. Demo: read the readme, possibly look at the code (the code is a more helpful reference in some steps than others)
+1. Demos will either be via CodePen (Steps 1,2 and 3) or done in the step folder. Follow the step README to walkthrough the demo.
 
-2. Exercise: run npm start (unless otherwise noted), open the exercise page for that step, and follow the instructions.
-
-  - For steps 1.1-1.3, coding is done in CodePen.
-  - Step 1.4 didn't have an exercise and was mostly watching live coding by the workshop presenter. The final folder shows the end result.
-  - For the other steps, the coding is in VS Code. If you have npm start running, it should automatically pick up your changes and refresh the browser on save to show results.
+2. Much like demos, exercises are done via CodePen or in the project step folders. These exercises will give you an opportunity to try what was demonstracted in the first step.
   
 ## What to expect
 
