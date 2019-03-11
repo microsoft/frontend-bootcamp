@@ -14,7 +14,7 @@ In this demo we are going to cover a few core basics of the language that will h
 By the end of the demo we'll have covered the following:
 
 - Variables
-- Eventing
+- Events
 - Functions
 - Conditionals
 - Loops
@@ -107,11 +107,11 @@ window.onclick = function() {
 
 > Note that only a single function can be assigned to `onload`, but many event listeners can be added for `load`.
 
-In our example, we want to trigger a function when a button is clicked. To do this, we first need to get a reference to the button. We can use the [`querySelector`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) method of the browser-provided [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) global variable to get that reference, and then we can set its `onclick` value just like above.
+In our example, we want to trigger a function when a button is clicked. To do this, we first need to get a reference to the button. We can use the [`querySelector`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) method of the browser-provided [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) global variable to get that reference. Then we can set our `displayMatches` function to be the button's `onclick` handler.
 
 ```js
 const button = document.querySelector('.submit');
-button.onclick = displayMatches();
+button.onclick = displayMatches;
 ```
 
 You can also combine the two statements together like this:
@@ -164,7 +164,7 @@ First we need to get a reference to the email field in our app's DOM. To do this
 function displayMatches() {
   const email = document.getElementById('email');
   console.log(email);
-  ...
+  // ...
 }
 ```
 
@@ -175,7 +175,7 @@ function displayMatches() {
   const email = document.getElementById('email');
   const text = email.value;
   console.log(text);
-  ...
+  // ...
 }
 ```
 
@@ -185,7 +185,7 @@ Now that we've read values from the DOM and fed that into our matching logic, we
 
 ```js
 function displayMatches() {
-  ...
+  // ...
   const submit = document.querySelector('.submit');
 }
 ```
@@ -194,7 +194,7 @@ Now that we have a reference to the submit input, we can set its value contain t
 
 ```js
 function displayMatches() {
-  ...
+  // ...
   const submit = document.querySelector('.submit');
   submit.value = matches + ' matches';
 }
@@ -204,7 +204,7 @@ We could also have done this in a single line as follows:
 
 ```js
 function displayMatches() {
-  ...
+  // ...
   document.querySelector('.submit').value = matches + ' matches';
 }
 ```

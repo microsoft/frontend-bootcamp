@@ -6,18 +6,16 @@ Redux is currently the most popular Flux implementation, and the ecosystem of re
 
 Various GitHub users have collected "awesome lists" of tech and articles related to Redux. Here is [one such list](https://github.com/xgrommx/awesome-redux#react---a-javascript-library-for-building-user-interfaces), but it is literally impossible to list out all the related tech.
 
-In this step, we will continue with Redux. Step 2.5 code can be used with any other web frameworks. This step, we will hook up the Redux store with React components. The official way to do this is with the the [`react-redux`](https://react-redux.js.org/) library.
+In this step, we introduce one useful library that works with Redux: [`react-redux`](https://react-redux.js.org/). Whereas the Step 2.5 code could be used with any web UI framework, we'll now use `react-redux` to connect the store to our React app. There are two steps in this process:
 
-We will demonstrate how to use `react-redux` to pass down the Redux store to the views:
+1. Providing the store to the views
+2. Mapping the store to props
 
-1. Providing the Store to the Views
-2. Mapping the Redux store to props
+## Provide the store context to the views
 
-## Provide the Store Context
+Class components will access the Redux store via the [`<Provider>`](https://react-redux.js.org/api/provider) from `react-redux`. Under the hood, `react-redux` uses the context API to pass the store to the descendant components.
 
-Class Components will access the Redux store via the `<Provider>` from `react-redux`. Under the hood, `react-redux` also uses the Context API to pass the store into the descendant components.
-
-```js
+```jsx
 const store = createStore(reducers);
 
 const App = () => {
@@ -29,11 +27,11 @@ const App = () => {
 };
 ```
 
-## Mapping the Redux store to props
+## Mapping the store to props
 
-`react-redux` exports the [`connect()`](https://react-redux.js.org/api/connect) function that maps portions of the state tree and dispatch functions into props in the child React component. Let's look at how that is done.
+`react-redux` also provides the [`connect()`](https://react-redux.js.org/api/connect) function, which maps portions of the state tree and dispatch functions into props for the child React component. Let's look at how that is done.
 
-```js
+```jsx
 import { connect } from 'react-redux';
 
 const MyComponent = props => {
@@ -55,20 +53,20 @@ const ConnectedComponent = connect(
 )(MyComponent);
 ```
 
-So, that's a lot to digest. We'll go through these different parts:
+So, that's a lot to digest. We'll go through the different parts:
 
-1. First, the `<MyComponent>` is simple component that expects to have props, without any knowledge of Redux. It is just a plain React Component.
+1. `<MyComponent>` is simple component that expects to have props, without any knowledge of Redux. It is just a plain React component.
 
 2. The `connect()` function takes in several arguments.
 
    - The first argument maps portions of the Redux _state tree_ into `<MyComponent>` _props_
-   - The second arguments maps dispatch functions into `<MyComponent>` _props_
+   - The second arguments maps dispatch functions into `<MyComponent>` _props_ (typically used as callbacks to respond to user interaction)
 
-3. Finally, `connect()` actually returns a function that **decorates** a `<MyComponent>` into `<ConnectedComponent>` - it is a strange syntax, so do study it more closely here.
+3. Finally, `connect()` actually returns a function, which we immediately call to **decorate** `<MyComponent>` into `<ConnectedComponent>` - it is a strange syntax, so do study it more closely here.
 
-> Yes, `connect()` is a function that takes in functions as arguments that returns a function that takes in a component that return a component. Try to say this fast 10 times :)
+> Yes, `connect()` is a function that takes in functions as arguments and returns a function that takes in a component and returns a component. Try to say this fast 10 times. :)
 
-## A Note on Performance
+## A note on performance
 
 Some folks going through this bootcamp cannot wait to start making screaming fast apps with Redux. Performance isn't free, and it certainly isn't with Redux. Try going through these links to get started on that topic:
 
