@@ -46,6 +46,12 @@ This will load the site shown below.
 
 <img src="https://user-images.githubusercontent.com/1434956/53656239-88426100-3c07-11e9-8456-e3d958aa4def.png" width=500 />
 
+### 4. Lesson Structure
+
+1. Demos will either be via CodePen (Steps 1,2 and 3) or done in the step folder. Follow the step README to walkthrough the demo.
+
+2. Much like demos, exercises are done via CodePen or in the project step folders. These exercises will give you an opportunity to try what was demonstracted in the first step.
+  
 ## What to expect
 
 For each lesson, the presenter will walk through some demo code to teach core concepts about the topic. Don't worry about writing code at this point. Just follow along via the readmes linked below.
