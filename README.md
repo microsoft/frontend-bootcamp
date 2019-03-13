@@ -50,7 +50,7 @@ This will load the site shown below.
 
 1. Demos will either be via CodePen (Steps 1,2 and 3) or done in the step folder. Follow the step README to walkthrough the demo.
 
-2. Much like demos, exercises are done via CodePen or in the project step folders. These exercises will give you an opportunity to try what was demonstracted in the first step.
+2. Much like demos, exercises are done via CodePen or in the project step folders. These exercises will give you an opportunity to try what was demonstrated in the first step.
   
 ## What to expect
 
