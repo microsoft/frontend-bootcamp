@@ -66,7 +66,7 @@ Day one covers the basics of HTML, CSS and JavaScript, as well as an introductio
 2. [Introduction to CSS](step1-02)
 3. [Introduction JavaScript](step1-03)
 4. [Introduction to React](step1-04)
-5. [Building a static page](step1-05)
+5. [React Components](step1-05)
 6. [State-driven UI](step1-06)
 7. [Types and UI-driven state](step1-07)
 
