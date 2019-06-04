@@ -75,7 +75,7 @@ loadTheme({
 });
 ```
 
-> If you'd like to create your own theme, the Fabric website has a [handy theme generator](https://developer.microsoft.com/en-us/fabric#/styles/themegenerator) to help get you started.
+> If you'd like to create your own theme, the Fabric website has a [handy theme generator](https://aka.ms/themedesigner) to help get you started.
 
 ## 3. Customizing one Fabric control instance
 
