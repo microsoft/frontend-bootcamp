@@ -1,27 +1,34 @@
+/* 1. */
 h2 {
   color: red;
 }
 
+/* 2. */
 h2 + div {
   color: green;
 }
 
+/* 3. */
 .myList li {
   border: 1px solid green;
 }
 
+/* 4. */
 .myClass {
   background: green;
 }
 
-#myId {
-  background: yellow;
-}
-
+/* 5. */
 .myClass.otherClass {
   color: white;
 }
 
+/* 6. */
+#myId {
+  background: yellow;
+}
+
+/* Bonus */
 section > div:last-child {
   border: 1px solid pink;
 }
