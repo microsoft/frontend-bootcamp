@@ -1,14 +1,56 @@
+/*
+1. Create a function named `getFavs`. Inside, run:
+    alert('clicked')
+
+2. Create a variable `button` and set it to a reference to our button using:
+    document.querySelector('button')
+
+3. Add a click event listener to the button that calls `getFavs`.
+   Click the button and make sure the alert is displayed.
+
+4. Replace the `alert` call with a new `favList` variable set to an empty array: []
+
+5. Create a const variable `inputs` set to all of the inputs on the page.
+   `querySelectorAll` will help here.
+
+6. Iterate over all of the inputs using:
+    for (const input of inputs) {}
+
+7. In each iteration, use an `if` statement to check if `input.checked` is equal to true
+
+8. If the above tests passes, push the `input.parentNode.textContent` into the `favList`
+   array by passing the text as a parameter to `favList.push()`
+  - `push` is a built-in array method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+
+9. Outside of the for loop, use `document.querySelector('.favorites')` to target the
+   div at the bottom of the page. Set the div's `textContent` to `favList.join(' ')`.
+   This will join each of the foods together into a string separated by a space.
+*/
+
+
+// 1
 function getFavs() {
-  let favList = [];
-  const inputs = document.querySelectorAll('input');
-  for (const input of inputs) {
-    if (input.checked === true) {
-      favList.push(input.parentNode.textContent);
+	
+  // 4
+  // alert('clicked') 
+  let favList = []; 
+  
+  // 5
+  const inputs = document.querySelectorAll('input'); 
+  
+  // 6
+  for (const input of inputs) { 
+    // 7
+    if (input.checked === true) { 
+      // 8 
+      favList.push(input.parentNode.textContent); 
     }
   }
-  document.querySelector('.favorites').textContent = favList.join(' ');
 }
 
+
+// 2 
 let button = document.querySelector('button');
 
+// 3 
 button.addEventListener('click', getFavs);
