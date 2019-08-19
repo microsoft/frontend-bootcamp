@@ -48,9 +48,9 @@ This will load the site shown below.
 
 ### 4. Lesson Structure
 
-1. Demos will either be via CodePen (Steps 1,2 and 3) or done in the step folder. Follow the step README to walkthrough the demo.
+1. Demos will either be via CodePen (Steps 1, 2 and 3) or done in the step folder. Follow the step README to walkthrough the demo.
 
-2. Much like demos, exercises are done via CodePen or in the project step folders. These exercises will give you an opportunity to try what was demonstracted in the first step.
+2. Much like demos, exercises are done via CodePen or in the project step folders. These exercises will give you an opportunity to try what was demonstrated in the first step.
   
 ## What to expect
 
@@ -66,7 +66,7 @@ Day one covers the basics of HTML, CSS and JavaScript, as well as an introductio
 2. [Introduction to CSS](step1-02)
 3. [Introduction JavaScript](step1-03)
 4. [Introduction to React](step1-04)
-5. [Building a static page](step1-05)
+5. [React Components](step1-05)
 6. [State-driven UI](step1-06)
 7. [Types and UI-driven state](step1-07)
 

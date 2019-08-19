@@ -40,6 +40,7 @@ The [HTML demo page](https://microsoft.github.io/frontend-bootcamp/step1-01/demo
 ## Sample webpage
 
 ```html
+<!DOCTYPE html>
 <html>
   <head>
     <title>Frontend Workshop: By Micah Godbolt and Ken Chau</title>
