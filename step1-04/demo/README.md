@@ -203,11 +203,11 @@ render() {
 
 ### Writing our button click handler
 
-Our next step is to wire up the button to increment the `counter` in our component state.
+Our next step is to wire up the button to increment the `clicks` in our component state.
 
 > By convention we place other methods below `render()`, and private methods (those for internal use only) are prefixed with an underscore.
 
-This function will update our component's state, incrementing the counter value by 1. (Note that `setState` only modifies the values of keys listed in the object passed as its parameter.)
+This function will update our component's state, incrementing the clicks value by 1. (Note that `setState` only modifies the values of keys listed in the object passed as its parameter.)
 
 ```jsx
 _onButtonClick = () => {
@@ -219,7 +219,7 @@ _onButtonClick = () => {
 
 > This isn't exactly a method, but a class property that is set to an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). This mostly works the same as `onButtonClick() { }` but eliminates the need for [extra boilerplate](https://medium.freecodecamp.org/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb) used to avoid potential "gotchas" with [how `this` works in JavaScript](https://codeburst.io/javascript-the-keyword-this-for-beginners-fb5238d99f85).)
 
-> Note that the `setState` call could also be written as `this.setState(prevState => ({ counter: prevState.counter + 1 }));` to ensure that state is not updated until the previous state has been determined.
+> Note that the `setState` call could also be written as `this.setState(prevState => ({ clicks: prevState.clicks + 1 }));` to ensure that state is not updated until the previous state has been determined.
 
 Now that we have a function to increment our count, all that's left is to connect it to our button.
 
