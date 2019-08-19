@@ -1,27 +1,34 @@
+/* 1. Text Color: Red */
 h2 {
   color: red;
 }
 
+/* 2. Color Green (hint: Sibling Selector) */
 h2 + div {
   color: green;
 }
 
+/* 3. Border Green*/
 .myList li {
   border: 1px solid green;
 }
 
+/* 4. Background Green */
 .myClass {
   background: green;
 }
 
-#myId {
-  background: yellow;
-}
-
+/* 5. Background Green & Color White (Hint Qualified Selector) */
 .myClass.otherClass {
   color: white;
 }
 
+/* 6. Background Yellow */
+#myId {
+  background: yellow;
+}
+
+/* Bonus: Border Pink*/
 section > div:last-child {
   border: 1px solid pink;
 }
