@@ -182,7 +182,7 @@ class Counter extends React.Component {
 
 - The constructor takes in the component's `props`.
 - The [`super()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) function calls the constructor of the parent class (in this case `React.Component`).
-- Our `counter` state value can now be accessed via `this.state.counter`. Later, we can update state by calling `this.setState({ counter: 1 })`.
+- Our `clicks` state value can now be accessed via `this.state.clicks`. Later, we can update state by calling `this.setState({ clicks: 1 })`.
 
 ### Rendering our Counter
 
