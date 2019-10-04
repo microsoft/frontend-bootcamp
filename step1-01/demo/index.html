@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Intro to HTML</title>
-    <link rel="stylesheet" href="./style.css" />
 
-    <style>
-      hr {
-        margin: 40px;
-      }
-    </style>
-  </head>
+<head>
+  <title>Intro to HTML</title>
+  <link rel="stylesheet" href="./style.css" />
 
-  <body>
-    <section>
-      <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Document_metadata">Document Metadata</a></h2>
-      <pre>
+  <style>
+    hr {
+      margin: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Document_metadata">Document
+        Metadata</a></h2>
+    <pre>
   &lt;html&gt;
     &lt;head&gt;
       &lt;title&gt;Intro to HTML&lt;/title&gt;
@@ -28,12 +30,13 @@
     &lt;/head&gt;
   &lt;/html&gt;
       </pre>
-    </section>
-    <hr />
+  </section>
+  <hr />
 
-    <section>
-      <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning">Content Sections</a></h2>
-      <pre>
+  <section>
+    <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning">Content
+        Sections</a></h2>
+    <pre>
   &lt;body&gt;
     &lt;header&gt;
       &lt;h1&gt;Heading 1&lt;/h1&gt;
@@ -54,51 +57,57 @@
     &lt;footer&gt;&lt;/footer&gt;
   &lt;/body&gt;
       </pre>
-    </section>
-    <hr />
-    <section>
-      <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Text_content">Block Text content</a></h2>
+  </section>
+  <hr />
+  <section>
+    <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Text_content">Block Text
+        content</a></h2>
 
-      <h3>Div</h3>
+    <h3>Div</h3>
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo et quod odio velit, hic qui autem dolores magni earum
+      ducimus dolorem
+      modi, numquam laborum accusamus adipisci eius excepturi doloremque vero.
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptatum maiores vitae? Architecto amet
+      provident labore error
+      officia accusantium reiciendis, vero perspiciatis. Incidunt numquam enim deserunt, velit earum totam veritatis.
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo et quod odio velit, hic qui autem dolores magni earum ducimus dolorem
-        modi, numquam laborum accusamus adipisci eius excepturi doloremque vero.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nobis ex optio, minus in, eum ratione magnam
+        aut distinctio,
+        aliquid libero eaque nihil provident nemo est adipisci repellendus nisi numquam?
       </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptatum maiores vitae? Architecto amet provident labore error
-        officia accusantium reiciendis, vero perspiciatis. Incidunt numquam enim deserunt, velit earum totam veritatis.
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nobis ex optio, minus in, eum ratione magnam aut distinctio,
-          aliquid libero eaque nihil provident nemo est adipisci repellendus nisi numquam?
-        </div>
-      </div>
+    </div>
 
-      <h3>Paragraph</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, vero! Eum optio veniam nisi, assumenda ea velit in corrupti vel
-        eos reprehenderit beatae libero rem iusto, maiores, corporis sunt laborum.
-      </p>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis porro consequuntur exercitationem, perspiciatis nam saepe, odit
-        enim omnis qui commodi cupiditate in eveniet. Nemo maxime ipsam recusandae consectetur voluptatum non?
-      </p>
+    <h3>Paragraph</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, vero! Eum optio veniam nisi, assumenda ea velit
+      in corrupti vel
+      eos reprehenderit beatae libero rem iusto, maiores, corporis sunt laborum.
+    </p>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis porro consequuntur exercitationem,
+      perspiciatis nam saepe, odit
+      enim omnis qui commodi cupiditate in eveniet. Nemo maxime ipsam recusandae consectetur voluptatum non?
+    </p>
 
-      <h3>Ordered List</h3>
-      <ol>
-        <li>Ordered</li>
-        <li>list</li>
-        <li>items</li>
-      </ol>
+    <h3>Ordered List</h3>
+    <ol>
+      <li>Ordered</li>
+      <li>list</li>
+      <li>items</li>
+    </ol>
 
-      <h3>Unordered List</h3>
-      <ul>
-        <li>Unordered</li>
-        <li>list</li>
-        <li>items</li>
-      </ul>
+    <h3>Unordered List</h3>
+    <ul>
+      <li>Unordered</li>
+      <li>list</li>
+      <li>items</li>
+    </ul>
 
-      <h3>Pre</h3>
-      <pre>
+    <h3>Pre</h3>
+    <pre>
         // This is a pre tag            --           It respects spacing and tabs
         
         &lt;ul&gt;
@@ -108,7 +117,7 @@
         &lt;/ul&gt;
       </pre>
 
-      <pre>
+    <pre>
         // But actual code still needs to be escaped
         
         &amp;lt;ul&amp;gt;
@@ -117,122 +126,126 @@
           &amp;lt;li&amp;gt;items&amp;lt;/li&amp;gt;
         &amp;lt;/ul&amp;gt;
       </pre>
-    </section>
-    <hr />
-    <section>
-      <h2>
-        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Inline_text_semantics">Inline text elements</a>
-      </h2>
+  </section>
+  <hr />
+  <section>
+    <h2>
+      <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Inline_text_semantics">Inline
+        text elements</a>
+    </h2>
 
-      <h3>Anchor tag and span</h3>
+    <h3>Anchor tag and span</h3>
 
-      <a target="_blank" href="https://example.com"> Anchor Tag with <span style="color: red">span tag wrapped around part of it</span> </a>
+    <a target="_blank" href="https://example.com"> Anchor Tag with <span style="color: red">span tag wrapped around part
+        of it</span> </a>
 
-      <h3>Inline style tags</h3>
-      <p><b>b tag</b> <em>em tag</em> <i>i tag</i> <sub>sub tag</sub> <sup>sup tab</sup> <code>code tag</code></p>
+    <h3>Inline style tags</h3>
+    <p><b>b tag</b> <em>em tag</em> <i>i tag</i> <sub>sub tag</sub> <sup>sup tab</sup> <code>code tag</code></p>
 
-      <h3>Image tag</h3>
+    <h3>Image tag</h3>
+    <div>
+      <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="100" />
+      <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="50" />
+      <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="150" />
+    </div>
+  </section>
+  <hr />
+  <section>
+    <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Table_content">Table
+        content</a></h2>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Column 1 header</th>
+          <th>Column 2 header</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The table body</td>
+          <td>with two columns</td>
+        </tr>
+        <tr>
+          <td>Another table row</td>
+          <td>with two columns</td>
+        </tr>
+        <tr>
+          <td colspan="2">Row spanning both columns</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <hr />
+  <section>
+    <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms">Forms</a></h2>
+
+    <form action="" method="get" class="form-example">
       <div>
-        <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="100" />
-        <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="50" />
-        <img src="../../assets/fabric.jpg" alt="Fabric Logo" width="150" />
+        <label for="name">Enter your name: </label>
+        <input type="text" name="name" id="name" required />
       </div>
-    </section>
-    <hr />
-    <section>
-      <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Table_content">Table content</a></h2>
-
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Column 1 header</th>
-            <th>Column 2 header</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
-          </tr>
-          <tr>
-            <td>Another table row</td>
-            <td>with two columns</td>
-          </tr>
-          <tr>
-            <td colspan="2">Row spanning both columns</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    <hr />
-    <section>
-      <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms">Forms</a></h2>
-
-      <form action="" method="get" class="form-example">
+      <div>
         <div>
-          <label for="name">Enter your name: </label>
-          <input type="text" name="name" id="name" required />
-        </div>
-        <div>
-          <div>
-            <input type="checkbox" id="option1" name="option1" checked />
-            <label for="option1">Option 1</label>
-          </div>
-
-          <div>
-            <input type="checkbox" id="option2" name="option2" />
-            <label for="option2">Option 2</label>
-          </div>
+          <input type="checkbox" id="option1" name="option1" checked />
+          <label for="option1">Option 1</label>
         </div>
 
         <div>
-          <input type="color" id="color1" name="color1" value="#e66465" />
-          <label for="color1">Color 1</label>
+          <input type="checkbox" id="option2" name="option2" />
+          <label for="option2">Option 2</label>
+        </div>
+      </div>
+
+      <div>
+        <input type="color" id="color1" name="color1" value="#e66465" />
+        <label for="color1">Color 1</label>
+      </div>
+
+      <div>
+        <input type="color" id="color2" name="color2" value="#f6b73c" />
+        <label for="color2">Color 2</label>
+      </div>
+      <div>
+        <label for="start">Start date:</label>
+
+        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+      </div>
+      <div>
+        <div>
+          <input type="radio" id="Radio1" name="radios" value="Radio1" checked />
+          <label for="Radio1">Radio 1</label>
         </div>
 
         <div>
-          <input type="color" id="color2" name="color2" value="#f6b73c" />
-          <label for="color2">Color 2</label>
-        </div>
-        <div>
-          <label for="start">Start date:</label>
-
-          <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
-        </div>
-        <div>
-          <div>
-            <input type="radio" id="Radio1" name="radios" value="Radio1" checked />
-            <label for="Radio1">Radio 1</label>
-          </div>
-
-          <div>
-            <input type="radio" id="radio2" name="radios" value="radio2" />
-            <label for="radio2">Radio 2</label>
-          </div>
-
-          <div>
-            <input type="radio" id="radio3" name="radios" value="radio3" />
-            <label for="radio3">Radio 3</label>
-          </div>
-        </div>
-        <div>
-          <label for="pet-select">Choose a pet:</label>
-
-          <select id="pet-select">
-            <option value="">--Please choose an option--</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
-          </select>
+          <input type="radio" id="radio2" name="radios" value="radio2" />
+          <label for="radio2">Radio 2</label>
         </div>
 
         <div>
-          <input type="submit" value="Subscribe!" />
+          <input type="radio" id="radio3" name="radios" value="radio3" />
+          <label for="radio3">Radio 3</label>
         </div>
-      </form>
-    </section>
-  </body>
+      </div>
+      <div>
+        <label for="pet-select">Choose a pet:</label>
+
+        <select id="pet-select">
+          <option value="">--Please choose an option--</option>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+          <option value="hamster">Hamster</option>
+          <option value="parrot">Parrot</option>
+          <option value="spider">Spider</option>
+          <option value="goldfish">Goldfish</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="submit" value="Subscribe!" />
+      </div>
+    </form>
+  </section>
+</body>
+
 </html>
