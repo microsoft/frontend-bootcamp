@@ -49,42 +49,45 @@ export class TodoApp extends React.Component<any, TodoAppState> {
   }
 
   private _addTodo = label => {
-    const { todos } = this.state;
     const id = index++;
 
-    this.setState({
+    this.setState(({ todos }) => ({
       todos: { ...todos, [id]: { label, completed: false } }
-    });
+    }));
   };
 
   private _complete = id => {
-    const { todos } = this.state;
-    const todo = todos[id];
-    const newTodos = { ...todos, [id]: { ...todo, completed: !todo.completed } };
+    this.setState(({ todos }) => {
+      const newTodos = {
+        ...todos,
+        [id]: { ...todos[id], completed: !todos[id].completed }
+      };
 
-    this.setState({
-      todos: newTodos
+      return {
+        todos: newTodos
+      };
     });
   };
 
   private _clear = () => {
-    const { todos } = this.state;
-    const newTodos = {};
+    this.setState(({ todos }) => {
+      const newTodos = {};
 
-    Object.keys(this.state.todos).forEach(id => {
-      if (!todos[id].completed) {
-        newTodos[id] = todos[id];
-      }
-    });
+      Object.keys(this.state.todos).forEach(id => {
+        if (!todos[id].completed) {
+          newTodos[id] = todos[id];
+        }
+      });
 
-    this.setState({
-      todos: newTodos
+      return {
+        todos: newTodos
+      };
     });
   };
 
   private _setFilter = filter => {
     this.setState({
-      filter: filter
+      filter
     });
   };
 }
