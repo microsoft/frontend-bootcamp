@@ -59,7 +59,7 @@
     "express": "^4.16.4",
     "highlight.js": "^9.14.2",
     "immer": "^1.12.1",
-    "marked": "^0.6.1",
+    "marked": "^0.8.0",
     "office-ui-fabric-react": "^6.144.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
