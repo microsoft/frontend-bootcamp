@@ -239,7 +239,7 @@ To scale our application, we'll need to break up the file into smaller, reusable
 
 ### Module exports and imports
 
-Open up `step1-04/final/components/Counter.tsx` and look at the `Counter` component.
+Open up `step1-04/final/src/components/Counter.tsx` and look at the `Counter` component.
 
 ```tsx
 export class Counter extends React.Component {
