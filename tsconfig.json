@@ -12,5 +12,5 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true
   },
-  "exclude": ["node_modules", "docs"]
+  "exclude": ["node_modules", "docs", "dist"]
 }
