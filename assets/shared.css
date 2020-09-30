@@ -1,3 +1,7 @@
+:root {
+  --light-gray: #605e5c;
+  --sea-blue: #0078d4;
+}
 html {
   box-sizing: border-box;
 }
@@ -8,11 +12,11 @@ html {
 }
 
 body {
-  background-color: #f3f2f1;
+  background-color: #fceee1;
 }
 
 a {
-  color: #0078d4;
+  color: var(--sea-blue);
   text-decoration: none;
 }
 
@@ -100,17 +104,17 @@ a.Tile-link:hover {
 .Tile-link i {
   font-size: 32px;
   margin-bottom: 12px;
-  color: #605e5c;
+  color: var(--light-gray);
 }
 
 .Tile-links {
   font-size: 16px;
-  color: #605e5c;
+  color: var(--light-gray);
 }
 
 .Tile-links a {
   text-decoration: none;
-  color: #0078d4;
+  color: var(--sea-blue);
 }
 
 .Tile-links a:hover {
@@ -136,5 +140,5 @@ a.Tile-link:hover {
 
 .Tile--intro a,
 .Tile--intro a:visited {
-  color: #0078d4;
+  color: var(--sea-blue);
 }
