@@ -12,3 +12,8 @@ export interface Store {
 
   filter: FilterTypes;
 }
+
+export interface Blank {
+  label: string;
+  completed: boolean;
+}
