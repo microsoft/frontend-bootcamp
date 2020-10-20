@@ -43,7 +43,7 @@
     "rimraf": "^2.6.3",
     "style-loader": "^0.23.1",
     "ts-jest": "^24.0.0",
-    "ts-loader": "^5.3.3",
+    "ts-loader": "^8.0.6",
     "tslint": "^5.13.0",
     "typescript": "^3.3.3",
     "uuid": "^3.3.2",
