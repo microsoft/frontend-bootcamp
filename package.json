@@ -46,7 +46,7 @@
     "ts-loader": "^5.3.3",
     "tslint": "^5.13.0",
     "typescript": "^3.3.3",
-    "uuid": "^3.3.2",
+    "uuid": "^8.3.2",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
