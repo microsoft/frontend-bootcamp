@@ -223,7 +223,7 @@ To scale our application, we'll need to break up the file into smaller, reusable
 Open up `step1-04/final/components/Counter.tsx` and look at the `Counter` component.
 
 ```tsx
-export const Counter = () => {
+export const Counter = (props) => {
   // ...
 };
 ```
@@ -241,7 +241,7 @@ import { Counter } from './components/Counter';
 We typically use named exports, but it's also possible export a default value like this:
 
 ```tsx
-export default const Counter = () => {
+export default const Counter = (props) =>{
   // ...
 }
 ```

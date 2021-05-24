@@ -18,24 +18,22 @@ We'll store all of our components inside a `components` folder under `src`. Let'
 ```jsx
 import React from 'react';
 
-export class TodoHeader extends React.Component<any, any> {
-  render() {
-    return (
-      <header>
-        <h1>todos</h1>
-        <div className="addTodo">
-          <input className="textfield" placeholder="add todo" />
-          <button className="submit">Add</button>
-        </div>
-        <nav className="filter">
-          <button className="completed">all</button>
-          <button>active</button>
-          <button>completed</button>
-        </nav>
-      </header>
-    );
-  }
-}
+export const TodoHeader = () => {
+  return (
+    <header>
+      <h1>todos</h1>
+      <div className="addTodo">
+        <input className="textfield" placeholder="add todo" />
+        <button className="submit">Add</button>
+      </div>
+      <nav className="filter">
+        <button className="completed">all</button>
+        <button>active</button>
+        <button>completed</button>
+      </nav>
+    </header>
+  );
+};
 ```
 
 > Note that since this is React, we had to change `class` to `className`, but nothing else changes.
@@ -47,22 +45,19 @@ Any time you see repeated complex elements, that is usually a sign that you shou
 ```jsx
 import React from 'react';
 
-export class TodolistItem extends React.Component<any, any> {
-  render() {
-    return (
-      <li className="todo">
-        <label>
-          <input type="checkbox" /> Todo 1
-        </label>
-      </li>
-    );
-  }
-}
+export const TodolistItem = () => {
+  return (
+    <li className="todo">
+      <label>
+        <input type="checkbox" /> Todo 1
+      </label>
+    </li>
+  );
+};
 ```
 
-> Note that this control could also be created as a function instead of a class:
 > ```jsx
-> export const TodoListItem = (props) => {
+> export const TodoListItem = () => {
 >   return (
 >     <li className="todo">
 >       <label>
@@ -70,5 +65,5 @@ export class TodolistItem extends React.Component<any, any> {
 >       </label>
 >     </li>
 >   );
-> }
+> };
 > ```

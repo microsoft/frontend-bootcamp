@@ -1,40 +1,38 @@
 import React from 'react';
 import { FilterTypes } from '../TodoApp.types';
 
-export class TodoHeader extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = { labelInput: '' };
-  }
+export const TodoHeader = (props) => {
+  const [labelInput, setLabelInput] = React.useState('')
+  const { filter } = props;
 
-  render() {
-    const { filter } = this.props;
-    return (
-      <header>
-        <h1>todos <small>(1.7 exercise)</small></h1>
-        <div className="addTodo">
-          <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
-          <button className="submit">Add</button>
-        </div>
-        <nav className="filter">
-          <button className={filter === 'all' ? 'selected' : ''}>all</button>
-          <button className={filter === 'active' ? 'selected' : ''}>active</button>
-          <button className={filter === 'completed' ? 'selected' : ''}>completed</button>
-        </nav>
-      </header>
-    );
-  }
-
-  _onFilter = evt => {
-    this.props.setFilter(evt.target.innerText);
+  const handleChange = e => {
+    setLabelInput(e.target.value);
   };
 
-  _onChange = evt => {
-    this.setState({ labelInput: evt.target.value });
+  const handleFilter = e => {
+    props.setFilter(e.target.innerText);
   };
 
-  _onAdd = () => {
-    this.props.addTodo(this.state.labelInput);
-    this.setState({ labelInput: '' });
+
+  const handleAdd = () => {
+    props.addTodo(labelInput);
+    setLabelInput('');
   };
+
+  return (
+    <header>
+      <h1>todos <small>(1.7 exercise)</small></h1>
+      <div className="addTodo">
+        <input value={labelInput} onChange={handleChange} className="textfield" placeholder="add todo" />
+        <button className="submit">Add</button>
+      </div>
+      <nav className="filter">
+        <button className={filter === 'all' ? 'selected' : ''}>all</button>
+        <button className={filter === 'active' ? 'selected' : ''}>active</button>
+        <button className={filter === 'completed' ? 'selected' : ''}>completed</button>
+      </nav>
+    </header>
+  );
+
+
 }
