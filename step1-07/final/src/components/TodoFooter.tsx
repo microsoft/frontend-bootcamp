@@ -1,14 +1,15 @@
 import React from 'react';
 import { Todos } from '../TodoApp.types';
+import { AppContext } from '../TodoApp';
 interface TodoFooterProps {
-  clear: () => void;
   todos: Todos;
 }
 
 export const TodoFooter = (props: TodoFooterProps) => {
-  const itemCount = Object.keys(props.todos).filter(id => !props.todos[id].completed).length;
+  const itemCount = props.todos.filter((todo) => todo.status === 'active').length;
+  const { clearFinishedTodos } = React.useContext(AppContext);
   const handleClick = () => {
-    props.clear();
+    clearFinishedTodos();
   };
 
   return (

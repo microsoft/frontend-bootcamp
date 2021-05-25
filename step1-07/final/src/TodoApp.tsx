@@ -2,71 +2,85 @@ import React from 'react';
 import { TodoFooter } from './components/TodoFooter';
 import { TodoHeader } from './components/TodoHeader';
 import { TodoList } from './components/TodoList';
-import { Todos, FilterTypes } from './TodoApp.types';
+import { Todo, Todos, FilterTypes } from './TodoApp.types';
 
-let index = 0;
-
-const defaultTodos: Todos = {
-  '04': {
-    label: 'Todo 4',
-    completed: true
-  },
-  '03': {
-    label: 'Todo 3',
-    completed: false
-  },
-  '02': {
-    label: 'Todo 2',
-    completed: false
-  },
-  '01': {
-    label: 'Todo 1',
-    completed: false
-  }
+interface AppContextProps {
+  addTodo: (label: string) => void;
+  toggleCompleteTodo: (id: string) => void;
+  clearFinishedTodos: () => void;
+  changeFilter: (filter: FilterTypes) => void;
 }
+
+export const AppContext = React.createContext<AppContextProps>(undefined);
+
+const defaultTodos: Todos = [
+  {
+    id: '04',
+    label: 'Todo 4',
+    status: 'completed',
+  },
+  {
+    id: '03',
+    label: 'Todo 3',
+    status: 'active',
+  },
+  {
+    id: '02',
+    label: 'Todo 2',
+    status: 'active',
+  },
+  {
+    id: '01',
+    label: 'Todo 1',
+    status: 'active',
+  },
+];
 
 export const TodoApp = () => {
   const [filter, setFilter] = React.useState<FilterTypes>('all');
   const [todos, setTodos] = React.useState<Todos>(defaultTodos);
 
   const addTodo = (label: string): void => {
-    const id = index++;
-    setTodos({
-      ...todos,
-      [id]: { label, completed: false }
-    })
-  };
-
-  const complete = (id: string): void => {
-    const todo = todos[id];
-    const newTodos = {
-      ...todos,
-      [id]: { ...todo, completed: !todo.completed }
+    const getId = () => Date.now().toString();
+    const newTodo: Todo = {
+      id: getId(),
+      label: label,
+      status: 'active',
     };
-
-    setTodos(newTodos)
+    setTodos([...todos, newTodo]);
   };
 
-  const clear = (): void => {
-    const newTodos = {};
-
-    Object.keys(todos).forEach(id => {
-      if (!todos[id].completed) {
-        newTodos[id] = todos[id];
+  const toggleCompleteTodo = (id) => {
+    const newTodos = todos.map((todo): Todo => {
+      if (todo.id === id) {
+        return { ...todo, status: todo.status === 'active' ? 'completed' : 'active' };
+      } else {
+        return todo;
       }
     });
-
-    setTodos(newTodos)
+    setTodos(newTodos);
   };
 
+  const clearFinishedTodos = () => {
+    const updatedTodos = todos.map((todo): Todo => {
+      if (todo.status === 'completed') {
+        return { ...todo, status: 'cleared' };
+      } else {
+        return todo;
+      }
+    });
+    setTodos(updatedTodos);
+  };
+
+  const changeFilter = (filter) => {
+    setFilter(filter);
+  };
 
   return (
-    <div>
-      <TodoHeader addTodo={addTodo} setFilter={setFilter} filter={filter} />
-      <TodoList complete={complete} todos={todos} filter={filter} />
-      <TodoFooter clear={clear} todos={todos} />
-    </div>
+    <AppContext.Provider value={{ addTodo, toggleCompleteTodo, clearFinishedTodos, changeFilter }}>
+      <TodoHeader filter={filter} />
+      <TodoList todos={todos} filter={filter} />
+      <TodoFooter todos={todos} />
+    </AppContext.Provider>
   );
-
-
-}
+};
