@@ -7,7 +7,7 @@ interface TodoFooterProps {
 
 export const TodoFooter = (props: TodoFooterProps) => {
   const itemCount = Object.keys(props.todos).filter(id => !props.todos[id].completed).length;
-  const _onClick = () => {
+  const handleClick = () => {
     props.clear();
   };
 
@@ -16,7 +16,7 @@ export const TodoFooter = (props: TodoFooterProps) => {
       <span>
         {itemCount} item{itemCount === 1 ? '' : 's'} left
       </span>
-      <button onClick={_onClick} className="submit">
+      <button onClick={handleClick} className="submit">
         Clear Completed
       </button>
     </footer>

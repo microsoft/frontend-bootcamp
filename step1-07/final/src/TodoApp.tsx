@@ -6,63 +6,67 @@ import { Todos, FilterTypes } from './TodoApp.types';
 
 let index = 0;
 
-export class TodoApp extends React.Component<{}, { todos: Todos; filter: FilterTypes }> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: {},
-      filter: 'all'
-    };
+const defaultTodos: Todos = {
+  '04': {
+    label: 'Todo 4',
+    completed: true
+  },
+  '03': {
+    label: 'Todo 3',
+    completed: false
+  },
+  '02': {
+    label: 'Todo 2',
+    completed: false
+  },
+  '01': {
+    label: 'Todo 1',
+    completed: false
   }
+}
 
-  render() {
-    const { filter, todos } = this.state;
-    return (
-      <div>
-        <TodoHeader addTodo={this._addTodo} setFilter={this._setFilter} filter={filter} />
-        <TodoList complete={this._complete} todos={todos} filter={filter} />
-        <TodoFooter clear={this._clear} todos={todos} />
-      </div>
-    );
-  }
+export const TodoApp = () => {
+  const [filter, setFilter] = React.useState<FilterTypes>('all');
+  const [todos, setTodos] = React.useState<Todos>(defaultTodos);
 
-  private _addTodo = label => {
-    const { todos } = this.state;
+  const addTodo = (label: string): void => {
     const id = index++;
-
-    this.setState({
-      todos: { ...todos, [id]: { label, completed: false } }
-    });
+    setTodos({
+      ...todos,
+      [id]: { label, completed: false }
+    })
   };
 
-  private _complete = id => {
-    const { todos } = this.state;
+  const complete = (id: string): void => {
     const todo = todos[id];
-    const newTodos = { ...todos, [id]: { ...todo, completed: !todo.completed } };
+    const newTodos = {
+      ...todos,
+      [id]: { ...todo, completed: !todo.completed }
+    };
 
-    this.setState({
-      todos: newTodos
-    });
+    setTodos(newTodos)
   };
 
-  private _clear = () => {
-    const { todos } = this.state;
+  const clear = (): void => {
     const newTodos = {};
 
-    Object.keys(this.state.todos).forEach(id => {
+    Object.keys(todos).forEach(id => {
       if (!todos[id].completed) {
         newTodos[id] = todos[id];
       }
     });
 
-    this.setState({
-      todos: newTodos
-    });
+    setTodos(newTodos)
   };
 
-  private _setFilter = filter => {
-    this.setState({
-      filter: filter
-    });
-  };
+
+  return (
+    <div>
+      <TodoHeader addTodo={addTodo} setFilter={setFilter} filter={filter} />
+      <TodoList complete={complete} todos={todos} filter={filter} />
+      <TodoFooter clear={clear} todos={todos} />
+    </div>
+  );
+
+
 }
