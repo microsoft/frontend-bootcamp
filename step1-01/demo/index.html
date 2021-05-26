@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="./style.css" />
 
     <style>
+      body {
+        padding: 10px;
+      }
       hr {
         margin: 40px;
       }
@@ -12,6 +15,48 @@
   </head>
 
   <body>
+    <section>
+      <h2><a href="https://developer.mozilla.org/en-US/docs/Glossary/semantics" target="_blank" >Why Semantic HTML</a></h2>
+      <div>
+        <h3>Semantic</h3>
+        <p>This is a paragraph about why semantic HTML is important.</p>
+        <h4>A unordered list</h4>
+        <ul>
+          <li>Unordered item 1</li>
+          <li>Another unordered item</li>
+          <li>and another unordered item</li>
+        </ul>
+        <h4>An ordered list</h4>
+        <ol>
+          <li>Ordered item 1</li>
+          <li>Another ordered item</li>
+          <li>and another ordered item</li>
+        </ol>
+        <h4>Next up</h4>
+        <a href="https://fluidframework.com/">Fluid Framework</a>
+      </div>
+      <br/><br/>
+      <div>
+        <div>Non Semantic</div>
+        <div>This is a paragraph about why semantic HTML is important.</div>
+        <div>A unordered list</div>
+        <div>
+          <div>Unordered item 1</div>
+          <div>Another unordered item</div>
+          <div>and another unordered item</div>
+        </div>
+        <div>An ordered list</div>
+        <div>
+          <div>Ordered item 1</div>
+          <div>Another ordered item</div>
+          <div>and another ordered item</div>
+        </div>
+        <div>Next up</div>
+        <div onClick="location.href='https://fluidframework.com/'">Fluid Framework</a>
+      </div>
+      <br/>
+    </section>
+    <hr>
     <section>
       <h2><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Document_metadata">Document Metadata</a></h2>
       <pre>
@@ -172,6 +217,10 @@
         <div>
           <label for="name">Enter your name: </label>
           <input type="text" name="name" id="name" required />
+        </div>
+        <div>
+          <label for="name">Enter your password: </label>
+          <input type="password" name="password" id="password" required />
         </div>
         <div>
           <div>
