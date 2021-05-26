@@ -1,58 +1,44 @@
-import React from 'react';
+import React, { ChangeEventHandler, MouseEventHandler, useState, useContext } from 'react';
 import { FilterTypes } from '../TodoApp.types';
+import { AppContext } from '../TodoApp';
 
 interface TodoHeaderProps {
-  addTodo: (label: string) => void;
-  setFilter: (filter: FilterTypes) => void;
   filter: FilterTypes;
 }
 
-interface TodoHeaderState {
-  labelInput: string;
-}
+export const TodoHeader = (props: TodoHeaderProps) => {
+  const [inputText, setInputText] = useState<string>('');
+  const { filter } = props;
+  const { changeFilter, addTodo } = useContext(AppContext);
 
-export class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
-  constructor(props) {
-    super(props);
-    this.state = { labelInput: '' };
-  }
-
-  render() {
-    const { filter, setFilter } = this.props;
-    return (
-      <header>
-        <h1>todos <small>(1.7 final)</small></h1>
-        <div className="addTodo">
-          <input value={this.state.labelInput} onChange={this._onChange} className="textfield" placeholder="add todo" />
-          <button onClick={this._onAdd} className="submit">
-            Add
-          </button>
-        </div>
-        <nav className="filter">
-          <button onClick={this._onFilter} className={filter === 'all' ? 'selected' : ''}>
-            all
-          </button>
-          <button onClick={this._onFilter} className={filter === 'active' ? 'selected' : ''}>
-            active
-          </button>
-          <button onClick={this._onFilter} className={filter === 'completed' ? 'selected' : ''}>
-            completed
-          </button>
-        </nav>
-      </header>
-    );
-  }
-
-  _onFilter = evt => {
-    this.props.setFilter(evt.target.innerText);
+  const onInput: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setInputText(e.target.value);
   };
+  const onSubmit = () => inputText && addTodo(inputText);
+  const onFilterClick: MouseEventHandler<HTMLButtonElement> = (e) => changeFilter(e.currentTarget.textContent as FilterTypes);
 
-  _onChange = evt => {
-    this.setState({ labelInput: evt.target.value });
-  };
-
-  _onAdd = () => {
-    this.props.addTodo(this.state.labelInput);
-    this.setState({ labelInput: '' });
-  };
-}
+  return (
+    <header>
+      <h1>
+        todos <small>(1.7 final)</small>
+      </h1>
+      <div className="addTodo">
+        <input value={inputText} onChange={onInput} className="textfield" placeholder="add todo" />
+        <button onClick={onSubmit} className="submit">
+          Add
+        </button>
+      </div>
+      <nav className="filter">
+        <button onClick={onFilterClick} className={filter === 'all' ? 'selected' : ''}>
+          all
+        </button>
+        <button onClick={onFilterClick} className={filter === 'active' ? 'selected' : ''}>
+          active
+        </button>
+        <button onClick={onFilterClick} className={filter === 'completed' ? 'selected' : ''}>
+          completed
+        </button>
+      </nav>
+    </header>
+  );
+};

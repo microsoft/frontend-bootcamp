@@ -1,5 +1,7 @@
 # Step 1.2 - Introduction to CSS (Demo)
 
+[Demo](../demo/) | [Exercise](../exercise/)
+
 ## CSS properties
 
 Now that we've gone over adding HTML tags to the page, let's cover adding styles to those tags. We can do quite a lot with styles! We can change:
@@ -44,3 +46,5 @@ Here's a more detailed view from [Chris Eppstein](https://twitter.com/chriseppst
 <img src="https://raw.githubusercontent.com/Microsoft/frontend-bootcamp/master/assets/css-syntax.png"/>
 
 A selector can be a single tag, class, ID, or attribute. It can also be a [combination](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors) of those elements.
+
+Bonus: Check out the [Vocabs project](http://apps.workflower.fi/vocabs/css/en)

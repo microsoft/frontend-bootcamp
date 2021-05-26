@@ -7,8 +7,21 @@ body {
   padding: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
+li {
+  margin-bottom: 3px;
+}
+
+blockquote {
+  background: white;
+  padding: 0px 5px;
+}
+
 body.ms-Fabric {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
 }
 

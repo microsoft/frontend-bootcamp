@@ -8,8 +8,6 @@ In React, the data travels in one direction: top-down in the form of state propa
 
 Inside our `TodoApp` class, we will add the minimal state for our application, which includes just two keys: `todos` and `filter`. We don't need to worry about a `remaining` count because it can be calculated by counting the number of todos where the `completed` field is set to `false`.
 
-So here is our full constructor:
-
 ```jsx
 constructor(props) {
   super(props);
@@ -65,7 +63,7 @@ I've already pulled out our props into `filter` and `todos` variables, and writt
 ```jsx
 return (
   <ul className="todos">
-    {filteredTodos.map(id => (
+    {filteredTodos.map((id) => (
       <TodoListItem key={id} id={id} {...todos[id]} />
     ))}
   </ul>
@@ -111,7 +109,7 @@ this.state = { labelInput: '' };
 2. A callback function to update that value:
 
 ```jsx
-_onChange = evt => {
+_onChange = (evt) => {
   this.setState({ labelInput: evt.target.value });
 };
 ```
