@@ -6,7 +6,7 @@ In this demo we are going to cover a few core basics of the language that will h
 
 ```html
 <div id="contact-form">
-  <label for="email">Email</label><input id="email" type="email"/>
+  <label for="email">Email</label><input id="email" type="email" />
   <input class="submit" value="Submit" type="submit" />
 </div>
 ```
@@ -43,7 +43,7 @@ const myNumber = 5;
 const myString = `Using backticks I can reuse other variables ${myNumber}`;
 const myArray = [1, 'cat', false, myString];
 const myObject = { key1: 'value1', anotherKey: myArray };
-const myFunction = function(myNumberParam) {
+const myFunction = function (myNumberParam) {
   console.log(myNumber + myNumberParam);
 };
 ```
@@ -81,11 +81,11 @@ To execute a function we need to attach it to an event. There are a number of po
 To attach a function to an event, we use an [`addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) like this:
 
 ```js
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   console.log('loaded');
 });
 
-window.addEventListener('click', function() {
+window.addEventListener('click', function () {
   console.log('click');
 });
 ```
@@ -97,10 +97,10 @@ window.addEventListener('click', function() {
 If you think this feels a little verbose, you're not alone. Many of the [most common event types](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) are available as element properties. This way we can set properties like `onload` or `onclick` like this:
 
 ```js
-window.onload = function() {
+window.onload = function () {
   console.log('loaded!');
 };
-window.onclick = function() {
+window.onclick = function () {
   console.log('clicked!');
 };
 ```
