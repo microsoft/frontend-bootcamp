@@ -21,21 +21,7 @@ The first parameter to `render()` looks a lot like HTML, but actually, it's [JSX
 
 ## Writing a React component
 
-A React component is a piece of code that returns a portion of your application. This can include HTML markup, CSS styles, and JavaScript driven functionality.
-
-Components can be created in two ways. The first is method is to use a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), which extends (inherits from) the `React.Component` class.
-
-Classes in JavaScript provide a way to collect methods (functions) and properties (values) in an extensible container. We extend `React.Component` because it provides us with several built-in methods, including `render`.
-
-```jsx
-class App extends React.Component {
-  render() {
-    return <p>Hello World</p>;
-  }
-}
-```
-
-We could also write this component as a function:
+A React component is a function that returns a portion of your application. This can include HTML markup, CSS styles, and JavaScript driven functionality.
 
 ```jsx
 const App = (props) => {
@@ -49,17 +35,15 @@ Moving our "Hello World" markup into our App's `render` function, we can now upd
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
-> Note that React components can be reused by writing them in the same way you would an HTML tag.
-
 ### Props
 
-Whether you write the component as a class or a function, it can take in additional props using the same syntax as HTML attributes like `id` or `href`.
+A component can take in additional props using the same syntax as HTML attributes like `id` or `href`.
 
 ```jsx
 <App text="Hello World" />
 ```
 
-The `text` prop can be accessed inside your component via `props.text` in a function component or `this.props.text` in a class component.
+The `text` prop can be accessed inside your component via `props.text` in a component.
 
 ```jsx
 const App = (props) => {
@@ -89,7 +73,7 @@ const App = (props) => {
 
 ### Destructuring props
 
-Writing `props.text` over and over in a function (or `this.props.text` in a class) can be quite tedious. Since this is all JavaScript, you could create a new variable for this text using variable assignment.
+Writing `props.text` over and over in a function can be quite tedious. Since this is all JavaScript, you could create a new variable for this text using variable assignment.
 
 ```jsx
 const App = (props) => {
@@ -101,10 +85,10 @@ const App = (props) => {
 This works fine for a single prop, but as your component starts to become more complex:
 
 ```jsx
-<MyComponent
+<App
   open={false}
   count={5}
-  text="Hi there"
+  text="Hello World"
   items={['cat', 'dog', 'bird']}
   config={{
     start: 1,
@@ -123,8 +107,6 @@ const open = props.open;
 const text = props.text;
 const count = props.count;
 const items = props.items;
-const start = props.config.start;
-const end = props.config.end;
 ```
 
 A common approach to simplify this process is to use a syntax called [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring).
@@ -132,13 +114,7 @@ A common approach to simplify this process is to use a syntax called [destructur
 Destructuring allows you to pull individual pieces of information out of an object in a single statement.
 
 ```jsx
-const {
-  open,
-  text,
-  count,
-  items,
-  config: { start, end },
-} = props;
+const { open, text, count, items } = props;
 ```
 
 So while this might be overkill right now, it makes it easier to add props down the road.
@@ -169,8 +145,8 @@ State is added to a component by using the `useState` hook. [Hooks](https://reac
 
 ```js
 const Counter = (props) => {
-  const [clicks, setClicks] = React.useState(0):
-}
+  const [clicks, setClicks] = React.useState(0);
+};
 ```
 
 - The component takes in some`props`.
@@ -197,7 +173,7 @@ Our next step is to wire up the button to increment the `clicks` in our componen
 This function will increment the clicks value by 1.
 
 ```jsx
-handleClick = () => {
+const handleClick = () => {
   setClicks(clicks + 1);
 };
 ```
