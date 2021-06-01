@@ -2,14 +2,7 @@ import React from 'react';
 import { TodoFooter } from './components/TodoFooter';
 import { TodoHeader } from './components/TodoHeader';
 import { TodoList } from './components/TodoList';
-import { Todo, Todos, FilterTypes } from './TodoApp.types';
-
-interface AppContextProps {
-  addTodo: (label: string) => void;
-  toggleCompleteTodo: (id: string) => void;
-  clearFinishedTodos: () => void;
-  changeFilter: (filter: FilterTypes) => void;
-}
+import { Todo, Todos, FilterTypes, AppContextProps } from './TodoApp.types';
 
 export const AppContext = React.createContext<AppContextProps>(undefined);
 
@@ -40,6 +33,7 @@ export const TodoApp = () => {
   const [filter, setFilter] = React.useState<FilterTypes>('all');
   const [todos, setTodos] = React.useState<Todos>(defaultTodos);
 
+  // TODO Convert to useReducer
   const addTodo = (label: string): void => {
     const getId = () => Date.now().toString();
     const newTodo: Todo = {
@@ -50,7 +44,7 @@ export const TodoApp = () => {
     setTodos([...todos, newTodo]);
   };
 
-  const toggleCompleteTodo = (id) => {
+  const toggleTodoCompleted = (id: string) => {
     const newTodos = todos.map((todo): Todo => {
       if (todo.id === id) {
         return { ...todo, status: todo.status === 'active' ? 'completed' : 'active' };
@@ -76,11 +70,26 @@ export const TodoApp = () => {
     setFilter(filter);
   };
 
+  const getFilter = () => {
+    return filter;
+  }
+
+  const getTodos = () => {
+    return todos;
+  }
+
   return (
-    <AppContext.Provider value={{ addTodo, toggleCompleteTodo, clearFinishedTodos, changeFilter }}>
-      <TodoHeader filter={filter} />
-      <TodoList todos={todos} filter={filter} />
-      <TodoFooter todos={todos} />
+    <AppContext.Provider value={{
+      addTodo,
+      toggleTodoCompleted,
+      clearFinishedTodos,
+      changeFilter,
+      getFilter,
+      getTodos
+    }}>
+      <TodoHeader />
+      <TodoList />
+      <TodoFooter />
     </AppContext.Provider>
   );
 };

@@ -1,18 +1,15 @@
 import React from 'react';
 import { TodoListItem } from './TodoListItem';
-import { FilterTypes, Todos } from '../TodoApp.types';
+import { AppContext } from '../TodoApp';
 
-interface TodoListProps {
-  todos: Todos;
-  filter: FilterTypes;
-}
+export const TodoList = () => {
+  const { getFilter, getTodos } = React.useContext(AppContext);
 
-export const TodoList = (props: TodoListProps) => {
-  const { filter, todos } = props;
-
-  const filteredTodos = todos.filter((todo) => {
+  const filteredTodos = getTodos().filter((todo) => {
     if (todo.status === 'cleared') return false;
-    return filter === 'all' || (filter === 'completed' && todo.status === 'completed') || (filter === 'active' && todo.status === 'active');
+    return getFilter() === 'all' ||
+      (getFilter() === 'completed' && todo.status === 'completed') ||
+      (getFilter() === 'active' && todo.status === 'active');
   });
 
   return (

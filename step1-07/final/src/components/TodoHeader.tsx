@@ -2,14 +2,9 @@ import React, { ChangeEventHandler, MouseEventHandler, useState, useContext } fr
 import { FilterTypes } from '../TodoApp.types';
 import { AppContext } from '../TodoApp';
 
-interface TodoHeaderProps {
-  filter: FilterTypes;
-}
-
-export const TodoHeader = (props: TodoHeaderProps) => {
+export const TodoHeader = () => {
+  const { changeFilter, addTodo, getFilter } = useContext(AppContext);
   const [inputText, setInputText] = useState<string>('');
-  const { filter } = props;
-  const { changeFilter, addTodo } = useContext(AppContext);
 
   const onInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputText(e.target.value);
@@ -29,13 +24,13 @@ export const TodoHeader = (props: TodoHeaderProps) => {
         </button>
       </div>
       <nav className="filter">
-        <button onClick={onFilterClick} className={filter === 'all' ? 'selected' : ''}>
+        <button onClick={onFilterClick} className={getFilter() === 'all' ? 'selected' : ''}>
           all
         </button>
-        <button onClick={onFilterClick} className={filter === 'active' ? 'selected' : ''}>
+        <button onClick={onFilterClick} className={getFilter() === 'active' ? 'selected' : ''}>
           active
         </button>
-        <button onClick={onFilterClick} className={filter === 'completed' ? 'selected' : ''}>
+        <button onClick={onFilterClick} className={getFilter() === 'completed' ? 'selected' : ''}>
           completed
         </button>
       </nav>
