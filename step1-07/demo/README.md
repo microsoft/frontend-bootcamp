@@ -1,10 +1,6 @@
 # Step 1.7 - Types and creating a UI-driven state (Demo)
 
-Now that we have a UI that is purely driven by the state of our app, we need to add functionality to allow the UI to drive the state. This is often done by creating functions that call `setState` like we saw in the `TodoHeader`. Values from the state are then passed down child components as props.
-
-> We'll be learning in part 2 of this workshop how we can expose these functions without explicitly passing them down via props.
-
-This is our core "business logic" and handles our basic "CRUD" operations: Create, Read, Update, Delete. We don't have time to walk through writing all of those functions, but you can see that they are already provided in the demo's `TodoApp` and passed into our components.
+Now that we have a UI that is purely driven by the state of our app, we need to add functionality to allow the UI to modify the state. This is our core "business logic" and handles our basic "CRUD" operations: Create, Read, Update, Delete.
 
 ## Intro to TypeScript
 
@@ -33,20 +29,18 @@ Looking at our `TodoApp` we know that `TodoList` has three props: `filter`, `tod
 ```ts
 interface TodoListProps {
   filter: any;
+  clearCompleted: any;
   todos: any;
-  complete: any;
 }
 ```
 
 > Note that we're using the `any` keyword for now. This won't give us any type safety, but it does let us specify valid prop names we can pass to this component.
 
-With that interface written, we'll add it to our component class.
+With that interface written, we'll add it to our component.
 
 ```ts
-export class TodoList extends React.Component<TodoListProps, any>
+export const TodoList = (props: TodoListProps) => {
 ```
-
-> Note that the first value in `<>` is for a props interface, and the second is for state.
 
 Now that we have a typed component, let's go back to our `TodoApp` and see what happens if we try to change the name of a prop.
 
@@ -61,8 +55,8 @@ We know that `filter` shouldn't be an object, array or function, so we can speci
 ```ts
 interface TodoListProps {
   filter: string;
+  toggleCompleted: any;
   todos: any;
-  complete: any;
 }
 ```
 
@@ -71,8 +65,8 @@ But since we know that the filter can be only one of three values, we can make t
 ```ts
 interface TodoListProps {
   filter: 'all' | 'active' | 'completed';
+  toggleCompleted: any;
   todos: any;
-  complete: any;
 }
 ```
 
@@ -80,38 +74,37 @@ Now try going back to `TodoApp` and changing the `filter` attribute in `TodoList
 
 ### Complete Type
 
-The `complete` prop isn't data, but a function. Fortunately, TypeScript can handle function types just as well as data.
+The `toggleComplete` prop isn't data, but a function.
 
 ```ts
 interface TodoListProps {
   filter: 'all' | 'active' | 'completed';
+  toggleCompleted: (id: string) => void;
   todos: any;
-  complete: (id: string) => void;
 }
 ```
 
-For functions we are only concerned with the parameters passed in and the return value. You can see in the example above that the function takes in an `id` of type string and returns `void`, which means it has no returned value.
+For functions we are concerned with the parameters passed in as well as returned. You can see in the example above that the function takes in an `id` of type string and returns `void`, which means it has no returned value.
 
 > Technically, all functions in JavaScript return `undefined` if no other return value is specified, but declaring a return type of `void` causes TypeScript to error if you try to return a value from the function (or use its default returned value of `undefined`).
 
 ## Todos Type
 
-The `todos` prop is interesting in that `todos` is an object with a bunch of unknown keys. So here's what that interface would look like.
+The `todos` prop is an array of objects where each of those objects represent a `todo`. For now we'll write that `todo` interface right into the list props;
 
 ```ts
 interface TodoListProps {
   filter: 'all' | 'active' | 'completed';
-  todos: {
-    [id: string]: {
+  toggleCompleted: (id: string) => void;
+  todos: [
+    {
+      id: string;
       label: string;
-      completed: boolean;
-    };
-  };
-  complete: (id: string) => void;
+      status: string;
+    }
+  ];
 }
 ```
-
-> Note that `[id: string]` does not indicate an array; it is an object [index signature](https://www.typescriptlang.org/docs/handbook/interfaces.html#indexable-types).
 
 Now that our interface is complete, try changing the word "all" in `filter === all` and see that VS Code will tell you this condition will always be false. Compare this to plain JavaScript: if you had a typo in that line, you wouldn't understand why your filter wasn't working.
 
@@ -120,44 +113,49 @@ Now that our interface is complete, try changing the word "all" in `filter === a
 Most of our components will need to specify types for `todos` and `filter`, so it's a good thing that TypeScript allows us to share types between files. I've already written up and exported those shared types in the file `TodoApp.types.ts`, so we just need to import them and use them in our interface.
 
 ```ts
-import { FilterTypes, Todos, CompleteTodo } from '../TodoApp.types';
+import { FilterTypes, Todos } from '../TodoApp.types';
 
 interface TodoListProps {
-  complete: CompleteTodo;
-  todos: Todos;
   filter: FilterTypes;
+  clearCompleted: (id: string) => void;
+  todos: Todos;
 }
 ```
 
 ## Writing TodoListItemProps
 
-Jumping down to the TodoListItem, as we start to write the `TodoListItemProps` we realize that two of the props, `label` and `completed`, have already been defined in the `TodoItem` interface. So we can make `TodoListItemProps` reuse the `TodoItem` interface by extending it.
+Jumping down to the TodoListItem, as we start to write the `TodoListItemProps` we realize that three of the props, `label`, `status`, `id`, have already been defined in the `TodoItem` interface. So we can make `TodoListItemProps` reuse the `TodoItem` interface by extending it.
 
 ```ts
-import { CompleteTodo } from '../TodoApp.types';
+import { toggleCompleted } from '../TodoApp.types';
 
 interface TodoListItemProps extends TodoItem {
-  id: string;
-  complete: CompleteTodo;
+  toggleCompleted: toggleCompleted;
 }
 ```
 
-The end result of this is an interface with all four properties: `id`, `complete`, `completed` and `label`.
+The end result of this is an interface with all four properties: `id`, `toggleCompleted`, `status` and `label`.
 
 Next we can pull in the remaining props in the render function:
 
 ```jsx
-const { label, completed, complete, id } = this.props;
+const { label, status, id, toggleCompleted } = props;
 ```
 
-And then use the input's `onChange` event to fire our `complete` callback. We can see in the signature that `complete` expects an `id` of type string, so we'll pass our `id` prop in.
+And then use the input's `onChange` event to call a function that toggles the todo's completed state. We can see in the signature that `toggleCompleted` expects an `id` of type string, so we'll pass our `id` prop in.
 
 > A [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) is a function passed into a component as a prop.
 
 ```jsx
-<input type="checkbox" checked={completed} onChange={() => complete(id)} />
+const handleCheck = () => toggleCompleted(id);
+...
+<input type="checkbox" checked={status === 'completed'} onChange={handleCheck} />
 ```
 
-> Note that the function param and prop name just happen to be the same. This isn't required.
+## Passing props down
 
-Now that our todos are firing the `onChange` callback, give them a click and take look at how the app responds. Since our footer text is based on the number of unchecked todos, the footer will automatically update to reflect the new state.
+Now that we have added `toggleCompleted` to our `TodoListItemProps` we'll see that the `TodoListItem` in our `TodoList` is complaining about a missing prop. We successfully passed the function into our `TodoList`, but we aren't passing it down into `TodoListItem`. This process is often called `prop drilling` and can be a signal for refactoring (which you'll see in the final example).
+
+```jsx
+<TodoListItem key={todo.id} {...todo} toggleCompleted={toggleCompleted} />
+```

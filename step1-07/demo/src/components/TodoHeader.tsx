@@ -2,10 +2,19 @@ import React from 'react';
 
 export const TodoHeader = (props) => {
   const [inputText, setInputText] = React.useState<string>('');
-  const { filter } = props;
+  const { filter, addTodo, changeFilter } = props;
 
-  const onInput = e => {
+  const onInput = (e) => {
     setInputText(e.target.value);
+  };
+
+  const onSubmit = () => {
+    if (inputText.length > 0) addTodo(inputText);
+    setInputText('');
+  };
+
+  const onFilter = (e) => {
+    changeFilter(e.currentTarget.textContent)
   };
 
   return (

@@ -2,11 +2,11 @@ import React from 'react';
 import { AppContext } from '../TodoApp';
 
 export const TodoFooter = () => {
-  const { clearFinishedTodos, getTodos } = React.useContext(AppContext);
+  const { clearCompleted, getTodos } = React.useContext(AppContext);
 
   const itemCount = getTodos().filter((todo) => todo.status === 'active').length;
   const handleClick = () => {
-    clearFinishedTodos();
+    clearCompleted();
   };
 
   return (

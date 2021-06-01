@@ -12,8 +12,8 @@ export type Todos = Todo[];
 
 export interface AppContextProps {
   addTodo: (label: string) => void;
-  toggleTodoCompleted: (id: string) => void;
-  clearFinishedTodos: () => void;
+  toggleCompleted: (id: string) => void;
+  clearCompleted: () => void;
   changeFilter: (filter: FilterTypes) => void;
   getFilter: () => FilterTypes;
   getTodos: () => Todos;

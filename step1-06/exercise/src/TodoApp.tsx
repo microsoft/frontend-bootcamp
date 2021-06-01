@@ -3,24 +3,28 @@ import { TodoFooter } from './components/TodoFooter';
 import { TodoHeader } from './components/TodoHeader';
 import { TodoList } from './components/TodoList';
 
-const defaultTodos = {
-  '04': {
+const defaultTodos = [
+  {
+    id: '04',
     label: 'Todo 4',
-    completed: true
+    status: 'completed',
   },
-  '03': {
+  {
+    id: '03',
     label: 'Todo 3',
-    completed: false
+    status: 'active',
   },
-  '02': {
+  {
+    id: '02',
     label: 'Todo 2',
-    completed: false
+    status: 'active',
   },
-  '01': {
+  {
+    id: '01',
     label: 'Todo 1',
-    completed: false
-  }
-}
+    status: 'active',
+  },
+];
 
 export const TodoApp = () => {
   const [filter, setFilter] = React.useState('all');

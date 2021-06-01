@@ -2,9 +2,7 @@ import React from 'react';
 import { TodoFooter } from './components/TodoFooter';
 import { TodoHeader } from './components/TodoHeader';
 import { TodoList } from './components/TodoList';
-import { Todo, Todos, FilterTypes, AppContextProps } from './TodoApp.types';
-
-export const AppContext = React.createContext<AppContextProps>(undefined);
+import { Todo, Todos, FilterTypes } from './TodoApp.types';
 
 const defaultTodos: Todos = [
   {
@@ -30,10 +28,9 @@ const defaultTodos: Todos = [
 ];
 
 export const TodoApp = () => {
-  const [filter, setFilter] = React.useState<FilterTypes>('all');
+  const [filter, setFilter] = React.useState('all');
   const [todos, setTodos] = React.useState<Todos>(defaultTodos);
 
-  // TODO Convert to useReducer
   const addTodo = (label: string): void => {
     const getId = () => Date.now().toString();
     const newTodo: Todo = {
@@ -69,27 +66,11 @@ export const TodoApp = () => {
   const changeFilter = (filter: FilterTypes) => {
     setFilter(filter);
   };
-
-  const getFilter = () => {
-    return filter;
-  }
-
-  const getTodos = () => {
-    return todos;
-  }
-
   return (
-    <AppContext.Provider value={{
-      addTodo,
-      toggleCompleted,
-      clearCompleted,
-      changeFilter,
-      getFilter,
-      getTodos
-    }}>
-      <TodoHeader />
-      <TodoList />
-      <TodoFooter />
-    </AppContext.Provider>
+    <div>
+      <TodoHeader filter={filter} changeFilter={changeFilter} addTodo={addTodo} />
+      <TodoList todos={todos} filter={'all'} toggleCompleted={toggleCompleted} />
+      <TodoFooter todos={todos} clearCompleted={clearCompleted} />
+    </div>
   );
-};
+}

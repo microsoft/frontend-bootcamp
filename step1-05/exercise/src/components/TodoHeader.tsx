@@ -9,7 +9,7 @@ export const TodoHeader = () => {
         <button className="submit">Add</button>
       </div>
       <nav className="filter">
-        <button className="completed">all</button>
+        <button className="selected">all</button>
         <button>active</button>
         <button>completed</button>
       </nav>

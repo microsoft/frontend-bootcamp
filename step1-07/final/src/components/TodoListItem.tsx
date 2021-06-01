@@ -4,12 +4,12 @@ import { AppContext } from '../TodoApp';
 
 export const TodoListItem = (props: Todo) => {
   const { label, status, id } = props;
-  const { toggleTodoCompleted } = React.useContext(AppContext);
+  const { toggleCompleted } = React.useContext(AppContext);
 
   return (
     <li className="todo">
       <label>
-        <input type="checkbox" checked={status === 'completed'} onChange={() => toggleTodoCompleted(id)} /> {label}
+        <input type="checkbox" checked={status === 'completed'} onChange={() => toggleCompleted(id)} /> {label}
       </label>
     </li>
   );

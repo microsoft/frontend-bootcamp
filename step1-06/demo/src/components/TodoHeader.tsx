@@ -1,11 +1,12 @@
 import React from 'react';
 
 export const TodoHeader = (props) => {
-  const [labelInput, setLabelInput] = React.useState('')
+
+  const [inputText, setInputText] = React.useState('')
   const { filter } = props;
 
   const handleChange = e => {
-    setLabelInput(e.target.value);
+    setInputText(e.target.value);
   };
   return (
     <header>
@@ -15,7 +16,7 @@ export const TodoHeader = (props) => {
         <button className="submit">Add</button>
       </div>
       <nav className="filter">
-        <button className="completed">all</button>
+        <button className="selected">all</button>
         <button>active</button>
         <button>completed</button>
       </nav>

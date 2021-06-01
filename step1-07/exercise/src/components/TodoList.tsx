@@ -1,8 +1,15 @@
 import React from 'react';
 import { TodoListItem } from './TodoListItem';
+import { FilterTypes, Todos } from '../TodoApp.types';
 
-export const TodoList = (props) => {
-  const { filter, todos } = props;
+interface TodoListProps {
+  filter: FilterTypes;
+  toggleCompleted: (id: string) => void;
+  todos: Todos;
+}
+
+export const TodoList = (props: TodoListProps) => {
+  const { filter, todos, toggleCompleted } = props;
 
   const filteredTodos = todos.filter((todo) => {
     if (todo.status === 'cleared') return false;
@@ -14,7 +21,7 @@ export const TodoList = (props) => {
   return (
     <ul className="todos">
       {filteredTodos.map((todo) => (
-        <TodoListItem key={todo.id} {...todo} />
+        <TodoListItem key={todo.id} {...todo} toggleCompleted={toggleCompleted} />
       ))}
     </ul>
   );
