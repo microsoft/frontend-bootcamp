@@ -9,8 +9,15 @@ export const TodoHeader = () => {
   const onInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputText(e.target.value);
   };
-  const onSubmit = () => inputText && addTodo(inputText);
-  const onFilterClick: MouseEventHandler<HTMLButtonElement> = (e) => changeFilter(e.currentTarget.textContent as FilterTypes);
+
+  const onSubmit = () => {
+    if (inputText.length > 0) addTodo(inputText);
+    setInputText('');
+  };
+
+  const onFilterClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+    changeFilter(e.currentTarget.textContent as FilterTypes)
+  };
 
   return (
     <header>
