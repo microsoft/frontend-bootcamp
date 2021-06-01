@@ -66,7 +66,7 @@ export const TodoApp = () => {
     setTodos(updatedTodos);
   };
 
-  const changeFilter = (filter) => {
+  const changeFilter = (filter: FilterTypes) => {
     setFilter(filter);
   };
 
