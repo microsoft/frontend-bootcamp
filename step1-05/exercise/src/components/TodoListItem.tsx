@@ -5,7 +5,7 @@ export const TodoListItem = () => {
     <li className="todo">
       <label>
         <input type="checkbox" /> Todo 1
-        </label>
+      </label>
     </li>
   );
 }
