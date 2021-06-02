@@ -2,7 +2,14 @@
 
 In React, the data travels in one direction: top-down in the form of state propagating down the component hierarchy. Only the component containing the state can change the state itself. When a UI interaction occurs, a stateful component must pass down an event handler to the UI component triggering the event in order to signal a state change.
 
-[Step #3 of "Thinking in React"](https://reactjs.org/docs/thinking-in-react.html) suggests finding the "minimal set of mutable state" that your application requires. So in this demo we are going to add that "minimal state" to our application and drive our UI off of that data. With that done, the next step will be to create ways to modify that state, which will in turn cascade down through our UI. This [reconciliation](https://reactjs.org/docs/reconciliation.html) process, figuring out what in your UI needs to change based on changing state, is what React excels at.
+[Step #3 of "Thinking in React"](https://reactjs.org/docs/thinking-in-react.html#step-3-identify-the-minimal-but-complete-representation-of-ui-state) suggests finding the "minimal set of mutable state" that your application requires. What pieces of state can we identify?
+
+[Step #4 of "Thinking in React"](https://reactjs.org/docs/thinking-in-react.html#step-4-identify-where-your-state-should-live) asks us to think about where our state should live.
+
+- Is the state local to a single component?
+- Is the state derived from another state?
+- Is the state primarily in one component but shared with others?
+- Is the state global?
 
 ## Adding state to TodoApp
 
