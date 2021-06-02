@@ -83,13 +83,13 @@ In CSS-based styling, visual states are applied by adding and removing classes. 
 
 ```jsx
 <nav className="filter">
-  <button className={filter === 'all' && 'selected'}> all</button>
-  <button className={filter === 'active' && 'selected'}> active</button>
-  <button className={filter === 'completed' && 'selected'}> completed</button>
+  <button className={filter === 'all' ? 'selected' : ''}> all</button>
+  <button className={filter === 'active' ? 'selected' : ''}> active</button>
+  <button className={filter === 'completed' ? 'selected' : ''}> completed</button>
 </nav>
 ```
 
-> The [logical AND (&&) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) is often used to conditionally render a string. In the case that the condition is false the `className` is simply ommited.
+> The [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) `condition ? ifTrue : ifFalse` is often used to conditionally render a string or JSX element. In the case that the condition is false the `className` is simply ommited.
 
 ### Adding a controlled input
 

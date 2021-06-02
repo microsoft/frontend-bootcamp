@@ -18,7 +18,7 @@ export const TodoHeader = () => {
   const onFilter: MouseEventHandler<HTMLButtonElement> = (e) => {
     changeFilter(e.currentTarget.textContent as FilterTypes)
   };
-
+  console.log(getFilter())
   return (
     <header>
       <h1>
@@ -31,9 +31,9 @@ export const TodoHeader = () => {
         </button>
       </div>
       <nav className="filter">
-        <button onClick={onFilter} className={getFilter() === 'all' && 'selected'}> all</button>
-        <button onClick={onFilter} className={getFilter() === 'active' && 'selected'}> active</button>
-        <button onClick={onFilter} className={getFilter() === 'completed' && 'selected'}> completed</button>
+        <button onClick={onFilter} className={getFilter() === 'all' ? 'selected' : ''}> all</button>
+        <button onClick={onFilter} className={getFilter() === 'active' ? 'selected' : ''}>active</button>
+        <button onClick={onFilter} className={getFilter() === 'completed' ? 'selected' : ''}>completed</button>
       </nav>
     </header>
   );
