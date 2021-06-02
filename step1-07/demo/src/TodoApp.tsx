@@ -28,7 +28,7 @@ const defaultTodos: Todos = [
 ];
 
 export const TodoApp = () => {
-  const [filter, setFilter] = React.useState('all');
+  const [filter, setFilter] = React.useState<FilterTypes>('all');
   const [todos, setTodos] = React.useState<Todos>(defaultTodos);
 
   const addTodo = (label: string): void => {
@@ -69,7 +69,7 @@ export const TodoApp = () => {
   return (
     <div>
       <TodoHeader filter={filter} changeFilter={changeFilter} addTodo={addTodo} />
-      <TodoList todos={todos} filter={'all'} toggleCompleted={toggleCompleted} />
+      <TodoList todos={todos} filter={filter} toggleCompleted={toggleCompleted} />
       <TodoFooter todos={todos} clearCompleted={clearCompleted} />
     </div>
   );

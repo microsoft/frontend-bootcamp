@@ -2,11 +2,13 @@
 
 Now that we have a UI that is purely driven by the state of our app, we need to add functionality to allow the UI to modify the state. This is our core "business logic" and handles our basic "CRUD" operations: Create, Read, Update, Delete.
 
+This step in "Thinking in React" is called [Step 5: Add Inverse Data Flow](https://reactjs.org/docs/thinking-in-react.html#step-5-add-inverse-data-flow). Lets start by looking at the `TodoApp.tsx` and seeing how our components are going to be able to interact with app state.
+
 ## Intro to TypeScript
 
 Taking a look at our components in `TodoApp`, you can see that our list of props is getting not just longer, but much more complex! We're passing through functions with various signatures, complex `todos` objects, and filter strings which are always one of three values.
 
-As applications grow, it becomes difficult to remember what each function does or what each todo contains. Also, as JavaScript is a dynamically typed language, if I wanted to change the value of `todos` to an array inside my `TodoList`, JavaScript wouldn't care. But if `TodoListItems` was expecting an object, our application would break.
+As applications grow, it becomes difficult to remember what each function does or what each todo contains. Also, as JavaScript is a dynamically typed language, if I wanted to change the value of `filter` to a boolean, JavaScript wouldn't care. But if `TodoHeader` was expecting a string, our application would break.
 
 For these two reasons, the industry is shifting to writing applications that are strongly typed, and many are using TypeScript to accomplish that.
 
@@ -20,16 +22,16 @@ Let's dive in and see how TypeScript can help clarify our component props and gu
 
 # Demo
 
-Let's start off in the TodoList, as that has the most data flow up and down. There isn't any interactive UI in this component, as we're simply passing `completed` down to each `TodoListItem`, but we can write a props interface to make sure that everything gets passed down properly.
+Let's start off in the TodoList, as that has the most data flow up and down. There isn't any interactive UI in this component, as we're simply passing our `todo` down to each `TodoListItem`, but we can write a props interface to make sure that everything gets passed down properly.
 
 ## Writing TodoListProps
 
-Looking at our `TodoApp` we know that `TodoList` has three props: `filter`, `todos`, and `complete`. We'll start by creating an interface called `TodoListProps` that represents this component's props.
+Looking at our `TodoApp` we know that `TodoList` has three props: `filter`, `todos`, and `toggleCompleted`. We'll start by creating an interface called `TodoListProps` that represents this component's props.
 
 ```ts
 interface TodoListProps {
   filter: any;
-  clearCompleted: any;
+  toggleCompleted: any;
   todos: any;
 }
 ```
@@ -113,11 +115,11 @@ Now that our interface is complete, try changing the word "all" in `filter === a
 Most of our components will need to specify types for `todos` and `filter`, so it's a good thing that TypeScript allows us to share types between files. I've already written up and exported those shared types in the file `TodoApp.types.ts`, so we just need to import them and use them in our interface.
 
 ```ts
-import { FilterTypes, Todos } from '../TodoApp.types';
+import { FilterTypes, Todos, ToggleCompleted } from '../TodoApp.types';
 
 interface TodoListProps {
   filter: FilterTypes;
-  clearCompleted: (id: string) => void;
+  toggleCompleted: ToggleCompleted;
   todos: Todos;
 }
 ```
@@ -127,10 +129,10 @@ interface TodoListProps {
 Jumping down to the TodoListItem, as we start to write the `TodoListItemProps` we realize that three of the props, `label`, `status`, `id`, have already been defined in the `TodoItem` interface. So we can make `TodoListItemProps` reuse the `TodoItem` interface by extending it.
 
 ```ts
-import { toggleCompleted } from '../TodoApp.types';
+import { ToggleCompleted } from '../TodoApp.types';
 
 interface TodoListItemProps extends TodoItem {
-  toggleCompleted: toggleCompleted;
+  toggleCompleted: ToggleCompleted;
 }
 ```
 

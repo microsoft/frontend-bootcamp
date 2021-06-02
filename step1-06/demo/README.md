@@ -95,9 +95,9 @@ In CSS-based styling, visual states are applied by adding and removing classes. 
 
 In React, form elements such as `<input>`, `<textarea>`, and `<select>` can be used as either **uncontrolled** or **controlled**.
 
-An **uncontrolled input** maintains its current value internally and updates that value based on user interactions (entering text, choosing options, etc). The code only polls the value from the input when it's needed, such as on submit. This is similar to how inputs in a plain HTML form work.
+An **uncontrolled input** maintains its current value internally and updates that value based on user interactions (entering text, choosing options, etc). Our code only polls the value from the input when it's needed, such as on submit. This is similar to how inputs in a plain HTML form work.
 
-A **controlled input** takes its current value from a prop or state and use a callback to modify that value when a change is made by the user.
+A **controlled input** takes its current value from a prop or state and uses a callback to modify that value when a change is made by the user. This is usually the prefered method when writing React.
 
 > The distinction between controlled and uncontrolled is important to understand when writing or using form components, and misunderstandings of this concept are a very common source of bugs. See [this article](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) for a more detailed explanation.
 

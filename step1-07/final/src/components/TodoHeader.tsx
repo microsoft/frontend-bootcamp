@@ -18,7 +18,6 @@ export const TodoHeader = () => {
   const onFilter: MouseEventHandler<HTMLButtonElement> = (e) => {
     changeFilter(e.currentTarget.textContent as FilterTypes)
   };
-  console.log(getFilter())
   return (
     <header>
       <h1>
