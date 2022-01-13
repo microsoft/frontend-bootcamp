@@ -21,24 +21,10 @@ The first parameter to `render()` looks a lot like HTML, but actually, it's [JSX
 
 ## Writing a React component
 
-A React component is a piece of code that returns a portion of your application. This can include HTML markup, CSS styles, and JavaScript driven functionality.
-
-Components can be created in two ways. The first is method is to use a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), which extends (inherits from) the `React.Component` class.
-
-Classes in JavaScript provide a way to collect methods (functions) and properties (values) in an extensible container. We extend `React.Component` because it provides us with several built-in methods, including `render`.
+A React component is a function that returns a portion of your application. This can include HTML markup, CSS styles, and JavaScript driven functionality.
 
 ```jsx
-class App extends React.Component {
-  render() {
-    return <p>Hello World</p>;
-  }
-}
-```
-
-We could also write this component as a function:
-
-```jsx
-const App = props => {
+const App = (props) => {
   return <p>Hello World</p>;
 };
 ```
@@ -49,20 +35,18 @@ Moving our "Hello World" markup into our App's `render` function, we can now upd
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
-> Note that React components can be reused by writing them in the same way you would an HTML tag.
-
 ### Props
 
-Whether you write the component as a class or a function, it can take in additional props using the same syntax as HTML attributes like `id` or `href`.
+A component can take in additional props using the same syntax as HTML attributes like `id` or `href`.
 
 ```jsx
 <App text="Hello World" />
 ```
 
-The `text` prop can be accessed inside your component via `props.text` in a function component or `this.props.text` in a class component.
+The `text` prop can be accessed inside your component via `props.text` in a component.
 
 ```jsx
-const App = props => {
+const App = (props) => {
   return <p>{props.text}</p>;
 };
 ```
@@ -82,17 +66,17 @@ ReactDOM.render(
 > Note that a render function can only return a single element, so our two `App` components need to be wrapped in a `div`.
 
 ```jsx
-const App = props => {
+const App = (props) => {
   return <p>{props.text ? props.text : 'oops!'}</p>;
 };
 ```
 
 ### Destructuring props
 
-Writing `props.text` over and over in a function (or `this.props.text` in a class) can be quite tedious. Since this is all JavaScript, you could create a new variable for this text using variable assignment.
+Writing `props.text` over and over in a function can be quite tedious. Since this is all JavaScript, you could create a new variable for this text using variable assignment.
 
 ```jsx
-const App = props => {
+const App = (props) => {
   const text = props.text;
   return <p>{text ? text : 'you missed something'}</p>;
 };
@@ -101,15 +85,15 @@ const App = props => {
 This works fine for a single prop, but as your component starts to become more complex:
 
 ```jsx
-<MyComponent
+<App
   open={false}
   count={5}
-  text="Hi there"
+  text="Hello World"
   items={['cat', 'dog', 'bird']}
   config={{
     start: 1,
     end: 10,
-    autoStart: true
+    autoStart: true,
   }}
 />
 ```
@@ -123,8 +107,6 @@ const open = props.open;
 const text = props.text;
 const count = props.count;
 const items = props.items;
-const start = props.config.start;
-const end = props.config.end;
 ```
 
 A common approach to simplify this process is to use a syntax called [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring).
@@ -132,13 +114,7 @@ A common approach to simplify this process is to use a syntax called [destructur
 Destructuring allows you to pull individual pieces of information out of an object in a single statement.
 
 ```jsx
-const {
-  open,
-  text,
-  count,
-  items,
-  config: { start, end }
-} = props;
+const { open, text, count, items } = props;
 ```
 
 So while this might be overkill right now, it makes it easier to add props down the road.
@@ -150,7 +126,7 @@ Before we move on, we'll modify our `ReactDOM.render` call to just include our A
 Next we'll be creating a `Counter` component. We'll add that to our App now, and then start to write the control.
 
 ```jsx
-const App = props => {
+const App = (props) => {
   return <Counter text="chickens" />;
 };
 
@@ -161,70 +137,51 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 ## Writing a stateful Counter component
 
-React allows each control to specify its own data store, called **state**. We can reference values in state when we render our UI, and we can also update state over the lifetime of our application.
-
-> Most stateful components you'll see today will be `class` based. It is just recently possible to add state to function components through the use of [`hooks`](https://reactjs.org/docs/hooks-intro.html)
+The power of React, past being a good templating language, is that it provides us a way to maintain and modify state over the componet's lifecycle.
 
 ### Adding state
 
-JavaScript classes use a `constructor` method to instantiate each copy of a class, along with any applicable state. Let's create a new component called `Counter` and give it a state containing a `clicks` property with a default value of `0`;
+State is added to a component by using the `useState` hook. [Hooks](https://reactjs.org/docs/hooks-intro.html) are special React methods that can only be called within a React component, and provide ways to maintain state and perform other lifecycle methods.
 
 ```js
-class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clicks: 0
-    };
-  }
-}
+const Counter = (props) => {
+  const [clicks, setClicks] = React.useState(0);
+};
 ```
 
-- The constructor takes in the component's `props`.
-- The [`super()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) function calls the constructor of the parent class (in this case `React.Component`).
-- Our `clicks` state value can now be accessed via `this.state.clicks`. Later, we can update state by calling `this.setState({ clicks: 1 })`.
+- The component takes in some`props`.
+- `clicks` is a stateful value that will be updated each time `setClicks` is called with a new value
 
 ### Rendering our Counter
 
 For our `Counter` component, the goal is to be able to track how many times the counter's button is clicked. We'll use the following markup.
 
 ```jsx
-render() {
-  const {text} = this.props;
-  const {clicks} = this.state;
-  return (
-    <div>
-      {text}: {clicks}
-      <button>Click</button>
-    </div>
-  )
-}
+const { text } = props;
+return (
+  <div>
+    {text}: {clicks}
+    <button>Click</button>
+  </div>
+);
 ```
 
 ### Writing our button click handler
 
 Our next step is to wire up the button to increment the `clicks` in our component state.
 
-> By convention we place other methods below `render()`, and private methods (those for internal use only) are prefixed with an underscore.
-
-This function will update our component's state, incrementing the clicks value by 1. (Note that `setState` only modifies the values of keys listed in the object passed as its parameter.)
+This function will increment the clicks value by 1.
 
 ```jsx
-_onButtonClick = () => {
-  this.setState({
-    clicks: this.state.clicks + 1
-  });
+const handleClick = () => {
+  setClicks(clicks + 1);
 };
 ```
-
-> This isn't exactly a method, but a class property that is set to an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). This mostly works the same as `onButtonClick() { }` but eliminates the need for [extra boilerplate](https://medium.freecodecamp.org/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb) used to avoid potential "gotchas" with [how `this` works in JavaScript](https://codeburst.io/javascript-the-keyword-this-for-beginners-fb5238d99f85).)
-
-> Note that the `setState` call could also be written as `this.setState(prevState => ({ clicks: prevState.clicks + 1 }));` to ensure that state is not updated until the previous state has been determined.
 
 Now that we have a function to increment our count, all that's left is to connect it to our button.
 
 ```jsx
-<button onClick={this._onButtonClick}>Click</button>
+<button onClick={handleClick}>Click</button>
 ```
 
 > Also note that each `Counter` maintains its own state! You can modify the state inside of one counter without affecting the others.
@@ -242,9 +199,9 @@ To scale our application, we'll need to break up the file into smaller, reusable
 Open up `step1-04/final/components/Counter.tsx` and look at the `Counter` component.
 
 ```tsx
-export class Counter extends React.Component {
+export const Counter = (props) => {
   // ...
-}
+};
 ```
 
 This file exports the Counter component as a **named export**. This means when we import it we do the following:
@@ -260,7 +217,7 @@ import { Counter } from './components/Counter';
 We typically use named exports, but it's also possible export a default value like this:
 
 ```tsx
-export default class Counter extends React.Component {
+export default const Counter = (props) =>{
   // ...
 }
 ```
@@ -279,7 +236,7 @@ Buttons are among the most commonly written components. Custom buttons help abst
 import React from 'react';
 import './Button.css';
 
-export const Button = props => {
+export const Button = (props) => {
   return (
     <button className="Button" onClick={props.onClick}>
       {props.children}

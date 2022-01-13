@@ -1,21 +1,16 @@
 import React from 'react';
-import { TodoItem } from '../TodoApp.types';
+import { Todo } from '../TodoApp.types';
+import { AppContext } from '../TodoApp';
 
-interface TodoListItemProps extends TodoItem {
-  id: string;
-  complete: (id: string) => void;
-}
+export const TodoListItem = (props: Todo) => {
+  const { label, status, id } = props;
+  const { toggleCompleted } = React.useContext(AppContext);
 
-export class TodoListItem extends React.Component<TodoListItemProps, any> {
-  render() {
-    const { label, completed, complete, id } = this.props;
-
-    return (
-      <li className="todo">
-        <label>
-          <input type="checkbox" checked={completed} onChange={() => complete(id)} /> {label}
-        </label>
-      </li>
-    );
-  }
-}
+  return (
+    <li className="todo">
+      <label>
+        <input type="checkbox" checked={status === 'completed'} onChange={() => toggleCompleted(id)} /> {label}
+      </label>
+    </li>
+  );
+};

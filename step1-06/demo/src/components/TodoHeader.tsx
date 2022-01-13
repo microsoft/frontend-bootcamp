@@ -1,30 +1,25 @@
 import React from 'react';
 
-export class TodoHeader extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = { labelInput: '' };
-  }
+export const TodoHeader = (props) => {
 
-  render() {
-    const { filter } = this.props;
-    return (
-      <header>
-        <h1>todos <small>(1.6 demo)</small></h1>
-        <div className="addTodo">
-          <input className="textfield" placeholder="add todo" />
-          <button className="submit">Add</button>
-        </div>
-        <nav className="filter">
-          <button className="completed">all</button>
-          <button>active</button>
-          <button>completed</button>
-        </nav>
-      </header>
-    );
-  }
+  const [inputText, setInputText] = React.useState('')
+  const { filter } = props;
 
-  _onChange = evt => {
-    this.setState({ labelInput: evt.target.value });
+  const handleChange = e => {
+    setInputText(e.target.value);
   };
+  return (
+    <header>
+      <h1>todos <small>(1.6 demo)</small></h1>
+      <div className="addTodo">
+        <input className="textfield" placeholder="add todo" />
+        <button className="submit">Add</button>
+      </div>
+      <nav className="filter">
+        <button className="selected">all</button>
+        <button>active</button>
+        <button>completed</button>
+      </nav>
+    </header>
+  );
 }

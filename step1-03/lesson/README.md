@@ -6,7 +6,7 @@ In this demo we are going to cover a few core basics of the language that will h
 
 ```html
 <div id="contact-form">
-  <label for="email">Email</label><input id="email" type="email"/>
+  <label for="email">Email</label><input id="email" type="email" />
   <input class="submit" value="Submit" type="submit" />
 </div>
 ```
@@ -29,7 +29,7 @@ We can create a new variable with the keywords `var`, `let`, `const` and use the
 - **string**: `'single quotes'`, `"double quotes"`, or `` `backticks` ``
 - **array**: `[ 1, 2, 3, 'hello', 'world']`
 - **object**: `{ foo: 3, bar: 'hello' }`
-- **function**: `function(foo) { return foo + 1 }`
+- **function**: `function(foo) { return foo + 1 }` or `(foo) => { return foo + 1}`
 - **null**
 - **undefined**
 
@@ -42,8 +42,8 @@ const myBoolean = true;
 const myNumber = 5;
 const myString = `Using backticks I can reuse other variables ${myNumber}`;
 const myArray = [1, 'cat', false, myString];
-const myObject = { key1: 'value1', anotherKey: myArray };
-const myFunction = function(myNumberParam) {
+const myObject = { key1: 'value1', anotherKey: myArray, lastKey: aFunction };
+const myFunction = (myNumberParam) => {
   console.log(myNumber + myNumberParam);
 };
 ```
@@ -62,11 +62,11 @@ const match = 'a';
 
 Functions are reusable pieces of functionality. Functions can take inputs (parameters) and return values (or neither). Functions can be called from within your program, from within other functions, or invoked from within the DOM itself.
 
-In our example we'll create a function called `displayMatches` (camelCase is typical for functions) and we'll invoke this function every time that our submit button is clicked. For now we'll simply have our function call `alert("I'm Clicked")`, which is a function that displays an alert message box in your browser.
+In our example we'll create a function called `displayMatches` (camelCase is typical for functions) and we'll invoke this function every time that our submit button is clicked. For now we'll simply have our function call `console.log("Clicked")`, which is a function that displays an alert message box in your browser.
 
 ```js
 function displayMatches() {
-  alert("I'm Clicked");
+  console.log('Clicked');
 }
 ```
 
@@ -81,11 +81,11 @@ To execute a function we need to attach it to an event. There are a number of po
 To attach a function to an event, we use an [`addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) like this:
 
 ```js
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   console.log('loaded');
 });
 
-window.addEventListener('click', function() {
+window.addEventListener('click', function () {
   console.log('click');
 });
 ```
@@ -97,10 +97,10 @@ window.addEventListener('click', function() {
 If you think this feels a little verbose, you're not alone. Many of the [most common event types](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) are available as element properties. This way we can set properties like `onload` or `onclick` like this:
 
 ```js
-window.onload = function() {
+window.onload = function () {
   console.log('loaded!');
 };
-window.onclick = function() {
+window.onclick = function () {
   console.log('clicked!');
 };
 ```
@@ -175,7 +175,6 @@ function displayMatches() {
   const email = document.getElementById('email');
   const text = email.value;
   console.log(text);
-  // ...
 }
 ```
 

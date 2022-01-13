@@ -1,7 +1,5 @@
 # Frontend Bootcamp / Days in the Web
 
-> 🚨🚨 This project is a work in progress! Issues and pull requests are encouraged. 🚨🚨
-
 ## Welcome
 
 In this two-day workshop you'll learn the basics of frontend development while building a working web app.
@@ -73,7 +71,7 @@ Day one covers the basics of HTML, CSS and JavaScript, as well as an introductio
 ### Day two
 
 1. [TypeScript basics](step2-01)
-2. [UI Fabric component library](step2-02)
+2. [Fluent UI component library](step2-02)
 3. [Theming and styling](step2-03)
 4. [React Context](step2-04)
 5. [Redux: Store](step2-05)
@@ -96,12 +94,6 @@ If you are interested in JavaScript, TypeScript, React, Redux, or Design Systems
 
 - [@kenneth_chau](https://twitter.com/kenneth_chau)
 - [@micahgodbolt](https://twitter.com/micahgodbolt)
-
-## Other projects from the UI Fabric team at Microsoft
-
-- [UI Fabric](https://developer.microsoft.com/en-us/fabric) - [github repo](https://github.com/officedev/office-ui-fabric-react)
-- [Just](https://microsoft.github.io/just): The task library that just works - [github repo](https://github.com/Microsoft/just)
-- [Rush](https://rushjs.io): A scalable monorepo manager for the web - [github repo](https://github.com/Microsoft/web-build-tools/)
 
 ## Contributing
 

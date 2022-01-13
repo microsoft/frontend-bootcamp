@@ -1,12 +1,16 @@
 export type FilterTypes = 'all' | 'active' | 'completed';
+export type TodoType = 'active' | 'completed' | 'cleared';
 
-export type CompleteTodo = (id) => null;
-
-export interface TodoItem {
+export interface Todo {
+  id: string;
   label: string;
-  completed: boolean;
+  status: TodoType;
 }
 
-export interface Todos {
-  [id: string]: TodoItem;
-}
+export type Todos = Todo[];
+
+export type AddTodo = (label: string) => void;
+export type ToggleCompleted = (id: string) => void;
+export type ClearCompleted = () => void;
+export type ChangeFilter = (filter: FilterTypes) => void;
+

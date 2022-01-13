@@ -1,14 +1,12 @@
 import React from 'react';
-import { Todos } from '../TodoApp.types';
-interface TodoFooterProps {
-  clear: () => void;
-  todos: Todos;
-}
+import { AppContext } from '../TodoApp';
 
-export const TodoFooter = (props: TodoFooterProps) => {
-  const itemCount = Object.keys(props.todos).filter(id => !props.todos[id].completed).length;
-  const _onClick = () => {
-    props.clear();
+export const TodoFooter = () => {
+  const { clearCompleted, getTodos } = React.useContext(AppContext);
+
+  const itemCount = getTodos().filter((todo) => todo.status === 'active').length;
+  const handleClick = () => {
+    clearCompleted();
   };
 
   return (
@@ -16,7 +14,7 @@ export const TodoFooter = (props: TodoFooterProps) => {
       <span>
         {itemCount} item{itemCount === 1 ? '' : 's'} left
       </span>
-      <button onClick={_onClick} className="submit">
+      <button onClick={handleClick} className="submit">
         Clear Completed
       </button>
     </footer>

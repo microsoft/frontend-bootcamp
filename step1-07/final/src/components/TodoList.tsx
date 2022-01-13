@@ -1,27 +1,22 @@
 import React from 'react';
 import { TodoListItem } from './TodoListItem';
-import { FilterTypes, Todos } from '../TodoApp.types';
+import { AppContext } from '../TodoApp';
 
-interface TodoListProps {
-  complete: (id: string) => void;
-  todos: Todos;
-  filter: FilterTypes;
-}
+export const TodoList = () => {
+  const { getFilter, getTodos } = React.useContext(AppContext);
 
-export class TodoList extends React.Component<TodoListProps, any> {
-  render() {
-    const { filter, todos, complete } = this.props;
+  const filteredTodos = getTodos().filter((todo) => {
+    if (todo.status === 'cleared') return false;
+    return getFilter() === 'all' ||
+      (getFilter() === 'completed' && todo.status === 'completed') ||
+      (getFilter() === 'active' && todo.status === 'active');
+  });
 
-    const filteredTodos = Object.keys(todos).filter(id => {
-      return filter === 'all' || (filter === 'completed' && todos[id].completed) || (filter === 'active' && !todos[id].completed);
-    });
-
-    return (
-      <ul className="todos">
-        {filteredTodos.map(id => (
-          <TodoListItem key={id} id={id} complete={complete} {...todos[id]} />
-        ))}
-      </ul>
-    );
-  }
-}
+  return (
+    <ul className="todos">
+      {filteredTodos.map((todo) => (
+        <TodoListItem key={todo.id} {...todo} />
+      ))}
+    </ul>
+  );
+};

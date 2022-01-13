@@ -1,4 +1,6 @@
-# Step 1.1 - Introduction to HTML (Demo)
+# Step 1.1 - Introduction to HTML
+
+[Demo](../demo/) | [Exercise](../exercise/)
 
 ## How the web works
 
@@ -59,13 +61,9 @@ The [HTML demo page](https://microsoft.github.io/frontend-bootcamp/step1-01/demo
     </header>
     <main>
       <h2>About This Workshop</h2>
-      <p>
-        The first day provides an introduction to the fundamentals of the web: HTML, CSS and JavaScript.
-      </p>
+      <p>The first day provides an introduction to the fundamentals of the web: HTML, CSS and JavaScript.</p>
       <img src="../../assets/todo_screenshot.jpg" alt="Picture of the Todo App we will build" />
-      <p>
-        On the second day we'll dive into more advanced topics like TypeScript, testing, and state management.
-      </p>
+      <p>On the second day we'll dive into more advanced topics like TypeScript, testing, and state management.</p>
     </main>
     <footer>
       <h2>Get More Information</h2>
